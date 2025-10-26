@@ -13,4 +13,6 @@ miscellaneous/
 *.blg
 *.aux
 *.toc
+*.fls
+*.fdb_latexmk
 
