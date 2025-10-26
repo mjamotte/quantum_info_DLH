@@ -1,0 +1,186 @@
+% !TeX spellcheck = fr_FR
+
+\documentclass[a4paper,11pt]{article}
+
+\usepackage[top=2cm, bottom=2cm, left=2cm, right=2cm]{geometry}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{tocloft} %table of contents takes less space, see: https://tex.stackexchange.com/questions/56546/how-to-change-spaces-between-items-in-table-of-contents
+\usepackage[colorlinks=true,urlcolor=teal]{hyperref}
+
+\newcommand{\remove}[1]{{\textcolor{red}{\sout{#1}}}}
+
+\setlength\parskip{1em plus 0.1em minus 0.1em}
+\setlength\parindent{0pt}
+
+\usepackage[backend=bibtex,hyperref=true,backref=true,sorting=none,url=true,doi=false,eprint=false]{biblatex}
+\renewbibmacro{in:}{}
+\addbibresource{refs-info-quant}
+
+%\hypersetup{pdfauthor={Cedric Schoonen},pdftitle={Template}}
+
+\begin{document}
+
+\begin{center}
+	\textbf{\Large Comprendre et expérimenter l'informatique quantique}\\
+	\vspace{5mm}
+	Cédric Schoonen et Maxime Jamotte \\ 
+	\today
+\end{center}
+\bigskip
+
+%\renewcommand{\baselinestretch}{-10}\normalsize
+%\renewcommand\cftchapafterpnum{\vskip-10pt}
+\tableofcontents
+%\renewcommand{\baselinestretch}{1.0}\normalsize
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\bigskip\bigskip\hrule
+\section{Introduction/Démystification}
+
+\subsection{Différences majeures entre un ordi quantique et classique}
+
+Voir notes manuscrites. Bonne explication type "boite noire" (sans entrer dans les détails): \url{https://www.youtube.com/watch?v=pDj1QhPOVBo}. Ne pas décrire de circuits à ce stade.
+
+\subsection{Situations où les ordis quantiques constituent un réel avantage}
+
+Principaux algorithmes qui offrent un réel avantage par rapport aux ordis classiques et problèmes associés. Il y en a pas beaucoup: regroupés en deux (trois?) grandes familles, d'une part autour des algorithmes de transformée de Fourier quantique de Shor et d'autre part autour de l'algorithme de Grover. Reprendre image synthétique dans Nielsen page 173 \cite{nielsen2010quantum}. Vérifier ce qu'il en est depuis lors (après 2010). Notamment au sujet des systèmes d'équations linéaires avec l'algo HHL: \url{https://en.wikipedia.org/wiki/HHL_algorithm}.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\bigskip\bigskip\hrule
+\section{Notions élémentaires et système à un qubit}
+
+\subsection{Rappels d'algèbre linéaire}
+
+Vecteurs, matrices (encodent des opérations sur les vecteurs), base d'un espace vectoriel (repère qui permet d'exprimer tout vecteur comme une liste de nombre)
+
+\subsection{[Optionnel] Rappels sur les nombres complexes}
+
+Voir notes manuscrites.
+
+\subsection{Le qubit et le principe de superposition}
+
+Postulat de représentation des états quantiques dans un espace vectoriel (Hilbert). Superposition comme conséquence. Notation en ket. 
+
+Suivant notre position vis-à-vis des nombres complexes: Sphère de Bloch, phases relatives, et non-relevance des phases globales.
+
+\subsection{La mesure en bref}
+
+Coefficients dans la base computationnelle intimement reliés à la probabilité de mesurer l'état correspondant. Bra et produit scalaire dans notation bra-ket. Mesure destructive: l'état quantique se réduit à l'état associé à la valeur obtenue.
+
+\subsection{Opérateurs sur un qubit}
+
+Postulat d'évolution des états quantiques par application d'opérateurs unitaires. Lister et décrire les opérateurs communs à un qubit. 
+
+\subsection{États propres et observables}
+
+États propres en algèbre. Interprétation en physique et postulat des observables. Illustrer avec l'hamiltonien et expliquer son importance en physique. (Mentionner en passant l'équation de Schrödinger, on en parlera plus après). 
+
+%\subsection{La mesure plus en détail}
+
+Faire le lien avec la mesure et en parler plus en détail: énoncer le postulat de la mesure et mentionner en passant des points plus avancés en  (contradiction avec le postulat d'unitarité, décohérence et POVMs). Préparer des références à donner sur ces sujets \cite{nielsen2010quantum} \cite{joos2013decoherence}.
+
+\subsection{[Optionnel] Est-ce le monde est vraiment quantique?}
+
+Illustrer avec des exemples concrets des situations où la réalité physique est incompatible avec une description classique: stabilité des atomes (voir e.g. Shabani page 4 \cite{javad2025first}), diffraction d'électrons par Davisson et Germer \cite{davisson1927diffraction}, mise en évidence du spin par Stern et Gerlach (résumé dans Nielsen \cite{nielsen2010quantum} page 43).
+
+\subsection{[Optionnel] "No-cloning theorem"}
+
+Impossibilité de copier des états quantique (et donc les données stockées sur les qubits). Nuances (on peut toujours copier des états classiques ou construire une approximation -- voir cours en ligne d'IBM) et origine (évolution non-unitaire ou conséquence de la mesure destructive, voir Nielsen \cite{nielsen2010quantum} pages 24 et 532).
+
+\subsection{Quantum key distribution}
+
+(En détail)
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\bigskip\bigskip\hrule
+\section{Installation/Introduction de Qiskit}
+
+Est-ce qu'on implique les participants individuellement?
+
+Montrer les fonction de bases permettant d'effectuer des opérations sur un qubit. (Voir cours en ligne d'IBM \cite{ibmlearning_basics}.)
+
+Déjà introduire la notion de circuit (faire le parallèle avec les circuits classiques), et montrer le composeur sur le site d'IBM (accessible sans validation de moyen de paiement).
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\bigskip\bigskip\hrule
+\section{Systèmes à plusieurs qubits}
+
+\subsection{Représentation avec le produit tensoriel}
+
+Produit tensoriel. Différentes notations pour les systèmes composés. Similarités avec états classiques (voir cours IBM \cite{ibmlearning_basics}) et différences: la superposition des états autorise des combinaisons linéaires qui ne sont pas des états produits.
+
+[Préparer une base de réponse aux questions qui nous amènerait à parler brièvement des états mixtes et des matrices densité \cite{nielsen2010quantum,ibmlearning_general}]
+
+\subsection{Mesures et mesures partielles}
+
+Implique des notions un peu plus complexes de probabilités jointes et conditionnelles (voir cours d'IBM \cite{ibmlearning_basics})
+
+\subsection{Opérations sur plusieurs qubits}
+
+Notation tensorielle. Portes logiques communes à deux et plusieurs qubits.
+
+\subsection{Intrication}
+
+Conséquence de la superposition d'états composés. États de Bell (et GHS et W?).
+
+\subsection{[Optionnel] EPR et inégalités de Bell}
+
+Important de démystifier tout cela. Présenter le soi-disant paradoxe \cite{einstein1935can}. Variables cachées et inégalités de Bell(/CHSH?). La physique ne peut être locale et "réaliste" à la fois. 
+
+Références: Expérience de Alain Aspect \cite{aspect1982experimental}
+
+\subsection{Téléportation quantique}
+
+Description et démo avec Qiskit.
+
+\subsection{[Optionnel] "Superdense coding"}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\bigskip\bigskip\hrule
+\section{Notions plus avancées}
+
+\subsection{Considérations matérielles}
+
+Limitations liées à la construction d'ordinateurs quantiques: bruit, correction d'erreur \cite{nielsen2010quantum,ibmlearning_error}, etc. 
+
+Actuellement dans l'ère "NISQ" où les ordinateurs quantiques sont encore victime du bruit, mais les projections promettent bientôt des ordinateurs tolérants aux erreurs liées au bruit.
+
+Panorama des plateformes implémentant des ordinateurs quantiques.
+
+\subsection{Qiskit dans les détails}
+
+Algorithmes, primitives, transpilation, etc. 
+
+\subsection{Algorithmes quantiques}
+
+Grover et peut-être Shor \cite{ibmlearning_algos} (voir aussi lectures de John Watrous \cite{qgss2025_lecture_notes}).
+
+\textit{Devoir: Survoler lecture "Practical Quantum Algorithms" de Joana Fraxanet Morales sur les algorithmes quantiques \cite{qgss2025_lecture_notes}}
+
+Sur les algorithmes variationnels quantiques (VQA): \cite{cerezo2021variational}. Problème du "Barren Plateau" qui affecte la partie classique de la procédure \cite{mcclean2018barren,larocca2025barren}. Résultats pessimistes suggérant que la partie classique (minimisation) reste NP-hard: \cite{bittel2021training}.
+
+Autres résultats plutôt pessimistes: En chimie (2022) \cite{lee2023evaluating}, ...
+
+Algorithme d'optimisation quantique approximative: \cite{blekos2024review}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\bigskip\bigskip\hrule
+\printbibliography
+
+\end{document} 
