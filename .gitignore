@@ -1,3 +1,16 @@
+literature/
 miscellaneous/
 .venv/
+
+*.desktop
+*.pdf
+*-blx.bib
+*.synctex.gz
+*.run.xml
+*.log
+*.out
+*.bbl
+*.blg
+*.aux
+*.toc
 
