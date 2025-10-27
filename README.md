@@ -1,1 +1,1 @@
-# quantum_info_DLH
+Plan du cours et instructions
