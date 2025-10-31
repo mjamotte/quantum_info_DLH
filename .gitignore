@@ -16,3 +16,8 @@ miscellaneous/
 *.fls
 *.fdb_latexmk
 
+*.cpython-*-*.pyc
+__pycache__/
+.ipynb_checkpoints/
+.vscode/
+
