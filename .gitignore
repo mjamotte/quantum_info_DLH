@@ -1,6 +1,7 @@
 literature/
 miscellaneous/
 .venv/
+Lectures/
 
 *.desktop
 *.pdf
