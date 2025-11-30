@@ -16,6 +16,8 @@ Lectures/
 *.toc
 *.fls
 *.fdb_latexmk
+*.xoj
+*.odp
 
 *.cpython-*-*.pyc
 __pycache__/
