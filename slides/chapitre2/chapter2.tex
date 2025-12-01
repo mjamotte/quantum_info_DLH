@@ -1,0 +1,148 @@
+\documentclass[aspectratio=169,12pt]{beamer}
+\usetheme{Madrid}
+\usecolortheme{dolphin}
+\usefonttheme{professionalfonts}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{footline}{}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{amsmath,amssymb}
+\usepackage{hyperref}
+\usepackage{siunitx}
+\usepackage{physics}
+
+\title[Chapter 2]{Chapitre 2: Notions essentielles de mécanique quantique appliquées à l'informatique}
+\author{JAMOTTE Maxime, SCHOONEN Cédric}
+\institute{Digital Learning Hub}
+\date{}
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\begin{frame}{Table des matières}
+  \tableofcontents
+\end{frame}
+
+\section{Vecteurs, matrices et produit matriciel}
+
+\begin{frame}{Vecteurs}
+  {%
+    \setbeamercolor{itemize/enumerate body}{fg=gray!60}
+    \setbeamercolor{itemize item}{fg=gray!60}
+    \setbeamercolor{alerted text}{fg=black}
+    \begin{columns}[T]
+      \begin{column}{0.55\textwidth}
+        \begin{itemize}[<+-| alert@+>]
+          \setlength{\itemsep}{0.6em}
+          \item Définition d'un vecteur
+          \item Addition de vecteurs
+          \item Multiplication d'un vecteur par une constante
+        \end{itemize}
+        \bigskip
+        \only<1>{\[
+          \vec r = \begin{pmatrix} a \\ b \end{pmatrix}
+        \]}
+        \only<2>{\[
+          \vec r + \vec p = 
+          \begin{pmatrix} a \\ b \end{pmatrix} +
+          \begin{pmatrix} c \\ d \end{pmatrix} =
+          \begin{pmatrix} a+c \\ b+d \end{pmatrix}
+        \]}
+        \only<3>{\[
+          \lambda \begin{pmatrix} a \\ b \end{pmatrix} =
+          \begin{pmatrix} \lambda a \\ \lambda b \end{pmatrix}
+        \]}
+      \end{column}
+      \begin{column}{0.4\textwidth}
+        \centering
+        \only<1>{\includegraphics[width=\linewidth]{figures/vecteur.png}}
+        \only<2>{\includegraphics[width=\linewidth]{figures/add_vecteurs.png}}
+        \only<3->{\includegraphics[width=\linewidth]{figures/multiplication_nombre.png}}
+      \end{column}
+    \end{columns}
+  }
+\end{frame}
+
+\begin{frame}{Matrices}
+  {%
+    \setbeamercolor{itemize/enumerate body}{fg=gray!60}
+    \setbeamercolor{itemize item}{fg=gray!60}
+    \setbeamercolor{alerted text}{fg=black}
+    \begin{columns}[T]
+      \begin{column}{0.55\textwidth}
+        \begin{itemize}[<+-| alert@+>]
+          \setlength{\itemsep}{0.6em}
+          \item Addition de matrices
+          \item Multiplication d'une matrice par un scalaire
+          \item Multiplication matrice-vecteur
+        \end{itemize}
+        \bigskip
+        \only<1>{\[M_1^{}+M_2^{} = 
+          \begin{pmatrix} a & b\\ c & d \end{pmatrix} +
+          \begin{pmatrix} e & f\\ g & h \end{pmatrix} =
+          \begin{pmatrix} a+e & b+f\\ c+g & d+h \end{pmatrix}
+        \]}
+        \only<2>{\[ \lambda M = 
+          \lambda \begin{pmatrix} a & b\\ c & d \end{pmatrix} =
+          \begin{pmatrix} \lambda a & \lambda b\\ \lambda c & \lambda d \end{pmatrix}
+        \]}
+        \only<3>{\[M \vec{r} = 
+          \begin{pmatrix} a & b \\ c & d \end{pmatrix}
+          \begin{pmatrix} u \\ v \end{pmatrix} =
+          \begin{pmatrix} au + bv \\ cu + dv \end{pmatrix}
+        \]}
+      \end{column}
+      \begin{column}{0.4\textwidth}
+        \centering
+        \only<1>{\fbox{\Large $M_1^{}+M_2^{}$}}
+        \only<2>{\fbox{\Large $\lambda M$}}
+        \only<3->{\includegraphics[width=\linewidth]{figures/multiplication_Mv.png}}
+      \end{column}
+    \end{columns}
+  }
+\end{frame}
+
+\section{Qubit et états superposés}
+
+\begin{frame}{Pourquoi des qubits ?}
+  \begin{itemize}[<+->]
+    \setlength{\itemsep}{0.6em}
+    \item Certains systèmes physiques n'ont que deux états possibles : ils servent de bits quantiques.
+    \item Postulat : les états quantiques forment un espace vectoriel (espace de Hilbert).
+    \item Un qubit peut être dans $\ket 0$, $\ket 1$ ou toute superposition des deux.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Superposition d'états}
+  \begin{itemize}[<+->]
+    \setlength{\itemsep}{0.6em}
+    \item État général : $\alpha \ket 0 + \beta \ket 1$ avec $|\alpha|^2 + |\beta|^2 = 1$.
+    \item Probabilités de mesure : $P(0)=|\alpha|^2$, $P(1)=|\beta|^2$.
+    \item Mesure aléatoire : parfois $0$, parfois $1$, selon ces probabilités.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Notations pratiques}
+  \begin{itemize}[<+->]
+    \setlength{\itemsep}{0.6em}
+    \item On note aussi $\ket 0 = \begin{pmatrix}1 \\ 0\end{pmatrix}$ et $\ket 1 = \begin{pmatrix}0 \\ 1\end{pmatrix}$.
+    \item Une superposition $\alpha \ket 0 + \beta \ket 1$ s'écrit $\begin{pmatrix} \alpha \\ \beta \end{pmatrix}$.
+    \item Rappel : amplitudes complexes, probabilités données par le module au carré.
+  \end{itemize}
+\end{frame}
+
+\section{Portes logiques classique et quantiques}
+
+\begin{frame}{References}
+  \footnotesize
+  \begin{thebibliography}{9}
+    \bibitem{ref:placeholder} Author, \textit{Title}, Venue (Year).
+  \end{thebibliography}
+\end{frame}
+
+\end{document}
