@@ -1,0 +1,200 @@
+\documentclass[aspectratio=169,12pt]{beamer}
+\usetheme{Madrid}
+\usecolortheme{dolphin}
+\usefonttheme{professionalfonts}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{footline}{}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{amsmath,amssymb}
+\usepackage{hyperref}
+\usepackage{siunitx}
+\usepackage{physics}
+
+\title[Chapter 2]{Chapitre 3: Prise en main de Qiskit}
+\author{JAMOTTE Maxime, SCHOONEN Cédric}
+\institute{Digital Learning Hub}
+\date{}
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+% \begin{frame}{Table des matières}
+%   \tableofcontents
+% \end{frame}
+
+% \section{}
+
+\begin{frame}{Objectifs du chapitre 3}
+  \begin{itemize}
+    \item 1) Manipuler des qubits avec Qiskit: application de portes quantiques.
+    \\~\\
+    \item 2) Passer de la représentation mathématique (vecteurs, matrices) aux circuits.
+    \\~\\
+    \item 3) Simuler des mesures avec Aer et interpréter les résultats.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Portes quantiques à un qubit}
+  \begin{itemize}
+    \item Porte de Hadamard ($H$)
+    \\~\\
+    \item Porte NOT ($X$)
+  \end{itemize}
+  \vfill
+  \begin{columns}[T,onlytextwidth]
+    \column{0.48\textwidth}
+    \centering
+    \includegraphics[width=0.8\linewidth]{figures/gate_hadamard.png}
+    \\[-0.3em]\footnotesize Circuit Qiskit pour $H$
+    \column{0.48\textwidth}
+    \centering
+    \includegraphics[width=0.8\linewidth]{figures/gate_x.png}
+    \\[-0.3em]\footnotesize Circuit Qiskit pour $X$
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Porte Hadamard: circuit et action}
+  \begin{columns}[T,onlytextwidth]
+    \column{0.5\textwidth}
+    \centering
+    \includegraphics[width=0.75\linewidth]{figures/gate_hadamard.png}
+    \\[-0.3em]\footnotesize Circuit Qiskit pour $H$
+    \column{0.5\textwidth}
+    \small
+    \[
+      H = \frac{1}{\sqrt{2}}
+      \begin{pmatrix}
+        1 & 1 \\
+        1 & -1
+      \end{pmatrix},
+      \qquad
+      H\ket{0} = \tfrac{1}{\sqrt{2}}(\ket{0} + \ket{1})
+    \]
+    Superposition égale des deux états de base.
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Porte $X$ : circuit et action}
+  \begin{columns}[T,onlytextwidth]
+    \column{0.5\textwidth}
+    \centering
+    \includegraphics[width=0.75\linewidth]{figures/gate_x.png}
+    \\[-0.3em]\footnotesize Circuit Qiskit pour $X$
+    \column{0.5\textwidth}
+    \small
+    \[
+      X =
+      \begin{pmatrix}
+        0 & 1 \\
+        1 & 0
+      \end{pmatrix},
+      \qquad
+      X\ket{0} = \ket{1}
+    \]
+    Permutation des amplitudes: $|0\rangle \leftrightarrow |1\rangle$.
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Exercice 3.1 : $H$ sur \(\ket{1}\)}
+  \begin{columns}[T,onlytextwidth]
+    \column{0.55\textwidth}
+    \begin{itemize}
+      \item Point de départ : \(\ket{1} = \begin{pmatrix}0\\ 1\end{pmatrix}\).
+      \item Appliquer la porte de Hadamard : \(H\ket{1} = \tfrac{1}{\sqrt{2}}(\ket{0} - \ket{1})\).
+      \item Modifier l'état initial dans le code (remplacer \(\ket{0}\) par \(\ket{1}\)) et observer la nouvelle superposition.
+    \end{itemize}
+    \column{0.45\textwidth}
+    \centering
+    \includegraphics[width=0.8\linewidth]{figures/gate_hadamard.png}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Exercice 3.2 : $H$ puis $X$ sur \(\ket{0}\)}
+  \begin{columns}[T,onlytextwidth]
+    \column{0.55\textwidth}
+    \begin{itemize}
+      \item Point de départ : \(\ket{0} = \begin{pmatrix}1\\ 0\end{pmatrix}\).
+      \item Chaîne d'opérations : \(X H \ket{0} = X \big(\tfrac{1}{\sqrt{2}}(\ket{0} + \ket{1})\big) = \tfrac{1}{\sqrt{2}}(\ket{0} + \ket{1})\).
+      \item Construire le circuit (H suivi de X), visualiser et vérifier l'état final dans le notebook.
+    \end{itemize}
+    \column{0.45\textwidth}
+    \centering
+    \includegraphics[width=0.8\linewidth]{figures/gate_h_then_x.png}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Exercice 3.3 : $X$ puis $H$ sur \(\ket{0}\)}
+  \begin{columns}[T,onlytextwidth]
+    \column{0.55\textwidth}
+    \begin{itemize}
+      \item Point de départ : \(\ket{0}\).
+      \item Chaîne d'opérations : \(H X \ket{0} = H\ket{1} = \tfrac{1}{\sqrt{2}}(\ket{0} - \ket{1})\).
+      \item Comparer avec l'exercice 3.2 pour voir que l'ordre des portes change le résultat (non-commutativité).
+    \end{itemize}
+    \column{0.45\textwidth}
+    \centering
+    \includegraphics[width=0.8\linewidth]{figures/gate_x_then_h.png}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{États et portes à 1 qubit}
+  \begin{itemize}
+    \item États \(\ket{0}\) et \(\ket{1}\) construits avec \texttt{Statevector}.
+    \item Portes \(H\) et \(X\) définies avec \texttt{Operator} et appliquées via \texttt{Statevector.evolve}.
+    \item Circuits équivalents créés avec \texttt{QuantumCircuit} puis convertis en \texttt{Statevector.from\_instruction}.
+    \item Visualisation rapide des circuits avec \texttt{qc.draw('mpl')}.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Mesure et simulation}
+  \begin{columns}[T,onlytextwidth]
+    \column{0.55\textwidth}
+    \begin{itemize}
+      \item Ajouter un bit classique et mesurer: \texttt{qc.measure(0, 0)}.
+      \item Le résultat de mesure est stocké dans le registre classique.
+      \item La mesure projette l'état quantique sur \(\ket{0}\) ou \(\ket{1}\) selon les probabilités.
+    \end{itemize}
+    \column{0.45\textwidth}
+    \centering
+    \includegraphics[width=0.9\linewidth]{figures/measure_circuit.png}
+    \\[-0.3em]\footnotesize Circuit avec mesure après $H$
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Simulation avec Aer}
+  \begin{itemize}
+    \item Backend: \texttt{simulateur = Aer.get\_backend('aer\_simulator')}.
+    \item Exécuter avec un nombre de tirs \texttt{shots = n}, récupérer les comptages.
+    \item Visualiser les résultats avec \texttt{plot\_histogram}.
+  \end{itemize}
+  \vspace{0.5em}
+  \begin{columns}[T,onlytextwidth]
+    \column{0.5\textwidth}
+    \centering
+    \includegraphics[width=0.8\linewidth]{figures/histogram_1_shot.png}\\[-0.3em]
+    \footnotesize 1 tir
+    \column{0.5\textwidth}
+    \centering
+    \includegraphics[width=0.8\linewidth]{figures/histogram_1000_shots.png}\\[-0.3em]
+    \footnotesize 1000 tirs
+  \end{columns}
+\end{frame}
+
+\begin{frame}{À suivre}
+  \begin{itemize}
+    \item Systèmes à 2 qubits
+    \\~\\
+    \item Intrication quantique
+    \\~\\
+    \item Extension aux circuits à 2 qubits
+  \end{itemize}
+\end{frame}
+
+
+\end{document}
