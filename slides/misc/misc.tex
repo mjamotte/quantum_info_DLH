@@ -1,0 +1,57 @@
+\documentclass[aspectratio=169,12pt]{beamer}
+\usetheme{Madrid}
+\usecolortheme{dolphin}
+\usefonttheme{professionalfonts}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{footline}{}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{amsmath,amssymb}
+\usepackage{hyperref}
+\usepackage{siunitx}
+\usepackage{physics}
+
+% \title[Chapter 2]{Chapitre 2: Notions essentielles de mécanique quantique appliquées à l'informatique}
+% \author{JAMOTTE Maxime, SCHOONEN Cédric}
+% \institute{Digital Learning Hub}
+% \date{}
+
+\begin{document}
+
+% Version more suitable for an exercise
+\begin{frame}{No-Cloning$^*$}
+    \begin{itemize}
+        \item Supposons qu'une opération $U$ existe pour copier des états génériques $|\phi \rangle$ et $|\psi \rangle$:
+        \begin{align*}
+            U(|\phi \rangle _{A}|e\rangle _{B}) &= e^{i\alpha (\phi ,e)}|\phi \rangle _{A}|\phi \rangle _{B} \\
+            U(|\psi \rangle _{A}|e\rangle _{B}) &= e^{i\alpha (\psi ,e)}|\psi \rangle _{A}|\psi \rangle _{B}
+        \end{align*}
+        \item Le calcul du produit scalaire des états clonés mène à deux résultats contradictoires:
+        \begin{align*}
+            | \langle \phi|_{A}\langle e|_{B} \, U^\dagger U \, |\psi \rangle _{A}|e\rangle _{B} | &= | \langle \phi |\psi \rangle |^{2} \\
+            | \langle \phi|_{A}\langle e|_{B} \, U^\dagger U \, |\psi \rangle _{A}|e\rangle _{B} | &= | \langle \phi |\psi \rangle |
+        \end{align*}
+        \item Cela implique que $|\langle \phi |\psi \rangle |=1$ ou $|\langle \phi |\psi \rangle |=0$, en contradiction avec l'hypothèse de généralité des états $|\phi \rangle$ et $|\psi \rangle$.
+    \end{itemize}
+\end{frame}
+
+% Detailed version
+\begin{frame}{No-Cloning}
+    \begin{itemize}
+        \item Supposons qu'une opération $U$ existe pour copier des états génériques $|\phi \rangle$ et $|\psi \rangle$:
+        \begin{align*}
+            U(|\phi \rangle _{A}|e\rangle _{B}) &= e^{i\alpha (\phi ,e)}|\phi \rangle _{A}|\phi \rangle _{B} \\
+            U(|\psi \rangle _{A}|e\rangle _{B}) &= e^{i\alpha (\psi ,e)}|\psi \rangle _{A}|\psi \rangle _{B}
+        \end{align*}
+        \item En prenant le produit scalaire des deux états clonés, on obtient:
+        \begin{align*}
+            \langle \phi|_{A}\langle e|_{B} \, U^\dagger U \, |\psi \rangle _{A}|e\rangle _{B} &= e^{i[\alpha (\psi ,e)-\alpha (\phi ,e)]}\langle \phi |\psi \rangle ^{2} \\
+            \langle \phi|_{A}\langle e|_{B} \, U^\dagger U \, |\psi \rangle _{A}|e\rangle _{B} &= \langle \phi |\psi \rangle \langle e |e \rangle
+        \end{align*}
+        \item Mais alors $|\langle \phi |\psi \rangle| = |\langle \phi |\psi \rangle|^{2}$, ce qui implique que $|\langle \phi |\psi \rangle |=1$ ou $|\langle \phi |\psi \rangle |=0$, en contradiction avec l'hypothèse de généralité des états $|\phi \rangle$ et $|\psi \rangle$.
+    \end{itemize}
+\end{frame}
+
+\end{document}
