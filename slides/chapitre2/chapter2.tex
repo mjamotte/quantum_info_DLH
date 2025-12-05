@@ -30,7 +30,7 @@
 
 \section{Vecteurs, matrices et produit matriciel}
 
-\begin{frame}{Vecteurs}
+\begin{frame}{1. Vecteurs}
   {%
     \setbeamercolor{itemize/enumerate body}{fg=gray!60}
     \setbeamercolor{itemize item}{fg=gray!60}
@@ -68,7 +68,7 @@
   }
 \end{frame}
 
-\begin{frame}{Matrices}
+\begin{frame}{1. Matrices}
   {%
     \setbeamercolor{itemize/enumerate body}{fg=gray!60}
     \setbeamercolor{itemize item}{fg=gray!60}
@@ -107,23 +107,49 @@
   }
 \end{frame}
 
-\section{Qubit et états superposés}
-
-\begin{frame}{Pourquoi des qubits ?}
+\begin{frame}{1. Valeurs propres et vecteurs propres}
   \begin{itemize}[<+->]
     \setlength{\itemsep}{0.6em}
-    \item Certains systèmes physiques n'ont que deux états possibles : ils servent de bits quantiques.
-    \item Postulat : les états quantiques forment un espace vectoriel (espace de Hilbert).
-    \item Un qubit peut être dans $\ket 0$, $\ket 1$ ou toute superposition des deux.
+    \item Cas particuliers:   
+    $$ \begin{pmatrix} 2 & 1 \\ 2 & 3 \end{pmatrix} \begin{pmatrix} -1 \\ 1 \end{pmatrix} = \begin{pmatrix} -1 \\ 1 \end{pmatrix},$$
+    et 
+    $$ \begin{pmatrix} 2 & 1 \\ 2 & 3 \end{pmatrix} \begin{pmatrix} 1 \\ 2 \end{pmatrix} = \begin{pmatrix} 4 \\ 8 \end{pmatrix} = 4 \begin{pmatrix} 1 \\ 2 \end{pmatrix},$$
+    \item Multiplier un vecteur par une matrice redonne le même vecteur multiplié par un nombre.
+    \item On nomme ce vecteur "\textbf{vecteur propre}" et ce nombre "\textbf{valeur propre}".
   \end{itemize}
 \end{frame}
 
-\begin{frame}{Superposition d'états}
+\begin{frame}{Valeurs propres et vecteurs propres}
+  \begin{itemize}[<+->]
+    \setlength{\itemsep}{0.6em}
+    \item On nomme ce vecteur "\textbf{vecteur propre}" et ce nombre "\textbf{valeur propre}".
+    ~\\~\\
+    \item Crucial: les grandeurs mesurables, comme la position ou le spin, sont repésentées par des matrices,
+     appelées \textbf{observables} et mesurer une quantité physique revient en fait à mesurer
+      l'une de ses valeurs propres, obtenues avec une certaine probabilité (voir plus tard).
+  \end{itemize}
+\end{frame}
+
+\section{Qubit et états superposés}
+
+\begin{frame}{2. Qubit et superposition d'états}
+  \begin{itemize}[<+->]
+    \setlength{\itemsep}{0.6em}
+    \item Electron autour du noyau: infinité de positions possibles.
+    \item Electron et fentes de Young: passe à travers les deux fentes. 
+    \item Certains systèmes physiques n'ont que deux états possibles : ils servent de bits quantiques.
+    \item Qubit = système quantique à deux niveaux (comme si "seulment deux positions").
+    \item Un qubit peut être dans $\ket 0$, $\ket 1$ ou toute \textbf{superposition} des deux: $\alpha \ket 0 + \beta \ket 1$.
+    \item Superposition = combinaison linéaire d'états.
+    \item \textbf{Postulat} : les états quantiques forment un espace vectoriel (espace de Hilbert). Une combinaison linéaire d'états est aussi un état.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{2. Superposition d'états}
   \begin{itemize}[<+->]
     \setlength{\itemsep}{0.6em}
     \item État général : $\alpha \ket 0 + \beta \ket 1$ avec $|\alpha|^2 + |\beta|^2 = 1$.
-    \item Probabilités de mesure : $P(0)=|\alpha|^2$, $P(1)=|\beta|^2$.
-    \item Mesure aléatoire : parfois $0$, parfois $1$, selon ces probabilités.
+    \item Probabilités de mesure : $P(\ket 0)=|\alpha|^2$, $P(\ket 1)=|\beta|^2$.
   \end{itemize}
 \end{frame}
 
@@ -132,17 +158,150 @@
     \setlength{\itemsep}{0.6em}
     \item On note aussi $\ket 0 = \begin{pmatrix}1 \\ 0\end{pmatrix}$ et $\ket 1 = \begin{pmatrix}0 \\ 1\end{pmatrix}$.
     \item Une superposition $\alpha \ket 0 + \beta \ket 1$ s'écrit $\begin{pmatrix} \alpha \\ \beta \end{pmatrix}$.
-    \item Rappel : amplitudes complexes, probabilités données par le module au carré.
+    %\item Rappel : amplitudes complexes, probabilités données par le module au carré.
   \end{itemize}
 \end{frame}
 
-\section{Portes logiques classique et quantiques}
+\section{Portes logiques classiques et quantiques}
 
-\begin{frame}{References}
-  \footnotesize
-  \begin{thebibliography}{9}
-    \bibitem{ref:placeholder} Author, \textit{Title}, Venue (Year).
-  \end{thebibliography}
+\begin{frame}{3. Portes logiques classiques}
+  \begin{itemize}[<+->]
+    \setlength{\itemsep}{0.55em}
+    \item Bits classiques: 0 ou 1; les portes transforment ces bits.
+    \item Exemples clés : NOT, AND, OR, XOR, NAND (porte universelle).
+    \item On enchaîne ces portes pour construire des circuits logiques.
+  \end{itemize}
+  \vfill
+  \only<2->{%
+    \centering
+    \includegraphics[height=1.1cm]{figures/NOT.png}\hspace{0.3cm}
+    \includegraphics[height=1.1cm]{figures/AND.png}\hspace{0.3cm}
+    \includegraphics[height=1.1cm]{figures/OR.png}\hspace{0.3cm}
+    \includegraphics[height=1.1cm]{figures/XOR.png}\hspace{0.3cm}
+    \includegraphics[height=1.1cm]{figures/NAND.png}
+  }
 \end{frame}
+
+\begin{frame}{3. Table de vérité (rappel)}
+  \centering
+  \begin{tabular}{l c c c}
+    \textbf{Porte} & \textbf{Symbole} & \textbf{Expression} & \textbf{Description} \\\hline
+    NOT   & $\lnot A$ & inverse & $1\leftrightarrow 0$ \\
+    AND   & $A\cdot B$ & $1$ si $A=1$ et $B=1$ & porte "multiplication" \\
+    OR    & $A + B$ & $1$ si $A=1$ ou $B=1$ & porte "addition" \\
+    XOR   & $A \oplus B$ & $1$ si $A\neq B$ & "ou exclusif" \\
+    NAND  & $\lnot(A\cdot B)$ & inverse de AND & base universelle \\
+  \end{tabular}
+\end{frame}
+
+\begin{frame}{3. Table de vérité OR / AND}
+  \centering
+  \begin{tabular}{c c | c | c}
+    $A$ & $B$ & $A\ \mathbf{OR}\ B$ & $A\ \mathbf{AND}\ B$ \\\hline
+    0 & 0 & 0 & 0 \\
+    0 & 1 & 1 & 0 \\
+    1 & 0 & 1 & 0 \\
+    1 & 1 & 1 & 1 \\
+  \end{tabular}
+\end{frame}
+
+\begin{frame}{3. Exemple de circuit classique}
+  \begin{itemize}[<+->]
+    \item Enchaînement de portes pour additionner deux bits (avec report).
+    \item Chaque fil transporte un bit, chaque symbole applique une porte.
+  \end{itemize}
+  \vfill
+  \centering
+  \includegraphics[width=0.65\textwidth]{figures/addition_circuit2.png}
+\end{frame}
+
+\begin{frame}{3. Portes logiques quantiques}
+  \begin{itemize}[<+->]
+    \setlength{\itemsep}{0.55em}
+    \item Les qubits se transforment via des matrices \textbf{unitaires} (évolution réversible).
+    \item Exemples de portes: Pauli X (inversion), Z (phase), Hadamard $H$ (création de superposition).
+    \item Les circuits quantiques enchaînent ces portes sur des lignes de qubits (analogie classique).
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{3. Porte $X$ (NOT quantique)}
+  \[
+    X = \begin{pmatrix}0 & 1 \\ 1 & 0\end{pmatrix}
+  \]
+  ~\\~\\
+  \[
+    X\ket 0 = \ket 1, \qquad
+    X\ket 1 = \ket 0
+  \]
+  ~\\~\\
+  \[
+    \begin{pmatrix}0 & 1 \\ 1 & 0\end{pmatrix}
+    \begin{pmatrix}1\\0\end{pmatrix}=
+    \begin{pmatrix}0\\1\end{pmatrix},
+    \qquad
+    \begin{pmatrix}0 & 1 \\ 1 & 0\end{pmatrix}
+    \begin{pmatrix}0\\1\end{pmatrix}=
+    \begin{pmatrix}1\\0\end{pmatrix}
+  \]
+\end{frame}
+
+\begin{frame}{3. Porte $Z$ (phase)}
+  \[
+    Z = \begin{pmatrix}1 & 0 \\ 0 & -1\end{pmatrix}
+  \]
+  ~\\~\\
+  \[
+    Z\ket 0 = \ket 0, \qquad
+    Z\ket 1 = -\ket 1
+  \]
+  ~\\~\\
+  \[
+    \begin{pmatrix}1 & 0 \\ 0 & -1\end{pmatrix}
+    \begin{pmatrix}1\\0\end{pmatrix}=
+    \begin{pmatrix}1\\0\end{pmatrix},
+    \qquad
+    \begin{pmatrix}1 & 0 \\ 0 & -1\end{pmatrix}
+    \begin{pmatrix}0\\1\end{pmatrix}=
+    \begin{pmatrix}0\\-1\end{pmatrix}
+  \]
+\end{frame}
+
+\begin{frame}{3. Porte $H$ (Hadamard)}
+  \[
+    H = \tfrac{1}{\sqrt{2}}\begin{pmatrix}1 & 1 \\ 1 & -1\end{pmatrix}
+  \]
+  ~\\~\\
+  \[
+    H\ket 0 = \tfrac{1}{\sqrt{2}}(\ket 0+\ket 1), \qquad
+    H\ket 1 = \tfrac{1}{\sqrt{2}}(\ket 0-\ket 1)
+  \]
+  ~\\~\\
+  \[
+    \tfrac{1}{\sqrt{2}}\begin{pmatrix}1 & 1 \\ 1 & -1\end{pmatrix}
+    \begin{pmatrix}1\\0\end{pmatrix}=
+    \tfrac{1}{\sqrt{2}}\begin{pmatrix}1\\1\end{pmatrix},
+    \qquad
+    \tfrac{1}{\sqrt{2}}\begin{pmatrix}1 & 1 \\ 1 & -1\end{pmatrix}
+    \begin{pmatrix}0\\1\end{pmatrix}=
+    \tfrac{1}{\sqrt{2}}\begin{pmatrix}1\\-1\end{pmatrix}
+  \]
+\end{frame}
+
+% \begin{frame}{Mesure d'un qubit}
+%   \begin{itemize}[<+->]
+%     \setlength{\itemsep}{0.55em}
+%     \item Mesurer projette l'état sur $\ket 0$ ou $\ket 1$.
+%     \item Probabilités : $P(\ket 0)=|\alpha|^2$, $P(\ket 1)=|\beta|^2$ pour $\alpha\ket 0+\beta\ket 1$.
+%     \item L'état post-mesure est figé sur le résultat observé (effondrement).
+%   \end{itemize}
+% \end{frame}
+
+\begin{frame}[plain]
+  \centering
+  \vfill
+  {\Large Fin du chapitre 2: passons à la pratique avec Qiskit!}
+  \vfill
+\end{frame}
+
 
 \end{document}
