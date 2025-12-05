@@ -20,6 +20,27 @@
 
 \begin{document}
 
+\begin{frame}{Classique VS Quantique}
+    \begin{itemize}
+        \item Calcul représenté comme une opération sur une séquence de bits $(b_n \cdots b_2 b_1)$
+        \item Ordinateur classique opère sur une séquence à la fois: %$(b_n,\cdots,b_2,b_1) \longrightarrow f(b_n,\cdots,b_2,b_1)$
+        \begin{align*}
+            (101) \longrightarrow f(101)
+        \end{align*}
+        \item Ordinateur quantique peut encoder toutes les séquences possibles dans un seul état et opérer sur toutes les séquences en une seule opération:
+        \begin{align*}
+            \begin{bmatrix}
+                (000) \\ (001) \\ (010) \\ \cdots \\ (111)
+            \end{bmatrix}
+            \quad \longrightarrow \quad
+            \begin{bmatrix}
+                f(000) \\ f(001) \\ f(010) \\ \cdots \\ f(111)
+            \end{bmatrix}
+        \end{align*}
+        \item Problème: on ne peut récupérer qu'un seul des résultats...
+    \end{itemize}
+\end{frame}
+
 % Version more suitable for an exercise
 \begin{frame}{No-Cloning$^*$}
     \begin{itemize}
