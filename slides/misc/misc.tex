@@ -70,4 +70,38 @@
     \end{itemize}
 \end{frame}
 
+\begin{frame}{Transpilation : Six Étapes}
+  \begin{columns}[T]
+    \begin{column}{0.58\textwidth}
+      \small
+      \vspace{-0.7em}
+      \begin{enumerate}
+        \setlength{\itemsep}{0.3em}
+        \item \textbf{Init}: Réduction des opérations multi-qubits en portes à 1 et 2 qubits (Optionnel)
+        \item \textbf{Layout}: Assignation des qubits physiques
+        \item \textbf{Routing}: Insertion de portes SWAP pour déplacer les états quantiques entre qubit (NP-difficile, algorithme aléatoire)
+        \item \textbf{Translation}: Conversion de toutes les portes vers le jeu d'instructions natif (ISA)
+        \item \textbf{Optimization}: Remplacement ou élimination de portes logiques où c'est possible
+        \item \textbf{Scheduling}: Insertion de délais (Optionnel)
+      \end{enumerate}
+    \end{column}
+    \begin{column}{0.4\textwidth}
+      \centering
+      \includegraphics[width=\textwidth]{../../figures/qubits_layout.jpg}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Transpilation: Niveaux d'Optimisation}
+  \small
+  \begin{description}
+    \setlength{\itemsep}{1.5em}
+    \item[\textbf{Niveau 1}:] Combination matricielle des portes à un qubit,\\ élimination des portes CNOT redondantes
+    
+    \item[\textbf{Niveau 2}:] Analyse de commutation pour éliminer davantage de redondances
+    
+    \item[\textbf{Niveau 3}:] Optimisation des sous-blocs à deux qubits identifiés dans le circuit\\ (reconstruit une matrice unitaire équivalente)
+  \end{description}
+\end{frame}
+
 \end{document}
