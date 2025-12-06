@@ -57,7 +57,7 @@
   \bigskip
   On peut additionner avec un autre réel:
   \[
-    z = x + yi \qquad \text{avec } x, y \in \mathbb{R}
+    x + yi \qquad \text{avec } x, y \in \mathbb{R}
   \]
   
   \bigskip
@@ -65,7 +65,6 @@
 \end{frame}
 
 \begin{frame}{Trois représentations}
-  Un nombre complexe $z$ peut s'écrire de plusieurs manières:
   
   \bigskip
   \textbf{Forme cartésienne:}
@@ -75,7 +74,7 @@
   
   \textbf{Forme vectorielle:}
   \[
-    z = (x, y)
+    z = \begin{pmatrix} x \\ y \end{pmatrix}
   \]
   
   \textbf{Forme polaire:}
@@ -84,18 +83,15 @@
   \]
 \end{frame}
 
-\section{Représentation cartésienne}
+\section{Représentation cartésienne/vectorielle}
 
-\begin{frame}{Représentation cartésienne}
-  Un nombre complexe s'écrit:
-  \[
-    z = x + yi
-  \]
-  où $x$ est la partie réelle et $y$ la partie imaginaire.
+\begin{frame}{Représentation cartésienne/vectorielle}
+  
+  %$z = x + yi$ avec $x$ la partie réelle et $y$ la partie imaginaire.
   
   \bigskip
   \begin{center}
-  \begin{tikzpicture}[scale=1.2]
+  \begin{tikzpicture}[scale=1.8]
     \draw[->] (-0.5,0) -- (3.5,0) node[right] {Re};
     \draw[->] (0,-0.5) -- (0,2.5) node[above] {Im};
     \draw[->,thick,blue] (0,0) -- (2.5,1.5) node[midway,above left] {$z$};
@@ -107,9 +103,9 @@
 \end{frame}
 
 \begin{frame}{Addition et soustraction}
-  L'addition se fait composante par composante:
+  %L'addition se fait composante par composante:
   \[
-    (x_1 + y_1 i) + (x_2 + y_2 i) = (x_1+x_2) + (y_1+y_2)i
+    (x_1 + y_1 i) + (x_2 + y_2 i) = (x_1+x_2) + (y_1+y_2)i \qquad     \begin{pmatrix} x_1 \\ y_1 \end{pmatrix} + \begin{pmatrix} x_2 \\ y_2 \end{pmatrix} = \begin{pmatrix} x_1 + x_2 \\ y_1 + y_2 \end{pmatrix}
   \]
   
   \begin{center}
@@ -124,13 +120,13 @@
   \end{tikzpicture}
   \end{center}
   
-  Géométriquement: addition vectorielle.
 \end{frame}
 
 \begin{frame}{Multiplication en forme cartésienne}
   La multiplication utilise la propriété $i^2 = -1$:
   \begin{align*}
-    (x_1 + y_1 i)(x_2 + y_2 i) &= x_1 x_2 + x_1 y_2 i + y_1 i x_2 + y_1 y_2 i^2 \\
+    (x_1 + y_1 i)(x_2 + y_2 i) 
+    %&= x_1 x_2 + x_1 y_2 i + y_1 i x_2 + y_1 y_2 i^2 \\
     &= x_1 x_2 + x_1 y_2 i + y_1 x_2 i + y_1 y_2 (-1) \\
     &= (x_1 x_2 - y_1 y_2) + (x_1 y_2 + y_1 x_2)i
   \end{align*}
@@ -140,60 +136,6 @@
   \[
     (2 + 3i)(1 + 4i) = (2 \cdot 1 - 3 \cdot 4) + (2 \cdot 4 + 3 \cdot 1)i = -10 + 11i
   \]
-\end{frame}
-
-\section{Représentation vectorielle}
-
-\begin{frame}{Représentation vectorielle}
-  On peut voir un nombre complexe comme un vecteur dans le plan:
-  \[
-    z = x + yi \quad \longleftrightarrow \quad \vec{z} = \begin{pmatrix} x \\ y \end{pmatrix}
-  \]
-  
-  \begin{center}
-  \begin{tikzpicture}[scale=1.2]
-    \draw[->] (-0.5,0) -- (3.5,0) node[right] {$x$};
-    \draw[->] (0,-0.5) -- (0,2.5) node[above] {$y$};
-    \draw[->,thick,blue,line width=1.5pt] (0,0) -- (2.5,1.5) node[midway,above left] {$\vec{z}$};
-    \draw[dashed] (2.5,0) node[below] {$x$} -- (2.5,1.5);
-    \draw[dashed] (0,1.5) node[left] {$y$} -- (2.5,1.5);
-    \filldraw[blue] (2.5,1.5) circle (2pt) node[above right] {$(x, y)$};
-  \end{tikzpicture}
-  \end{center}
-\end{frame}
-
-\begin{frame}{Addition et soustraction vectorielle}
-  L'addition de deux complexes correspond à l'addition vectorielle:
-  \[
-    \begin{pmatrix} x_1 \\ y_1 \end{pmatrix} + \begin{pmatrix} x_2 \\ y_2 \end{pmatrix} = \begin{pmatrix} x_1 + x_2 \\ y_1 + y_2 \end{pmatrix}
-  \]
-  
-  \begin{center}
-  \begin{tikzpicture}[scale=0.9]
-    \draw[->] (-0.5,0) -- (4,0) node[right] {Re};
-    \draw[->] (0,-0.5) -- (0,3.5) node[above] {Im};
-    \draw[->,thick,blue,line width=1.5pt] (0,0) -- (2,1) node[midway,below] {$\vec{z}_1$};
-    \draw[->,thick,red,line width=1.5pt] (0,0) -- (1,2) node[midway,left] {$\vec{z}_2$};
-    \draw[->,thick,purple,line width=1.5pt] (0,0) -- (3,3) node[midway,above right] {$\vec{z}_1+\vec{z}_2$};
-    \draw[dashed,red] (2,1) -- (3,3);
-    \draw[dashed,blue] (1,2) -- (3,3);
-  \end{tikzpicture}
-  \end{center}
-\end{frame}
-
-\begin{frame}{Multiplication vectorielle}
-  La multiplication de complexes transforme les vecteurs:
-  \[
-    z_1 \cdot z_2 = (x_1 x_2 - y_1 y_2) + (x_1 y_2 + y_1 x_2)i
-  \]
-  
-  correspond à la transformation:
-  \[
-    \begin{pmatrix} x_1 & -y_1 \\ y_1 & x_1 \end{pmatrix} \begin{pmatrix} x_2 \\ y_2 \end{pmatrix} = \begin{pmatrix} x_1 x_2 - y_1 y_2 \\ x_1 y_2 + y_1 x_2 \end{pmatrix}
-  \]
-  
-  \bigskip
-  Cette matrice effectue une \textbf{rotation} et un \textbf{étirement}.
 \end{frame}
 
 \section{Lien avec les rotations}
@@ -279,37 +221,23 @@
 \section{Complexe conjugué et division}
 
 \begin{frame}{Division comme rotation inverse}
-  Ayant compris les multiplications comme des rotations, il est plus facile de comprendre les divisions:
   
-  \bigskip
-  \textbf{Division = rotation inverse}
-  
-  \bigskip
   Pour inverser une rotation d'angle $\theta$, on effectue une rotation d'angle $-\theta$.
   
   \bigskip
-  Ceci nous amène au concept de \textbf{complexe conjugué}.
-\end{frame}
-
-\begin{frame}{Le complexe conjugué}
-  Le conjugué de $z = x + iy$ est noté $z^*$ (ou $\bar{z}$):
+  Ceci nous amène au concept de \textbf{complexe conjugué}, noté $z^*$ (ou $\bar{z}$):
   \[
     z^* = x - iy
   \]
   
   En notation trigonométrique:
   \[
-    z = |z|[\cos(\theta) + i\sin(\theta)] \quad \Rightarrow \quad z^* = |z|[\cos(\theta) - i\sin(\theta)]
+    z^* = |z|[\cos(-\theta) + i\sin(-\theta)] = |z|[\cos(\theta) - i\sin(\theta)]
   \]
   
-  \bigskip
-  Le conjugué correspond à une \textbf{réflexion par rapport à l'axe réel}:
-  \[
-    \theta \rightarrow -\theta
-  \]
 \end{frame}
 
-\begin{frame}{Propriétés du conjugué}
+\begin{frame}{Le complexe conjugué}
   \begin{center}
   \begin{tikzpicture}[scale=1.2]
     \draw[->] (-0.5,0) -- (3.5,0) node[right] {Re};
@@ -324,7 +252,6 @@
   \end{tikzpicture}
   \end{center}
   
-  Propriété importante:
   \[
     z \cdot z^* = (x + iy)(x - iy) = x^2 + y^2 = |z|^2
   \]
@@ -333,7 +260,7 @@
 \begin{frame}{Division de nombres complexes}
   Pour diviser par un nombre complexe, on multiplie par le conjugué divisé par le module au carré:
   \[
-    \frac{1}{z} = \frac{z^*}{|z|^2} = \frac{x - iy}{x^2 + y^2}
+    \frac{1}{z} = \frac{z^*}{zz^*} = \frac{z^*}{|z|^2} = \frac{x - iy}{x^2 + y^2}
   \]
   
   \bigskip
@@ -355,39 +282,23 @@
 
 \section{Représentation polaire}
 
-\begin{frame}{Notation exponentielle}
-  Un nombre complexe en notation polaire s'écrit:
-  \[
-    z = |z| e^{i\theta}
-  \]
+\begin{frame}{Notation polaire}
+
+  Notation $z = |z| e^{i\theta}$ qui sépare de manière élégante:
   
-  Cette notation est \textbf{naturelle} car elle transforme les multiplications en sommes sur les angles (qu'on appelle aussi \textbf{phases}):
+  \bigskip
+  \begin{itemize}
+    \setlength{\itemsep}{1em}
+    \item Le \textbf{module} $|z|$: l'amplitude, la longueur
+    \item La \textbf{phase} $\theta$: l'angle, la direction
+  \end{itemize}
+
+  \bigskip
+  L'exponentielle transforme les multiplications en sommes sur les angles:
   \[
     z_1 \cdot z_2 = |z_1| e^{i\theta_1} \cdot |z_2| e^{i\theta_2} = |z_1||z_2| e^{i(\theta_1 + \theta_2)}
   \]
-  
-  \begin{itemize}
-    \item Les modules se \textbf{multiplient}
-    \item Les phases s'\textbf{additionnent}
-  \end{itemize}
-\end{frame}
 
-\begin{frame}{Illustration: multiplication en forme polaire}
-  \begin{center}
-  \begin{tikzpicture}[scale=1.0]
-    \draw[->] (-0.5,0) -- (4.5,0) node[right] {Re};
-    \draw[->] (0,-0.5) -- (0,3.5) node[above] {Im};
-    \draw[->,thick,blue] (0,0) -- (2.5,1) node[midway,below right] {$z_1$};
-    \draw[->,thick,red] (0,0) -- (1.5,2) node[midway,above left] {$z_2$};
-    \draw[->,thick,purple,line width=1.2pt] (0,0) -- (1.5,3.5) node[midway,above left] {$z_1 z_2$};
-    \draw[->] (0.7,0) arc (0:22:0.7);
-    \node at (1,0.2) {\small $\theta_1$};
-    \draw[->] (1.0,0) arc (0:53:1.0);
-    \node at (0.8,0.8) {\small $\theta_2$};
-    \draw[->,purple] (1.3,0) arc (0:67:1.3);
-    \node at (1.0,1.5) {\small $\theta_1+\theta_2$};
-  \end{tikzpicture}
-  \end{center}
 \end{frame}
 
 \begin{frame}{Formule d'Euler}
@@ -399,28 +310,10 @@
   \bigskip
   Cas particuliers remarquables:
   \begin{align*}
-    e^{i\pi} &= -1 \qquad \text{(identité d'Euler: } e^{i\pi} + 1 = 0 \text{)} \\
-    e^{i\pi/2} &= i \\
-    e^{2i\pi} &= 1
+    e^{i\pi/2} = i \qquad\qquad
+    e^{i\pi} = -1 \qquad\qquad
+    e^{2i\pi} = 1 \qquad\qquad
   \end{align*}
-\end{frame}
-
-\begin{frame}{Séparation module/phase}
-  La notation $z = |z| e^{i\theta}$ sépare de manière élégante:
-  
-  \bigskip
-  \begin{itemize}
-    \setlength{\itemsep}{1em}
-    \item Le \textbf{module} $|z|$: l'amplitude, la longueur
-    \item La \textbf{phase} $\theta$: l'angle, la direction
-  \end{itemize}
-  
-  \bigskip
-  Cette séparation est particulièrement utile en physique quantique où:
-  \begin{itemize}
-    \item $|z|^2$ donne la probabilité
-    \item $\theta$ donne la phase quantique
-  \end{itemize}
 \end{frame}
 
 \begin{frame}{Opérations en notation polaire}
@@ -450,10 +343,7 @@
   \[
     \omega_k = e^{2\pi i k/n} \qquad k = 0, 1, 2, \ldots, n-1
   \]
-  
-  \bigskip
-  Elles forment un polygone régulier à $n$ sommets dans le plan complexe.
-  
+ 
   \begin{center}
   \begin{tikzpicture}[scale=1.3]
     \draw[->] (-1.5,0) -- (1.5,0) node[right] {Re};
@@ -468,29 +358,21 @@
     \node at (-0.6,1.1) {$e^{i2\pi/3}$};
   \end{tikzpicture}
   \end{center}
-  
-  Exemple: racines 6-ièmes de l'unité ($n=6$).
-\end{frame}
+  \end{frame}
 
 \section{Pour aller plus loin}
 
-\begin{frame}{Vidéos 3Blue1Brown}
-  Pour une excellente visualisation des nombres complexes:
-  
+\begin{frame}{Vidéos par 3Blue1Brown} 
   \begin{center}
-    \includegraphics[width=0.8\linewidth]{../../figures/3b1b_complexes.png}
+    \includegraphics[width=\linewidth]{../../figures/3b1b_complexes.png}
   \end{center}
-  
-  Chaîne YouTube: \textbf{3Blue1Brown}
-  
-  Vidéos recommandées sur les nombres complexes et la transformée de Fourier.
 \end{frame}
 
 \begin{frame}{Quaternions et rotations 3D}
   Les quaternions étendent les nombres complexes pour les rotations 3D.
   
   \bigskip
-  Unités: $1, i, j, k$ avec la table de multiplication:
+  Nombres $1, i, j, k$ avec la table de multiplication:
   
   \begin{center}
   \begin{tabular}{c|cccc}
@@ -504,28 +386,11 @@
   \end{center}
   
   \bigskip
-  Relations: $i^2 = j^2 = k^2 = ijk = -1$
-  
-  \bigskip
   Utilisés en graphisme 3D et jeux vidéo. En physique, on préfère les matrices de Pauli.
-\end{frame}
 
-\begin{frame}{Théorie des groupes}
-  Ce petit exercice peut être continué avec des transformations plus générales que des rotations.
-  
   \bigskip
-  Cela amène à la \textbf{théorie des groupes} et de leurs représentations:
+  Ce petit exercice peut être continué avec des transformations plus générales que des rotations: cela amène à la \textbf{théorie des groupes} et de leurs représentations.
   
-  \begin{itemize}
-    \setlength{\itemsep}{0.8em}
-    \item Groupe des rotations: $SO(2)$, $SO(3)$
-    \item Groupe unitaire: $U(1)$, $SU(2)$
-    \item Symétries en physique quantique
-    \item Théorie des représentations
-  \end{itemize}
-  
-  \bigskip
-  Les nombres complexes sont la porte d'entrée vers ces structures mathématiques fondamentales en physique.
 \end{frame}
 
 \begin{frame}{Résumé}
@@ -533,10 +398,7 @@
     \setlength{\itemsep}{0.7em}
     \item Les complexes résolvent le problème de $\sqrt{-1}$
     \item Trois représentations: cartésienne, vectorielle, polaire
-    \item La multiplication = rotation + étirement
-    \item Le conjugué permet la division
-    \item La notation $|z|e^{i\theta}$ sépare amplitude et phase
-    \item Applications: mécanique quantique, rotations, théorie des groupes
+    \item La notation polaire $|z|e^{i\theta}$ sépare amplitude et phase (étirement et rotation)
   \end{itemize}
 \end{frame}
 
