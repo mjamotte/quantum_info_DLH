@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 60" width="150mm" height="60mm" font-family="Helvetica,Arial,sans-serif" font-size="10">
+<text x="12" y="20" dominant-baseline="middle" text-anchor="end">ket(0)</text>
+<text x="12" y="40" dominant-baseline="middle" text-anchor="end">ket(0)</text>
+<line x1="15" y1="20" x2="140" y2="20" stroke="black" stroke-width="2" />
+<line x1="15" y1="40" x2="140" y2="40" stroke="black" stroke-width="2" />
+<rect x="47.0" y="11.0" width="16" height="18" fill="white" stroke="black" stroke-width="1.5" />
+<text x="55" y="20" dominant-baseline="middle" text-anchor="middle" font-weight="bold">H</text>
+<circle cx="100" cy="20" r="3" fill="black" />
+<line x1="100" y1="34" x2="100" y2="46" stroke="black" stroke-width="2" />
+<line x1="94" y1="40" x2="106" y2="40" stroke="black" stroke-width="2" />
+<line x1="100" y1="40" x2="100" y2="20" stroke="black" stroke-width="1.5" />
+</svg>
