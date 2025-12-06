@@ -1,0 +1,46 @@
+Peux-tu recommencer la présentation en abordant le sujet des nombres complexes de la manière suivante:
+
+1. Motivation: 
+- racine de nombres négatifs n'existe pas dans les réels -> l'addition du nombre "i" résouds ce problème
+- on peut multiplier "i" par un réel -> y*i
+- on peut additioner avec un autre réel -> x+y*i (forme générale d'un nombre complexe)
+- plusieurs représentations: cartésienne "x+y*i", vectorielle (x,y), polaire "rho*exp(i*theta)"
+
+2. Représentation cartésienne
+
+- illustrer addition et soustraction
+- illustrer multiplication (pas encore la division, on parlera des conjugés plus tard)
+
+3. Représentation vectorielle
+
+- illustrer addition et soustraction
+- illustrer multiplication (pas encore la division, on parlera des conjugés plus tard)
+
+4. Lien avec les rotations
+
+- multiplier par "i" = rotation de 90°
+- multiplier par "2+2*i" = rotation de 45°, et allongement
+- expliquer le module:  mesure la longeur du vecteur (x,y)
+- trigonométrie nous permet d'interpréter z=x+i*y comme |z|*[cos(theta) + i*sin(theta)]
+
+5. Complexe conjugé et division
+
+- on ayant compris les multiplications comme des rotations, il est plus facile de comprendre les divisions: rotation inverse
+- theta -> -theta et on introduit le 'conjugé' est |z|*[cos(theta) - i*sin(theta)] (i.e. x-i*y)
+- pour la division, on multiplie par le conjugé divisé par le module au carré
+- détailler l'opération de division en notation x+i*y
+
+6. Représentation polaire
+
+- z = |z|e^{i*theta}
+- notation exponentielle naturelle car transforme les multiplications en sommes sur les angles (que l'on appelle aussi "phase") --> illustrer avec une image
+- Formule d'Euler: e^{i*theta} = cos(theta) + i*sin(theta)
+- notation qui sépare de manière élégante le module de la phase (angle)
+- notation plus naturelle pour la mulitplication, division et exposants/racines (illustrer)
+- racines de l'unité: expliquer avec image
+
+7. Pour aller plus loin
+
+- vidéos "3blue 1brown" sur les complexes (mettre vignettes youtube)
+- quaternions pour rotations 3d: illustrer avec table de multiplication (1,i,j,k) --> utile pour graphisme sur ordi/jeux vidéos (en physique on préfère les matrices de Pauli)
+- ce petit exercice peut être continué avec des transformations plus générales que des rotations et amène à la théorie des groupes et de leur représentations
