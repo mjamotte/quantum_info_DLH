@@ -79,7 +79,7 @@
   
   \textbf{Forme polaire:}
   \[
-    z = \rho e^{i\theta}
+    z = |z| e^{i\theta}
   \]
 \end{frame}
 
@@ -94,10 +94,10 @@
   \begin{tikzpicture}[scale=1.8]
     \draw[->] (-0.5,0) -- (3.5,0) node[right] {Re};
     \draw[->] (0,-0.5) -- (0,2.5) node[above] {Im};
-    \draw[->,thick,blue] (0,0) -- (2.5,1.5) node[midway,above left] {$z$};
+    \draw[->,thick,blue] (0,0) -- (2.5,1.5);
     \draw[dashed] (2.5,0) node[below] {$x$} -- (2.5,1.5);
     \draw[dashed] (0,1.5) node[left] {$y$} -- (2.5,1.5);
-    \filldraw[blue] (2.5,1.5) circle (2pt) node[above right] {$x + yi$};
+    \filldraw[blue] (2.5,1.5) circle (2pt) node[above right] {$z = x + yi$};
   \end{tikzpicture}
   \end{center}
 \end{frame}
@@ -112,9 +112,9 @@
   \begin{tikzpicture}[scale=0.9]
     \draw[->] (-0.5,0) -- (4,0) node[right] {Re};
     \draw[->] (0,-0.5) -- (0,3.5) node[above] {Im};
-    \draw[->,thick,blue] (0,0) -- (2,1) node[midway,below] {$z_1$};
-    \draw[->,thick,red] (0,0) -- (1,2) node[midway,left] {$z_2$};
-    \draw[->,thick,purple] (0,0) -- (3,3) node[midway,above right] {$z_1+z_2$};
+    \draw[->,thick,blue] (0,0) -- (2,1) node[below] {$z_1$};
+    \draw[->,thick,red] (0,0) -- (1,2) node[left] {$z_2$};
+    \draw[->,thick,purple] (0,0) -- (3,3) node[above right] {$z_1+z_2$};
     \draw[dashed,red] (2,1) -- (3,3);
     \draw[dashed,blue] (1,2) -- (3,3);
   \end{tikzpicture}
@@ -151,8 +151,8 @@
   \begin{tikzpicture}[scale=1.3]
     \draw[->] (-2.5,0) -- (2.5,0) node[right] {Re};
     \draw[->] (0,-0.5) -- (0,2.5) node[above] {Im};
-    \draw[->,thick,blue] (0,0) -- (2,1) node[midway,below right] {$z$};
-    \draw[->,thick,red] (0,0) -- (-1,2) node[midway,above left] {$iz$};
+    \draw[->,thick,blue] (0,0) -- (2,1) node[right] {$z$};
+    \draw[->,thick,red] (0,0) -- (-1,2) node[above left] {$iz$};
     \draw[->] (0.8,0.4) arc (25:115:0.9);
     \node at (0.5,1.1) {90°};
   \end{tikzpicture}
@@ -169,10 +169,10 @@
   \begin{tikzpicture}[scale=1.3]
     \draw[->] (-2.5,0) -- (2.5,0) node[right] {Re};
     \draw[->] (0,-0.5) -- (0,2.5) node[above] {Im};
-    \draw[->,thick,blue] (0,0) -- (2,1) node[midway,below right] {$z$};
-    \draw[->,dashed,red] (0,0) -- (-1,2) node[midway,above left] {$iz$};
+    \draw[->,thick,blue] (0,0) -- (2,1) node[right] {$z$};
+    \draw[->,dashed,red] (0,0) -- (-1,2) node[above left] {$iz$};
     \draw[->,dashed,blue] (-1,2) -- (1,3);
-    \draw[->,thick,red] (0,0) -- (1,3) node[midway,above left] {$z+iz$};
+    \draw[->,thick,red] (0,0) -- (1,3) node[right] {$z+iz$};
     \draw[->] (0.8,0.4) arc (25:70:0.9);
     \node at (0.9,0.9) {45°};
   \end{tikzpicture}
@@ -259,8 +259,8 @@
   \begin{tikzpicture}[scale=1.2]
     \draw[->] (-0.5,0) -- (3.5,0) node[right] {Re};
     \draw[->] (0,-2,0) -- (0,2) node[above] {Im};
-    \draw[->,thick,blue] (0,0) -- (2.5,1.5) node[midway,above left] {$z$};
-    \draw[->,thick,red] (0,0) -- (2.5,-1.5) node[midway,below left] {$z^*$};
+    \draw[->,thick,blue] (0,0) -- (2.5,1.5) node[above right] {$z$};
+    \draw[->,thick,red] (0,0) -- (2.5,-1.5) node[below right] {$z^*$};
     \draw[dashed] (2.5,1.5) -- (2.5,-1.5);
     \draw (0.7,0) arc (0:31:0.7);
     \draw (0.7,0) arc (0:-31:0.7);
@@ -301,8 +301,9 @@
 
 \begin{frame}{Notation polaire}
 
-  Notation $z = |z| e^{i\theta}$ qui sépare de manière élégante:
-  
+  \bigskip
+  Notation $z = |z| e^{i\theta}$ sépare de manière élégante:
+
   \bigskip
   \begin{itemize}
     \setlength{\itemsep}{1em}
@@ -310,7 +311,17 @@
     \item La \textbf{phase} $\theta$: l'angle, la direction
   \end{itemize}
 
-  \bigskip
+  \begin{flushright}
+    \vspace{-35mm}
+  \begin{tikzpicture}[scale=1.5]
+    \draw[->] (-2.5,0) -- (2.5,0) node[right] {Re};
+    \draw[->] (0,-0.5) -- (0,2.5) node[above] {Im};
+    \draw[->,thick,blue] (0,0) -- (1,2) node[above right] {$z$};
+    \draw[->] (0.8,0.0) arc (0:60:0.8);
+    \node at (1.0,0.6) {$e^{i\theta}$};
+  \end{tikzpicture}
+  \end{flushright}
+
   L'exponentielle transforme les multiplications en sommes sur les angles:
   \[
     z_1 \cdot z_2 = |z_1| e^{i\theta_1} \cdot |z_2| e^{i\theta_2} = |z_1||z_2| e^{i(\theta_1 + \theta_2)}
@@ -410,13 +421,27 @@
   
 \end{frame}
 
-\begin{frame}{Résumé}
+\begin{frame}{Résumé $\mathbb{C}$}
+
+  \vspace{2mm}
   \begin{itemize}
-    \setlength{\itemsep}{0.7em}
+    \setlength{\itemsep}{0.9em}
     \item Les complexes résolvent le problème de $\sqrt{-1}$
+    \item Extension des nombres réels en leur ajoutant une phase $e^{i\theta}$
     \item Trois représentations: cartésienne, vectorielle, polaire
-    \item La notation polaire $|z|e^{i\theta}$ sépare amplitude et phase (étirement et rotation)
   \end{itemize}
+
+  \begin{center}
+    \vspace{2mm}
+  \begin{tikzpicture}[scale=1.0]
+    \draw[->] (-2.5,0) -- (2.5,0) node[right] {Re};
+    \draw[->] (0,-0.5) -- (0,2.5) node[above] {Im};
+    \draw[->,thick,blue] (0,0) -- (1,2) node[above right] {$z$};
+    \draw[->] (0.8,0.0) arc (0:60:0.8);
+    \node at (1.0,0.6) {$e^{i\theta}$};
+  \end{tikzpicture}
+  \end{center}
+
 \end{frame}
 
 \end{document}
