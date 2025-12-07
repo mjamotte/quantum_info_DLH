@@ -1,0 +1,34 @@
+
+Slides chapitre 1
+-----------------
+
+Stabilité de l'atome:
+- tracer une électron qui spirale autour du noyau
+- modèle de Bohr pour illustration des niveaux d'énergie, pas les densités électroniques
+
+Lignes spectrales:
+- raies de Fraunhofer (1814, longueurs d'onde manquantes dans le spectre du soleil)
+
+Fentes:
+- faut une image comparant les attentes classique vs quantique
+- occasion parfaite de parler de superposition d'états
+
+Stern-Gerlach:
+- pourquoi de telles attentes dans le cas classique?
+- cas quantique pas une "attente", on ne s'y attendait pas, si?
+  --> conclure qu'il existe une propriété intrinsèque qui indique aux atomes dans quelle direction aller: le "spin"
+
+Transition bizarre ici --> peut-être que l'intro physique quantique doit être ailleurs?
+
+Différences entre ordi classique et quantique:
+- ######## utilise mon slide en premier, et le tiens juste après
+- je ne comprends pas le slide avec les ovales
+ ----> Pas de trop satisfait de cette section de manière générale
+
+Commentaires généraux:
+- mettre les dates des expériences
+- mettre plus en avant ce que ces découvertes nous apprennent sur le monde qui contraste avec la vision classique:
+    * quantification des niveaux d'énergie
+    * superpositions d'états
+    * propriété nouvelle de la matière (spin)
+  
