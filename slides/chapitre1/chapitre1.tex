@@ -78,11 +78,11 @@
 \begin{frame}{Diffraction d'électrons (1927)}
   \begin{itemize}[<+->]
     \item Les électrons passent par deux fentes. Classiquement, on s'attend à deux bandes.
-    \begin{figure}
+    \item Même envoyés un par un, le motif d'interférence apparaît -- comme pour les ondes lumineuses (Young, 1801).
+    \item \begin{figure}
       \includegraphics[width=0.3\linewidth]{figures/fente_Young.pdf}
     \end{figure}
-    \item Même envoyés un par un, le motif d'interférence apparaît -- comme pour les ondes lumineuses (Young, 1801).
-    \item La mécanique classique ne peut expliquer ce double comportement onde-particule.
+    \item La mécanique classique n'explique pas le comportement ondulatoire de la matière.
     \item Chaque électron \textbf{interfère avec lui-même} car il passe par les deux fentes 
     \textbf{en même temps}. Il est à deux endroits en même temps, donc on ne sait pas où exactement.
   \end{itemize}
@@ -107,9 +107,18 @@
 
 \begin{frame}{Conséquences majeures}
   \begin{itemize}
-    \item Niveaux discrets d'énergie + spin $\quad \rightarrow \quad$ systèmes à deux niveaux
+    \item Niveaux discrets d'énergie + spin $\quad \rightarrow \quad$ systèmes à deux niveaux.
     \\~\\
-    \item Superposition d'états
+    \item Superposition d'états.
+    \\~\\~\\~\\
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Conséquences majeures}
+  \begin{itemize}
+    \item Niveaux discrets d'énergie + spin $\quad \rightarrow \quad$ systèmes à deux niveaux.
+    \\~\\
+    \item Superposition d'états.
     \\~\\~\\~\\
     \centering
     \textbf{Briques élémentaires menant à l'informatique quantique}\\~\\
@@ -141,7 +150,7 @@
     \column{0.48\textwidth}
     \textbf{Classique}\\
     \begin{itemize}
-      \item Pour coder 0, 1, 2, 3 il faut les inscrire un à un dans deux bits.
+      \item Pour coder 0, 1, 2, 3 il faut les inscrire chacun dans deux bits.
       \item Un registre contient un seul état à la fois.
     \end{itemize}
     \column{0.48\textwidth}
@@ -153,12 +162,36 @@
   \end{columns}
 \end{frame}
 
-\begin{frame}{Accélération potentielle}
-  \begin{itemize}[<+->]
-    \item Accélération dite exponentielle: moins de qubits que de bits pour représenter autant d'états.
-    \item Les opérations agissent sur toutes les composantes d'une superposition en une seule étape.
-    \item Résultat probabiliste: il faut mesurer plusieurs fois pour estimer les probabilités finales.
-  \end{itemize}
+\begin{frame}{Superposition: plus d'information par qubit}
+    \begin{itemize}[<+->]
+        \item Calcul représenté comme une opération sur une séquence de bits $(b_n \cdots b_2 b_1)$
+        \item Ordinateur classique opère sur une séquence à la fois: %$(b_n,\cdots,b_2,b_1) \longrightarrow f(b_n,\cdots,b_2,b_1)$
+        \begin{align*}
+            (101) \longrightarrow f(101)
+        \end{align*}
+        \item Ordinateur quantique peut encoder toutes les séquences possibles dans un seul état et opérer sur toutes les séquences en une seule opération:
+        \begin{align*}
+            \begin{Bmatrix}
+                (000) \\ (001) \\ (010) \\ \cdots \\ (111)
+            \end{Bmatrix}
+            \quad \longrightarrow \quad
+            \begin{Bmatrix}
+                f(000) \\ f(001) \\ f(010) \\ \cdots \\ f(111)
+            \end{Bmatrix}
+        \end{align*}
+        \item \textbf{Problème}: on ne peut récupérer qu'\textbf{un seul des résultats à chaque calcul}. Il faut répéter la mesure un certain nombre de fois pour \textbf{connaître les réponses les plus probables}.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Utilité malgré les limitations}
+  \begin{figure}
+    \includegraphics[width=0.8\linewidth]{figures/quantum_algorithms.png}
+  \end{figure}
+\end{frame}
+
+\begin{frame}{}
+  \centering
+  Fin du chapitre 1: vers les mathématiques utiles à l'informatique quantique!
 \end{frame}
 
 \end{document}
