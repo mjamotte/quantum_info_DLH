@@ -12,6 +12,7 @@
 \usepackage{hyperref}
 \usepackage{siunitx}
 \usepackage{physics}
+\usepackage{braket}
 
 \title[Chapter 2]{Chapitre 3: Prise en main de Qiskit}
 \author{JAMOTTE Maxime, SCHOONEN Cédric}
@@ -37,6 +38,15 @@
     \item 2) Passer de la représentation mathématique (vecteurs, matrices) aux circuits.
     \\~\\
     \item 3) Simuler des mesures avec Aer et interpréter les résultats.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{États et portes à 1 qubit}
+  \begin{itemize}
+    \item États \(\ket{0}\) et \(\ket{1}\) construits avec \texttt{Statevector}.
+    \item Portes \(H\) et \(X\) définies avec \texttt{Operator} et appliquées via \texttt{Statevector.evolve}.
+    \item Circuits équivalents créés avec \texttt{QuantumCircuit} puis convertis en \texttt{Statevector.from\_instruction}.
+    \item Visualisation rapide des circuits avec \texttt{qc.draw('mpl')}.
   \end{itemize}
 \end{frame}
 
@@ -143,28 +153,54 @@
   \end{columns}
 \end{frame}
 
-\begin{frame}{États et portes à 1 qubit}
-  \begin{itemize}
-    \item États \(\ket{0}\) et \(\ket{1}\) construits avec \texttt{Statevector}.
-    \item Portes \(H\) et \(X\) définies avec \texttt{Operator} et appliquées via \texttt{Statevector.evolve}.
-    \item Circuits équivalents créés avec \texttt{QuantumCircuit} puis convertis en \texttt{Statevector.from\_instruction}.
-    \item Visualisation rapide des circuits avec \texttt{qc.draw('mpl')}.
-  \end{itemize}
-\end{frame}
-
-\begin{frame}{Mesure et simulation}
+\begin{frame}{Mesure}
   \begin{columns}[T,onlytextwidth]
-    \column{0.55\textwidth}
+    \column{0.5\textwidth}
     \begin{itemize}
       \item Ajouter un bit classique et mesurer: \texttt{qc.measure(0, 0)}.
-      \item Le résultat de mesure est stocké dans le registre classique.
-      \item La mesure projette l'état quantique sur \(\ket{0}\) ou \(\ket{1}\) selon les probabilités.
+      \item Le résultat de mesure doit être stocké dans le registre classique pour être lisible.
+      \item Probabilités obtenues par le module carré des amplitudes: si $\ket \psi = \ket 0$ ou $\ket 1$, $$ P(\ket 0)=
+      |\braket{0|H|\psi}|^2 = 1/2,$$  $$P(\ket 1)=|\braket{1|H|\psi}|^2 = 1/2$$ (produit scalaire entre l'état mesuré et l'état du circuit).
     \end{itemize}
     \column{0.45\textwidth}
     \centering
+    \vspace*{-3em}
     \includegraphics[width=0.9\linewidth]{figures/measure_circuit.png}
-    \\[-0.3em]\footnotesize Circuit avec mesure après $H$
+    \\[0.05em]
+    \vspace*{-1.5em}
+    \[
+      \begin{aligned}
+        \braket{0|H|\psi} &= \begin{pmatrix} 1\\0 \end{pmatrix} \cdot \frac{1}{\sqrt 2}\begin{pmatrix} 1\\\pm 1 \end{pmatrix} = \frac{1}{\sqrt 2},\\
+        \braket{1|H|\psi} &= \begin{pmatrix} 0\\1 \end{pmatrix} \cdot \frac{1}{\sqrt 2}\begin{pmatrix} 1\\\pm 1 \end{pmatrix} = \pm \frac{1}{\sqrt 2}.
+      \end{aligned}
+    \]
   \end{columns}
+\end{frame}
+
+\begin{frame}{Mesure}
+  \begin{columns}[T,onlytextwidth]
+    \column{0.5\textwidth}
+    \begin{itemize}
+     \item Ajouter un bit classique et mesurer: \texttt{qc.measure(0, 0)}.
+      \item Le résultat de mesure doit être stocké dans le registre classique pour être lisible.
+      \item Probabilités obtenues par le module carré des amplitudes: si $\ket \psi = \ket 0$ ou $\ket 1$, $$ P(\ket 0)=
+      |\braket{0|H|\psi}|^2 = 1/2,$$  $$P(\ket 1)=|\braket{1|H|\psi}|^2 = 1/2$$
+    \end{itemize}
+    \column{0.45\textwidth}
+    \centering
+    \vspace*{-3em}
+    \includegraphics[width=0.9\linewidth]{figures/measure_circuit.png}
+    \\[0.05em]
+    \vspace*{-1.5em}
+    \[
+      \begin{aligned}
+        \braket{0|H|\psi} &= \begin{pmatrix} 1\\0 \end{pmatrix} \cdot \frac{1}{\sqrt 2}\begin{pmatrix} 1\\\pm 1 \end{pmatrix} = \frac{1}{\sqrt 2},\\
+        \braket{1|H|\psi} &= \begin{pmatrix} 0\\1 \end{pmatrix} \cdot \frac{1}{\sqrt 2}\begin{pmatrix} 1\\\pm 1 \end{pmatrix} = \pm \frac{1}{\sqrt 2}.
+      \end{aligned}
+    \]
+  \end{columns}
+  \vspace*{-.5em}
+  ~\\~\\\textbf{La mesure projette l'état quantique sur $\ket{0}$ ou $\ket{1}$ selon les probabilités $P(\ket 0)$ et $P(\ket 1)$}.
 \end{frame}
 
 \begin{frame}{Simulation avec Aer}
