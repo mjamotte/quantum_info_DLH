@@ -10,8 +10,20 @@
 \usepackage{graphicx}
 \usepackage{amsmath,amssymb}
 \usepackage{hyperref}
+\usepackage[normalem]{ulem}
 \usepackage{siunitx}
 \usepackage{physics}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue,
+  urlcolor=blue
+}
+
+\let\oldhref\href
+\renewcommand{\href}[2]{\oldhref{#1}{\uline{\color{blue}{#2}}}}
+\let\oldurl\url
+\renewcommand{\url}[1]{\oldurl{\uline{\color{blue}{#1}}}}
 
 \title[Chapitre 1]{Chapitre 1: Démystification}
 \author{JAMOTTE Maxime, SCHOONEN Cédric}
@@ -48,8 +60,12 @@
 \begin{frame}{Stabilité de l'atome}
   \begin{itemize}[<+->]
     \item Un charge qui tourne émet des ondes, donc \textbf{perd} de l'énergie. Donc l'électron devrait spiraler et s'effondrer sur le noyau.
+    \vspace{-0.5em}
     \begin{figure}
+      \centering
       \includegraphics[width=0.2\linewidth]{figures/class_electron.png}
+      \hfill
+      \only<3->{\includegraphics[width=0.2\linewidth]{figures/bohr_model.png}}
     \end{figure}
     \item Or la matière ne s'effondre pas, elle est stable.\\~\\
     \item Mécanique quantique: niveau d'énergie minimale stable + niveaux d'énergie quantifiés: modèle de Bohr (1910s).\\~\\
@@ -65,7 +81,7 @@
     \end{figure}
     \item Raies sombres dues à l'absorption des gaz dans le soleil et de notre atmosphère (Bunsen et Kirchhoff, 1859).
     \\~\\
-    \item Les raies spectrales signent ces sauts discrets entre orbitales (Bohr).
+    \item Les raies spectrales sont les signatures de ces sauts discrets entre orbitales (Bohr).
   \end{itemize}
 \end{frame}
 
@@ -79,8 +95,8 @@
   \begin{itemize}[<+->]
     \item Les électrons passent par deux fentes. Classiquement, on s'attend à deux bandes.
     \item Même envoyés un par un, le motif d'interférence apparaît -- comme pour les ondes lumineuses (Young, 1801).
-    \item \begin{figure}
-      \includegraphics[width=0.3\linewidth]{figures/fente_Young.pdf}
+    \begin{figure}
+      \includegraphics[width=0.3\linewidth]{figures/fente_Young.png}
     \end{figure}
     \item La mécanique classique n'explique pas le comportement ondulatoire de la matière.
     \item Chaque électron \textbf{interfère avec lui-même} car il passe par les deux fentes 
@@ -126,21 +142,25 @@
   \end{itemize}
 \end{frame}
 
-\section{Ordinateurs classique vs quantique}
-
-\begin{frame}{Différences fondamentales entre ordinateurs classique et quantique}
-  \centering
-  \begin{tabular}{l|c|c}
-    & Classique & Quantique \\\hline
-    ~& ~ & ~\\
-    Encodage & Bit (0 \textbf{ou} 1) & Qubit (0 \textbf{et} 1) \\
-     ~& ~ & ~\\
-    Portes logiques & Booléennes & Unitaires \\
-    ~& ~ & ~\\
-    Sensibilité à l'environnement & Faible & Haute \\
-    ~& ~ & ~\\
-    Connaissance du résultat & Déterministe & Probabiliste \\
-  \end{tabular}
+\begin{frame}{Superposition: plus d'information par qubit}
+    \begin{itemize}[<+->]
+        \item Calcul représenté comme une opération sur une séquence de bits $(b_3 b_2 b_1)$
+        \item Ordinateur classique opère sur une séquence à la fois: %$(b_n,\cdots,b_2,b_1) \longrightarrow f(b_n,\cdots,b_2,b_1)$
+        \begin{align*}
+            (101) \longrightarrow f(101)
+        \end{align*}
+        \item Ordinateur quantique peut encoder toutes les séquences possibles dans un seul état et opérer sur toutes les séquences en une seule opération:
+        \begin{align*}
+            \begin{Bmatrix}
+                (000) \\ (001) \\ (010) \\ \cdots \\ (111)
+            \end{Bmatrix}
+            \quad \longrightarrow \quad
+            \begin{Bmatrix}
+                f(000) \\ f(001) \\ f(010) \\ \cdots \\ f(111)
+            \end{Bmatrix}
+        \end{align*}
+        \item \textbf{Problème}: on ne peut récupérer qu'\textbf{un seul des résultats à chaque calcul}. Il faut répéter la mesure un certain nombre de fois pour \textbf{connaître les réponses les plus probables}.
+    \end{itemize}
 \end{frame}
 
 \section{Pourquoi recourir aux ordinateurs quantiques ?}
@@ -162,25 +182,20 @@
   \end{columns}
 \end{frame}
 
-\begin{frame}{Superposition: plus d'information par qubit}
-    \begin{itemize}[<+->]
-        \item Calcul représenté comme une opération sur une séquence de bits $(b_n \cdots b_2 b_1)$
-        \item Ordinateur classique opère sur une séquence à la fois: %$(b_n,\cdots,b_2,b_1) \longrightarrow f(b_n,\cdots,b_2,b_1)$
-        \begin{align*}
-            (101) \longrightarrow f(101)
-        \end{align*}
-        \item Ordinateur quantique peut encoder toutes les séquences possibles dans un seul état et opérer sur toutes les séquences en une seule opération:
-        \begin{align*}
-            \begin{Bmatrix}
-                (000) \\ (001) \\ (010) \\ \cdots \\ (111)
-            \end{Bmatrix}
-            \quad \longrightarrow \quad
-            \begin{Bmatrix}
-                f(000) \\ f(001) \\ f(010) \\ \cdots \\ f(111)
-            \end{Bmatrix}
-        \end{align*}
-        \item \textbf{Problème}: on ne peut récupérer qu'\textbf{un seul des résultats à chaque calcul}. Il faut répéter la mesure un certain nombre de fois pour \textbf{connaître les réponses les plus probables}.
-    \end{itemize}
+
+\begin{frame}{Différences fondamentales entre ordinateurs classique et quantique}
+  \centering
+  \begin{tabular}{l|c|c}
+    & Classique & Quantique \\\hline
+    ~& ~ & ~\\
+    Encodage & Bit (0 \textbf{ou} 1) & Qubit (0 \textbf{et} 1) \\
+     ~& ~ & ~\\
+    Portes logiques & Booléennes & ? \\
+    ~& ~ & ~\\
+    Sensibilité à l'environnement & Faible & Haute \\
+    ~& ~ & ~\\
+    Connaissance du résultat & Déterministe & Probabiliste \\
+  \end{tabular}
 \end{frame}
 
 \begin{frame}{Utilité malgré cette limitation}
