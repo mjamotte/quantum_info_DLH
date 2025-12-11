@@ -13,24 +13,26 @@
 \usepackage{siunitx}
 \usepackage{physics}
 
-\title[Chapter 2]{Chapitre 2: Notions essentielles de mécanique quantique appliquées à l'informatique}
+\begin{document}
+
+\title[Chapter 2]{Chapitre 2: Vecteurs, qubit et superposition}
 \author{JAMOTTE Maxime, SCHOONEN Cédric}
 \institute{Digital Learning Hub}
 \date{}
-
-\begin{document}
 
 \begin{frame}
   \titlepage
 \end{frame}
 
-\begin{frame}{Table des matières}
-  \tableofcontents
+\begin{frame}
+  \begin{enumerate}
+    \item Vecteurs\\~\\
+    \item Produit scalaire\\~\\
+    \item Qubit, superposition d'états et vecteurs
+  \end{enumerate}
 \end{frame}
 
-\section{Vecteurs, matrices et produit matriciel}
-
-\begin{frame}{1. Vecteurs}
+\begin{frame}{Vecteurs}
   {%
     \setbeamercolor{itemize/enumerate body}{fg=gray!60}
     \setbeamercolor{itemize item}{fg=gray!60}
@@ -68,7 +70,7 @@
   }
 \end{frame}
 
-\begin{frame}{1. Vecteurs: produit scalaire}
+\begin{frame}{Produit scalaire}
   \begin{itemize}[<+->]
     \setlength{\itemsep}{0.6em}
     \item La probabilité d'obtenir un résultat de mesure vient (en gros) d'une comparaison de deux états quantiques.
@@ -77,7 +79,69 @@
   \end{itemize}
 \end{frame}
 
-\begin{frame}{1. Matrices}
+\begin{frame}{Qubit}
+  \begin{itemize}[<+->]
+    \setlength{\itemsep}{0.6em}
+    %\item Electron autour du noyau: infinité de positions possibles.
+    \item L'électron passe à travers les fentes du haut ($H$) et du bas ($B$) en même temps.% $\ket{\psi_e^{}} = \alpha \ket{H} + \beta \ket{B}$.
+      \only<1->{%
+        \vspace{0.5em}
+        \begin{center}
+          \begin{minipage}{0.42\textwidth}
+            \centering
+            \includegraphics[width=0.6\linewidth]{figures/fente_Young.png}
+          \end{minipage}\hfill
+          \begin{minipage}{0.42\textwidth}
+            \centering
+            \only<2->{\includegraphics[width=0.6\linewidth]{figures/bohr_model.png}}
+          \end{minipage}
+        \end{center}
+      }
+    \item Certains systèmes physiques ont des niveaux discrets d'énergie (au lieu de la position).
+    \item \textbf{Qubit} (= bit quantique) = système quantique à 2 niveaux, notés $\ket 0$ et $\ket 1$.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Superposition d'états et vecteurs}
+  \begin{columns}[T]
+    \begin{column}{0.6\textwidth}
+      \begin{itemize}[<+->]
+        \item Un qubit peut être dans $\ket 0$, $\ket 1$ ou toute \textbf{superposition} des deux: $\alpha \ket 0 + \beta \ket 1$.
+        \item Superposition = combinaison linéaire d'états.
+        \item \textbf{Postulat} : les états quantiques forment un espace vectoriel (espace de Hilbert). Une combinaison linéaire d'états est aussi un état.
+        \item On note aussi $\ket 0 = \begin{pmatrix}1 \\ 0\end{pmatrix}$ et $\ket 1 = \begin{pmatrix}0 \\ 1\end{pmatrix}$.\\~\\
+        \item État général : $\ket {\psi} = \alpha \ket 0 + \beta \ket 1$,\\~\\
+        \item Une superposition $\alpha \ket 0 + \beta \ket 1$ s'écrit $\begin{pmatrix} \alpha \\ \beta \end{pmatrix}$.\\~\\
+        %\item Probabilités de mesure : $P(\ket 0)=|\alpha|^2$, $P(\ket 1)=|\beta|^2$,
+        %$$ \Longrightarrow  |\alpha|^2 + |\beta|^2 = 1$$
+      \end{itemize}
+    \end{column}
+    \begin{column}{0.35\textwidth}
+      \vspace{2em}
+      \centering
+      \only<4->{\includegraphics[width=0.8\textwidth]{figures/ket_base.png}}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}
+  \centering
+  Fin du chapitre 2: voyons comment manipuler les qubits!
+\end{frame}
+
+%##################
+%##################
+
+\title[Chapter 3]{Chapitre 3: Matrices, portes logiques classiques et quantiques}
+\author{JAMOTTE Maxime, SCHOONEN Cédric}
+\institute{Digital Learning Hub}
+\date{}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\begin{frame}{Les matrices et leur action sur un vecteur}
   {%
     \setbeamercolor{itemize/enumerate body}{fg=gray!60}
     \setbeamercolor{itemize item}{fg=gray!60}
@@ -116,30 +180,9 @@
   }
 \end{frame}
 
-\begin{frame}{1. Valeurs propres et vecteurs propres}
-  \begin{itemize}[<+->]
-    \setlength{\itemsep}{0.6em}
-    \item Cas particuliers:   
-    $$ \begin{pmatrix} 2 & 1 \\ 2 & 3 \end{pmatrix} \begin{pmatrix} -1 \\ 1 \end{pmatrix} = \begin{pmatrix} -1 \\ 1 \end{pmatrix},$$
-    et 
-    $$ \begin{pmatrix} 2 & 1 \\ 2 & 3 \end{pmatrix} \begin{pmatrix} 1 \\ 2 \end{pmatrix} = \begin{pmatrix} 4 \\ 8 \end{pmatrix} = 4 \begin{pmatrix} 1 \\ 2 \end{pmatrix},$$
-    \item Multiplier un vecteur par une matrice redonne le même vecteur multiplié par un nombre.
-    \item On nomme ce vecteur "\textbf{vecteur propre}" et ce nombre "\textbf{valeur propre}".
-  \end{itemize}
-\end{frame}
 
-\begin{frame}{Valeurs propres et vecteurs propres}
-  \begin{itemize}[<+->]
-    \setlength{\itemsep}{0.6em}
-    \item On nomme ce vecteur "\textbf{vecteur propre}" et ce nombre "\textbf{valeur propre}".
-    ~\\~\\
-    \item Crucial: les grandeurs mesurables, comme la position ou le spin, sont repésentées par des matrices,
-     appelées \textbf{observables} et mesurer une quantité physique revient en fait à mesurer
-      l'une de ses valeurs propres, obtenues avec une certaine probabilité (voir plus tard).
-  \end{itemize}
-\end{frame}
 
-\begin{frame}{Multiplication de matrices}
+\begin{frame}{Multiplication de deux matrices}
 
   \[ M_1^{} \times M_2^{} = \begin{pmatrix}
       a & b \\
@@ -211,38 +254,8 @@
   \]
 \end{frame}
 
-\section{Qubit et états superposés}
 
-\begin{frame}{2. Qubit et superposition d'états}
-  \begin{itemize}[<+->]
-    \setlength{\itemsep}{0.6em}
-    \item Electron autour du noyau: infinité de positions possibles.
-    \item Electron et fentes de Young: passe à travers les deux fentes. 
-    \item Certains systèmes physiques n'ont que deux états possibles : ils servent de bits quantiques.
-    \item Qubit = système quantique à deux niveaux (comme si "seulment deux positions").
-    \item Un qubit peut être dans $\ket 0$, $\ket 1$ ou toute \textbf{superposition} des deux: $\alpha \ket 0 + \beta \ket 1$.
-    \item Superposition = combinaison linéaire d'états.
-    \item \textbf{Postulat} : les états quantiques forment un espace vectoriel (espace de Hilbert). Une combinaison linéaire d'états est aussi un état.
-  \end{itemize}
-\end{frame}
-
-\begin{frame}{2. Superposition d'états}
-  \begin{itemize}[<+->]
-    \item On note aussi $\ket 0 = \begin{pmatrix}1 \\ 0\end{pmatrix}$ et $\ket 1 = \begin{pmatrix}0 \\ 1\end{pmatrix}$.\\~\\
-    \item État général : $\ket {\psi} = \alpha \ket 0 + \beta \ket 1$,\\~\\
-    \item Une superposition $\alpha \ket 0 + \beta \ket 1$ s'écrit $\begin{pmatrix} \alpha \\ \beta \end{pmatrix}$.\\~\\
-    \item Probabilités de mesure : $P(\ket 0)=|\alpha|^2$, $P(\ket 1)=|\beta|^2$,
-    $$ \Longrightarrow  |\alpha|^2 + |\beta|^2 = 1$$
-  \end{itemize}
-  \vspace{-0.5em}
-  \begin{figure}
-    \includegraphics[width=0.25\textwidth]{figures/ket_base.png}
-  \end{figure}  
-\end{frame}
-
-\section{Portes logiques classiques et quantiques}
-
-\begin{frame}{3. Portes logiques classiques}
+\begin{frame}{Portes logiques classiques}
   \begin{itemize}[<+->]
     \setlength{\itemsep}{0.55em}
     \item Bits classiques: 0 ou 1; les portes transforment ces bits.
@@ -260,7 +273,7 @@
   }
 \end{frame}
 
-\begin{frame}{3. Table de vérité (rappel)}
+\begin{frame}{Table de vérité (rappel)}
   \centering
   \begin{tabular}{l c c c}
     \textbf{Porte} & \textbf{Symbole} & \textbf{Expression} & \textbf{Description} \\\hline
@@ -272,18 +285,18 @@
   \end{tabular}
 \end{frame}
 
-\begin{frame}{3. Table de vérité OR / AND}
+\begin{frame}{Table de vérité XOR / AND}
   \centering
   \begin{tabular}{c c | c | c}
-    $A$ & $B$ & $A\ \mathbf{OR}\ B$ & $A\ \mathbf{AND}\ B$ \\\hline
+    $A$ & $B$ & $A\ \mathbf{XOR}\ B$ & $A\ \mathbf{AND}\ B$ \\\hline
     0 & 0 & 0 & 0 \\
     0 & 1 & 1 & 0 \\
     1 & 0 & 1 & 0 \\
-    1 & 1 & 1 & 1 \\
+    1 & 1 & 0 & 1 \\
   \end{tabular}
 \end{frame}
 
-\begin{frame}{3. Exemple de circuit classique}
+\begin{frame}{Exemple de circuit classique}
   \begin{itemize}[<+->]
     \item Enchaînement de portes pour additionner deux bits (avec report).
     \item Chaque fil transporte un bit, chaque symbole applique une porte.
@@ -293,16 +306,18 @@
   \includegraphics[width=0.65\textwidth]{figures/addition_circuit2.png}
 \end{frame}
 
-\begin{frame}{3. Portes logiques quantiques}
+\begin{frame}{Portes logiques quantiques}
   \begin{itemize}[<+->]
     \setlength{\itemsep}{0.55em}
-    \item Les qubits se transforment via des matrices \textbf{unitaires} (évolution réversible).
-    \item Exemples de portes: Pauli X (inversion), Z (phase), Hadamard $H$ (création de superposition).
+    \item Les qubits se transforment via des portes logiques quantiques.\\~\\
+    \item Les \textbf{vecteurs} représentant les \textbf{qubits} sont transformés par des \textbf{matrices}
+     représentant les \textbf{portes quantiques} (unitaires = ne changent pas la longueur du vecteur).\\~\\
+    \item Exemples de portes: Pauli X (inversion), Z (phase), Hadamard $H$ (création de superposition).\\~\\
     \item Les circuits quantiques enchaînent ces portes sur des lignes de qubits (analogie classique).
   \end{itemize}
 \end{frame}
 
-\begin{frame}{3. Porte $X$ (NOT quantique)}
+\begin{frame}{Porte $X$ (NOT quantique)}
   \[
     X = \begin{pmatrix}0 & 1 \\ 1 & 0\end{pmatrix}
   \]
@@ -323,7 +338,7 @@
   \]
 \end{frame}
 
-\begin{frame}{3. Porte $Z$ (phase)}
+\begin{frame}{Porte $Z$ (phase)}
   \[
     Z = \begin{pmatrix}1 & 0 \\ 0 & -1\end{pmatrix}
   \]
@@ -344,7 +359,7 @@
   \]
 \end{frame}
 
-\begin{frame}{3. Porte $H$ (Hadamard)}
+\begin{frame}{Porte $H$ (Hadamard)}
   \[
     H = \tfrac{1}{\sqrt{2}}\begin{pmatrix}1 & 1 \\ 1 & -1\end{pmatrix}
   \]
@@ -377,9 +392,8 @@
 \begin{frame}[plain]
   \centering
   \vfill
-  {\Large Fin du chapitre 2: passons à la pratique avec QISKIT!}
+  {\Large Fin du chapitre 3: passons à la pratique avec QISKIT!}
   \vfill
 \end{frame}
-
 
 \end{document}

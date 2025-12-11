@@ -14,7 +14,7 @@
 \usepackage{physics}
 \usepackage{braket}
 
-\title[Chapter 2]{Chapitre 3: Prise en main de Qiskit}
+\title[Chapter 4]{Chapitre 4: Prise en main de Qiskit}
 \author{JAMOTTE Maxime, SCHOONEN Cédric}
 \institute{Digital Learning Hub}
 \date{}
@@ -31,7 +31,7 @@
 
 % \section{}
 
-\begin{frame}{Objectifs du chapitre 3}
+\begin{frame}{Objectifs du chapitre 4}
   \begin{itemize}
     \item 1) Manipuler des qubits avec Qiskit: application de portes quantiques.
     \\~\\
@@ -114,7 +114,7 @@
 \begin{frame}{Exercice 3.1 : $H$ sur \(\ket{1}\)}
   \begin{columns}[T,onlytextwidth]
     \column{0.55\textwidth}
-    \begin{itemize}
+    \begin{itemize}[<+->]
       \item Point de départ : \(\ket{1} = \begin{pmatrix}0\\ 1\end{pmatrix}\).
       \item Appliquer la porte de Hadamard : \(H\ket{1} = \tfrac{1}{\sqrt{2}}(\ket{0} - \ket{1})\).
       \item Modifier l'état initial dans le code (remplacer \(\ket{0}\) par \(\ket{1}\)) et observer la nouvelle superposition.
@@ -125,10 +125,11 @@
   \end{columns}
 \end{frame}
 
+
 \begin{frame}{Exercice 3.2 : $H$ puis $X$ sur \(\ket{0}\)}
   \begin{columns}[T,onlytextwidth]
     \column{0.55\textwidth}
-    \begin{itemize}
+    \begin{itemize}[<+->]
       \item Point de départ : \(\ket{0} = \begin{pmatrix}1\\ 0\end{pmatrix}\).
       \item Chaîne d'opérations : \(X H \ket{0} = X \big(\tfrac{1}{\sqrt{2}}(\ket{0} + \ket{1})\big) = \tfrac{1}{\sqrt{2}}(\ket{0} + \ket{1})\).
       \item Construire le circuit (H suivi de X), visualiser et vérifier l'état final dans le notebook.
@@ -142,7 +143,7 @@
 \begin{frame}{Exercice 3.3 : $X$ puis $H$ sur \(\ket{0}\)}
   \begin{columns}[T,onlytextwidth]
     \column{0.55\textwidth}
-    \begin{itemize}
+    \begin{itemize}[<+->]
       \item Point de départ : \(\ket{0}\).
       \item Chaîne d'opérations : \(H X \ket{0} = H\ket{1} = \tfrac{1}{\sqrt{2}}(\ket{0} - \ket{1})\).
       \item Comparer avec l'exercice 3.2 pour voir que l'ordre des portes change le résultat (non-commutativité).
@@ -153,6 +154,41 @@
   \end{columns}
 \end{frame}
 
+%##########################
+%##########################
+
+\title[Chapter 2]{Chapitre 5: Vecteurs propres, valeurs propres, mesure et probabilité}
+\author{JAMOTTE Maxime, SCHOONEN Cédric}
+\institute{Digital Learning Hub}
+\date{}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\begin{frame}{Valeurs propres et vecteurs propres}
+  \begin{itemize}[<+->]
+    \setlength{\itemsep}{0.6em}
+    \item Cas particuliers d'un produit matrice-vecteur:   
+    $$ \begin{pmatrix} 2 & 1 \\ 2 & 3 \end{pmatrix} \begin{pmatrix} -1 \\ 1 \end{pmatrix} = \begin{pmatrix} -1 \\ 1 \end{pmatrix},$$
+    et 
+    $$ \begin{pmatrix} 2 & 1 \\ 2 & 3 \end{pmatrix} \begin{pmatrix} 1 \\ 2 \end{pmatrix} = \begin{pmatrix} 4 \\ 8 \end{pmatrix} = 4 \begin{pmatrix} 1 \\ 2 \end{pmatrix},$$
+    \item Multiplier ce vecteur par cette matrice redonne le même vecteur multiplié par un nombre.
+    \item On nomme ce vecteur "\textbf{vecteur propre}" et ce nombre "\textbf{valeur propre}".
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Valeurs propres et vecteurs propres}
+  \begin{itemize}[<+->]
+    \setlength{\itemsep}{0.6em}
+    \item On nomme ce vecteur "\textbf{vecteur propre}" et ce nombre "\textbf{valeur propre}".
+    ~\\~\\
+    \item Crucial: les grandeurs mesurables, comme la position ou le spin, sont repésentées par des matrices,
+     appelées \textbf{observables} et mesurer une quantité physique revient en fait à mesurer
+      l'une de ses valeurs propres, obtenues avec une certaine probabilité (voir plus tard).
+  \end{itemize}
+\end{frame}
+
 \begin{frame}{Mesure}
   \begin{columns}[T,onlytextwidth]
     \column{0.5\textwidth}
@@ -160,7 +196,7 @@
       \item Ajouter un bit classique et mesurer: \texttt{qc.measure(0, 0)}.
       \item Le résultat de mesure doit être stocké dans le registre classique pour être lisible.
       \item Probabilités obtenues par le module carré des amplitudes: si $\ket \psi = \ket 0$ ou $\ket 1$, $$ P(\ket 0)=
-      |\braket{0|H|\psi}|^2 = 1/2,$$  $$P(\ket 1)=|\braket{1|H|\psi}|^2 = 1/2$$ (produit scalaire entre l'état mesuré et l'état du circuit).
+      |\braket{0|H|\psi}|^2 = 1/2,$$  $$P(\ket 1)=|\braket{1|H|\psi}|^2 = 1/2$$ ($\braket{\cdot|\cdot} = $ produit scalaire entre l'état mesuré et l'état du circuit).
     \end{itemize}
     \column{0.45\textwidth}
     \centering
