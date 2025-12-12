@@ -15,123 +15,6 @@
 
 \begin{document}
 
-\title[Chapter 2]{Chapitre 2: Vecteurs, qubit et superposition}
-\author{JAMOTTE Maxime, SCHOONEN Cédric}
-\institute{Digital Learning Hub}
-\date{}
-
-\begin{frame}
-  \titlepage
-\end{frame}
-
-\begin{frame}
-  \begin{enumerate}
-    \item Vecteurs\\~\\
-    \item Produit scalaire\\~\\
-    \item Qubit, superposition d'états et vecteurs
-  \end{enumerate}
-\end{frame}
-
-\begin{frame}{Vecteurs}
-  {%
-    \setbeamercolor{itemize/enumerate body}{fg=gray!60}
-    \setbeamercolor{itemize item}{fg=gray!60}
-    \setbeamercolor{alerted text}{fg=black}
-    \begin{columns}[T]
-      \begin{column}{0.55\textwidth}
-        \begin{itemize}[<+-| alert@+>]
-          \setlength{\itemsep}{0.6em}
-          \item Définition d'un vecteur
-          \item Addition de vecteurs
-          \item Multiplication d'un vecteur par une constante
-        \end{itemize}
-        \bigskip
-        \only<1>{\[
-          \vec r = \begin{pmatrix} a \\ b \end{pmatrix}
-        \]}
-        \only<2>{\[
-          \vec r + \vec p = 
-          \begin{pmatrix} a \\ b \end{pmatrix} +
-          \begin{pmatrix} c \\ d \end{pmatrix} =
-          \begin{pmatrix} a+c \\ b+d \end{pmatrix}
-        \]}
-        \only<3>{\[
-          \lambda \begin{pmatrix} a \\ b \end{pmatrix} =
-          \begin{pmatrix} \lambda a \\ \lambda b \end{pmatrix}
-        \]}
-      \end{column}
-      \begin{column}{0.4\textwidth}
-        \centering
-        \only<1>{\includegraphics[width=\linewidth]{figures/vecteur.png}}
-        \only<2>{\includegraphics[width=\linewidth]{figures/add_vecteurs.png}}
-        \only<3->{\includegraphics[width=\linewidth]{figures/multiplication_nombre.png}}
-      \end{column}
-    \end{columns}
-  }
-\end{frame}
-
-\begin{frame}{Produit scalaire}
-  \begin{itemize}[<+->]
-    \setlength{\itemsep}{0.6em}
-    \item La probabilité d'obtenir un résultat de mesure vient (en gros) d'une comparaison de deux états quantiques.
-    \item Cette comparaison se traduit par un produit scalaire entre leurs vecteurs associés.
-    $$\begin{pmatrix} a \\ b \end{pmatrix} \cdot \begin{pmatrix} c \\ d \end{pmatrix} = \begin{pmatrix} a & b \end{pmatrix} \begin{pmatrix} c \\ d \end{pmatrix} = ac+bd$$
-  \end{itemize}
-\end{frame}
-
-\begin{frame}{Qubit}
-  \begin{itemize}[<+->]
-    \setlength{\itemsep}{0.6em}
-    %\item Electron autour du noyau: infinité de positions possibles.
-    \item L'électron passe à travers les fentes du haut ($H$) et du bas ($B$) en même temps.% $\ket{\psi_e^{}} = \alpha \ket{H} + \beta \ket{B}$.
-      \only<1->{%
-        \vspace{0.5em}
-        \begin{center}
-          \begin{minipage}{0.42\textwidth}
-            \centering
-            \includegraphics[width=0.6\linewidth]{figures/fente_Young.png}
-          \end{minipage}\hfill
-          \begin{minipage}{0.42\textwidth}
-            \centering
-            \only<2->{\includegraphics[width=0.6\linewidth]{figures/bohr_model.png}}
-          \end{minipage}
-        \end{center}
-      }
-    \item Certains systèmes physiques ont des niveaux discrets d'énergie (au lieu de la position).
-    \item \textbf{Qubit} (= bit quantique) = système quantique à 2 niveaux, notés $\ket 0$ et $\ket 1$.
-  \end{itemize}
-\end{frame}
-
-\begin{frame}{Superposition d'états et vecteurs}
-  \begin{columns}[T]
-    \begin{column}{0.6\textwidth}
-      \begin{itemize}[<+->]
-        \item Un qubit peut être dans $\ket 0$, $\ket 1$ ou toute \textbf{superposition} des deux: $\alpha \ket 0 + \beta \ket 1$.
-        \item Superposition = combinaison linéaire d'états.
-        \item \textbf{Postulat} : les états quantiques forment un espace vectoriel (espace de Hilbert). Une combinaison linéaire d'états est aussi un état.
-        \item On note aussi $\ket 0 = \begin{pmatrix}1 \\ 0\end{pmatrix}$ et $\ket 1 = \begin{pmatrix}0 \\ 1\end{pmatrix}$.\\~\\
-        \item État général : $\ket {\psi} = \alpha \ket 0 + \beta \ket 1$,\\~\\
-        \item Une superposition $\alpha \ket 0 + \beta \ket 1$ s'écrit $\begin{pmatrix} \alpha \\ \beta \end{pmatrix}$.\\~\\
-        %\item Probabilités de mesure : $P(\ket 0)=|\alpha|^2$, $P(\ket 1)=|\beta|^2$,
-        %$$ \Longrightarrow  |\alpha|^2 + |\beta|^2 = 1$$
-      \end{itemize}
-    \end{column}
-    \begin{column}{0.35\textwidth}
-      \vspace{2em}
-      \centering
-      \only<4->{\includegraphics[width=0.8\textwidth]{figures/ket_base.png}}
-    \end{column}
-  \end{columns}
-\end{frame}
-
-\begin{frame}
-  \centering
-  Fin du chapitre 2: voyons comment manipuler les qubits!
-\end{frame}
-
-%##################
-%##################
-
 \title[Chapter 3]{Chapitre 3: Matrices, portes logiques classiques et quantiques}
 \author{JAMOTTE Maxime, SCHOONEN Cédric}
 \institute{Digital Learning Hub}
@@ -139,6 +22,14 @@
 
 \begin{frame}
   \titlepage
+\end{frame}
+
+\begin{frame}{Objectifs du chapitre 3}
+  \begin{enumerate}
+    \item Matrices et action sur un vecteur\\~\\
+    \item Portes logiques et circuits classiques\\~\\
+    \item Portes logiques quantiques
+  \end{enumerate}
 \end{frame}
 
 \begin{frame}{Les matrices et leur action sur un vecteur}
@@ -389,10 +280,10 @@
 %   \end{itemize}
 % \end{frame}
 
-\begin{frame}[plain]
+\begin{frame}{Fin du chapitre 3}
   \centering
   \vfill
-  {\Large Fin du chapitre 3: passons à la pratique avec QISKIT!}
+  Passons à la pratique avec QISKIT!
   \vfill
 \end{frame}
 

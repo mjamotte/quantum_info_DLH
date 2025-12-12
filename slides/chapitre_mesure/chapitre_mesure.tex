@@ -1,0 +1,143 @@
+\documentclass[aspectratio=169,12pt]{beamer}
+\usetheme{Madrid}
+\usecolortheme{dolphin}
+\usefonttheme{professionalfonts}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{footline}{}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{amsmath,amssymb}
+\usepackage{hyperref}
+\usepackage{siunitx}
+\usepackage{physics}
+\usepackage{braket}
+
+\begin{document}
+
+\title[Chapter 5]{Chapitre 5: Vecteurs propres, valeurs propres, mesure et probabilité}
+\author{JAMOTTE Maxime, SCHOONEN Cédric}
+\institute{Digital Learning Hub}
+\date{}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\begin{frame}{Objectifs du chapitre 5}
+    \begin{itemize}
+        \item Vecteurs propres et valeurs propres\\~\\
+        \item Comprendre les liens entre "valeur propre/résultat de mesure" et "vecteur propre/probabilité de mesure"\\~\\
+        \item Mesurer avec QISKIT
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Valeurs propres et vecteurs propres}
+  \begin{itemize}[<+->]
+    \setlength{\itemsep}{0.6em}
+    \item Cas particuliers d'un produit matrice-vecteur:   
+    $$ \begin{pmatrix} 2 & 1 \\ 2 & 3 \end{pmatrix} \begin{pmatrix} -1 \\ 1 \end{pmatrix} = \begin{pmatrix} -1 \\ 1 \end{pmatrix},$$
+    et 
+    $$ \begin{pmatrix} 2 & 1 \\ 2 & 3 \end{pmatrix} \begin{pmatrix} 1 \\ 2 \end{pmatrix} = \begin{pmatrix} 4 \\ 8 \end{pmatrix} = 4 \begin{pmatrix} 1 \\ 2 \end{pmatrix},$$~\\
+    \item Multiplier ce vecteur par cette matrice redonne le même vecteur multiplié par un nombre.
+    \item On nomme ce vecteur "\textbf{vecteur propre}" et ce nombre "\textbf{valeur propre}".
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Lien entre valeurs propres, vecteurs propres, mesure et probabilité}
+  \begin{itemize}[<+->]
+    \setlength{\itemsep}{0.6em}
+    \item Les grandeurs mesurables, comme la position, l'énergie ou le spin, sont repésentées par des matrices,
+     appelées \textit{observables}, et \textbf{mesurer} une quantité physique revient en fait à mesurer
+      l'une de ses \textbf{valeurs propres}.
+    \item La \textbf{probabilité} de mesurer une valeur propre est directement reliée
+     au \textbf{produit scalaire} entre l'état du système et le vecteur propre associé à la valeur propre mesurée.
+    \item La nature de la valeur propre (énergie, spin,...) dépend de la platforme (voir plus loin)
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Mesurer avec QISKIT  (voir JN)}
+  \begin{columns}[T,onlytextwidth]
+    \column{0.5\textwidth}
+    \begin{itemize}
+      \item Ajouter un bit classique pour stocker la mesure: \texttt{qc(1,1)}.
+      \item Opération de mesure et stockage dans le bit classique: \texttt{qc.measure(0, 0)}.
+      \item Probabilités obtenues par le module carré des amplitudes: si $\ket \psi = \ket 0$ ou $\ket 1$, $$ P(\ket 0)=
+      |\braket{0|H|\psi}|^2 = 1/2,$$  $$P(\ket 1)=|\braket{1|H|\psi}|^2 = 1/2$$ ($\braket{\cdot|\cdot} = $ produit scalaire entre l'état mesuré et l'état du circuit).
+    \end{itemize}
+    \column{0.45\textwidth}
+    \centering
+    \vspace*{-3em}
+    \includegraphics[width=0.9\linewidth]{figures/measure_circuit.png}
+    \\[0.05em]
+    \vspace*{-1.5em}
+    \[
+      \begin{aligned}
+        \braket{0|H|\psi} &= \begin{pmatrix} 1\\0 \end{pmatrix} \cdot \frac{1}{\sqrt 2}\begin{pmatrix} 1\\\pm 1 \end{pmatrix} = \frac{1}{\sqrt 2},\\
+        \braket{1|H|\psi} &= \begin{pmatrix} 0\\1 \end{pmatrix} \cdot \frac{1}{\sqrt 2}\begin{pmatrix} 1\\\pm 1 \end{pmatrix} = \pm \frac{1}{\sqrt 2}.
+      \end{aligned}
+    \]
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Mesurer avec QISKIT  (voir JN)}
+  \begin{columns}[T,onlytextwidth]
+    \column{0.5\textwidth}
+    \begin{itemize}
+     \item Ajouter un bit classique et mesurer: \texttt{qc.measure(0, 0)}.
+      \item Le résultat de mesure doit être stocké dans le registre classique pour être lisible.
+      \item Probabilités obtenues par le module carré des amplitudes: si $\ket \psi = \ket 0$ ou $\ket 1$, $$ P(\ket 0)=
+      |\braket{0|H|\psi}|^2 = 1/2,$$  $$P(\ket 1)=|\braket{1|H|\psi}|^2 = 1/2$$
+    \end{itemize}
+    \column{0.45\textwidth}
+    \centering
+    \vspace*{-3em}
+    \includegraphics[width=0.9\linewidth]{figures/measure_circuit.png}
+    \\[0.05em]
+    \vspace*{-1.5em}
+    \[
+      \begin{aligned}
+        \braket{0|H|\psi} &= \begin{pmatrix} 1\\0 \end{pmatrix} \cdot \frac{1}{\sqrt 2}\begin{pmatrix} 1\\\pm 1 \end{pmatrix} = \frac{1}{\sqrt 2},\\
+        \braket{1|H|\psi} &= \begin{pmatrix} 0\\1 \end{pmatrix} \cdot \frac{1}{\sqrt 2}\begin{pmatrix} 1\\\pm 1 \end{pmatrix} = \pm \frac{1}{\sqrt 2}.
+      \end{aligned}
+    \]
+  \end{columns}
+  \vspace*{-.5em}
+  ~\\~\\La mesure \textbf{projette} l'état quantique sur $\ket{0}$ ou $\ket{1}$
+   selon les probabilités $P(\ket 0)$ et $P(\ket 1)$. \textbf{Le système est définitivement dans un des états propres}.
+\end{frame}
+
+\begin{frame}{Simulation avec Aer: imitation d'un ordinateur quantique}
+  \begin{itemize}
+    \item Backend: \texttt{simulateur = Aer.get\_backend('aer\_simulator')}.
+    \item Exécuter avec un nombre de tirs \texttt{shots = n}, récupérer les comptages.
+    \item Visualiser les résultats avec \texttt{plot\_histogram}.
+  \end{itemize}
+  \vspace{0.5em}
+  \begin{columns}[T,onlytextwidth]
+    \column{0.5\textwidth}
+    \centering
+    \includegraphics[width=0.8\linewidth]{figures/histogram_1_shot.png}\\[-0.3em]
+    \footnotesize 1 tir
+    \column{0.5\textwidth}
+    \centering
+    \includegraphics[width=0.8\linewidth]{figures/histogram_1000_shots.png}\\[-0.3em]
+    \footnotesize 1000 tirs
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Fin du chapitre 5}
+    \centering
+    Passons aux systèmes à deux qubits et à l'intrication.
+%   \begin{itemize}
+%     \item Systèmes à 2 qubits
+%     \\~\\
+%     \item Intrication quantique
+%     \\~\\
+%     \item Extension aux circuits à 2 qubits
+%   \end{itemize}
+\end{frame}
+
+
+\end{document}
