@@ -13,8 +13,9 @@
 \usepackage{siunitx}
 \usepackage{physics}
 \usepackage{braket}
+\usepackage{tikz}
 
-\title[Chapter 4]{Chapitre ...: Plateformes implémentant des ordinateurs quantiques}
+\title[Chapter 4]{Chapitre 7: Plateformes implémentant des ordinateurs quantiques}
 \author{JAMOTTE Maxime, SCHOONEN Cédric}
 \institute{Digital Learning Hub}
 \date{}
@@ -55,61 +56,94 @@
 \end{frame}
 
 
-%------------------ Slide 1 : Ions piégés ------------------%
-\begin{frame}{Plateforme quantique : ions piégés}
+
+\begin{frame}{Plateformes quantiques}
+\begin{itemize}
+    \item Qubits supraconducteurs\\~\\
+    \item Atomes neutres\\~\\
+    \item Ions piégés\\~\\
+    \item Spins dans les semi-conducteurs\\~\\
+    \item Photonique
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Qubits supraconducteurs (IBM, Google,...)}
+\begin{columns}[T]
+\begin{column}{0.6\textwidth}
+\begin{itemize}
+    \item Des \textbf{circuits supraconducteurs} (LC + jonction Josephson) se comportent 
+    comme des \textbf{atomes artificiels}.\\~\\
+    \item Les deux premiers niveaux d’énergie forment le qubit :
+    \[
+        |0\rangle = \text{état fondamental},
+        |1\rangle = \text{premier état excité}.
+    \]
+    \item Les opérations quantiques sont réalisées avec des \textbf{impulsions laser micro-ondes}.
+    ~\\~\\
+    \item Fréquences différentes pour accéder aux autres niveaux d'énergie.
+\end{itemize}
+\end{column}
+\begin{column}{0.4\textwidth}
+\centering
+\begin{tikzpicture}
+    \node[inner sep=0] (img) {\includegraphics[width=0.8\linewidth]{figures/qubit_SC.png}};
+    \node[anchor=south east,text=white,font=\scriptsize] at (img.south east) {Pierre Guichard};
+\end{tikzpicture}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Ions piégés (Quantinuum, IonQ, Innsbruck / AQT)}
+\begin{columns}[T]
+\begin{column}{0.6\textwidth}
 \begin{itemize}
     \item Des \textbf{ions individuels} (ex.: Yb\(^+\), Ca\(^+\)) sont alignés dans un \textbf{piège électromagnétique}.
     \item Le qubit est encodé dans deux \textbf{niveaux internes} stables de l’atome :
     \[
-        |0\rangle = \text{niveau hyperfin A}, \qquad |1\rangle = \text{niveau hyperfin B}.
+        |0\rangle = \text{niveau hyperfin A},\ |1\rangle = \text{niveau hyperfin B}.
     \]
-    \item Les opérations quantiques sont réalisées par des \textbf{impulsions laser} :
+    \item Opérations quantiques par des \textbf{impulsions laser}:
     \begin{itemize}
         \item rotations à un qubit,
-        \item ?portes à deux qubits via le \textbf{mode vibratoire collectif} (Molmer--Sørensen).
+        \item portes à deux qubits via \textbf{mode vibratoire collectif}.
     \end{itemize}
-    \item Plateformes : \textbf{Quantinuum}, \textbf{IonQ}, Innsbruck / AQT.
 \end{itemize}
+\end{column}
+\begin{column}{0.4\textwidth}
+\centering
+\includegraphics[width=0.8\linewidth]{figures/ion_trap.jpg}
+\end{column}
+\end{columns}
 \end{frame}
 
-%------------------ Slide 2 : Atomes neutres ------------------%
-\begin{frame}{Plateforme quantique : atomes neutres}
+\begin{frame}{Atomes neutres (Pasqal, QuEra, ColdQuanta)}
+\begin{columns}[T]
+\begin{column}{0.6\textwidth}
 \begin{itemize}
-    \item Des atomes neutres (Rb, Cs) sont piégés un par un dans des \textbf{pinces optiques}.
-    \item Le qubit correspond à deux \textbf{niveaux hyperfins} de l’atome :
+    \item Des atomes neutres (Rb, Cs) sont piégés un par un dans des \textbf{pinces optiques}.\\~\\
+    \item Le qubit correspond à deux \textbf{niveaux hyperfins} de l’atome:
     \[
         |0\rangle = \text{hyperfin A}, \qquad |1\rangle = \text{hyperfin B}.
     \]
-    \item Manipulation par \textbf{lasers} :
+    \item Opérations quantiques par \textbf{impulsions laser}:
     \begin{itemize}
         \item opérations à un qubit,
-        \item ?interactions contrôlées via le \textbf{blocage de Rydberg}.
+        \item interactions contrôlées via le \textbf{blocage de Rydberg} (état hautement excité).\\~\\
     \end{itemize}
     \item Les atomes peuvent être \textbf{déplacés librement} pour reconfigurer la géométrie du processeur.
-    \item Plateformes : \textbf{Pasqal}, \textbf{QuEra}, ColdQuanta.
 \end{itemize}
+\end{column}
+\begin{column}{0.4\textwidth}
+\centering
+\includegraphics[width=0.8\linewidth]{figures/atomes_neutres.png}
+\end{column}
+\end{columns}
 \end{frame}
 
-%------------------ Slide 3 : Supraconducteurs ------------------%
-\begin{frame}{Plateforme quantique : qubits supraconducteurs}
-\begin{itemize}
-    \item Des \textbf{circuits supraconducteurs} (LC + jonction Josephson) se comportent 
-    comme des \textbf{atomes artificiels}.
-    \item Les deux premiers niveaux d’énergie forment le qubit :
-    \[
-        |0\rangle = \text{état fondamental}, \qquad |1\rangle = \text{premier état excité}.
-    \]
-    \item Les opérations quantiques sont réalisées avec des \textbf{impulsions micro-ondes} :
-    \begin{itemize}
-        \item rotations à un qubit,
-        \item portes contrôlées (\(CZ\), \(iSWAP\)).
-    \end{itemize}
-    \item Plateformes : \textbf{IBM Quantum}, \textbf{Google Quantum AI}, \textbf{Rigetti}.
-\end{itemize}
+\begin{frame}{Fin du chapitre 7}
+    \centering
+ Passons à...
 \end{frame}
-
-\end{document}
-
 
 
 \end{document}
