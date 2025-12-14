@@ -66,6 +66,8 @@
         \item Cette comparaison se traduit par un produit scalaire entre leurs vecteurs associés.
         $$\vec r \cdot \vec p = \begin{pmatrix} a & b \end{pmatrix} \begin{pmatrix} c \\ d \end{pmatrix} = ac+bd$$
         \item Lien avec l'angle: $\vec r \cdot \vec p = \norm{\vec r}\norm{\vec p}\cos(\theta)$.
+        \item Produit scalaire entre deux états $\ket{\phi}$ et $\ket \psi$: $\braket{\phi|\psi}$.
+        \item Conventions: $\braket{0|0} = 1$, $\braket{1|1} = 1$ et $\braket{0|1} = 0$ (orthogonaux).
       \end{itemize}
     \end{column}
     \begin{column}{0.35\textwidth}
@@ -76,9 +78,7 @@
 \end{frame}
 
 \begin{frame}{Mesurer en mécanique quantique}
-  \begin{itemize}
-    \item Produit scalaire entre deux états $\ket{\phi}$ et $\ket \psi$: $\braket{\phi|\psi}$.
-    \item Conventions: $\braket{0|0} = 1$, $\braket{1|1} = 1$ et $\braket{0|1} = 0$ (orthogonaux).
+  \begin{itemize}[<+->]
     \item Si $\ket \psi = a \ket 0 + b \ket 1$ et $\ket \phi = c \ket 0 + d \ket 1$ alors:
     \begin{equation*}
       \begin{split}
@@ -93,8 +93,10 @@
       \end{split}
     \end{equation*}
     \item \textbf{Postulat}: mesurer = projeter le vecteur du qubit sur le vecteur propre associé à la
-     valeur propre de l'observable mesurée.
-     \item On projette avec un projecteur $\Pi_{\phi}^{} = \ket \phi \bra \phi$ sur l'état $\phi$: $\ket \phi \braket{\phi|\psi}$
+     valeur propre de l'observable mesurée.\\~\\
+    \item On projette avec un projecteur $\Pi_{\phi}^{} = \ket \phi \bra \phi$ sur l'état $\phi$: $\ket \phi \braket{\phi|\psi}$.\\~\\
+    \item Probabilité de mesurer la valeur propre = le produit scalaire entre état projeté et état initial: 
+    $$ \bra \psi \Pi_\phi \ket \psi = \braket{\psi|\phi}\braket{\phi|\psi} = |\braket{\phi|\psi}|^2 $$
   \end{itemize}  
 \end{frame}
 
@@ -105,7 +107,7 @@
     \begin{itemize}
       \item Ajouter un bit classique pour stocker la mesure: \texttt{qc(1,1)}.
       \item Opération de mesure et stockage dans le bit classique: \texttt{qc.measure(0, 0)}.
-      \item Probabilités obtenues par le module carré des amplitudes: si $\ket \psi = \ket 0$ ou $\ket 1$, $$ P(\ket 0)=
+      \item Probabilités obtenues par le module carré des amplitudes: si états possibles $\ket \psi = \ket 0$, $$ P(\ket 0)=
       |\braket{0|H|\psi}|^2 = 1/2,$$  $$P(\ket 1)=|\braket{1|H|\psi}|^2 = 1/2$$ ($\braket{\cdot|\cdot} = $ produit scalaire entre l'état mesuré et l'état du circuit).
     \end{itemize}
     \column{0.45\textwidth}
@@ -129,7 +131,7 @@
     \begin{itemize}
      \item Ajouter un bit classique et mesurer: \texttt{qc.measure(0, 0)}.
       \item Le résultat de mesure doit être stocké dans le registre classique pour être lisible.
-      \item Probabilités obtenues par le module carré des amplitudes: si $\ket \psi = \ket 0$ ou $\ket 1$, $$ P(\ket 0)=
+      \item Probabilités obtenues par le module carré des amplitudes: si $\ket \psi = \ket 1$, $$ P(\ket 0)=
       |\braket{0|H|\psi}|^2 = 1/2,$$  $$P(\ket 1)=|\braket{1|H|\psi}|^2 = 1/2$$
     \end{itemize}
     \column{0.45\textwidth}
@@ -148,25 +150,6 @@
   \vspace*{-.5em}
   ~\\~\\La mesure \textbf{projette} l'état quantique sur $\ket{0}$ ou $\ket{1}$
    selon les probabilités $P(\ket 0)$ et $P(\ket 1)$. \textbf{Le système est définitivement dans un des états propres}.
-\end{frame}
-
-\begin{frame}{Simulation avec Aer: imitation d'un ordinateur quantique}
-  \begin{itemize}
-    \item Backend: \texttt{simulateur = Aer.get\_backend('aer\_simulator')}.
-    \item Exécuter avec un nombre de tirs \texttt{shots = n}, récupérer les comptages.
-    \item Visualiser les résultats avec \texttt{plot\_histogram}.
-  \end{itemize}
-  \vspace{0.5em}
-  \begin{columns}[T,onlytextwidth]
-    \column{0.5\textwidth}
-    \centering
-    \includegraphics[width=0.8\linewidth]{figures/histogram_1_shot.png}\\[-0.3em]
-    \footnotesize 1 tir
-    \column{0.5\textwidth}
-    \centering
-    \includegraphics[width=0.8\linewidth]{figures/histogram_1000_shots.png}\\[-0.3em]
-    \footnotesize 1000 tirs
-  \end{columns}
 \end{frame}
 
 \begin{frame}{Fin du chapitre 5}
