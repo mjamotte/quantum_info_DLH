@@ -14,6 +14,48 @@
 \usepackage{physics}
 
 \begin{document}
+	
+	% ============================ NOISE CHAPTER ============================
+	% Noise is a major obstacle to quantum computation
+	% Types: gate errors and decoherence (what is the difference?)
+	% Brief discussion about decoherence ??
+	% Currently in the "NISQ" era: cannot yet do Grover and Shor at realistic scales
+	% There are algorithms more tolerant to a noisy environment: VQE and QAOA 
+	% --> why are they more tolerant to noise? (brief explanation)
+	% Currently no error correction (or little, see Microsoft April 2024)
+	% Talk briefly about error correction strategies
+	% Roadmaps of quantum computing companies
+	% Even if you don't share their optimistim, it shows the importance of migrating to quantum-safe cryptographic protocols
+	% =======================================================================
+	
+	
+	% ============================= VQA CHAPTER =============================
+	
+	
+	% Méthodes hybrides consistant à minimizer avec des algorithmes classiques une fonction coût V(q) = <q|H|q> évaluée sur un ordinateur quantique.
+	% ... méthode variationelle en physique (<q|H|q> >= ground state energy)
+	% ... make a diagram with boxes for initialization of parameters q, eval of <q|H|q>, result V(q), arrows in between + one retro-acting from V(q) to the initialization q
+	% Expliquer comment cela est lié à l'estimation de phase
+	% ((Passer en revue les nombreuses variantes: VQE, QAOA, QML)) 
+	%   --> QAOA IS NOT A VARIATIONAL ALGO! AND QML IS A FIELD!!
+	%   --> why presented as such in qss slides
+	% --------------------------------------------------------
+	% VQE (Variational Quantum Eigensolver):
+	% - Main applications in chemistry and condensed matter physics
+	% - Reférence 2013 sur slides QGSS-2025
+	% QAOA (Quantum Approximate Optimization Algorithms):
+	% - Combinatorial optimization with general applications (e.g. logistics with the travelling salesman problem)
+	% - Un peu compliqué à expliquer (mapping problem to a hamiltonian H1) (adiabatic from H0 with known ground state to H1) (trotterization)
+	% - Reférence 2014 sur slides QGSS-2025
+	% QML (Quantum Machine Learning):
+	% - Classifiers with Support Vector Machines (can be formulated as an optimization problem)
+	% - Neural network training
+	% - Benefits from HHL algo --> how?
+	% --------------------------------------------------------
+	% Expliquer ce que la partie quantique accélère exactement
+	% Expliquer les problèmes associés à l'étape (classique) de minimisation: barren plateaus (expliquer argument de base -> papier 2018)
+	% Astuces pour éviter ces problèmes: initialisations bien choisies avec un nombre réduit d'opérateurs (ADAPT-VQE arxiv:1812.11173) (Aussi arxiv:2401.08044 arxiv:2308.04481)
+	% Question ouverte: est-ce qu'éviter le problème des barren plateaus revient à rendre l'algorithme simulable classiquement? (arxiv:2312.09121)
 
 \begin{frame}{Classique VS Quantique}
     \begin{itemize}

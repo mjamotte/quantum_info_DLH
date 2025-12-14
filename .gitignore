@@ -2,6 +2,7 @@ literature/
 miscellaneous/
 .venv/
 Lectures/
+slides/test
 
 *.desktop
 *.pdf
