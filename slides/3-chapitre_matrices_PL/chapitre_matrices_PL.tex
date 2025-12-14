@@ -41,21 +41,12 @@
       \begin{column}{0.55\textwidth}
         \begin{itemize}[<+-| alert@+>]
           \setlength{\itemsep}{0.6em}
+          \item Multiplication matrice-vecteur
           \item Addition de matrices
           \item Multiplication d'une matrice par un scalaire
-          \item Multiplication matrice-vecteur
         \end{itemize}
         \bigskip
-        \only<1>{\[M_1^{}+M_2^{} = 
-          \begin{pmatrix} a & b\\ c & d \end{pmatrix} +
-          \begin{pmatrix} e & f\\ g & h \end{pmatrix} =
-          \begin{pmatrix} a+e & b+f\\ c+g & d+h \end{pmatrix}
-        \]}
-        \only<2>{\[ \lambda M = 
-          \lambda \begin{pmatrix} a & b\\ c & d \end{pmatrix} =
-          \begin{pmatrix} \lambda a & \lambda b\\ \lambda c & \lambda d \end{pmatrix}
-        \]}
-        \only<3>{\[M \vec{r} = 
+        \only<1>{\[M \vec{r} = 
           \begin{pmatrix} a & b \\ c & d \end{pmatrix}
           \begin{pmatrix} u \\ v \end{pmatrix} =
           \begin{pmatrix} au + bv \\ cu + dv \end{pmatrix}
@@ -63,11 +54,21 @@
       \end{column}
       \begin{column}{0.4\textwidth}
         \centering
-        \only<1>{\fbox{\Large $M_1^{}+M_2^{}$}}
-        \only<2>{\fbox{\Large $\lambda M$}}
-        \only<3->{\includegraphics[width=\linewidth]{figures/multiplication_Mv.png}}
+        \only<1>{\includegraphics[width=\linewidth]{figures/multiplication_Mv.png}}
+        \only<2>{\fbox{\Large $M_1^{}+M_2^{}$}}
+        \only<3>{\fbox{\Large $\lambda M$}}
       \end{column}
     \end{columns}
+        \only<2>{\[M_1^{}+M_2^{} = 
+          \begin{pmatrix} a & b\\ c & d \end{pmatrix} +
+          \begin{pmatrix} e & f\\ g & h \end{pmatrix} =
+          \begin{pmatrix} a+e & b+f\\ c+g & d+h \end{pmatrix}
+        \]}
+        \only<3>{\[ \lambda M = 
+          \lambda \begin{pmatrix} a & b\\ c & d \end{pmatrix} =
+          \begin{pmatrix} \lambda a & \lambda b\\ \lambda c & \lambda d \end{pmatrix}
+        \]}
+        
   }
 \end{frame}
 
@@ -166,6 +167,7 @@
 
 \begin{frame}{Table de vérité (rappel)}
   \centering
+  \renewcommand{\arraystretch}{1.4}
   \begin{tabular}{l c c c}
     \textbf{Porte} & \textbf{Symbole} & \textbf{Expression} & \textbf{Description} \\\hline
     NOT   & $\lnot A$ & inverse & $1\leftrightarrow 0$ \\
@@ -176,8 +178,11 @@
   \end{tabular}
 \end{frame}
 
+
+
 \begin{frame}{Table de vérité XOR / AND}
   \centering
+  \renewcommand{\arraystretch}{1.4}
   \begin{tabular}{c c | c | c}
     $A$ & $B$ & $A\ \mathbf{XOR}\ B$ & $A\ \mathbf{AND}\ B$ \\\hline
     0 & 0 & 0 & 0 \\
@@ -202,7 +207,7 @@
     \setlength{\itemsep}{0.55em}
     \item Les qubits se transforment via des portes logiques quantiques.\\~\\
     \item Les \textbf{vecteurs} représentant les \textbf{qubits} sont transformés par des \textbf{matrices}
-     représentant les \textbf{portes quantiques} (unitaires = ne changent pas la longueur du vecteur).\\~\\
+     représentant les \textbf{portes quantiques}.\\~\\
     \item Exemples de portes: Pauli X (inversion), Z (phase), Hadamard $H$ (création de superposition).\\~\\
     \item Les circuits quantiques enchaînent ces portes sur des lignes de qubits (analogie classique).
   \end{itemize}

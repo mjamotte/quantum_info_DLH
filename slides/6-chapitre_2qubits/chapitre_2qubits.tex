@@ -110,83 +110,7 @@
   \end{itemize}
 \end{frame}
 
-\begin{frame}{2) Tester l'intrication (décomposition de Schmidt)}
-  \begin{itemize}[<+->]
-    \item L'état $\frac{\ket{00} + \ket{01}}{\sqrt{2}}$ est-il intriqué? 
-    \item Non: on peut le réécrire comme un état produit
-    \begin{equation*}
-      \frac{\ket{00} + \ket{01}}{\sqrt{2}} = \ket{0} \otimes \frac{\ket{0}+\ket{1}}{2}
-    \end{equation*} 
-    \item Si l'état est intriqué, on obtient toujours plusieurs termes:
-    \begin{equation*}
-      \frac{\ket{00} + \ket{11}}{\sqrt{2}} = \frac{1}{\sqrt{2}} \ket{0} \otimes \ket{0} + \frac{1}{\sqrt{2}} \ket{1} \otimes \ket{1}
-    \end{equation*}
-    \item Ce type de décomposition s'appelle une \textbf{décomposition de Schmidt}.
-    %\item Rang de Schmidt = nombre de coefficients non nuls:\\~\\
-    %rang 1 $\Rightarrow$ produit, rang $>1$ $\Rightarrow$ intriqué.
-    %\\~\\
-    %\item Exemples (notebook): $\frac{\ket{00}+\ket{01}}{\sqrt{2}}$ rang 1; $\ket{\Psi_-}$ rang 2.
-  \end{itemize}
-\end{frame}
 
-\begin{frame}{2) Tester l'intrication (décomposition de Schmidt)}
-  \begin{itemize}[<+->]
-    \item Example plus intéressant:
-    \begin{equation*}
-      \ket{\psi_{AB}} = \frac{2\ket{00} + \ket{01} + \ket{10} + \ket{11}}{\sqrt{7}}
-    \end{equation*}
-    \item Décomposition mettant en évidence le qubit d'Alice:
-    \begin{align*}
-      \ket{\psi_{AB}} 
-      &= \frac{1}{\sqrt{7}} (2\ket{00} + \ket{01}) + \frac{1}{\sqrt{7}} (\ket{10} + \ket{11})\\
-      &= \sqrt{\frac{5}{7}} \left( \ket{0} \otimes \frac{2\ket{0}+\ket{1}}{\sqrt{5}} \right) + \sqrt{\frac{2}{7}} \left( \ket{1} \otimes \frac{\ket{0}+\ket{1}}{\sqrt{2}} \right)
-    \end{align*}
-    \item Les probabilités de mesure d'Alice sont:
-    \begin{equation*}
-      P(\ket{0}_A) = \frac{5}{7} \qquad\qquad P(\ket{1}_A) = \frac{2}{7}
-    \end{equation*}
-  \end{itemize}
-\end{frame}
-
-\begin{frame}{2) Tester l'intrication (décomposition de Schmidt)}
-  \begin{itemize}
-    \item Example plus intéressant:
-    \begin{equation*}
-      \ket{\psi_{AB}} = \frac{2\ket{00} + \ket{01} + \ket{10} + \ket{11}}{\sqrt{7}}
-    \end{equation*}
-    \item Décomposition mettant en évidence le qubit de Bob:
-    \begin{align*}
-      \ket{\psi_{AB}} 
-      &= \frac{1}{\sqrt{7}} (2\ket{00} + \ket{10}) + \frac{1}{\sqrt{7}} (\ket{01} + \ket{11})\\
-      &= \sqrt{\frac{5}{7}} \left( \frac{2\ket{0}+\ket{1}}{\sqrt{5}} \otimes \ket{0} \right) + \sqrt{\frac{2}{7}} \left( \frac{\ket{0}+\ket{1}}{\sqrt{2}} \otimes \ket{1} \right)
-    \end{align*}
-    \item Les probabilités de mesure de Bob sont aussi:
-    \begin{equation*}
-      P(\ket{0}_B) = \frac{5}{7} \qquad\qquad P(\ket{1}_B) = \frac{2}{7}
-    \end{equation*}
-  \end{itemize}
-\end{frame}
-
-\begin{frame}{2) Tester l'intrication (décomposition de Schmidt)}
-  \begin{itemize}[<+->]
-    \item La décomp. de Schmidt permet de calculer les probabilités de mesures partielles!
-    \item Que se passe-t-il du point de vue d'Alice si Bob mesure $\ket{1}$?
-    \begin{align*}
-      \ket{\psi_{AB}} 
-      %&= \frac{1}{\sqrt{7}} (2\ket{00} + \ket{10}) + \frac{1}{\sqrt{7}} (\ket{01} + \ket{11})\\
-      &= \sqrt{\frac{5}{7}} \cancel{\left( \frac{2\ket{0}+\ket{1}}{\sqrt{5}} \otimes \ket{0} \right)} + \sqrt{\frac{2}{7}} \left( \frac{\ket{0}+\ket{1}}{\sqrt{2}} \otimes \ket{1} \right)
-    \end{align*}
-    \item L'état quantique devient
-    \begin{align*}
-      \ket{\psi_{AB}} 
-      &= \frac{\ket{0}+\ket{1}}{\sqrt{2}} \otimes \ket{1} = \frac{1}{\sqrt{2}} \ket{0} \otimes \ket{1} + \frac{1}{\sqrt{2}} \ket{1} \otimes \ket{1}
-    \end{align*}
-    \item Et les probabilités de mesure d'Alice sont maintenant:
-    \begin{equation*}
-      P(\ket{0}_B) = \frac{1}{2} \qquad\qquad P(\ket{1}_B) = \frac{1}{2}
-    \end{equation*}
-  \end{itemize}
-\end{frame}
 
 \section{Opérations sur plusieurs qubits}
 
@@ -280,10 +204,88 @@
   \end{center}
 \end{frame}
 
-\begin{frame}{Fin du chapitre 6}
+\begin{frame}{2) Tester l'intrication (décomposition de Schmidt)}
+  \begin{itemize}[<+->]
+    \item L'état $\frac{\ket{00} + \ket{01}}{\sqrt{2}}$ est-il intriqué? 
+    \item Non: on peut le réécrire comme un état produit
+    \begin{equation*}
+      \frac{\ket{00} + \ket{01}}{\sqrt{2}} = \ket{0} \otimes \frac{\ket{0}+\ket{1}}{2}
+    \end{equation*} 
+    \item Si l'état est intriqué, on obtient toujours plusieurs termes:
+    \begin{equation*}
+      \frac{\ket{00} + \ket{11}}{\sqrt{2}} = \frac{1}{\sqrt{2}} \ket{0} \otimes \ket{0} + \frac{1}{\sqrt{2}} \ket{1} \otimes \ket{1}
+    \end{equation*}
+    \item Ce type de décomposition s'appelle une \textbf{décomposition de Schmidt}.
+    %\item Rang de Schmidt = nombre de coefficients non nuls:\\~\\
+    %rang 1 $\Rightarrow$ produit, rang $>1$ $\Rightarrow$ intriqué.
+    %\\~\\
+    %\item Exemples (notebook): $\frac{\ket{00}+\ket{01}}{\sqrt{2}}$ rang 1; $\ket{\Psi_-}$ rang 2.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{2) Tester l'intrication (décomposition de Schmidt)}
+  \begin{itemize}[<+->]
+    \item Example plus intéressant:
+    \begin{equation*}
+      \ket{\psi_{AB}} = \frac{2\ket{00} + \ket{01} + \ket{10} + \ket{11}}{\sqrt{7}}
+    \end{equation*}
+    \item Décomposition mettant en évidence le qubit d'Alice:
+    \begin{align*}
+      \ket{\psi_{AB}} 
+      &= \frac{1}{\sqrt{7}} (2\ket{00} + \ket{01}) + \frac{1}{\sqrt{7}} (\ket{10} + \ket{11})\\
+      &= \sqrt{\frac{5}{7}} \left( \ket{0} \otimes \frac{2\ket{0}+\ket{1}}{\sqrt{5}} \right) + \sqrt{\frac{2}{7}} \left( \ket{1} \otimes \frac{\ket{0}+\ket{1}}{\sqrt{2}} \right)
+    \end{align*}
+    \item Les probabilités de mesure d'Alice sont:
+    \begin{equation*}
+      P(\ket{0}_A) = \frac{5}{7} \qquad\qquad P(\ket{1}_A) = \frac{2}{7}
+    \end{equation*}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{2) Tester l'intrication (décomposition de Schmidt)}
+  \begin{itemize}
+    \item Example plus intéressant:
+    \begin{equation*}
+      \ket{\psi_{AB}} = \frac{2\ket{00} + \ket{01} + \ket{10} + \ket{11}}{\sqrt{7}}
+    \end{equation*}
+    \item Décomposition mettant en évidence le qubit de Bob:
+    \begin{align*}
+      \ket{\psi_{AB}} 
+      &= \frac{1}{\sqrt{7}} (2\ket{00} + \ket{10}) + \frac{1}{\sqrt{7}} (\ket{01} + \ket{11})\\
+      &= \sqrt{\frac{5}{7}} \left( \frac{2\ket{0}+\ket{1}}{\sqrt{5}} \otimes \ket{0} \right) + \sqrt{\frac{2}{7}} \left( \frac{\ket{0}+\ket{1}}{\sqrt{2}} \otimes \ket{1} \right)
+    \end{align*}
+    \item Les probabilités de mesure de Bob sont aussi:
+    \begin{equation*}
+      P(\ket{0}_B) = \frac{5}{7} \qquad\qquad P(\ket{1}_B) = \frac{2}{7}
+    \end{equation*}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{2) Tester l'intrication (décomposition de Schmidt)}
+  \begin{itemize}[<+->]
+    \item La décomp. de Schmidt permet de calculer les probabilités de mesures partielles!
+    \item Que se passe-t-il du point de vue d'Alice si Bob mesure $\ket{1}$?
+    \begin{align*}
+      \ket{\psi_{AB}} 
+      %&= \frac{1}{\sqrt{7}} (2\ket{00} + \ket{10}) + \frac{1}{\sqrt{7}} (\ket{01} + \ket{11})\\
+      &= \sqrt{\frac{5}{7}} \cancel{\left( \frac{2\ket{0}+\ket{1}}{\sqrt{5}} \otimes \ket{0} \right)} + \sqrt{\frac{2}{7}} \left( \frac{\ket{0}+\ket{1}}{\sqrt{2}} \otimes \ket{1} \right)
+    \end{align*}
+    \item L'état quantique devient
+    \begin{align*}
+      \ket{\psi_{AB}} 
+      &= \frac{\ket{0}+\ket{1}}{\sqrt{2}} \otimes \ket{1} = \frac{1}{\sqrt{2}} \ket{0} \otimes \ket{1} + \frac{1}{\sqrt{2}} \ket{1} \otimes \ket{1}
+    \end{align*}
+    \item Et les probabilités de mesure d'Alice sont maintenant:
+    \begin{equation*}
+      P(\ket{0}_B) = \frac{1}{2} \qquad\qquad P(\ket{1}_B) = \frac{1}{2}
+    \end{equation*}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Fin du chapitre}
     \centering
   \vfill
-  Passons à ...
+  
   \vfill
 \end{frame}
 \end{document}
