@@ -71,12 +71,21 @@
 \end{frame}
 
 \begin{frame}{Produit scalaire}
-  \begin{itemize}[<+->]
-    \setlength{\itemsep}{0.6em}
-    \item La probabilité d'obtenir un résultat de mesure vient (en gros) d'une comparaison de deux états quantiques.
-    \item Cette comparaison se traduit par un produit scalaire entre leurs vecteurs associés.
-    $$\begin{pmatrix} a \\ b \end{pmatrix} \cdot \begin{pmatrix} c \\ d \end{pmatrix} = \begin{pmatrix} a & b \end{pmatrix} \begin{pmatrix} c \\ d \end{pmatrix} = ac+bd$$
-  \end{itemize}
+  \begin{columns}[T]
+    \begin{column}{0.6\textwidth}
+      \begin{itemize}[<+->]
+        \setlength{\itemsep}{0.6em}
+        \item La probabilité d'obtenir un résultat de mesure vient (en gros) d'une comparaison de deux états quantiques.
+        \item Cette comparaison se traduit par un produit scalaire entre leurs vecteurs associés.
+        $$\vec r \cdot \vec p = \begin{pmatrix} a & b \end{pmatrix} \begin{pmatrix} c \\ d \end{pmatrix} = ac+bd$$
+        \item Lien avec l'angle: $\vec r \cdot \vec p = \norm{\vec r}\norm{\vec p}\cos(\theta)$.
+      \end{itemize}
+    \end{column}
+    \begin{column}{0.35\textwidth}
+      \centering
+      \includegraphics[width=\linewidth]{figures/proj.png}
+    \end{column}
+  \end{columns}
 \end{frame}
 
 \begin{frame}{Qubit}
@@ -104,14 +113,14 @@
 
 \begin{frame}{Superposition d'états et vecteurs}
   \begin{columns}[T]
-    \begin{column}{0.6\textwidth}
+    \begin{column}{0.65\textwidth}
       \begin{itemize}[<+->]
         \item Un qubit peut être dans $\ket 0$, $\ket 1$ ou toute \textbf{superposition} des deux: $\alpha \ket 0 + \beta \ket 1$.
         \item Superposition = combinaison linéaire d'états.
         \item \textbf{Postulat} : les états quantiques forment un espace vectoriel (espace de Hilbert). Une combinaison linéaire d'états est aussi un état.
-        \item On note aussi $\ket 0 = \begin{pmatrix}1 \\ 0\end{pmatrix}$ et $\ket 1 = \begin{pmatrix}0 \\ 1\end{pmatrix}$.\\~\\
-        \item État général : $\ket {\psi} = \alpha \ket 0 + \beta \ket 1$,\\~\\
-        \item Une superposition $\alpha \ket 0 + \beta \ket 1$ s'écrit $\begin{pmatrix} \alpha \\ \beta \end{pmatrix}$.\\~\\
+        \item L'état superposé $\ket {\psi} = \alpha \ket 0 + \beta \ket 1$, s'écrit $\begin{pmatrix} \alpha \\ \beta \end{pmatrix}$,\\~\\
+        \item Chaque \textbf{qubit} est identifiable à la \textbf{direction} de son vecteur.
+        \item Si deux vecteurs ont la \textbf{même direction} ($\theta = 0$), leurs qubits occupent le \textbf{même état}.
         %\item Probabilités de mesure : $P(\ket 0)=|\alpha|^2$, $P(\ket 1)=|\beta|^2$,
         %$$ \Longrightarrow  |\alpha|^2 + |\beta|^2 = 1$$
       \end{itemize}
@@ -119,14 +128,18 @@
     \begin{column}{0.35\textwidth}
       \vspace{2em}
       \centering
+      $\ket 0 = \begin{pmatrix}1 \\ 0\end{pmatrix}$ et $\ket 1 = \begin{pmatrix}0 \\ 1\end{pmatrix}$\\~\\~\\
       \only<4->{\includegraphics[width=0.8\textwidth]{figures/ket_base.png}}
     \end{column}
   \end{columns}
 \end{frame}
 
 \begin{frame}{Fin du chapitre 2}
-  \centering
-  Voyons comment manipuler les qubits!
+  \begin{enumerate}
+    \item Vecteurs\\~\\
+    \item Produit scalaire\\~\\
+    \item Qubit, superposition d'états et vecteurs
+  \end{enumerate}
 \end{frame}
 
 \end{document}

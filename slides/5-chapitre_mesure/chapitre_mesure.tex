@@ -51,13 +51,55 @@
     \item Les grandeurs mesurables, comme la position, l'énergie ou le spin, sont repésentées par des matrices,
      appelées \textit{observables}, et \textbf{mesurer} une quantité physique revient en fait à mesurer
       l'une de ses \textbf{valeurs propres}.
+    \item La nature physique de la valeur propre (énergie, spin,...) dépend de la platforme (voir plus loin).
     \item La \textbf{probabilité} de mesurer une valeur propre est directement reliée
      au \textbf{produit scalaire} entre l'état du système et le vecteur propre associé à la valeur propre mesurée.
-    \item La nature de la valeur propre (énergie, spin,...) dépend de la platforme (voir plus loin)
   \end{itemize}
 \end{frame}
 
-\begin{frame}{Mesurer avec QISKIT  (voir JN)}
+\begin{frame}{Produit scalaire}
+  \begin{columns}[T]
+    \begin{column}{0.6\textwidth}
+      \begin{itemize}
+        \setlength{\itemsep}{0.6em}
+        \item La probabilité d'obtenir un résultat de mesure vient (en gros) d'une comparaison de deux états quantiques.
+        \item Cette comparaison se traduit par un produit scalaire entre leurs vecteurs associés.
+        $$\vec r \cdot \vec p = \begin{pmatrix} a & b \end{pmatrix} \begin{pmatrix} c \\ d \end{pmatrix} = ac+bd$$
+        \item Lien avec l'angle: $\vec r \cdot \vec p = \norm{\vec r}\norm{\vec p}\cos(\theta)$.
+      \end{itemize}
+    \end{column}
+    \begin{column}{0.35\textwidth}
+      \centering
+      \includegraphics[width=\linewidth]{figures/proj.png}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Mesurer en mécanique quantique}
+  \begin{itemize}
+    \item Produit scalaire entre deux états $\ket{\phi}$ et $\ket \psi$: $\braket{\phi|\psi}$.
+    \item Conventions: $\braket{0|0} = 1$, $\braket{1|1} = 1$ et $\braket{0|1} = 0$ (orthogonaux).
+    \item Si $\ket \psi = a \ket 0 + b \ket 1$ et $\ket \phi = c \ket 0 + d \ket 1$ alors:
+    \begin{equation*}
+      \begin{split}
+        \braket{\phi|\psi}
+        &= \begin{pmatrix}
+          a\  b
+        \end{pmatrix}
+        \begin{pmatrix}
+          c\\d
+        \end{pmatrix} = ac \braket{0|0} + ad \braket{1|0} + bc \braket{0|1} + bd \braket{1|1} = ac +bd\\
+        &= \vec r_\phi^{} \cdot \vec p_\psi^{} = \|\vec r_\phi^{}\|\ \|\vec p_\psi^{}\| \cos(\theta)
+      \end{split}
+    \end{equation*}
+    \item \textbf{Postulat}: mesurer = projeter le vecteur du qubit sur le vecteur propre associé à la
+     valeur propre de l'observable mesurée.
+     \item On projette avec un projecteur $\Pi_{\phi}^{} = \ket \phi \bra \phi$ sur l'état $\phi$: $\ket \phi \braket{\phi|\psi}$
+  \end{itemize}  
+\end{frame}
+
+
+\begin{frame}{Mesurer avec QISKIT}
   \begin{columns}[T,onlytextwidth]
     \column{0.5\textwidth}
     \begin{itemize}
@@ -81,7 +123,7 @@
   \end{columns}
 \end{frame}
 
-\begin{frame}{Mesurer avec QISKIT  (voir JN)}
+\begin{frame}{Mesurer avec QISKIT }
   \begin{columns}[T,onlytextwidth]
     \column{0.5\textwidth}
     \begin{itemize}
@@ -128,15 +170,11 @@
 \end{frame}
 
 \begin{frame}{Fin du chapitre 5}
-    \centering
-    Passons aux systèmes à deux qubits et à l'intrication.
-%   \begin{itemize}
-%     \item Systèmes à 2 qubits
-%     \\~\\
-%     \item Intrication quantique
-%     \\~\\
-%     \item Extension aux circuits à 2 qubits
-%   \end{itemize}
+    \begin{itemize}
+        \item Vecteurs propres et valeurs propres\\~\\
+        \item Comprendre les liens entre "valeur propre/résultat de mesure" et "vecteur propre/probabilité de mesure"\\~\\
+        \item Mesurer avec QISKIT
+    \end{itemize}
 \end{frame}
 
 
