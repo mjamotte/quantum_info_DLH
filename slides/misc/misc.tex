@@ -30,15 +30,11 @@
 	
 	
 	% ============================= VQA CHAPTER =============================
-	
-	
 	% Méthodes hybrides consistant à minimizer avec des algorithmes classiques une fonction coût V(q) = <q|H|q> évaluée sur un ordinateur quantique.
 	% ... méthode variationelle en physique (<q|H|q> >= ground state energy)
 	% ... make a diagram with boxes for initialization of parameters q, eval of <q|H|q>, result V(q), arrows in between + one retro-acting from V(q) to the initialization q
 	% Expliquer comment cela est lié à l'estimation de phase
-	% ((Passer en revue les nombreuses variantes: VQE, QAOA, QML)) 
-	%   --> QAOA IS NOT A VARIATIONAL ALGO! AND QML IS A FIELD!!
-	%   --> why presented as such in qss slides
+	% Passer en revue les nombreuses variantes: VQE, QAOA, QML
 	% --------------------------------------------------------
 	% VQE (Variational Quantum Eigensolver):
 	% - Main applications in chemistry and condensed matter physics
@@ -56,61 +52,6 @@
 	% Expliquer les problèmes associés à l'étape (classique) de minimisation: barren plateaus (expliquer argument de base -> papier 2018)
 	% Astuces pour éviter ces problèmes: initialisations bien choisies avec un nombre réduit d'opérateurs (ADAPT-VQE arxiv:1812.11173) (Aussi arxiv:2401.08044 arxiv:2308.04481)
 	% Question ouverte: est-ce qu'éviter le problème des barren plateaus revient à rendre l'algorithme simulable classiquement? (arxiv:2312.09121)
-
-\begin{frame}{Classique VS Quantique}
-    \begin{itemize}
-        \item Calcul représenté comme une opération sur une séquence de bits $(b_n \cdots b_2 b_1)$
-        \item Ordinateur classique opère sur une séquence à la fois: %$(b_n,\cdots,b_2,b_1) \longrightarrow f(b_n,\cdots,b_2,b_1)$
-        \begin{align*}
-            (101) \longrightarrow f(101)
-        \end{align*}
-        \item Ordinateur quantique peut encoder toutes les séquences possibles dans un seul état et opérer sur toutes les séquences en une seule opération:
-        \begin{align*}
-            \begin{Bmatrix}
-                (000) \\ (001) \\ (010) \\ \cdots \\ (111)
-            \end{Bmatrix}
-            \quad \longrightarrow \quad
-            \begin{Bmatrix}
-                f(000) \\ f(001) \\ f(010) \\ \cdots \\ f(111)
-            \end{Bmatrix}
-        \end{align*}
-        \item Problème: on ne peut récupérer qu'un seul des résultats...
-    \end{itemize}
-\end{frame}
-
-% Version more suitable for an exercise
-\begin{frame}{No-Cloning$^*$}
-    \begin{itemize}
-        \item Supposons qu'une opération $U$ existe pour copier des états génériques $|\phi \rangle$ et $|\psi \rangle$:
-        \begin{align*}
-            U(|\phi \rangle _{A}|e\rangle _{B}) &= e^{i\alpha (\phi ,e)}|\phi \rangle _{A}|\phi \rangle _{B} \\
-            U(|\psi \rangle _{A}|e\rangle _{B}) &= e^{i\alpha (\psi ,e)}|\psi \rangle _{A}|\psi \rangle _{B}
-        \end{align*}
-        \item Le calcul du produit scalaire des états clonés mène à deux résultats contradictoires:
-        \begin{align*}
-            | \langle \phi|_{A}\langle e|_{B} \, U^\dagger U \, |\psi \rangle _{A}|e\rangle _{B} | &= | \langle \phi |\psi \rangle |^{2} \\
-            | \langle \phi|_{A}\langle e|_{B} \, U^\dagger U \, |\psi \rangle _{A}|e\rangle _{B} | &= | \langle \phi |\psi \rangle |
-        \end{align*}
-        \item Cela implique que $|\langle \phi |\psi \rangle |=1$ ou $|\langle \phi |\psi \rangle |=0$, en contradiction avec l'hypothèse de généralité des états $|\phi \rangle$ et $|\psi \rangle$.
-    \end{itemize}
-\end{frame}
-
-% Detailed version
-\begin{frame}{No-Cloning}
-    \begin{itemize}
-        \item Supposons qu'une opération $U$ existe pour copier des états génériques $|\phi \rangle$ et $|\psi \rangle$:
-        \begin{align*}
-            U(|\phi \rangle _{A}|e\rangle _{B}) &= e^{i\alpha (\phi ,e)}|\phi \rangle _{A}|\phi \rangle _{B} \\
-            U(|\psi \rangle _{A}|e\rangle _{B}) &= e^{i\alpha (\psi ,e)}|\psi \rangle _{A}|\psi \rangle _{B}
-        \end{align*}
-        \item En prenant le produit scalaire des deux états clonés, on obtient:
-        \begin{align*}
-            \langle \phi|_{A}\langle e|_{B} \, U^\dagger U \, |\psi \rangle _{A}|e\rangle _{B} &= e^{i[\alpha (\psi ,e)-\alpha (\phi ,e)]}\langle \phi |\psi \rangle ^{2} \\
-            \langle \phi|_{A}\langle e|_{B} \, U^\dagger U \, |\psi \rangle _{A}|e\rangle _{B} &= \langle \phi |\psi \rangle \langle e |e \rangle
-        \end{align*}
-        \item Mais alors $|\langle \phi |\psi \rangle| = |\langle \phi |\psi \rangle|^{2}$, ce qui implique que $|\langle \phi |\psi \rangle |=1$ ou $|\langle \phi |\psi \rangle |=0$, en contradiction avec l'hypothèse de généralité des états $|\phi \rangle$ et $|\psi \rangle$.
-    \end{itemize}
-\end{frame}
 
 \begin{frame}{Transpilation : Six Étapes}
   \begin{columns}[T]
