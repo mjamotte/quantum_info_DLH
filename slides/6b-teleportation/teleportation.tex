@@ -1,0 +1,80 @@
+\documentclass[aspectratio=169,12pt]{beamer}
+\usetheme{Madrid}
+\usecolortheme{dolphin}
+\usefonttheme{professionalfonts}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{footline}{}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{amsmath,amssymb}
+\usepackage{hyperref}
+\usepackage{siunitx}
+\usepackage{physics}
+\usepackage{braket}
+\graphicspath{{../2-qubit/figures/}{../3-portes_logiques/figures/}{../4-qiskit_base/figures/}{../5-mesure/figures/}{../6-plusieurs_qubits/figures/}}
+
+\title[]{Téléportation quantique}
+\author{JAMOTTE Maxime, SCHOONEN Cédric}
+\institute{Digital Learning Hub}
+\date{}
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\begin{frame}{Rappel: paire de Bell, $C_X^{}$ et $C_Z^{}$}
+  \begin{columns}[T,onlytextwidth]
+    \column{0.6\textwidth}
+    \begin{itemize}
+      \item Créer la paire de Bell $\frac{1}{\sqrt 2}(\ket{00} + \ket{11})$.\\~\\
+      \item Porte $C_X^{}$: applique $X$ sur un qubit si l'autre est dans l'état $\ket{1}$, sinon on ne fait rien.\\~\\
+      \item Porte $C_Z^{}$: applique $Z$ sur un qubit si l'autre est dans l'état $\ket{1}$, sinon on ne fait rien.
+    \end{itemize}
+    \column{0.35\textwidth}
+    \centering
+    \includegraphics[width=0.6\linewidth]{figures/bell_pair_crop.png}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Circuit pour téléporter}
+  \begin{itemize}
+    \item Alice possède deux qubit: $\ket \psi$ et un des qubits intriqués.
+    \item Bob possède l'autre qubit intriqué.
+    \item Les qubits intriqués forment la paire de Bell $\frac{1}{\sqrt 2}(\ket{00} + \ket{11})$.
+  \end{itemize}
+  \begin{figure}
+    \includegraphics[width=\linewidth]{figures/teleportation.png}
+  \end{figure}
+\end{frame}
+
+\begin{frame}{Circuit alternatif compatible avec un QPU}
+    \begin{itemize}
+      \item On veut implémenter ce circuit sur un QPU.\\~\\
+      \item Les commandes telles que \texttt{if} en sont pas implémentables comme dans un ordinateur classique (pas du Python).\\~\\
+      \item Il faut donc produire un circuit alternatif, où les mesures se font à la fin du circuit.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Exercice: téléportation  et run sur QPU}
+    \begin{itemize}
+      \item Téléportez l'état $\ket \psi = \ket 1$ en utilisant la paire de Bell $\frac{1}{\sqrt 2}(\ket{00} + \ket{11})$ 
+      et portes $C_X$ et $C_Z$.\\~\\
+      \item Mesurer les trois qubits à la fin du circuit.\\~\\
+      \item Testez votre circruit avec \texttt{Aer} (1000 shots).\\~\\
+      \item Présentez les résulats dans un histogramme et interprétez les résulats.\\~\\
+      \item Après vérification, envoyez votre circuit sur un QPU.
+    \end{itemize}
+\end{frame}  
+
+\begin{frame}{Circuit qui tournera sur le QPU}
+    \begin{figure}
+    \includegraphics[width=\linewidth]{figures/teleportation_alternatif.png}
+  \end{figure}
+\end{frame}  
+     
+
+\end{document}
