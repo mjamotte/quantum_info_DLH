@@ -198,4 +198,40 @@
     \end{itemize}
 \end{frame}
 
+\begin{frame}{Portes logiques complexes}
+    \begin{itemize}
+        \item Les nombres complexes nous permettent de définir un nombre beaucoup plus grand d'opérations sur le Qubit
+        \item En particulier, il est possible de définir des matrices racines:
+        \begin{align*}
+            \sqrt{Z} = 
+            \begin{pmatrix}
+                1 & 0 \\
+                0 & i 
+            \end{pmatrix}
+            &\qquad \longrightarrow \qquad
+            (\sqrt{Z})^2 = Z = 
+            \begin{pmatrix}
+                1 & 0 \\
+                0 & -1 
+            \end{pmatrix}
+            \\
+        %\end{align*}
+        %\begin{align*}
+            \sqrt{X} = \frac{1}{2} 
+            \begin{pmatrix}
+                1+i & 1-i \\
+                1-i & 1+i 
+            \end{pmatrix}
+            &\qquad \longrightarrow \qquad
+            (\sqrt{X})^2 = X =
+            \begin{pmatrix}
+                0 & 1 \\
+                1 & 0  
+            \end{pmatrix}
+            \\
+        \end{align*}
+        \item Les portes $X$ et $Z$ font tourner le Qubit sur la sphère de Bloch, et les matrices racines effectuent la moitié de ces rotations.
+    \end{itemize}
+\end{frame}
+
 \end{document}
