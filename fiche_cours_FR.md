@@ -26,9 +26,9 @@ En plus de ces parties, d'autres thématiques pourront être dispensées à la d
 - La capacité d’exécuter des algorithmes sur les ordinateurs quantiques d’IBM accessibles au public.
 
 ## Training Method
-Cette formation alterne apports théoriques et démonstrations pratiques.
+Cette formation alterne exposés théoriques et démonstrations pratiques.
 
-## Prérequis:
+## Prerequisites:
 
 - Connaissances mathématiques de base des vecteurs et des matrices;
 - Programmation Python;
