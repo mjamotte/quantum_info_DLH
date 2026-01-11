@@ -30,7 +30,7 @@ Cette formation alterne apports théoriques et démonstrations pratiques.
 
 ## Prérequis:
 
-- Connaissances mathématiques de base (vecteurs, matrices);
+- Connaissances mathématiques de base des vecteurs et des matrices;
 - Programmation Python;
 
 Lecture recommandée en algèbre linéaire (vecteurs, matrices): https://www.khanacademy.org/math/linear-algebra 
