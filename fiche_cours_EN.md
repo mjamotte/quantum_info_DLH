@@ -11,7 +11,7 @@ This course will cover the following topics:
 * Overview of a more advanced quantum algorithm with **Qiskit**: Grover’s algorithm;
 * Execution of circuits on a real quantum computer;
 
-In addition to these parts, other topics may be covered at the discretion of the participants:
+In addition to these topics, other subjects may be covered depending on participants’ interests:
 
 * Overview of hardware platforms for quantum computing: existing technologies and current limitations;
 * CHSH and Bell inequalities: interpretation of quantum superposition;
@@ -29,11 +29,11 @@ At the end of this training, participants will have:
 
 ## Training Method
 
-This training alternates between theoretical input and practical demonstrations.
+This training alternates between lectures and practical demonstrations.
 
 ## Prerequisites
 
-* Basic mathematical knowledge (vectors, matrices);
+* Basic mathematical knowledge of vectors and matrices;
 * Python programming;
 
 Recommended reading in linear algebra (vectors, matrices):
