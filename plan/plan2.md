@@ -7,7 +7,6 @@ Le cours est divisé modules, rassemblés dans les catégories suivantes:
 - Catégorie D: Sujets (optionnels) pour aller plus loin
 
 
----
 ## Modules essentiels du tronc commun:
 
 A1. Introduction
@@ -75,7 +74,6 @@ B3. Qiskit: exécution sur QPU
  - démo avec une paire de Bell
 
 
----
 ## Modules de démo optionnels du tronc commun (recommandés):
 
 B4. Distribution quantique de clés
@@ -85,7 +83,6 @@ B5. Téléportation (et superdense coding?)
 B6. Grover
 
 
----
 ## Modules incluant des nombres complexes:
 
 C1. Introduction des nombres complexes
@@ -109,7 +106,6 @@ C4. [non-préparé] Shor
   - transformée de Fourier quantique [avec complexes]
 
 
----
 ## Modules pour approfondir:
 
 D1. Platformes physiques pour construire des QPUs 
