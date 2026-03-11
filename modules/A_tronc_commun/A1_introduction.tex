@@ -1,0 +1,235 @@
+\documentclass[aspectratio=169,12pt]{beamer}
+\usetheme{Madrid}
+\usecolortheme{dolphin}
+\usefonttheme{professionalfonts}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{footline}{}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{amsmath,amssymb}
+\usepackage{hyperref}
+\usepackage[normalem]{ulem}
+\usepackage{siunitx}
+\usepackage{physics}
+
+\graphicspath{{../../figures/}}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue,
+  urlcolor=blue
+}
+
+\let\oldhref\href
+\renewcommand{\href}[2]{\oldhref{#1}{\uline{\color{blue}{#2}}}}
+\let\oldurl\url
+\renewcommand{\url}[1]{\oldurl{\uline{\color{blue}{#1}}}}
+
+\title[Module A1]{Module A1: Introduction}
+\author{JAMOTTE Maxime, SCHOONEN Cédric}
+\institute{Digital Learning Hub}
+\date{}
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\begin{frame}{Plan du module}
+  \begin{enumerate}
+    \item Notre Univers est quantique: 4 phénomènes clefs.
+    \\~\\
+    \item Différences fondamentales entre ordinateurs classique et quantique.
+    \\~\\
+    \item Pourquoi recourir aux ordinateurs quantiques ?
+    \\~\\
+    \item Plan des modules proposés dans ce cours.
+  \end{enumerate}
+\end{frame}
+
+% ============================================================
+\section{Notre Univers est quantique}
+% ============================================================
+
+\begin{frame}{Quatre phénomènes clefs}
+  \begin{itemize}
+    \item Stabilité de l'atome.\\~\\
+    \item Raies spectrales.\\~\\
+    \item Diffraction d'électrons (fentes de Young).\\~\\
+    \item Expérience de Stern-Gerlach.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Stabilité de l'atome}
+  \begin{itemize}[<+->]
+    \item Un charge qui tourne émet des ondes, donc \textbf{perd} de l'énergie. Donc l'électron devrait spiraler et s'effondrer sur le noyau.
+    \vspace{-0.5em}
+    \begin{figure}
+      \centering
+      \includegraphics[width=0.2\linewidth]{class_electron.png}
+      \hfill
+      \only<3->{\includegraphics[width=0.2\linewidth]{bohr_model.png}}
+    \end{figure}
+    \item Or la matière ne s'effondre pas, elle est stable.\\~\\
+    \item Mécanique quantique: niveau d'énergie minimale stable + niveaux d'énergie quantifiés: modèle de Bohr (1910s).\\~\\
+    \item Les transitions se font par paquets d'énergie précis (photons).
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Raies spectrales}
+  \begin{itemize}[<+->]
+    \item Spectre d'émission du soleil (Fraunhofer, 1814).
+    \begin{figure}
+      \includegraphics[width=0.6\linewidth]{Fraunhofer_lines.png}
+    \end{figure}
+    \item Raies sombres dues à l'absorption des gaz dans le soleil et de notre atmosphère (Bunsen et Kirchhoff, 1859).
+    \\~\\
+    \item Les raies spectrales sont les signatures de ces sauts discrets entre orbitales (Bohr).
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Diffraction d'électrons (1927)}
+  \begin{itemize}
+    \item Les électrons passent par deux fentes. Classiquement, on s'attend à deux bandes.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Diffraction d'électrons (1927)}
+  \begin{itemize}[<+->]
+    \item Les électrons passent par deux fentes. Classiquement, on s'attend à deux bandes.
+    \item Même envoyés un par un, le motif d'interférence apparaît -- comme pour les ondes lumineuses (Young, 1801).
+    \begin{figure}
+      \includegraphics[width=0.3\linewidth]{fente_Young.png}
+    \end{figure}
+    \item La mécanique classique n'explique pas le comportement ondulatoire de la matière.
+    \item Chaque électron \textbf{interfère avec lui-même} car il passe par les deux fentes 
+    \textbf{en même temps}. Il est à deux endroits en même temps, donc on ne sait pas où exactement.
+  \end{itemize}
+  \vfill
+  \hfill\href{https://www.youtube.com/watch?v=JlsPC2BW_UI&list=PL_wN0FeVwhX6yH4bIQdHEvuPAQqWJM84M}{Vidéo fentes de Young}
+\end{frame}
+
+\begin{frame}{Expérience de Stern-Gerlach (1922)}
+  \begin{itemize}[<+->]
+    \item Faisceau d'atomes d'argent dans un champ magnétique inhomogène.
+    \\~\\
+    \begin{figure}
+      \includegraphics[width=0.45\linewidth]{stern-gerlach.png}
+    \end{figure}
+    \item Séparation en deux taches distinctes : la mesure du spin donne des valeurs quantifiées.
+    \item Caractère discret des observables quantiques.
+    \item Idée de \textbf{système à deux niveaux}
+  \end{itemize}
+  \vfill
+  \hfill\href{https://www.youtube.com/watch?v=8wS4IOzAhFA&list=PL_wN0FeVwhX6yH4bIQdHEvuPAQqWJM84M&index=5}{Vidéo Stern-Gerlach}
+\end{frame}
+
+\begin{frame}{Conséquences majeures}
+  \begin{itemize}
+    \item Niveaux discrets d'énergie + spin $\quad \rightarrow \quad$ systèmes à deux niveaux.
+    \\~\\
+    \item Superposition d'états.
+    \\~\\~\\~\\
+    \centering
+    \textbf{Briques élémentaires menant à l'informatique quantique}\\~\\
+    Qubit = système quantique à deux niveaux
+  \end{itemize}
+\end{frame}
+
+% ============================================================
+\section{Ordinateurs classiques vs quantiques}
+% ============================================================
+
+\begin{frame}{Superposition: plus d'information par qubit}
+    \begin{itemize}[<+->]
+        \item Calcul représenté comme une opération sur une séquence de bits $(b_3 b_2 b_1)$
+        \item Ordinateur classique opère sur une séquence à la fois:
+        \begin{align*}
+            (101) \longrightarrow f(101)
+        \end{align*}
+        \item Ordinateur quantique peut encoder toutes les séquences possibles dans un seul état et opérer sur toutes les séquences en une seule opération:
+        \begin{align*}
+            \begin{Bmatrix}
+                (000) \\ (001) \\ (010) \\ \cdots \\ (111)
+            \end{Bmatrix}
+            \quad \longrightarrow \quad
+            \begin{Bmatrix}
+                f(000) \\ f(001) \\ f(010) \\ \cdots \\ f(111)
+            \end{Bmatrix}
+        \end{align*}
+        \item \textbf{Problème}: on ne peut récupérer qu'\textbf{un seul des résultats à chaque calcul}. Il faut répéter la mesure un certain nombre de fois pour \textbf{connaître les réponses les plus probables}.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Superposition: plus d'information par qubit}
+  \begin{columns}[T,onlytextwidth]
+    \column{0.48\textwidth}
+    \textbf{Classique}\\
+    \begin{itemize}
+      \item Pour coder 0, 1, 2, 3 il faut les inscrire chacun dans deux bits.
+      \item Un registre contient un seul état à la fois.
+    \end{itemize}
+    \column{0.48\textwidth}
+    \textbf{Quantique}\\
+    \begin{itemize}
+      \item Deux qubits suffisent: $\ket{\psi}$ peut superposer 00, 01, 10, 11.
+      \item On manipule tous ces états simultanément avant la mesure.
+    \end{itemize}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Différences fondamentales entre ordinateurs classique et quantique}
+  \centering
+  \begin{tabular}{l|c|c}
+    & Classique & Quantique \\\hline
+    ~& ~ & ~\\
+    Encodage & Bit (0 \textbf{ou} 1) & Qubit (0 \textbf{et} 1) \\
+     ~& ~ & ~\\
+    Portes logiques & Booléennes & Matricielles \\
+    ~& ~ & ~\\
+    Sensibilité à l'environnement & Faible & Haute \\
+    ~& ~ & ~\\
+    Connaissance du résultat & Déterministe & Probabiliste \\
+  \end{tabular}
+\end{frame}
+
+% ============================================================
+\section{Pourquoi recourir aux ordinateurs quantiques ?}
+% ============================================================
+
+\begin{frame}{Utilité malgré cette limitation}
+  \begin{figure}
+    \includegraphics[width=0.8\linewidth]{quantum_algorithms.png}
+  \end{figure}
+\end{frame}
+
+% ============================================================
+\section{Plan du cours}
+% ============================================================
+
+\begin{frame}{Plan du cours}
+  Ce cours nécessite 3 notions clés de mathématiques:
+  \begin{itemize}
+    \item Algèbre linéaire (vecteurs, matrices)
+    \item Nombres complexes
+    \item Probabilités
+  \end{itemize}
+  ~\\
+  Notre cours évitera le plus possible les nombres complexes afin de simplifier le sujet.\\~\\
+  L'offre est divisée en:
+  \begin{itemize}
+    \item \textbf{Modules de base} (A et B): tronc commun sans nombres complexes
+    \item \textbf{Modules C}: sujets nécessitant une introduction sur les nombres complexes
+    \item \textbf{Modules D}: sujets optionnels pour aller plus loin
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Fin du module A1}
+  \centering
+  Vers les mathématiques utiles à l'informatique quantique!
+\end{frame}
+
+\end{document}

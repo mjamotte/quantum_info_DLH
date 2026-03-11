@@ -1,0 +1,49 @@
+\documentclass[aspectratio=169,12pt]{beamer}
+\usetheme{Madrid}
+\usecolortheme{dolphin}
+\usefonttheme{professionalfonts}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{footline}{}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{amsmath,amssymb}
+\usepackage{hyperref}
+\usepackage{siunitx}
+\usepackage{physics}
+\usepackage{braket}
+
+\graphicspath{{../../figures/}}
+
+\title[Module B4]{Module B4: Distribution quantique de clés}
+\author{JAMOTTE Maxime, SCHOONEN Cédric}
+\institute{Digital Learning Hub}
+\date{}
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\begin{frame}{Distribution quantique de clés (voir JN)}
+  \begin{itemize}
+    \setlength{\itemsep}{0.8em}
+    \item Alice prépare des qubits aléatoirement dans la base $Z$ ou $X$.\\~\\
+    \item Bob mesure aléatoirement dans la base $Z$ ou $X$.\\~\\
+    \item Ils partagent leurs choix de bases et ne gardent que les résultats où les bases coïncident.\\~\\
+    \item Résultat: une clé secrète partagée.\\~\\
+    \item Toute interception (Eve) introduit des erreurs détectables.\\~\\
+    \item Voir le Jupyter Notebook pour l'implémentation complète avec Qiskit.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Fin du module B4}
+  \centering
+  \vfill
+  Module optionnel recommandé.
+  \vfill
+\end{frame}
+
+\end{document}

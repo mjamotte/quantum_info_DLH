@@ -1,0 +1,174 @@
+\documentclass[aspectratio=169,12pt]{beamer}
+\usetheme{Madrid}
+\usecolortheme{dolphin}
+\usefonttheme{professionalfonts}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{footline}{}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{amsmath,amssymb}
+\usepackage{hyperref}
+\usepackage{siunitx}
+\usepackage{physics}
+\usepackage{braket}
+
+\graphicspath{{../../figures/}}
+
+\title[Module A5]{Module A5: Circuits et portes logiques}
+\author{JAMOTTE Maxime, SCHOONEN Cédric}
+\institute{Digital Learning Hub}
+\date{}
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\begin{frame}{Objectifs du module A5}
+  \begin{enumerate}
+    \item Portes logiques classiques et circuits\\~\\
+    \item Représentation symbolique d'un calcul sur QPU\\~\\
+    \item Le circuit décrit la construction d'un état quantique depuis $\ket{00\cdots0}$\\~\\
+    \item Modèle de calcul: circuit $\rightarrow$ exécution sur QPU $\rightarrow$ résultats de mesures
+  \end{enumerate}
+\end{frame}
+
+% ============================================================
+\section{Portes logiques classiques}
+% ============================================================
+
+\begin{frame}{Portes logiques classiques}
+  \begin{itemize}[<+->]
+    \setlength{\itemsep}{0.55em}
+    \item Bits classiques: 0 ou 1; les portes transforment ces bits.
+    \item Exemples clés : NOT, AND, OR, XOR, NAND (porte universelle).
+    \item On enchaîne ces portes pour construire des circuits logiques.
+  \end{itemize}
+  \vfill
+  \only<2->{%
+    \centering
+    \includegraphics[height=1.1cm]{NOT.png}\hspace{0.3cm}
+    \includegraphics[height=1.1cm]{AND.png}\hspace{0.3cm}
+    \includegraphics[height=1.1cm]{OR.png}\hspace{0.3cm}
+    \includegraphics[height=1.1cm]{XOR.png}\hspace{0.3cm}
+    \includegraphics[height=1.1cm]{NAND.png}
+  }
+\end{frame}
+
+\begin{frame}{Table de vérité (rappel)}
+  \centering
+  \renewcommand{\arraystretch}{1.4}
+  \begin{tabular}{l c c c}
+    \textbf{Porte} & \textbf{Symbole} & \textbf{Expression} & \textbf{Description} \\\hline
+    NOT   & $\lnot A$ & inverse & $1\leftrightarrow 0$ \\
+    AND   & $A\cdot B$ & $1$ si $A=1$ et $B=1$ & porte "multiplication" \\
+    OR    & $A + B$ & $1$ si $A=1$ ou $B=1$ & porte "addition" \\
+    XOR   & $A \oplus B$ & $1$ si $A\neq B$ & "ou exclusif" \\
+    NAND  & $\lnot(A\cdot B)$ & inverse de AND & base universelle \\
+  \end{tabular}
+\end{frame}
+
+\begin{frame}{Table de vérité XOR / AND}
+  \centering
+  \renewcommand{\arraystretch}{1.4}
+  \begin{tabular}{c c | c | c}
+    $A$ & $B$ & $A\ \mathbf{XOR}\ B$ & $A\ \mathbf{AND}\ B$ \\\hline
+    0 & 0 & 0 & 0 \\
+    0 & 1 & 1 & 0 \\
+    1 & 0 & 1 & 0 \\
+    1 & 1 & 0 & 1 \\
+  \end{tabular}
+\end{frame}
+
+\begin{frame}{Exemple de circuit classique}
+  \begin{itemize}[<+->]
+    \item Enchaînement de portes pour additionner deux bits (avec report).
+    \item Chaque fil transporte un bit, chaque symbole applique une porte.
+  \end{itemize}
+  \vfill
+  \centering
+  \includegraphics[width=0.65\textwidth]{addition_circuit2.png}
+\end{frame}
+
+% ============================================================
+\section{Circuits quantiques}
+% ============================================================
+
+\begin{frame}{Représentation symbolique d'un calcul sur QPU}
+  \begin{itemize}[<+->]
+    \setlength{\itemsep}{0.55em}
+    \item Les qubits se transforment via des portes logiques quantiques.\\~\\
+    \item Les \textbf{vecteurs} représentant les \textbf{qubits} sont transformés par des \textbf{matrices}
+     représentant les \textbf{portes quantiques}.\\~\\
+    \item Les circuits quantiques enchaînent ces portes sur des lignes de qubits (analogie classique).
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Le circuit décrit un état quantique}
+  \begin{itemize}[<+->]
+    \setlength{\itemsep}{0.55em}
+    \item Tout circuit quantique part de l'état initial $\ket{00\cdots0}$.\\~\\
+    \item La séquence de portes quantiques dans le circuit décrit la \textbf{construction} d'un état quantique.\\~\\
+    \item Chaque porte agit sur un ou plusieurs qubits et modifie l'état global du système.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Modèle de calcul quantique}
+  \begin{itemize}[<+->]
+    \setlength{\itemsep}{0.55em}
+    \item \textbf{Étape 1}: Construire le circuit (séquence de portes quantiques).\\~\\
+    \item \textbf{Étape 2}: Exécuter le circuit sur un QPU (processeur quantique) ou un simulateur.\\~\\
+    \item \textbf{Étape 3}: Mesurer les qubits et collecter les résultats.\\~\\
+    \item L'exécution est répétée un certain nombre de fois (\textit{shots}) pour obtenir des statistiques sur les résultats de mesure.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Portes quantiques dans les circuits}
+  \begin{columns}[T,onlytextwidth]
+    \column{0.5\textwidth}
+    \centering
+    \includegraphics[width=0.75\linewidth]{gate_hadamard.png}
+    \\[-0.3em]\footnotesize Circuit Qiskit pour $H$
+    \column{0.5\textwidth}
+    \centering
+    \includegraphics[width=0.75\linewidth]{gate_x.png}
+    \\[-0.3em]\footnotesize Circuit Qiskit pour $X$
+  \end{columns}
+  ~\\~\\
+  \begin{columns}[T,onlytextwidth]
+    \column{0.5\textwidth}
+    \centering
+    \includegraphics[width=0.75\linewidth]{gate_h_then_x.png}
+    \\[-0.3em]\footnotesize Circuit $H$ puis $X$
+    \column{0.5\textwidth}
+    \centering
+    \includegraphics[width=0.75\linewidth]{gate_x_then_h.png}
+    \\[-0.3em]\footnotesize Circuit $X$ puis $H$
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Circuit de mesure}
+  \begin{columns}[T,onlytextwidth]
+    \column{0.5\textwidth}
+    \begin{itemize}
+      \item Ajouter un bit classique pour stocker la mesure.
+      \item Opération de mesure et stockage dans le bit classique.
+      \item Probabilités obtenues par le module carré des amplitudes.
+    \end{itemize}
+    \column{0.45\textwidth}
+    \centering
+    \includegraphics[width=0.9\linewidth]{measure_circuit.png}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Fin du module A5}
+  \centering
+  \vfill
+  Passons à la pratique avec Qiskit!
+  \vfill
+\end{frame}
+
+\end{document}
