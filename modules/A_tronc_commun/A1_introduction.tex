@@ -200,6 +200,20 @@
 \section{Pourquoi recourir aux ordinateurs quantiques ?}
 % ============================================================
 
+\begin{frame}{Principaux algorithmes quantiques}
+  \begin{itemize}[<+->]
+    \setlength{\itemsep}{0.4em}
+    \item \textbf{Algorithme de Shor} (1994): factorisation de grands entiers en temps polynomial.
+     Menace directe pour le chiffrement RSA.\\~\\
+    \item \textbf{Algorithme de Grover} (1996): recherche dans une base de données non triée
+     en $\mathcal{O}(\sqrt{N})$ au lieu de $\mathcal{O}(N)$.\\~\\
+    \item \textbf{Simulation quantique}: simuler des systèmes quantiques (molécules, matériaux)
+     exponentiellement plus vite qu'un ordinateur classique.\\~\\
+    \item \textbf{Algorithmes variationnels} (VQE, QAOA): optimisation hybride
+     classique/quantique pour la chimie et la combinatoire.
+  \end{itemize}
+\end{frame}
+
 \begin{frame}{Utilité malgré cette limitation}
   \begin{figure}
     \includegraphics[width=0.8\linewidth]{quantum_algorithms.png}
