@@ -31,7 +31,7 @@
     \item Représentation vectorielle\\~\\
     \item Représentation bra-ket\\~\\
     \item Superposition et lien entre probabilité et coefficients\\~\\
-    \item Opérations sur 1 qubit et leur description en matrices
+    \item Les matrices et leur action sur les vecteurs
   \end{enumerate}
 \end{frame}
 
@@ -147,7 +147,7 @@
 \end{frame}
 
 % ============================================================
-\section{Opérations sur 1 qubit}
+\section{Les matrices}
 % ============================================================
 
 \begin{frame}{Les matrices et leur action sur un vecteur}
@@ -241,85 +241,12 @@
   \]
 \end{frame}
 
-\begin{frame}{Portes logiques quantiques sur 1 qubit}
-  \begin{itemize}[<+->]
-    \setlength{\itemsep}{0.55em}
-    \item Les qubits se transforment via des portes logiques quantiques.\\~\\
-    \item Les \textbf{vecteurs} représentant les \textbf{qubits} sont transformés par des \textbf{matrices}
-     représentant les \textbf{portes quantiques}.\\~\\
-    \item Exemples de portes: Pauli X (inversion), Z (phase), Hadamard $H$ (création de superposition).
-  \end{itemize}
-\end{frame}
-
-\begin{frame}{Porte $X$ (NOT quantique)}
-  \[
-    X = \begin{pmatrix}0 & 1 \\ 1 & 0\end{pmatrix}
-  \]
-  ~\\~\\
-  \[
-    X\ket 0 = \ket 1, \qquad
-    X\ket 1 = \ket 0
-  \]
-  ~\\~\\
-  \[
-    \begin{pmatrix}0 & 1 \\ 1 & 0\end{pmatrix}
-    \begin{pmatrix}1\\0\end{pmatrix}=
-    \begin{pmatrix}0\\1\end{pmatrix},
-    \qquad
-    \begin{pmatrix}0 & 1 \\ 1 & 0\end{pmatrix}
-    \begin{pmatrix}0\\1\end{pmatrix}=
-    \begin{pmatrix}1\\0\end{pmatrix}
-  \]
-\end{frame}
-
-\begin{frame}{Porte $Z$ (phase)}
-  \[
-    Z = \begin{pmatrix}1 & 0 \\ 0 & -1\end{pmatrix}
-  \]
-  ~\\~\\
-  \[
-    Z\ket 0 = \ket 0, \qquad
-    Z\ket 1 = -\ket 1
-  \]
-  ~\\~\\
-  \[
-    \begin{pmatrix}1 & 0 \\ 0 & -1\end{pmatrix}
-    \begin{pmatrix}1\\0\end{pmatrix}=
-    \begin{pmatrix}1\\0\end{pmatrix},
-    \qquad
-    \begin{pmatrix}1 & 0 \\ 0 & -1\end{pmatrix}
-    \begin{pmatrix}0\\1\end{pmatrix}=
-    \begin{pmatrix}0\\-1\end{pmatrix}
-  \]
-\end{frame}
-
-\begin{frame}{Porte $H$ (Hadamard)}
-  \[
-    H = \tfrac{1}{\sqrt{2}}\begin{pmatrix}1 & 1 \\ 1 & -1\end{pmatrix}
-  \]
-  ~\\~\\
-  \[
-    H\ket 0 = \tfrac{1}{\sqrt{2}}(\ket 0+\ket 1), \qquad
-    H\ket 1 = \tfrac{1}{\sqrt{2}}(\ket 0-\ket 1)
-  \]
-  ~\\~\\
-  \[
-    \tfrac{1}{\sqrt{2}}\begin{pmatrix}1 & 1 \\ 1 & -1\end{pmatrix}
-    \begin{pmatrix}1\\0\end{pmatrix}=
-    \tfrac{1}{\sqrt{2}}\begin{pmatrix}1\\1\end{pmatrix},
-    \qquad
-    \tfrac{1}{\sqrt{2}}\begin{pmatrix}1 & 1 \\ 1 & -1\end{pmatrix}
-    \begin{pmatrix}0\\1\end{pmatrix}=
-    \tfrac{1}{\sqrt{2}}\begin{pmatrix}1\\-1\end{pmatrix}
-  \]
-\end{frame}
-
 \begin{frame}{Fin du module A2}
   \begin{enumerate}
     \item Représentation vectorielle\\~\\
     \item Représentation bra-ket\\~\\
     \item Superposition et lien entre probabilité et coefficients\\~\\
-    \item Opérations sur 1 qubit et leur description en matrices
+    \item Les matrices et leur action sur les vecteurs
   \end{enumerate}
 \end{frame}
 

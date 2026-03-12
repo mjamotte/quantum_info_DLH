@@ -33,9 +33,9 @@
     \\~\\
     \item Base computationnelle et numérotation binaire
     \\~\\
-    \item Superdense coding: $2^n$ états encodables dans $n$ qubits
+    \item États produits vs intriqués: $2^n$ états encodables dans $n$ qubits
     \\~\\
-    \item Produits tensoriels de matrices et opérateurs à deux qubits
+    \item Produits tensoriels de matrices
     \\~\\
     \item Intrication et paires de Bell
     \\~\\
@@ -99,7 +99,7 @@
 \end{frame}
 
 % ============================================================
-\section{Superdense coding}
+\section{États produits et états intriqués}
 % ============================================================
 
 \begin{frame}{États-produits vs intriqués}
@@ -114,6 +114,7 @@
       \qquad\qquad
       \ket{\Psi_{\pm}}=\frac{\ket{01}\pm\ket{10}}{\sqrt{2}}
     \end{align*}
+    \item Mesure d'une paire Bell $\ket{\Phi_+}$: résultats toujours corrélés ($\ket{00}$ ou $\ket{11}$), chaque issue avec probabilité $0.5$.
   \end{itemize}
 \end{frame}
 
@@ -121,100 +122,16 @@
 \section{Produits tensoriels de matrices}
 % ============================================================
 
-\begin{frame}{Portes quantiques sur deux qubits: portes locales en parallèle}
+\begin{frame}{Action des opérateurs sur un état à 2 qubits}
   \begin{itemize}[<+->]
-    \item Action séparée: $(M_2\ket{\psi_2})\!\otimes\!(M_1\ket{\phi_1}) = (M_2\!\otimes\! M_1)(\ket{\psi_2}\!\otimes\!\ket{\phi_1})$.
+    \item On peut appliquer des opérateurs séparément sur chaque qubit.
     \\~\\
-    \item Circuit exemple: deux portes de Hadamard appliquées sur deux qubits initiaux $\ket{0}$ et $\ket{1}$.
+    \item L'action séparée de deux matrices $M_2$ et $M_1$ sur chaque qubit se traduit par un produit tensoriel de matrices:
+    \[
+      (M_2\ket{\psi_2})\!\otimes\!(M_1\ket{\phi_1}) = (M_2\!\otimes\! M_1)(\ket{\psi_2}\!\otimes\!\ket{\phi_1})
+    \]
+    \item Certaines matrices $4\times4$ ne se décomposent \textbf{pas} en produit tensoriel de deux matrices $2\times2$. Ces opérateurs créent de l'\textbf{intrication}.
   \end{itemize}
-  \begin{center}
-    \includegraphics[width=0.3\textwidth]{parallel_hadamard.png}
-  \end{center}
-\end{frame}
-
-% ============================================================
-\section{Opérateurs à deux qubits non-décomposables}
-% ============================================================
-
-\begin{frame}{Porte SWAP}
-  \begin{itemize}[<+->]
-    \item Échange les qubits: $\ket{01}\leftrightarrow\ket{10}$ via une matrice $4\times4$ de permutation.
-    \\~\\
-    \item Ne crée pas d'intrication (seule permutation des composantes).\\~\\
-  \end{itemize}
-  \[S = \begin{pmatrix}
-      1 & 0 & 0 & 0\\
-      0 & 0 & 1 & 0\\
-      0 & 1 & 0 & 0\\
-      0 & 0 & 0 & 1
-    \end{pmatrix}
-  \]
-  \begin{center}
-    \includegraphics[width=0.3\textwidth]{swap_gate.png}
-  \end{center}
-\end{frame}
-
-\begin{frame}{Porte CNOT (CX)}
-  \begin{itemize}[<+->]
-    \item Contrôle sur le deuxième qubit, cible sur le premier.
-    \item Retourne la cible si le contrôle vaut $\ket{1}$; matrice $4\times4$ non factorisable $\Rightarrow$ peut intriquer.
-  \end{itemize}
-  \[
-    C_X = \begin{pmatrix}
-      1 & 0 & 0 & 0\\
-      0 & 1 & 0 & 0\\
-      0 & 0 & 0 & 1\\
-      0 & 0 & 1 & 0
-    \end{pmatrix}
-  \]
-  \begin{center}
-    \includegraphics[width=0.3\textwidth]{cnot_gate.png}
-  \end{center}
-\end{frame}
-
-\begin{frame}{Porte CZ}
-  \begin{itemize}[<+->]
-    \item Change le signe du coefficient devant $\ket{11}$ seulement.
-    \\~\\
-    \item Utilisée dans plusieurs algorithmes; peut aussi générer de l'intrication.
-  \end{itemize}~\\
-  \[
-    C_Z = \begin{pmatrix}
-      1 & 0 & 0 & 0\\
-      0 & 1 & 0 & 0\\
-      0 & 0 & 1 & 0\\
-      0 & 0 & 0 & -1
-    \end{pmatrix}
-  \]
-  \begin{center}
-    \includegraphics[width=0.32\textwidth]{cz_gate.png}
-  \end{center}
-\end{frame}
-
-% ============================================================
-\section{Intrication et paires de Bell}
-% ============================================================
-
-\begin{frame}{Générer une paire de Bell}
-  \begin{itemize}[<+->]
-    \item Préparation de $\ket{\Phi_+} = (\ket{00}+\ket{11})/\sqrt{2}$: qubits initiaux $\ket{0}$, puis $H$ sur le premier et CNOT.
-    \\~\\
-    \item Circuit minimal: 2 qubits + 1 porte $H$ + 1 porte CNOT.
-  \end{itemize}
-  \begin{center}
-    \includegraphics[width=0.4\textwidth]{bell_pair.png}
-  \end{center}
-\end{frame}
-
-\begin{frame}{Conséquences de l'intrication sur la mesure}
-  \begin{itemize}
-    \item Mesure d'une paire Bell $\ket{\Phi_+}$: résultats corrélés $\ket{00}$ ou $\ket{11}$.
-    \item Chaque issue a une probabilité de $0.5$ (environ); \textbf{aucune occurrence} de $01$ ou $10$.
-  \end{itemize}
-  \begin{center}
-    \includegraphics[width=0.45\textwidth]{bell_pair_mesures.png}\hfill
-    \includegraphics[width=0.45\textwidth]{bell_hist.png}
-  \end{center}
 \end{frame}
 
 % ============================================================
