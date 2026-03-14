@@ -49,20 +49,20 @@
 
 \begin{frame}{Représentation tensorielle d'un état à 2 qubits}
   \begin{itemize}[<+->]
-    \item État général $\ket{\Psi_2} = a_{00}\ket{00}+a_{01}\ket{01}+a_{10}\ket{10}+a_{11}\ket{11}$ (vecteur de taille $2^2$).
+    \item Deux qubits dans l'état "0": $\ket{0}\!\otimes\!\ket{0}$
     \\~\\
-    \item Produit tensoriel de kets: $\ket{0}_2\!\otimes\!\ket{0}_1=\ket{00}$.
+    \item Un qubit dans l'état "0" et l'autre dans "1": $\ket{0}\!\otimes\!\ket{1}$
     \\~\\
-    \item Nombre d'états de base pour $N$ qubits: $2^N$ (ex.: 2 qubits $\rightarrow$ 4 composantes).
+    \item Superposition de ces deux états: $\ket{0}\!\otimes\!\ket{0} + \ket{0}\!\otimes\!\ket{1}$.
   \end{itemize}
 \end{frame}
 
-\begin{frame}{Associativité et distributivité du produit tensoriel}
+\begin{frame}{Propriétés du produit tensoriel}
   \begin{itemize}[<+->]
     \setlength{\itemsep}{0.6em}
     \item \textbf{Distributivité} sur l'addition:
     $$\ket{0}\!\otimes\!\big(\alpha\ket{0}+\beta\ket{1}\big)
-      = \alpha\ket{00}+\beta\ket{01}$$
+      = \alpha\!\ket{0}\!\otimes\!\ket{0}+\beta\!\ket{0}\!\otimes\!\ket{1}$$
     \item \textbf{Associativité}: pour 3 qubits ou plus, l'ordre de regroupement n'importe pas:
     $$\big(\ket{a}\!\otimes\!\ket{b}\big)\!\otimes\!\ket{c}
       = \ket{a}\!\otimes\!\big(\ket{b}\!\otimes\!\ket{c}\big)
@@ -77,20 +77,32 @@
 \section{Base computationnelle et numérotation binaire}
 % ============================================================
 
+\begin{frame}{Un grand nombre d'états}
+  \begin{itemize}
+    \item État général: $\ket{\Psi_2} = a_{00}\ket{00}+a_{01}\ket{01}+a_{10}\ket{10}+a_{11}\ket{11}$
+    \\~\\
+    \item Numérotation binaire des états de la base computationnelle: $00, 01, 10, 11$
+    \\~\\
+    \item Le nombre d'états encodables grandit exponentiellement vite
+    \\~\\
+    \item Pour $n$ qubits: $2^n$ états (1, 4, 8, 16, 32, $\cdots$) $\rightarrow$ environ un million pour 20 qubits!.
+  \end{itemize}
+\end{frame}
+
+% ============================================================
+\section{Représentation vectorielle}
+% ============================================================
+
 \begin{frame}{Représentation vectorielle}
   \begin{itemize}
-    \item État général $\ket{\Psi_2} = a_{00}\ket{00}+a_{01}\ket{01}+a_{10}\ket{10}+a_{11}\ket{11}$ (vecteur de taille $2^2$).
-    \\~\\
-    \item Produit tensoriel de kets: $\ket{0}_2\!\otimes\!\ket{0}_1=\ket{00}$.
-    \\~\\
-    \item Nombre d'états de base pour $N$ qubits: $2^N$ (ex.: 2 qubits $\rightarrow$ 4 composantes).
+    \item État général: $\ket{\Psi_2} = a_{00}\ket{00}+a_{01}\ket{01}+a_{10}\ket{10}+a_{11}\ket{11}$
   \end{itemize}
   ~\\~\\
-  $\qquad \qquad\begin{pmatrix} 
-    a_{00}^{} \\
-    a_{01}^{} \\
-    a_{10}^{}\\
-    a_{11}^{} \\
+  $\qquad \ket{\Psi_2} = \begin{pmatrix} 
+    a_{00} \\
+    a_{01} \\
+    a_{10} \\
+    a_{11} \\
 \end{pmatrix} \longrightarrow \ket{00} = \begin{pmatrix} 
     1\\
     0\\
@@ -114,21 +126,6 @@
 \end{pmatrix}  $
 \end{frame}
 
-\begin{frame}{Superdense coding : $2^n$ états}
-  \begin{itemize}[<+->]
-    \setlength{\itemsep}{0.6em}
-    \item Avec $n$ qubits, la base computationnelle contient $2^n$ vecteurs de base.
-    \\~\\
-    \item On peut encoder $2^n$ états différents dans $n$ qubits.
-    \\~\\
-    \item Exemple: 10 qubits $\rightarrow$ $2^{10} = 1024$ états de base,
-     et un état quelconque est une superposition de ces 1024 vecteurs.
-    \\~\\
-    \item C'est aussi le principe du \textbf{superdense coding}: l'intrication permet d'encoder
-     2 bits classiques d'information en transmettant un seul qubit.
-  \end{itemize}
-\end{frame}
-
 % ============================================================
 \section{Produits tensoriels de matrices}
 % ============================================================
@@ -141,7 +138,6 @@
     \[
       (M_2\ket{\psi_2})\!\otimes\!(M_1\ket{\phi_1}) = (M_2\!\otimes\! M_1)(\ket{\psi_2}\!\otimes\!\ket{\phi_1})
     \]
-    \item Certaines matrices $4\times4$ ne se décomposent \textbf{pas} en produit tensoriel de deux matrices $2\times2$. Ces opérateurs créent de l'\textbf{intrication}.
   \end{itemize}
 \end{frame}
 
@@ -156,6 +152,50 @@
   \end{itemize}
 \end{frame}
 
+\begin{frame}{Hadamard en parallèle}
+  \begin{equation*}
+    \frac{1}{\sqrt{2}}
+    \begin{pmatrix}
+      1 &  1 \\
+      1 & -1 \\
+    \end{pmatrix}
+    \otimes
+    \frac{1}{\sqrt{2}}
+    \begin{pmatrix}
+      1 &  1 \\
+      1 & -1 \\
+    \end{pmatrix}
+    % \begin{pmatrix}
+    %   1 \\
+    %   0 \\
+    %   0 \\
+    %   0 \\
+    % \end{pmatrix}
+    = 
+    \frac{1}{2}
+    \begin{pmatrix}
+      1 &  1 &  1 &  1 \\
+      1 & -1 &  1 & -1 \\
+      1 &  1 & -1 & -1 \\
+      1 & -1 & -1 &  1 \\
+    \end{pmatrix}
+    % \begin{pmatrix}
+    %   1 \\
+    %   0 \\
+    %   0 \\
+    %   0 \\
+    % \end{pmatrix}
+    % =
+    % \frac{1}{2}
+    % \begin{pmatrix}
+    %   1 \\
+    %   1 \\
+    %   1 \\
+    %   1 \\
+    % \end{pmatrix}
+  \end{equation*}
+\end{frame}
+
 % ============================================================
 \section{Opérateurs à deux qubits}
 % ============================================================
@@ -167,7 +207,7 @@
     \\~\\
     \item Ces opérateurs \textbf{corrèlent} les qubits entre eux et peuvent créer de l'\textbf{intrication}.
     \\~\\
-    \item Trois opérateurs fondamentaux : \textbf{SWAP}, \textbf{CNOT} (CX) et \textbf{CZ}.
+    \item Trois opérateurs importants : \textbf{SWAP}, \textbf{CX} (CNOT) et \textbf{CZ}.
   \end{itemize}
 \end{frame}
 
@@ -180,7 +220,7 @@
   \end{itemize}
 \end{frame}
 
-\begin{frame}{Porte CNOT (controlled-NOT)}
+\begin{frame}{Porte CNOT (controlled-X)}
   \begin{columns}[T,onlytextwidth]
     \column{0.55\textwidth}
     \begin{itemize}[<+->]
@@ -246,21 +286,11 @@
   \end{columns}
 \end{frame}
 
-\begin{frame}{Mesures sur les paires de Bell}
-  \begin{itemize}[<+->]
-    \setlength{\itemsep}{0.55em}
-    \item $\ket{\Phi^+} = \frac{1}{\sqrt{2}}(\ket{00}+\ket{11})$:\\
-     mesurer le premier qubit donne $\ket{0}$ ou $\ket{1}$ avec probabilité $\frac{1}{2}$ chacun.\\~\\
-    \item Si le premier qubit donne $\ket{0}$, le second est \textbf{nécessairement} $\ket{0}$ (et vice versa).\\~\\
-    \item Les résultats sont toujours \textbf{parfaitement corrélés}, quelle que soit la distance entre les deux qubits.
-  \end{itemize}
-\end{frame}
-
 % ============================================================
 \section{Décomposition de Schmidt}
 % ============================================================
 
-\begin{frame}{Tester l'intrication (décomposition de Schmidt)}
+\begin{frame}{Tester l'intrication}
   \begin{itemize}[<+->]
     \item L'état $\frac{\ket{00} + \ket{01}}{\sqrt{2}}$ est-il intriqué? 
     \item Non: on peut le réécrire comme un état produit
@@ -271,11 +301,11 @@
     \begin{equation*}
       \frac{\ket{00} + \ket{11}}{\sqrt{2}} = \frac{1}{\sqrt{2}} \ket{0} \otimes \ket{0} + \frac{1}{\sqrt{2}} \ket{1} \otimes \ket{1}
     \end{equation*}
-    \item Ce type de décomposition s'appelle une \textbf{décomposition de Schmidt}.
+    \item La \textbf{décomposition de Schmidt} donne une procédure pour tester l'intrication.
   \end{itemize}
 \end{frame}
 
-\begin{frame}{Exemple: décomposition de Schmidt (qubit d'Alice)}
+\begin{frame}{Mesures partielles (qubit d'Alice)}
   \begin{itemize}[<+->]
     \item Exemple plus intéressant:
     \begin{equation*}
@@ -294,7 +324,7 @@
   \end{itemize}
 \end{frame}
 
-\begin{frame}{Exemple: décomposition de Schmidt (qubit de Bob)}
+\begin{frame}{Mesures partielles (qubit de Bob)}
   \begin{itemize}
     \item Exemple plus intéressant:
     \begin{equation*}
@@ -315,7 +345,6 @@
 
 \begin{frame}{Conséquence de l'intrication sur les mesures partielles}
   \begin{itemize}[<+->]
-    \item La décomp. de Schmidt permet de calculer les probabilités de mesures partielles!
     \item Que se passe-t-il du point de vue d'Alice si Bob mesure $\ket{1}$?
     \begin{align*}
       \ket{\psi_{AB}} 
