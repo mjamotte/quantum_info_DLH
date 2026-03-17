@@ -46,16 +46,16 @@
 \end{frame}
 
 \begin{frame}{Construction des nombres complexes}
-  À partir de $i$, on peut construire de nouveaux nombres:
+  À partir de $i$, on peut construire de nouveaux nombres: En multipliant par un réel:
   
-  \bigskip
-  On peut multiplier $i$ par un réel:
+  %\bigskip
+  %On peut multiplier $i$ par un réel:
   \[
     y \cdot i \qquad \text{avec } y \in \mathbb{R}
   \]
   
   \bigskip
-  On peut additionner avec un autre réel:
+  Ou en additionant avec un autre réel:
   \[
     x + yi \qquad \text{avec } x, y \in \mathbb{R}
   \]
@@ -172,7 +172,7 @@
     \draw[->,thick,blue] (0,0) -- (2,1) node[right] {$z$};
     \draw[->,dashed,red] (0,0) -- (-1,2) node[above left] {$iz$};
     \draw[->,dashed,blue] (-1,2) -- (1,3);
-    \draw[->,thick,red] (0,0) -- (1,3) node[right] {$z+iz$};
+    \draw[->,thick,purple] (0,0) -- (1,3) node[right] {$z+iz$};
     \draw[->] (0.8,0.4) arc (25:70:0.9);
     \node at (0.9,0.9) {45°};
   \end{tikzpicture}
@@ -367,23 +367,24 @@
 \end{frame}
 
 \begin{frame}{Racines de l'unité}
-  Les racines n-ièmes de l'unité sont les solutions de $z^n = 1$:
-  \[
-    \omega_k = e^{2\pi i k/n} \qquad k = 0, 1, 2, \ldots, n-1
-  \]
+
+  \bigskip
+  Les racines n-ièmes de l'unité sont les solutions de $z^n = 1$: $\quad \omega_k = e^{2\pi i k/n} \quad k\in\mathbb{Z}$
+
+  Avec $n=6$:
  
   \begin{center}
-  \begin{tikzpicture}[scale=1.3]
+  \begin{tikzpicture}[scale=1.7]
     \draw[->] (-1.5,0) -- (1.5,0) node[right] {Re};
     \draw[->] (0,-1.5) -- (0,1.5) node[above] {Im};
     \draw[gray] (0,0) circle (1);
     \foreach \k in {0,1,2,3,4,5} {
-      \filldraw[blue] ({cos(60*\k)},{sin(60*\k)}) circle (2pt);
-      \draw[->,red,thin] (0,0) -- ({cos(60*\k)},{sin(60*\k)});
+      \filldraw[blue] ({cos(60*\k)},{sin(60*\k)}) circle (1pt);
+      %\draw[->,gray] (0,0) -- ({cos(60*\k)},{sin(60*\k)});
     }
-    \node at (1.2,0.2) {$1$};
-    \node at (0.4,1.2) {$e^{i\pi/3}$};
-    \node at (-0.6,1.1) {$e^{i2\pi/3}$};
+    \node[above right] at (1,0) {$1$};
+    \node[above right] at ({cos(60*1)},{sin(60*1)}) {$e^{i\pi/3}$};
+    \node[above left] at ({cos(60*2)},{sin(60*2)}) {$e^{i2\pi/3}$};
   \end{tikzpicture}
   \end{center}
   \end{frame}
@@ -426,7 +427,7 @@
   \vspace{2mm}
   \begin{itemize}
     \setlength{\itemsep}{0.9em}
-    \item Les complexes résolvent le problème de $\sqrt{-1}$
+    \item Les nombres complexes résolvent le problème de $\sqrt{-1}$
     \item Extension des nombres réels en leur ajoutant une phase $e^{i\theta}$
     \item Trois représentations: cartésienne, vectorielle, polaire
   \end{itemize}
