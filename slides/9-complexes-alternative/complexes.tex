@@ -1,0 +1,672 @@
+\documentclass[aspectratio=169,12pt]{beamer}
+\usetheme{Madrid}
+\usecolortheme{dolphin}
+\usefonttheme{professionalfonts}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{footline}{}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{amsmath,amssymb}
+\usepackage{hyperref}
+\usepackage{siunitx}
+\usepackage{physics}
+\usepackage{tikz}
+\usetikzlibrary{angles,quotes}
+
+\title[Nombres Complexes]{Introduction aux Nombres Complexes}
+\author{JAMOTTE Maxime, SCHOONEN Cédric}
+\institute{Digital Learning Hub}
+\date{}
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\begin{frame}{Table des matières}
+  \tableofcontents
+\end{frame}
+
+\section{Motivation}
+
+\begin{frame}{Exponentiation des nombres réels}
+
+  Mise au carré:
+
+  \begin{center}
+  \begin{tikzpicture}[scale=1.3]
+    \draw[->] (-4.5,0) -- (4.5,0) node[right] {Re};
+    \draw[-] (0,-0.2) -- (0,0.2) node[above] {$0$};
+    \draw[->,very thick,purple] (2,0) -- (3.9,0);
+    \draw[->,very thick,blue] (-1,0) arc (180:355:1.0);
+    \draw[->,very thick,green!50!black,domain=pi:2*pi-0.03,samples=100,smooth,variable=\t] 
+  plot ({exp(\t/4.55)*cos(\t r)}, {exp(\t/4.55)*sin(\t r)});
+    \filldraw[blue] (-1,0) circle (1pt) node[above] {$-1$};
+    \filldraw[blue] (1,0) circle (1pt) node[above] {$1$};
+    \filldraw[purple] (2,0) circle (1pt) node[above] {$2$};
+    \filldraw[purple] (4,0) circle (1pt) node[above] {$4$};
+    \filldraw[green!50!black] (-2,0) circle (1pt) node[above] {$-2$};
+  \end{tikzpicture}
+  \end{center}
+
+\end{frame}
+
+\begin{frame}{Exponentiation des nombres réels}
+
+  \begin{center}
+  \begin{tikzpicture}[scale=1.9]
+    \draw[->] (-2.5,0) -- (2.5,0) node[right] {Re};
+    \draw[-] (0,-0.2) -- (0,0.2) node[above] {$0$};
+    \draw[->,very thick,purple] (1,0) arc (0:172:1.0) node[midway,above] {$(-1)^{1, 3, 5, \dots}$};
+    \draw[->,very thick,blue] (-1,0) arc (180:352:1.0) node[midway,below] {$(-1)^{2, 4, 6, \dots}$};
+    \filldraw[black] (-1,0) circle (1pt) node[above left] {$-1$};
+    \filldraw[black] (1,0) circle (1pt) node[above right] {$1$};
+  \end{tikzpicture}
+  \end{center}
+
+\end{frame}
+
+\begin{frame}{Pas d'exposant fractionnaire pour les nombres négatifs?}
+
+  \begin{center}
+  \begin{tikzpicture}[scale=1.9]
+    \draw[->] (-2.5,0) -- (2.5,0) node[right] {Re};
+    \draw[-] (0,-0.2) -- (0,0.2) node[above] {$0$};
+    \draw[->,very thick,purple] (1,0) arc (0:82:1.0) node[midway, above right] {$(-1)^{1/2}$ ?};
+    \draw[->,very thick,blue] (-1,0) arc (180:352:1.0) node[midway,below] {$(-1)^2$};
+    \filldraw[black] (-1,0) circle (1pt) node[above left] {$-1$};
+    \filldraw[black] (1,0) circle (1pt) node[above right] {$1$};
+    \filldraw[purple] (0,1) circle (1pt);
+  \end{tikzpicture}
+  \end{center}
+
+\end{frame}
+
+\begin{frame}{On complète avec un axe imaginaire}
+
+  \begin{center}
+  \begin{tikzpicture}[scale=1.9]
+    \draw[->] (-2.5,0) -- (2.5,0) node[right] {Re};
+    \draw[->] (0,-1.5) -- (0,1.5) node[above] {Im};
+    \draw[->,very thick,purple] (1,0) arc (0:82:1.0) node[midway, above right] {$(-1)^{1/2}$};
+    \filldraw[black] (-1,0) circle (1pt) node[above left] {$-1$};
+    \filldraw[black] (1,0) circle (1pt) node[above right] {$1$};
+    \filldraw[purple] (0,1) circle (1pt) node[above left] {$i$};
+    \filldraw[purple] (0,-1) circle (1pt) node[below left] {$-i$};
+  \end{tikzpicture}
+  \end{center}
+
+\end{frame}
+
+\begin{frame}{On complète avec un axe imaginaire}
+
+  \begin{center}
+  \begin{tikzpicture}[scale=1.9]
+    \draw[->] (-2.5,0) -- (2.5,0) node[right] {Re};
+    \draw[->] (0,-1.5) -- (0,1.5) node[above] {Im};
+    \draw[->,very thick,purple] (1,0) arc (0:262:1.0) node[right] {$\quad (-1)^{3/2}$};
+    \filldraw[black] (-1,0) circle (1pt) node[above left] {$-1$};
+    \filldraw[black] (1,0) circle (1pt) node[above right] {$1$};
+    \filldraw[purple] (0,1) circle (1pt) node[above left] {$i$};
+    \filldraw[purple] (0,-1) circle (1pt) node[below left] {$-i$};
+  \end{tikzpicture}
+  \end{center}
+
+\end{frame}
+
+\begin{frame}{On complète avec un axe imaginaire}
+
+  \begin{center}
+  \begin{tikzpicture}[scale=1.9]
+    \draw[->] (-2.5,0) -- (2.5,0) node[right] {Re};
+    \draw[->] (0,-1.5) -- (0,1.5) node[above] {Im};
+    \draw[gray] (0,0) circle (1);
+    \draw[-,very thick,blue] (0,0) -- ({cos(60)},{sin(60)});
+    \draw[-,very thick,blue] (0.3,0) arc (0:60:0.3) node[midway, above right] {$\theta$};
+    \filldraw[black] (-1,0) circle (1pt) node[above left] {$-1$};
+    \filldraw[black] (1,0) circle (1pt) node[above right] {$1$};
+    \filldraw[black] (0,1) circle (1pt) node[above left] {$i$};
+    \filldraw[black] (0,-1) circle (1pt) node[below left] {$-i$};
+    \filldraw[blue] ({cos(60)},{sin(60)}) circle (1pt) node[above right] {$(-1)^{\theta/\pi}$};
+  \end{tikzpicture}
+  \end{center}
+
+\end{frame}
+
+\begin{frame}{Chaque réel est "augmenté" d'une phase}
+
+  \begin{center}
+  \begin{tikzpicture}[scale=1.9]
+    \draw[->] (-2.5,0) -- (2.5,0) node[right] {Re};
+    \draw[->] (0,-1.7) -- (0,1.7) node[above] {Im};
+    \draw[gray] (0,0) circle (1);
+    \draw[gray] (0,0) circle (1.4142);
+    \draw[-,very thick,blue] (0,0) -- ({cos(60)},{sin(60)});
+    \draw[-,very thick,purple] (0,0) -- ({1.4142*cos(-30)},{1.4142*sin(-30)});
+    \draw[-,very thick,blue] (0.3,0) arc (0:60:0.3) node[midway, above right] {$\theta$};
+    \draw[-,very thick,purple] (0.6,0) arc (0:-30:0.6) node[midway, right] {$\phi$};
+    %\filldraw[black] (-1,0) circle (1pt) node[above left] {$-1$};
+    \filldraw[black] (1,0) circle (1pt) node[above right] {$1$};
+    \filldraw[black] (1.4142,0) circle (1pt) node[above right] {$r$};
+    %\filldraw[black] (0,1) circle (1pt) node[above left] {$i$};
+    %\filldraw[black] (0,-1) circle (1pt) node[below left] {$-i$};
+    \filldraw[blue] ({cos(60)},{sin(60)}) circle (1pt) node[above right] {$(-1)^{\theta/\pi}$};
+    \filldraw[purple] ({1.4142*cos(-30)},{1.4142*sin(-30)}) circle (1pt) node[below right] {$r(-1)^{\phi/\pi}$};
+  \end{tikzpicture}
+  \end{center}
+
+\end{frame}
+
+\begin{frame}{Chaque réel est "augmenté" d'une phase}
+
+  \begin{center}
+  \begin{tikzpicture}[scale=1.9]
+    \draw[->] (-2.5,0) -- (2.5,0) node[right] {Re};
+    \draw[->] (0,-1.7) -- (0,1.7) node[above] {Im};
+    \draw[gray] (0,0) circle (1);
+    \draw[gray] (0,0) circle (1.4142);
+    \draw[dotted,thick,purple,domain=0:pi,samples=100,smooth,variable=\t] 
+  plot ({exp(\t/4.55)*cos(\t r)}, {exp(\t/4.55)*sin(\t r)});
+    \draw[->,very thick,purple,domain=0:pi/2-0.06,samples=100,smooth,variable=\t] 
+  plot ({exp(\t/4.55)*cos(\t r)}, {exp(\t/4.55)*sin(\t r)}) node[above right] {$\quad (-2)^{1/2} = 2^{1/2}(-1)^{1/2}$};
+    \filldraw[black] (-2,0) circle (1pt) node[above left] {$-2$};
+    \filldraw[black] (1,0) circle (1pt) node[above right] {$1$};
+    \filldraw[black] (1.4142,0) circle (1pt) node[above right] {$\sqrt{2}$};
+    \filldraw[purple] (0,1.4142) circle (1pt);
+  \end{tikzpicture}
+  \end{center}
+
+\end{frame}
+
+\begin{frame}{Multiplication de nombres complexes}
+
+  \begin{center}
+  \begin{itemize}
+    \item Un nombre complexe combine une \textbf{magnitude} (longueur) et une \textbf{phase} (angle):
+    \begin{equation*}
+      z = r (-1)^{\theta/\pi}
+    \end{equation*}
+    \item Multiplication de deux nombres complexes:
+    \begin{equation*}
+      z_1 z_2 = r_1 (-1)^{\theta_1/\pi} r_2 (-1)^{\theta_2/\pi} = r_1 r_2 (-1)^{(\theta_1+\theta_2)/\pi}
+    \end{equation*}
+    \item Division de deux nombres complexes:
+    \begin{equation*}
+      \frac{z_1}{z_2} = \frac{r_1 (-1)^{\theta_1/\pi}}{r_2 (-1)^{\theta_2/\pi}} = \frac{r_1}{r_2} (-1)^{(\theta_1-\theta_2)/\pi}
+    \end{equation*}
+  \end{itemize}
+  \end{center}
+
+\end{frame}
+
+\begin{frame}{Exponentiation des nombres complexes}
+
+  \begin{center}
+  \begin{itemize}
+    \item Exponentiation par un réel:
+    \begin{equation*}
+      z^a = \left( r (-1)^{\theta/\pi} \right)^a = r^a (-1)^{a\theta/\pi}
+    \end{equation*}
+    \item Racines n-ièmes:
+    \begin{equation*}
+      \sqrt[n]{z} = \left( r (-1)^{\theta/\pi} \right) ^{1/n} = \sqrt[n]{r} (-1)^{\theta/n\pi}
+    \end{equation*}
+    \bigskip
+    \item Qu'en est-il de l'exponentiation par un nombre complexe?
+    \begin{equation*}
+      z^i = ??
+    \end{equation*}
+  \end{itemize}
+  \end{center}
+
+\end{frame}
+
+\begin{frame}{Exposants complexes}
+
+  \begin{center}
+  \begin{itemize}
+    \item Formule d'Euler: \hspace{5mm} $\boxed{e^{i\pi} = -1}$ 
+    \begin{flushright}
+      ... un peu long à expliquer
+    \end{flushright}
+    \bigskip
+    \item Permet de réécrire nos phases $(-1)^{\theta/\pi}$ comme $e^{i\theta}$ %, donnant ainsi la forme conventionnelle de la notation polaire des nombres complexes:
+    \bigskip
+    \item Notation conventionnelle des nombres complexes: \hspace{5mm} $\boxed{z = r e^{i\theta}}$
+    %\item Donne lieu à la notation polaire: $\boxed{z = r e^{i\theta}}$ car nos phases $(-1)^{\theta/\pi}$ se notent $e^{i\theta}$
+    % \begin{flushright}
+    %   ... car nos phases $(-1)^{\theta/\pi}$ se notent alors $e^{i\theta}$
+    % \end{flushright}
+  \end{itemize}
+  \end{center}
+
+\end{frame}
+
+\begin{frame}{Multiplication de nombres complexes (Euler)}
+
+  \begin{center}
+  \begin{itemize}
+    \item Un nombre complexe combine une \textbf{magnitude} (longueur) et une \textbf{phase} (angle):
+    \begin{equation*}
+      z = r e^{i\theta/\pi}
+    \end{equation*}
+    \item Multiplication de deux nombres complexes:
+    \begin{equation*}
+      z_1 z_2 = r_1 e^{i\theta_1} r_2 e^{i\theta_2} = r_1 r_2 e^{i(\theta_1+\theta_2)}
+    \end{equation*}
+    \item Division de deux nombres complexes:
+    \begin{equation*}
+      \frac{z_1}{z_2} = \frac{r_1 e^{i\theta_1}}{r_2 e^{i\theta_2}} = \frac{r_1}{r_2} e^{i(\theta_1-\theta_2)}
+    \end{equation*}
+  \end{itemize}
+  \end{center}
+
+\end{frame}
+
+\begin{frame}{Exponentiation des nombres complexes (Euler)}
+
+  \begin{center}
+  \begin{itemize}
+    \item Exponentiation par un réel:
+    \begin{equation*}
+      z^a = \left( r e^{i\theta} \right)^a = r^a e^{ia\theta}
+    \end{equation*}
+    \item Racines n-ièmes:
+    \begin{equation*}
+      \sqrt[n]{z} = \left( r e^{i\theta} \right) ^{1/n} = \sqrt[n]{r} e^{i\theta}
+    \end{equation*}
+    \bigskip
+    \item Qu'en est-il de l'exponentiation par un nombre complexe?
+    \begin{equation*}
+      z^i = e^{\ln(z^i)} = e^{i\ln(z)}
+    \end{equation*}
+  \end{itemize}
+  \end{center}
+
+\end{frame}
+
+\section{Représentation cartésienne/vectorielle}
+
+\begin{frame}{Trois représentations}
+  
+  \bigskip
+  \textbf{Forme cartésienne:}
+  \[
+    z = x + yi
+  \]
+  
+  \textbf{Forme vectorielle:}
+  \[
+    z = \begin{pmatrix} x \\ y \end{pmatrix}
+  \]
+  
+  \textbf{Forme polaire:}
+  \[
+    z = |z| e^{i\theta}
+  \]
+\end{frame}
+
+\begin{frame}{Représentation cartésienne/vectorielle}
+  
+  %$z = x + yi$ avec $x$ la partie réelle et $y$ la partie imaginaire.
+  
+  \bigskip
+  \begin{center}
+  \begin{tikzpicture}[scale=1.8]
+    \draw[->] (-0.5,0) -- (3.5,0) node[right] {Re};
+    \draw[->] (0,-0.5) -- (0,2.5) node[above] {Im};
+    \draw[->,thick,blue] (0,0) -- (2.5,1.5);
+    \draw[dashed] (2.5,0) node[below] {$x$} -- (2.5,1.5);
+    \draw[dashed] (0,1.5) node[left] {$y$} -- (2.5,1.5);
+    \filldraw[blue] (2.5,1.5) circle (2pt) node[above right] {$z = x + yi$};
+  \end{tikzpicture}
+  \end{center}
+\end{frame}
+
+\begin{frame}{Addition et soustraction}
+  %L'addition se fait composante par composante:
+  \[
+    (x_1 + y_1 i) + (x_2 + y_2 i) = (x_1+x_2) + (y_1+y_2)i \qquad     \begin{pmatrix} x_1 \\ y_1 \end{pmatrix} + \begin{pmatrix} x_2 \\ y_2 \end{pmatrix} = \begin{pmatrix} x_1 + x_2 \\ y_1 + y_2 \end{pmatrix}
+  \]
+  
+  \begin{center}
+  \begin{tikzpicture}[scale=0.9]
+    \draw[->] (-0.5,0) -- (4,0) node[right] {Re};
+    \draw[->] (0,-0.5) -- (0,3.5) node[above] {Im};
+    \draw[->,thick,blue] (0,0) -- (2,1) node[below] {$z_1$};
+    \draw[->,thick,red] (0,0) -- (1,2) node[left] {$z_2$};
+    \draw[->,thick,purple] (0,0) -- (3,3) node[above right] {$z_1+z_2$};
+    \draw[dashed,red] (2,1) -- (3,3);
+    \draw[dashed,blue] (1,2) -- (3,3);
+  \end{tikzpicture}
+  \end{center}
+  
+\end{frame}
+
+\begin{frame}{Multiplication en forme cartésienne}
+  La multiplication utilise la propriété $i^2 = -1$:
+  \begin{align*}
+    (x_1 + y_1 i)(x_2 + y_2 i) 
+    %&= x_1 x_2 + x_1 y_2 i + y_1 i x_2 + y_1 y_2 i^2 \\
+    &= x_1 x_2 + x_1 y_2 i + y_1 x_2 i + y_1 y_2 (-1) \\
+    &= (x_1 x_2 - y_1 y_2) + (x_1 y_2 + y_1 x_2)i
+  \end{align*}
+  
+  \bigskip
+  \textbf{Exemple:}
+  \[
+    (2 + 3i)(1 + 4i) = (2 \cdot 1 - 3 \cdot 4) + (2 \cdot 4 + 3 \cdot 1)i = -10 + 11i
+  \]
+\end{frame}
+
+\section{Lien avec les rotations}
+
+\begin{frame}{Multiplication par $i$}
+
+  \vspace{-5mm}
+  \[
+    i \cdot (x + yi) = ix + yi^2 = ix - y = -y + xi
+  \]
+  
+  \begin{center}
+  \begin{tikzpicture}[scale=1.3]
+    \draw[->] (-2.5,0) -- (2.5,0) node[right] {Re};
+    \draw[->] (0,-0.5) -- (0,2.5) node[above] {Im};
+    \draw[->,thick,blue] (0,0) -- (2,1) node[right] {$z$};
+    \draw[->,thick,red] (0,0) -- (-1,2) node[above left] {$iz$};
+    \draw[->] (0.8,0.4) arc (25:115:0.9);
+    \node at (0.5,1.1) {90°};
+  \end{tikzpicture}
+  \end{center}
+  
+  \textbf{Rotation de 90°} dans le sens anti-horaire.
+\end{frame}
+
+\begin{frame}{Multiplication par $1+i$}
+
+  Multiplication par $i$ suivie d'une addition: $(1 + i)z = z + iz$.
+
+  \begin{center}
+  \begin{tikzpicture}[scale=1.3]
+    \draw[->] (-2.5,0) -- (2.5,0) node[right] {Re};
+    \draw[->] (0,-0.5) -- (0,2.5) node[above] {Im};
+    \draw[->,thick,blue] (0,0) -- (2,1) node[right] {$z$};
+    \draw[->,dashed,red] (0,0) -- (-1,2) node[above left] {$iz$};
+    \draw[->,dashed,blue] (-1,2) -- (1,3);
+    \draw[->,thick,purple] (0,0) -- (1,3) node[right] {$z+iz$};
+    \draw[->] (0.8,0.4) arc (25:70:0.9);
+    \node at (0.9,0.9) {45°};
+  \end{tikzpicture}
+  \end{center}
+  
+  \textbf{Rotation de 45°} et \textbf{allongement} du vecteur initial.
+\end{frame}
+
+\begin{frame}{Module et phase}
+  Le \textbf{module} (ou norme) mesure la longueur du vecteur: $\quad |z| = \sqrt{x^2 + y^2}$
+  
+  \begin{center}
+  \begin{tikzpicture}[scale=1.2]
+    \draw[->] (-0.5,0) -- (3.5,0) node[right] {Re};
+    \draw[->] (0,-0.5) -- (0,2.5) node[above] {Im};
+    \draw[->,thick,blue,line width=1.5pt] (0,0) -- (2.5,1.5) node[midway,above left] {$|z|$};
+    \draw[dashed] (2.5,0) node[below] {$x$} -- (2.5,1.5);
+    \draw[dashed] (0,1.5) node[left] {$y$} -- (2.5,1.5);
+    \draw (0.5,0) arc (0:31:0.5);
+    \node at (0.8,0.2) {$\theta$};
+  \end{tikzpicture}
+  \end{center}
+
+  Le \textbf{phase} (ou argument) est l'angle $\theta$ que fait le vecteur avec l'axe réel.
+\end{frame}
+
+\begin{frame}{Interprétation trigonométrique}
+
+  \begin{columns}[T]
+    \begin{column}{0.49\textwidth}
+      \begin{center}
+      \begin{tikzpicture}[scale=1.4]
+        \draw[->] (-0.5,0) -- (3.5,0) node[right] {Re};
+        \draw[->] (0,-0.5) -- (0,2.5) node[above] {Im};
+        \draw[->,thick,blue,line width=1.5pt] (0,0) -- (2.5,1.5) node[midway,above left] {$|z|$};
+        \draw[dashed] (2.5,0) node[below] {$x$} -- (2.5,1.5);
+        \draw[dashed] (0,1.5) node[left] {$y$} -- (2.5,1.5);
+        \draw (0.5,0) arc (0:31:0.5);
+        \node at (0.8,0.2) {$\theta$};
+      \end{tikzpicture}
+      \end{center}
+    \end{column}
+    \begin{column}{0.49\textwidth}
+
+      Nombre complexe encode une \\
+      rotation et une élongation:
+      \[
+        z = \underbrace{|z|\cos(\theta)}_{x} + i\underbrace{|z|\sin(\theta)}_{y}
+      \]
+
+      \textbf{Normalization} pour garder la \\
+      rotation uniquement:
+
+      \[
+        \frac{z}{|z|} = \cos(\theta) + i\sin(\theta)
+      \]
+
+    \end{column}
+  \end{columns}
+
+\end{frame}
+
+\section{Complexe conjugué et division}
+
+\begin{frame}{Division comme rotation inverse}
+  
+  Pour inverser une rotation d'angle $\theta$, on effectue une rotation d'angle $-\theta$.
+  
+  \bigskip
+  Ceci nous amène au concept de \textbf{complexe conjugué}, noté $z^*$ (ou $\bar{z}$):
+  \[
+    z^* = x - iy
+  \]
+  
+  En notation trigonométrique:
+  \[
+    z^* = |z|\cos(-\theta) + i|z|\sin(-\theta) = |z|\cos(\theta) - i|z|\sin(\theta)
+  \]
+  
+\end{frame}
+
+\begin{frame}{Le complexe conjugué}
+  \begin{center}
+  \begin{tikzpicture}[scale=1.2]
+    \draw[->] (-0.5,0) -- (3.5,0) node[right] {Re};
+    \draw[->] (0,-2,0) -- (0,2) node[above] {Im};
+    \draw[->,thick,blue] (0,0) -- (2.5,1.5) node[above right] {$z$};
+    \draw[->,thick,red] (0,0) -- (2.5,-1.5) node[below right] {$z^*$};
+    \draw[dashed] (2.5,1.5) -- (2.5,-1.5);
+    \draw (0.7,0) arc (0:31:0.7);
+    \draw (0.7,0) arc (0:-31:0.7);
+    \node at (1,0.3) {$\theta$};
+    \node at (1,-0.3) {$-\theta$};
+  \end{tikzpicture}
+  \end{center}
+  
+  \[
+    z \cdot z^* = (x + iy)(x - iy) = x^2 + y^2 = |z|^2
+  \]
+\end{frame}
+
+\begin{frame}{Division de nombres complexes}
+  Pour diviser par un nombre complexe, on multiplie par le conjugué divisé par le module au carré:
+  \[
+    \frac{1}{z} = \frac{z^*}{zz^*} = \frac{z^*}{|z|^2} = \frac{x - iy}{x^2 + y^2}
+  \]
+  
+  \bigskip
+  Pour diviser deux complexes:
+  \[
+    \frac{z_1}{z_2} = \frac{z_1 \cdot z_2^*}{|z_2|^2}
+  \]
+\end{frame}
+
+\begin{frame}{Division détaillée en notation $x + iy$}
+  Calculons $\frac{z_1}{z_2} = \frac{x_1 + iy_1}{x_2 + iy_2}$:
+  
+  \begin{align*}
+    \frac{x_1 + iy_1}{x_2 + iy_2} &= \frac{(x_1 + iy_1)(x_2 - iy_2)}{(x_2 + iy_2)(x_2 - iy_2)} \\
+    &= \frac{(x_1 x_2 + y_1 y_2) + i(y_1 x_2 - x_1 y_2)}{x_2^2 + y_2^2} \\
+    &= \frac{x_1 x_2 + y_1 y_2}{x_2^2 + y_2^2} + i\frac{y_1 x_2 - x_1 y_2}{x_2^2 + y_2^2}
+  \end{align*}
+\end{frame}
+
+\section{Représentation polaire}
+
+\begin{frame}{Notation polaire}
+
+  \bigskip
+  Notation $z = |z| e^{i\theta}$ sépare de manière élégante:
+
+  \bigskip
+  \begin{itemize}
+    \setlength{\itemsep}{1em}
+    \item Le \textbf{module} $|z|$: l'amplitude, la longueur
+    \item La \textbf{phase} $\theta$: l'angle, la direction
+  \end{itemize}
+
+  \begin{flushright}
+    \vspace{-35mm}
+  \begin{tikzpicture}[scale=1.5]
+    \draw[->] (-2.5,0) -- (2.5,0) node[right] {Re};
+    \draw[->] (0,-0.5) -- (0,2.5) node[above] {Im};
+    \draw[->,thick,blue] (0,0) -- (1,2) node[above right] {$z$};
+    \draw[->] (0.8,0.0) arc (0:60:0.8);
+    \node at (1.0,0.6) {$e^{i\theta}$};
+  \end{tikzpicture}
+  \end{flushright}
+
+  L'exponentielle transforme les multiplications en sommes sur les angles:
+  \[
+    z_1 \cdot z_2 = |z_1| e^{i\theta_1} \cdot |z_2| e^{i\theta_2} = |z_1||z_2| e^{i(\theta_1 + \theta_2)}
+  \]
+
+\end{frame}
+
+\begin{frame}{Formule d'Euler}
+  La \textbf{formule d'Euler} établit le lien entre l'exponentielle et les fonctions trigonométriques:
+  \[
+    e^{i\theta} = \cos(\theta) + i\sin(\theta)
+  \]
+  
+  \bigskip
+  Cas particuliers remarquables:
+  \begin{align*}
+    e^{i\pi/2} = i \qquad\qquad
+    e^{i\pi} = -1 \qquad\qquad
+    e^{2i\pi} = 1 \qquad\qquad
+  \end{align*}
+\end{frame}
+
+\begin{frame}{Opérations en notation polaire}
+  \textbf{Multiplication:}
+  \[
+    z_1 \cdot z_2 = (|z_1| e^{i\theta_1})(|z_2| e^{i\theta_2}) = |z_1||z_2| \, e^{i(\theta_1+\theta_2)}
+  \]
+  
+  \textbf{Division:}
+  \[
+    \frac{z_1}{z_2} = \frac{|z_1| e^{i\theta_1}}{|z_2| e^{i\theta_2}} = \frac{|z_1|}{|z_2|} \, e^{i(\theta_1-\theta_2)}
+  \]
+  
+  \textbf{Puissance:}
+  \[
+    z^n = (|z| e^{i\theta})^n = |z|^n e^{in\theta}
+  \]
+  
+  \textbf{Racine n-ième:}
+  \[
+    \sqrt[n]{z} = |z|^{1/n} e^{i\theta/n}
+  \]
+\end{frame}
+
+\begin{frame}{Racines de l'unité}
+
+  \bigskip
+  Les racines n-ièmes de l'unité sont les solutions de $z^n = 1$: $\quad \omega_k = e^{2\pi i k/n} \quad k\in\mathbb{Z}$
+
+  Avec $n=6$:
+ 
+  \begin{center}
+  \begin{tikzpicture}[scale=1.7]
+    \draw[->] (-1.5,0) -- (1.5,0) node[right] {Re};
+    \draw[->] (0,-1.5) -- (0,1.5) node[above] {Im};
+    \draw[gray] (0,0) circle (1);
+    \foreach \k in {0,1,2,3,4,5} {
+      \filldraw[blue] ({cos(60*\k)},{sin(60*\k)}) circle (1pt);
+      %\draw[->,gray] (0,0) -- ({cos(60*\k)},{sin(60*\k)});
+    }
+    \node[above right] at (1,0) {$1$};
+    \node[above right] at ({cos(60*1)},{sin(60*1)}) {$e^{i\pi/3}$};
+    \node[above left] at ({cos(60*2)},{sin(60*2)}) {$e^{i2\pi/3}$};
+  \end{tikzpicture}
+  \end{center}
+  \end{frame}
+
+\section{Pour aller plus loin}
+
+\begin{frame}{Vidéos par 3Blue1Brown} 
+  \begin{center}
+    \includegraphics[width=\linewidth]{../../figures/3b1b_complexes.png}
+  \end{center}
+\end{frame}
+
+\begin{frame}{Quaternions et rotations 3D}
+  Les quaternions étendent les nombres complexes pour les rotations 3D.
+  
+  \bigskip
+  Nombres $1, i, j, k$ avec la table de multiplication:
+  
+  \begin{center}
+  \begin{tabular}{c|cccc}
+    $\times$ & $1$ & $i$ & $j$ & $k$ \\
+    \hline
+    $1$ & $1$ & $i$ & $j$ & $k$ \\
+    $i$ & $i$ & $-1$ & $k$ & $-j$ \\
+    $j$ & $j$ & $-k$ & $-1$ & $i$ \\
+    $k$ & $k$ & $j$ & $-i$ & $-1$
+  \end{tabular}
+  \end{center}
+  
+  \bigskip
+  Utilisés en graphisme 3D et jeux vidéo. En physique, on préfère les matrices de Pauli.
+
+  \bigskip
+  Ce petit exercice peut être continué avec des transformations plus générales que des rotations: cela amène à la \textbf{théorie des groupes} et de leurs représentations.
+  
+\end{frame}
+
+\begin{frame}{Résumé $\mathbb{C}$}
+
+  \vspace{2mm}
+  \begin{itemize}
+    \setlength{\itemsep}{0.9em}
+    \item Les nombres complexes résolvent le problème de $\sqrt{-1}$
+    \item Extension des nombres réels en leur ajoutant une phase $e^{i\theta}$
+    \item Trois représentations: cartésienne, vectorielle, polaire
+  \end{itemize}
+
+  \begin{center}
+    \vspace{2mm}
+  \begin{tikzpicture}[scale=1.0]
+    \draw[->] (-2.5,0) -- (2.5,0) node[right] {Re};
+    \draw[->] (0,-0.5) -- (0,2.5) node[above] {Im};
+    \draw[->,thick,blue] (0,0) -- (1,2) node[above right] {$z$};
+    \draw[->] (0.8,0.0) arc (0:60:0.8);
+    \node at (1.0,0.6) {$e^{i\theta}$};
+  \end{tikzpicture}
+  \end{center}
+
+\end{frame}
+
+\end{document}
