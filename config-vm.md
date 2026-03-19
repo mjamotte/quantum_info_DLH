@@ -48,7 +48,7 @@ git clone https://github.com/mjamotte/quantum_info_DLH
 cd quantum_info_DLH
 python3 -m venv .venv
 ./.venv/bin/pip install qiskit[visualization] qiskit-ibm-runtime qiskit-aer numpy matplotlib ipykernel
-./.venv/bin/python ipykernel install --user --name="kernel-dlh" --display-name="kernel-dlh"
+./.venv/bin/python -m ipykernel install --user --name="kernel-dlh"
 ```
 
 Congrats, all is now setup properly!
