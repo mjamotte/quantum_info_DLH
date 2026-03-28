@@ -1,11 +1,28 @@
 # TODO
 
+## Qubit
+
+- Ajouter notions bases de mesure dans base computationelle
+
+## Opérations sur un qubit
+
+- Eliminer (déplacer) concept et vocabulaire de circuit
+- Notation ket-bra pour opérations sur kets (compléter le parallèle vecteur-kets)
+
+## Circuits
+
+- Introduire notion de circuit
+- Expliquer portes <-> matrices (afficher un exemple)
+- Parallèle avec circuits electroniques/classiques
+- Modèle de calcul sur QPU: init avec 0, circuit, mesures
+
 ## Mesure
 
 - Déplacer explication des mesures dans la base computationnelle dans le chapitre présentant le qubit
 - Concepts généraux dans chapitre "avancé" (projections sur états quelconques, autres bases, idempotence, vecteurs propres)
 - Passer ce chapitre et le proposer comme module d'approfondissement
 - Graphe pour illustrer que $\ket{\psi}\bra{\psi}$ fait une projection (bra extrait coef et ket est nouvelle direction)
+- Mesure dans bases arbitraires, concept de base vectorielle, lien avec opérateurs X,Z 
 
 ## Distribution de clés
 
@@ -27,8 +44,10 @@ Slides d'abord:
 - Idée générale: évaluer tous les candidats en même temps
 - Pas parler de la construction de l'oracle: seulement dire que la porte oracle marque la solution par signe
 - Directement expliquer procédure géométrique pour amplifier le coefficient de la solution
-- Graphe pour illustrer que $2 \ket{+}\bra{+}$ - I$ fait une réflection géométrique autour de $\ket{+}$
+- Graphe pour illustrer que $2 \ket{+}\bra{+} - I$ fait une réflection géométrique autour de $\ket{+}$
 
 Notebook:
 
 - Détailler pourquoi mcx est utilisé pour implémenter la réflexion géométrique
+- Exercice avec qiskit quantum_info: visualiser l'évolution du statevector
+
