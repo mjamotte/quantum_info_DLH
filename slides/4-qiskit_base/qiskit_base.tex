@@ -14,7 +14,7 @@
 \usepackage{physics}
 \usepackage{braket}
 
-\title[Chapter 4]{Chapitre 4: Prise en main de Qiskit}
+\title[Chapter 4]{Chapitre 4: Prise en main de \texttt{QISKIT}}
 \author{JAMOTTE Maxime, SCHOONEN Cédric}
 \institute{Digital Learning Hub}
 \date{}
@@ -33,23 +33,84 @@
 
 \begin{frame}{Objectifs du chapitre 4}
   \begin{itemize}
-    \item 1) Manipuler un qubit avec QISKIT: application de portes quantiques.
+    \item Installation de \texttt{Qiskit}\\~\\
+    \item Manipuler un qubit avec \texttt{Qiskit}: application d'opérateurs quantiques à 1 qubit.
     \\~\\
-    \item 2) Passer de la représentation mathématique (vecteurs, matrices) aux circuits.\\~\\
-    \item JN = Jupyter Notebook
+    \item Circuits logiques classiques\\~\\
+    \item Passer de la représentation mathématique (vecteurs, matrices) aux circuits de portes logiques quantiques.\\~\\
   \end{itemize}
 \end{frame}
 
-\begin{frame}{États et portes à 1 qubit (voir JN)}
+\begin{frame}{États et opérateurs à 1 qubit (voir JN)}
   \begin{itemize}
     \item États \(\ket{0}\) et \(\ket{1}\) construits avec \texttt{Statevector}.\\~\\
-    \item Portes \(H\) et \(X\) définies avec \texttt{Operator} et appliquées via \texttt{Statevector.evolve}.\\~\\
-    \item Circuits équivalents créés avec \texttt{QuantumCircuit} puis convertis en \texttt{Statevector.from\_instruction}.\\~\\
+    \item Opérations \(H\) et \(X\) définies avec \texttt{Operator} et appliquées via \texttt{Statevector.evolve}.\\~\\
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Circuits de portes logiques classiques}
+  \begin{itemize}[<+->]
+    \setlength{\itemsep}{0.55em}
+    \item Bits classiques: 0 ou 1; les portes transforment ces bits.
+    \item Exemples clés : NOT, AND, OR, XOR, NAND (porte universelle).
+    \item On enchaîne ces portes pour construire des circuits logiques.
+  \end{itemize}
+  \vfill
+  \only<2->{%
+    \centering
+    \includegraphics[height=1.1cm]{figures/NOT.png}\hspace{0.3cm}
+    \includegraphics[height=1.1cm]{figures/AND.png}\hspace{0.3cm}
+    \includegraphics[height=1.1cm]{figures/OR.png}\hspace{0.3cm}
+    \includegraphics[height=1.1cm]{figures/XOR.png}\hspace{0.3cm}
+    \includegraphics[height=1.1cm]{figures/NAND.png}
+  }
+\end{frame}
+
+\begin{frame}{Table de vérité (rappel)}
+  \centering
+  \renewcommand{\arraystretch}{1.4}
+  \begin{tabular}{l c c c}
+    \textbf{Porte} & \textbf{Symbole} & \textbf{Expression} & \textbf{Description} \\\hline
+    NOT   & $\lnot A$ & inverse & $1\leftrightarrow 0$ \\
+    AND   & $A\cdot B$ & $1$ si $A=1$ et $B=1$ & porte "multiplication" \\
+    OR    & $A + B$ & $1$ si $A=1$ ou $B=1$ & porte "addition" \\
+    XOR   & $A \oplus B$ & $1$ si $A\neq B$ & "ou exclusif" \\
+    NAND  & $\lnot(A\cdot B)$ & inverse de AND & base universelle \\
+  \end{tabular}
+\end{frame}
+
+
+
+\begin{frame}{Table de vérité XOR / AND}
+  \centering
+  \renewcommand{\arraystretch}{1.4}
+  \begin{tabular}{c c | c | c}
+    $A$ & $B$ & $A\ \mathbf{XOR}\ B$ & $A\ \mathbf{AND}\ B$ \\\hline
+    0 & 0 & 0 & 0 \\
+    0 & 1 & 1 & 0 \\
+    1 & 0 & 1 & 0 \\
+    1 & 1 & 0 & 1 \\
+  \end{tabular}
+\end{frame}
+
+\begin{frame}{Exemple de circuit classique}
+  \begin{itemize}[<+->]
+    \item Enchaînement de portes pour additionner deux bits (avec report).
+    \item Chaque fil transporte un bit, chaque symbole applique une porte.
+  \end{itemize}
+  \vfill
+  \centering
+  \includegraphics[width=0.65\textwidth]{figures/addition_circuit2.png}
+\end{frame}
+
+\begin{frame}{États et opérateurs à 1 qubit (voir JN)}
+  \begin{itemize}
+    \item Circuits quantiques créés avec \texttt{QuantumCircuit} puis convertis en \texttt{Statevector.from\_instruction}.\\~\\
     \item Visualisation rapide des circuits avec \texttt{qc.draw('mpl')}.
   \end{itemize}
 \end{frame}
 
-\begin{frame}{Portes quantiques à un qubit (voir JN)}
+\begin{frame}{Circuits quantiques à 1 qubit (voir JN)}
   \begin{itemize}
     \item Porte de Hadamard ($H$)
     \\~\\
@@ -60,11 +121,11 @@
     \column{0.48\textwidth}
     \centering
     \includegraphics[width=0.8\linewidth]{figures/gate_hadamard.png}
-    \\[-0.3em]\footnotesize Circuit Qiskit pour $H$
+    \\[-0.3em]\footnotesize Circuit \texttt{Qiskit} pour $H$
     \column{0.48\textwidth}
     \centering
     \includegraphics[width=0.8\linewidth]{figures/gate_x.png}
-    \\[-0.3em]\footnotesize Circuit Qiskit pour $X$
+    \\[-0.3em]\footnotesize Circuit \texttt{Qiskit} pour $X$
   \end{columns}
 \end{frame}
 
@@ -73,7 +134,7 @@
     \column{0.5\textwidth}
     \centering
     \includegraphics[width=0.75\linewidth]{figures/gate_hadamard.png}
-    \\[-0.3em]\footnotesize Circuit Qiskit pour $H$
+    \\[-0.3em]\footnotesize Circuit \texttt{Qiskit} pour $H$
     \column{0.5\textwidth}
     \small
     \[
@@ -94,7 +155,7 @@
     \column{0.5\textwidth}
     \centering
     \includegraphics[width=0.75\linewidth]{figures/gate_x.png}
-    \\[-0.3em]\footnotesize Circuit Qiskit pour $X$
+    \\[-0.3em]\footnotesize Circuit \texttt{Qiskit} pour $X$
     \column{0.5\textwidth}
     \small
     \[
@@ -110,42 +171,26 @@
   \end{columns}
 \end{frame}
 
-\begin{frame}{Exercice 3.1 : $H$ sur \(\ket{1}\) (voir JN)}
-  \begin{columns}[T,onlytextwidth]
-    \column{0.55\textwidth}
-    \begin{itemize}[<+->]
-      \item Point de départ : \(\ket{1} = \begin{pmatrix}0\\ 1\end{pmatrix}\).\\~\\
-      \item Appliquer la porte de Hadamard : \(H\ket{1} = \tfrac{1}{\sqrt{2}}(\ket{0} - \ket{1})\).\\~\\
-      \item Modifier l'état initial dans le code (remplacer \(\ket{0}\) par \(\ket{1}\)) et observer la nouvelle superposition.
-    \end{itemize}
-    \column{0.45\textwidth}
-    \centering
-    \includegraphics[width=0.8\linewidth]{figures/gate_hadamard.png}
-  \end{columns}
-\end{frame}
+% \begin{frame}{Exercice 4.1 : $H$ sur \(\ket{1}\) (voir JN)}
+%   \begin{columns}[T,onlytextwidth]
+%     \column{0.55\textwidth}
+%     \begin{itemize}[<+->]
+%       \item Point de départ : \(\ket{1} = \begin{pmatrix}0\\ 1\end{pmatrix}\).\\~\\
+%       \item Appliquer la porte de Hadamard : \(H\ket{1} = \tfrac{1}{\sqrt{2}}(\ket{0} - \ket{1})\).\\~\\
+%       \item Modifier l'état initial dans le code (remplacer \(\ket{0}\) par \(\ket{1}\)) et observer la nouvelle superposition.
+%     \end{itemize}
+%     \column{0.45\textwidth}
+%     \centering
+%     \includegraphics[width=0.8\linewidth]{figures/gate_hadamard.png}
+%   \end{columns}
+% \end{frame}
 
-
-\begin{frame}{Exercice 3.2 : $H$ puis $X$ sur \(\ket{0}\) (voir JN)}
-  \begin{columns}[T,onlytextwidth]
-    \column{0.55\textwidth}
-    \begin{itemize}[<+->]
-      \item Point de départ : \(\ket{0} = \begin{pmatrix}1\\ 0\end{pmatrix}\).\\~\\
-      \item Chaîne d'opérations : \(X H \ket{0} = X \big(\tfrac{1}{\sqrt{2}}(\ket{0} + \ket{1})\big) = \tfrac{1}{\sqrt{2}}(\ket{0} + \ket{1})\).\\~\\
-      \item Construire le circuit (H suivi de X), visualiser et vérifier l'état final dans le notebook.
-    \end{itemize}
-    \column{0.45\textwidth}
-    \centering
-    \includegraphics[width=0.8\linewidth]{figures/gate_h_then_x.png}
-  \end{columns}
-\end{frame}
-
-\begin{frame}{Exercice 3.3 : $X$ puis $H$ sur \(\ket{0}\) (voir JN)}
+\begin{frame}{Exercice 4.1 : $X$ puis $H$ sur \(\ket{0}\) (voir JN)}
   \begin{columns}[T,onlytextwidth]
     \column{0.55\textwidth}
     \begin{itemize}[<+->]
       \item Point de départ : \(\ket{0}\).\\~\\
       \item Chaîne d'opérations : \(H X \ket{0} = H\ket{1} = \tfrac{1}{\sqrt{2}}(\ket{0} - \ket{1})\).\\~\\
-      \item Comparer avec l'exercice 3.2 pour voir que l'ordre des portes change le résultat (non-commutativité).
     \end{itemize}
     \column{0.45\textwidth}
     \centering
@@ -153,9 +198,24 @@
   \end{columns}
 \end{frame}
 
+\begin{frame}{Exercice 4.2 : $H$ puis $X$ sur \(\ket{0}\) (voir JN)}
+  \begin{columns}[T,onlytextwidth]
+    \column{0.55\textwidth}
+    \begin{itemize}[<+->]
+      \item Point de départ : \(\ket{0} = \begin{pmatrix}1\\ 0\end{pmatrix}\).\\~\\
+      \item Chaîne d'opérations : \(X H \ket{0} = X \big(\tfrac{1}{\sqrt{2}}(\ket{0} + \ket{1})\big) = \tfrac{1}{\sqrt{2}}(\ket{0} + \ket{1})\).\\~\\
+      \item Construire le circuit (H suivi de X), visualiser et vérifier l'état final dans le notebook.
+      \item Comparer avec l'exercice 4.1 pour voir que l'ordre des portes change le résultat (non-commutativité).
+    \end{itemize}
+    \column{0.45\textwidth}
+    \centering
+    \includegraphics[width=0.8\linewidth]{figures/gate_h_then_x.png}
+  \end{columns}
+\end{frame}
+
+
+
 \begin{frame}{Fin du chapitre 4}
-  \centering
-  Passons à une étape essentielle: la mesure.
 \end{frame}
 
 \end{document}

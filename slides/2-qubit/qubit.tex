@@ -12,6 +12,7 @@
 \usepackage{hyperref}
 \usepackage{siunitx}
 \usepackage{physics}
+\usepackage{tikz}
 
 \begin{document}
 
@@ -28,7 +29,8 @@
   \begin{enumerate}
     \item Vecteurs\\~\\
     %\item Produit scalaire\\~\\
-    \item Qubit, superposition d'états et vecteurs
+    \item Qubit, superposition d'états et vecteurs\\~\\
+    \item Mesure de l'état d'un qubit
   \end{enumerate}
 \end{frame}
 
@@ -70,23 +72,14 @@
   }
 \end{frame}
 
-% \begin{frame}{Produit scalaire}
-%   \begin{columns}[T]
-%     \begin{column}{0.6\textwidth}
-%       \begin{itemize}[<+->]
-%         \setlength{\itemsep}{0.6em}
-%         \item La probabilité d'obtenir un résultat de mesure vient (en gros) d'une comparaison de deux états quantiques.
-%         \item Cette comparaison se traduit par un produit scalaire entre leurs vecteurs associés.
-%         $$\vec r \cdot \vec p = \begin{pmatrix} a & b \end{pmatrix} \begin{pmatrix} c \\ d \end{pmatrix} = ac+bd$$
-%         \item Lien avec l'angle: $\vec r \cdot \vec p = \norm{\vec r}\norm{\vec p}\cos(\theta)$.
-%       \end{itemize}
-%     \end{column}
-%     \begin{column}{0.35\textwidth}
-%       \centering
-%       \includegraphics[width=\linewidth]{figures/proj.png}
-%     \end{column}
-%   \end{columns}
-% \end{frame}
+\begin{frame}{Probabilité et produit scalaire}
+      \begin{itemize}[<+->]
+        \setlength{\itemsep}{0.6em}
+        \item Produit scalaire de deux vecteurs: 
+        $$\vec r \cdot \vec p = \begin{pmatrix} a & b \end{pmatrix} \begin{pmatrix} c \\ d \end{pmatrix} = ac+bd$$
+        \item Lien avec l'angle: $\vec r \cdot \vec p = \norm{\vec r}\norm{\vec p}\cos(\theta)$.
+      \end{itemize}
+\end{frame}
 
 \begin{frame}{Qubit}
   \begin{itemize}[<+->]
@@ -117,7 +110,7 @@
       \begin{itemize}[<+->]
         \item Un qubit peut être dans $\ket 0$, $\ket 1$ ou toute \textbf{superposition} des deux: $\alpha \ket 0 + \beta \ket 1$.
         \item Superposition = combinaison linéaire d'états.
-        \item \textbf{Postulat} : les états quantiques forment un espace vectoriel (espace de Hilbert). Une combinaison linéaire d'états est aussi un état.
+        % \item \textbf{Postulat} : les états quantiques forment un espace vectoriel (espace de Hilbert). Une combinaison linéaire d'états est aussi un état.
         \item L'état superposé $\ket {\psi} = \alpha \ket 0 + \beta \ket 1$, s'écrit $\begin{pmatrix} \alpha \\ \beta \end{pmatrix}$,\\~\\
         \item Chaque \textbf{qubit} est identifiable à la \textbf{direction} de son vecteur.
         \item $\ket{0}$ et $-\ket{0}$ correspondent au même état quantique.
@@ -129,16 +122,52 @@
       \vspace{2em}
       \centering
       $\ket 0 = \begin{pmatrix}1 \\ 0\end{pmatrix}$ et $\ket 1 = \begin{pmatrix}0 \\ 1\end{pmatrix}$\\~\\~\\
-      \only<4->{\includegraphics[width=0.8\textwidth]{figures/ket_base.png}}
+      \only<4->{\resizebox{0.8\textwidth}{!}{\input{figures/ket_base_tikz_expl.tex}}}
     \end{column}
   \end{columns}
 \end{frame}
+
+
+\begin{frame}{Mesure de l'état d'un qubit}
+  \begin{columns}[T]
+    \begin{column}{0.65\textwidth}
+      \begin{itemize}[<+->]
+      \item Mesurer = extraire de l'information\\~\\
+      \item L'interaction avec l'appareil de mesure détruit la superposition\\~\\
+      \item La mesure projette sur un état classique.\\ 
+      Ici: $\ket 0$ ou $\ket 1$\\~\\
+      \item Probabilité de mesurer l'état $\ket 0$: $P(\ket 0)=|\alpha|^2$\\
+      Probabilité de mesuer l'état $\ket 1$: $P(\ket 1)=|\beta|^2$
+\end{itemize}
+    \end{column}
+    \begin{column}{0.35\textwidth}
+      \vspace{2em}
+      \centering
+      $\ket 0 = \begin{pmatrix}1 \\ 0\end{pmatrix}$ et $\ket 1 = \begin{pmatrix}0 \\ 1\end{pmatrix}$\\~\\~\\
+      \only<4->{\resizebox{0.8\textwidth}{!}{\input{figures/ket_base_tikz.tex}}}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Probabilité et produit scalaire}
+      \begin{itemize}[<+->]
+        \setlength{\itemsep}{0.6em}
+        \item Produit scalaire entre deux états quantiques: $\braket{\phi}{\psi}$\\~\\
+        \item Il se traduit par un produit scalaire entre leurs vecteurs associés:\\
+         $$\ket \psi = \begin{pmatrix} \alpha \\ \beta \end{pmatrix},\quad  \ket \phi = \begin{pmatrix} \gamma \\ \delta \end{pmatrix} \qquad \braket{\phi}{\psi} = \alpha \gamma^* + \beta \delta^*$$\\~\\
+        \item Exemples: $\qquad \braket{0}{0} = 1, \qquad \braket{0}{1} = 0, \qquad \braket{1}{1} = 1$\\~\\
+        \item La probabilité d'obtenir un résultat de mesure $\ket  0$ ou $\ket 1$ se calcule à partir du produit scalaire entre $\ket \psi$ et $\ket 0$ ou $\ket 1$:
+        $$ |\braket{\psi}{0}|^2 = |\alpha|^2, \qquad  |\braket{\psi}{1}|^2 = |\beta|^2$$
+      \end{itemize}
+\end{frame}
+
 
 \begin{frame}{Fin du chapitre 2}
   \begin{enumerate}
     \item Vecteurs\\~\\
     %\item Produit scalaire\\~\\
-    \item Qubit, superposition d'états et vecteurs
+    \item Qubit, superposition d'états et vecteurs\\~\\
+    \item Mesure de l'état d'un qubit
   \end{enumerate}
 \end{frame}
 

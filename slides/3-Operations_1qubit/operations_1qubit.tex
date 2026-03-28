@@ -27,8 +27,7 @@
 \begin{frame}{Objectifs du chapitre 3}
   \begin{enumerate}
     \item Matrices et action sur un vecteur\\~\\
-    \item Portes logiques et circuits classiques\\~\\
-    \item Portes logiques quantiques
+    \item Opérations sur un qubit\\~\\
   \end{enumerate}
 \end{frame}
 
@@ -146,105 +145,21 @@
   \]
 \end{frame}
 
-
-\begin{frame}{Portes logiques classiques}
+\begin{frame}{Opérateurs quantiques sur un qubit}
   \begin{itemize}[<+->]
     \setlength{\itemsep}{0.55em}
-    \item Bits classiques: 0 ou 1; les portes transforment ces bits.
-    \item Exemples clés : NOT, AND, OR, XOR, NAND (porte universelle).
-    \item On enchaîne ces portes pour construire des circuits logiques.
-  \end{itemize}
-  \vfill
-  \only<2->{%
-    \centering
-    \includegraphics[height=1.1cm]{figures/NOT.png}\hspace{0.3cm}
-    \includegraphics[height=1.1cm]{figures/AND.png}\hspace{0.3cm}
-    \includegraphics[height=1.1cm]{figures/OR.png}\hspace{0.3cm}
-    \includegraphics[height=1.1cm]{figures/XOR.png}\hspace{0.3cm}
-    \includegraphics[height=1.1cm]{figures/NAND.png}
-  }
-\end{frame}
-
-\begin{frame}{Table de vérité (rappel)}
-  \centering
-  \renewcommand{\arraystretch}{1.4}
-  \begin{tabular}{l c c c}
-    \textbf{Porte} & \textbf{Symbole} & \textbf{Expression} & \textbf{Description} \\\hline
-    NOT   & $\lnot A$ & inverse & $1\leftrightarrow 0$ \\
-    AND   & $A\cdot B$ & $1$ si $A=1$ et $B=1$ & porte "multiplication" \\
-    OR    & $A + B$ & $1$ si $A=1$ ou $B=1$ & porte "addition" \\
-    XOR   & $A \oplus B$ & $1$ si $A\neq B$ & "ou exclusif" \\
-    NAND  & $\lnot(A\cdot B)$ & inverse de AND & base universelle \\
-  \end{tabular}
-\end{frame}
-
-
-
-\begin{frame}{Table de vérité XOR / AND}
-  \centering
-  \renewcommand{\arraystretch}{1.4}
-  \begin{tabular}{c c | c | c}
-    $A$ & $B$ & $A\ \mathbf{XOR}\ B$ & $A\ \mathbf{AND}\ B$ \\\hline
-    0 & 0 & 0 & 0 \\
-    0 & 1 & 1 & 0 \\
-    1 & 0 & 1 & 0 \\
-    1 & 1 & 0 & 1 \\
-  \end{tabular}
-\end{frame}
-
-\begin{frame}{Exemple de circuit classique}
-  \begin{itemize}[<+->]
-    \item Enchaînement de portes pour additionner deux bits (avec report).
-    \item Chaque fil transporte un bit, chaque symbole applique une porte.
-  \end{itemize}
-  \vfill
-  \centering
-  \includegraphics[width=0.65\textwidth]{figures/addition_circuit2.png}
-\end{frame}
-
-\begin{frame}{Portes logiques quantiques}
-  \begin{itemize}[<+->]
-    \setlength{\itemsep}{0.55em}
-    \item Les qubits se transforment via des portes logiques quantiques.\\~\\
     \item Les \textbf{vecteurs} représentant les \textbf{qubits} sont transformés par des \textbf{matrices}
-     représentant les \textbf{portes quantiques}.\\~\\
-    \item Exemples de portes: Pauli X (inversion), Z (phase), Hadamard $H$ (création de superposition).\\~\\
-    \item Les circuits quantiques enchaînent ces portes sur des lignes de qubits (analogie classique).
+     représentant les \textbf{opérateurs quantiques}.\\~\\
+    \item Exemples d'opérateurs à 1 qubit: Pauli X (inversion), Z (phase), Hadamard $H$ (création de superposition).\\~\\
   \end{itemize}
 \end{frame}
 
-\begin{frame}{Porte $X$ (NOT quantique)}
-  \[
-    X = \begin{pmatrix}0 & 1 \\ 1 & 0\end{pmatrix}
-  \]
-  ~\\~\\
-  \[
-    X\ket 0 = \ket 1, \qquad
-    X\ket 1 = \ket 0
-  \]
-  ~\\~\\
-  \[
-    \begin{pmatrix}0 & 1 \\ 1 & 0\end{pmatrix}
-    \begin{pmatrix}1\\0\end{pmatrix}=
-    \begin{pmatrix}0\\1\end{pmatrix},
-    \qquad
-    \begin{pmatrix}0 & 1 \\ 1 & 0\end{pmatrix}
-    \begin{pmatrix}0\\1\end{pmatrix}=
-    \begin{pmatrix}1\\0\end{pmatrix}
-  \]
-\end{frame}
-
-\begin{frame}{Porte $Z$ (phase)}
-  \[
+\begin{frame}{Opération $Z$ (phase)}
+  Notation matricielle:
+  $$
     Z = \begin{pmatrix}1 & 0 \\ 0 & -1\end{pmatrix}
-  \]
-  ~\\~\\
-  \[
-    Z\ket 0 = \ket 0, \qquad
-    Z\ket 1 = -\ket 1
-  \]
-  ~\\~\\
-  \[
+  $$\\~\\
+  $$
     \begin{pmatrix}1 & 0 \\ 0 & -1\end{pmatrix}
     \begin{pmatrix}1\\0\end{pmatrix}=
     \begin{pmatrix}1\\0\end{pmatrix},
@@ -252,20 +167,48 @@
     \begin{pmatrix}1 & 0 \\ 0 & -1\end{pmatrix}
     \begin{pmatrix}0\\1\end{pmatrix}=
     \begin{pmatrix}0\\-1\end{pmatrix}
-  \]
+  $$
+  ~\\~\\
+  Notation d'opérateur: $$Z =1  \ket 0 \bra 0 -1  \ket 1 \bra 1$$\\~\\
+  $$
+    Z\ket 0 = \ket 0, \qquad
+    Z\ket 1 = -\ket 1
+  $$
+  
 \end{frame}
 
-\begin{frame}{Porte $H$ (Hadamard)}
-  \[
+
+\begin{frame}{Opération $X$ (NOT quantique)}
+  Notation matricielle:
+  $$
+    X = \begin{pmatrix}0 & 1 \\ 1 & 0\end{pmatrix}
+  $$\\~\\
+  $$
+    \begin{pmatrix}0 & 1 \\ 1 & 0\end{pmatrix}
+    \begin{pmatrix}1\\0\end{pmatrix}=
+    \begin{pmatrix}0\\1\end{pmatrix},
+    \qquad
+    \begin{pmatrix}0 & 1 \\ 1 & 0\end{pmatrix}
+    \begin{pmatrix}0\\1\end{pmatrix}=
+    \begin{pmatrix}1\\0\end{pmatrix}
+  $$
+  ~\\~\\
+  Notation d'opérateur: $$X =1  \ket 0 \bra 1 + 1  \ket 1 \bra 0$$\\~\\
+  $$
+    X\ket 0 = \ket 1, \qquad
+    X\ket 1 = \ket 0
+  $$
+  
+\end{frame}
+
+
+
+\begin{frame}{Opération $H$ (Hadamard)}
+  Notation matricielle:
+  $$
     H = \tfrac{1}{\sqrt{2}}\begin{pmatrix}1 & 1 \\ 1 & -1\end{pmatrix}
-  \]
-  ~\\~\\
-  \[
-    H\ket 0 = \tfrac{1}{\sqrt{2}}(\ket 0+\ket 1), \qquad
-    H\ket 1 = \tfrac{1}{\sqrt{2}}(\ket 0-\ket 1)
-  \]
-  ~\\~\\
-  \[
+  $$\\~\\
+  $$
     \tfrac{1}{\sqrt{2}}\begin{pmatrix}1 & 1 \\ 1 & -1\end{pmatrix}
     \begin{pmatrix}1\\0\end{pmatrix}=
     \tfrac{1}{\sqrt{2}}\begin{pmatrix}1\\1\end{pmatrix},
@@ -273,17 +216,14 @@
     \tfrac{1}{\sqrt{2}}\begin{pmatrix}1 & 1 \\ 1 & -1\end{pmatrix}
     \begin{pmatrix}0\\1\end{pmatrix}=
     \tfrac{1}{\sqrt{2}}\begin{pmatrix}1\\-1\end{pmatrix}
-  \]
+  $$
+  ~\\~\\
+  Notation d'opérateur: $$H = \tfrac{1}{\sqrt{2}} \ket 0 \bra 0 + \tfrac{1}{\sqrt{2}} \ket 0 \bra 1 + \tfrac{1}{\sqrt{2}} \ket 1 \bra 0 - \tfrac{1}{\sqrt{2}} \ket 1 \bra 1$$\\~\\
+  $$
+    H\ket 0 = \tfrac{1}{\sqrt{2}}(\ket 0+\ket 1), \qquad
+    H\ket 1 = \tfrac{1}{\sqrt{2}}(\ket 0-\ket 1)
+  $$
 \end{frame}
-
-% \begin{frame}{Mesure d'un qubit}
-%   \begin{itemize}[<+->]
-%     \setlength{\itemsep}{0.55em}
-%     \item Mesurer projette l'état sur $\ket 0$ ou $\ket 1$.
-%     \item Probabilités : $P(\ket 0)=|\alpha|^2$, $P(\ket 1)=|\beta|^2$ pour $\alpha\ket 0+\beta\ket 1$.
-%     \item L'état post-mesure est figé sur le résultat observé (effondrement).
-%   \end{itemize}
-% \end{frame}
 
 \begin{frame}{Fin du chapitre 3}
   \centering
