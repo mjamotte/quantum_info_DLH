@@ -2,25 +2,19 @@
 
 ## Qubit
 
-- Ajouter notions bases de mesure dans base computationelle
-
 ## Opérations sur un qubit
-
-- Eliminer (déplacer) concept et vocabulaire de circuit
-- Notation ket-bra pour opérations sur kets (compléter le parallèle vecteur-kets)
 
 ## Circuits
 
-- Introduire notion de circuit
+- Introduire notion de circuit (avec grosse figure)
 - Expliquer portes <-> matrices (afficher un exemple)
 - Parallèle avec circuits electroniques/classiques
 - Modèle de calcul sur QPU: init avec 0, circuit, mesures
+- Remove circuit.initialize gates from code and figures
 
 ## Mesure
 
-- Déplacer explication des mesures dans la base computationnelle dans le chapitre présentant le qubit
 - Concepts généraux dans chapitre "avancé" (projections sur états quelconques, autres bases, idempotence, vecteurs propres)
-- Passer ce chapitre et le proposer comme module d'approfondissement
 - Graphe pour illustrer que $\ket{\psi}\bra{\psi}$ fait une projection (bra extrait coef et ket est nouvelle direction)
 - Mesure dans bases arbitraires, concept de base vectorielle, lien avec opérateurs X,Z 
 

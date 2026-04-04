@@ -28,4 +28,4 @@ slides/test
 __pycache__/
 .ipynb_checkpoints/
 .vscode/
-
+.codex
