@@ -14,7 +14,7 @@
 \usepackage{physics}
 \usepackage{braket}
 
-\title[Chapter 4]{Chapitre 4: Prise en main de \texttt{QISKIT}}
+\title[Chapter 4]{Chapitre A5: Circuits et portes logiques}
 \author{JAMOTTE Maxime, SCHOONEN Cédric}
 \institute{Digital Learning Hub}
 \date{}
@@ -31,19 +31,12 @@
 
 % \section{}
 
-\begin{frame}{Objectifs du chapitre 4}
+\begin{frame}{Objectifs du chapitre ...}
   \begin{itemize}
-    \item Installation de \texttt{Qiskit}\\~\\
-    \item Manipuler un qubit avec \texttt{Qiskit}: application d'opérateurs quantiques à 1 qubit.
-    \\~\\
-    \item Circuits logiques classiques\\~\\
-  \end{itemize}
-\end{frame}
-
-\begin{frame}{États et opérateurs à 1 qubit (voir JN)}
-  \begin{itemize}
-    \item États \(\ket{0}\) et \(\ket{1}\) construits avec \texttt{Statevector}.\\~\\
-    \item Opérations \(H\) et \(X\) définies avec \texttt{Operator} et appliquées via \texttt{Statevector.evolve}.\\~\\
+  \item Circuits logiques classiques\\~\\
+  \item Circuits quantiques (+ B2)\\~\\
+  \item Circuit pour construire un état quantique depuis $\ket{00...0}$\\~\\
+  \item Modèle de calcul: circuit -> exécution sur QPU -> résultats de mesures
   \end{itemize}
 \end{frame}
 
@@ -101,6 +94,68 @@
   \centering
   \includegraphics[width=0.65\textwidth]{figures/addition_circuit2.png}
 \end{frame}
+
+\begin{frame}{Circuits quantiques, mesures et simulations (module B2)}
+  \begin{itemize}
+    \item Construire un circuit quantique avec des portes à 1 et 2 qubits\\~\\
+    \item Simuler un circuit et interpréter les résultats de mesure\\~\\
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Exécuter un circuit sur un QPU (module B3)}
+  \begin{itemize}
+    \item Création d'un circuit\\~\\
+    \item Choix de la platfomre d'exécution (Fake ou QPU)\\~\\
+    \item Transpilation du circuit pour l'adapter au QPU\\~\\
+    ~\\~\\~\\
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Transpilation : Six Étapes}
+  \begin{columns}[T]
+    \begin{column}{0.58\textwidth}
+      \small
+      \vspace{-0.7em}
+      \begin{enumerate}
+        \setlength{\itemsep}{0.3em}
+        \item \textbf{Init}: Réduction des opérations multi-qubits en portes à 1 et 2 qubits (Optionnel)
+        \item \textbf{Layout}: Assignation des qubits physiques
+        \item \textbf{Routing}: Insertion de portes SWAP pour déplacer les états quantiques entre qubit (NP-difficile, algorithme aléatoire)
+        \item \textbf{Translation}: Conversion de toutes les portes vers le jeu d'instructions natif (ISA)
+        \item \textbf{Optimization}: Remplacement ou élimination de portes logiques où c'est possible
+        \item \textbf{Scheduling}: Insertion de délais (Optionnel)
+      \end{enumerate}
+    \end{column}
+    \begin{column}{0.4\textwidth}
+      \centering
+      \includegraphics[width=\textwidth]{figures/qubits_layout.jpg}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Transpilation: Niveaux d'Optimisation}
+  \small
+  \begin{description}
+    \setlength{\itemsep}{1.5em}
+    \item[\textbf{Niveau 1}:] Combination matricielle des portes à un qubit,\\ élimination des portes CNOT redondantes
+    
+    \item[\textbf{Niveau 2}:] Analyse de commutation pour éliminer davantage de redondances
+    
+    \item[\textbf{Niveau 3}:] Optimisation des sous-blocs à deux qubits identifiés dans le circuit\\ (reconstruit une matrice unitaire équivalente)
+  \end{description}
+\end{frame}
+
+\begin{frame}{Exécuter un circuit sur un QPU (module B3)}
+  \begin{itemize}
+    \item Création d'un circuit\\~\\
+    \item Choix de la platfomre d'exécution (Fake ou QPU)\\~\\
+    \item Transpilation du circuit pour l'adapter à la topologie du QPU\\~\\
+    \item Exécution du circuit \\~\\
+    \item Récupération et analyse des résultats de mesure
+  \end{itemize}
+\end{frame}
+
+
 
 % \begin{frame}{États et opérateurs à 1 qubit (voir JN)}
 %   \begin{itemize}
