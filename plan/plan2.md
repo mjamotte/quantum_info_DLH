@@ -29,7 +29,7 @@ B1. Qiskit: module `quantum information` (partie 1)
   - introduction du module
   - opérations sur un qubit
 
-A3. La mesure
+A3. La mesure [SKIP]
   - la mesure comme projection (dans la base computationelle pour le moment)
   - visualisation géométrique
   - notation algébrique: produit scalaire, bra, et projecteurs (notations |0><0| et matrices)
@@ -40,13 +40,13 @@ A3. La mesure
 B1. Qiskit: module `quantum information` (partie 2)
   - mesures sur un qubit
 
-(Optionel: insérer ici la démo sur la distribution de clés)
+(Optionnel: insérer ici la démo sur la distribution de clés)
 
 A4. Systèmes à deux qubits
   - notations tensorielle en représentation bra-ket
   - règles d'associativité et distributivité
   - base computationnelle et label avec la numérotation binaire
-  - superdense coding: 2^n états encodable dans n qubits
+  - 2^n états encodable dans n qubits
   - notations en représentation vectorielle
   - action des opérateurs à un qubit et produits tensoriels de matrices 
   - opérateurs à deux qubit non-décomposables en produit tensorielle (swap, cx, cz)
