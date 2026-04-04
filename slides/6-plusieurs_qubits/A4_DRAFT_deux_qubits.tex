@@ -1,0 +1,372 @@
+\documentclass[aspectratio=169,12pt]{beamer}
+\usetheme{Madrid}
+\usecolortheme{dolphin}
+\usefonttheme{professionalfonts}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{footline}{}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{amsmath,amssymb}
+\usepackage{hyperref}
+\usepackage{siunitx}
+\usepackage{physics}
+\usepackage{cancel}
+
+\graphicspath{{../../figures/}}
+
+\title[Module A4]{Module A4: Systèmes à deux qubits}
+\author{JAMOTTE Maxime, SCHOONEN Cédric}
+\institute{Digital Learning Hub}
+\date{}
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\begin{frame}{Objectifs du module A4}
+  \begin{enumerate}[<+->]
+    \item Notation tensorielle en représentation bra-ket
+    \\~\\
+    \item Règles d'associativité et distributivité
+    \\~\\
+    \item Base computationnelle, numérotation binaire et représentation vectorielle
+    \\~\\
+    \item Produits tensoriels de matrices et opérateurs à deux qubits
+    \\~\\
+    \item Intrication et paires de Bell
+    \\~\\
+    \item Décomposition de Schmidt et mesures partielles
+  \end{enumerate}
+\end{frame}
+
+% ============================================================
+\section{Notation tensorielle}
+% ============================================================
+
+\begin{frame}{Représentation tensorielle d'un état à 2 qubits}
+  \begin{itemize}[<+->]
+    \item Deux qubits dans l'état "0": $\ket{0}\!\otimes\!\ket{0}$
+    \\~\\
+    \item Un qubit dans l'état "0" et l'autre dans "1": $\ket{0}\!\otimes\!\ket{1}$
+    \\~\\
+    \item Superposition de ces deux états: $\ket{0}\!\otimes\!\ket{0} + \ket{0}\!\otimes\!\ket{1}$.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Propriétés du produit tensoriel}
+  \begin{itemize}[<+->]
+    \setlength{\itemsep}{0.6em}
+    \item \textbf{Distributivité} sur l'addition:
+    $$\ket{0}\!\otimes\!\big(\alpha\ket{0}+\beta\ket{1}\big)
+      = \alpha\!\ket{0}\!\otimes\!\ket{0}+\beta\!\ket{0}\!\otimes\!\ket{1}$$
+    \item \textbf{Associativité}: pour 3 qubits ou plus, l'ordre de regroupement n'importe pas:
+    $$\big(\ket{a}\!\otimes\!\ket{b}\big)\!\otimes\!\ket{c}
+      = \ket{a}\!\otimes\!\big(\ket{b}\!\otimes\!\ket{c}\big)
+      = \ket{abc}$$
+    \item Ces règles permettent de développer et simplifier des états multi-qubits.
+    \item \textbf{Attention}: le produit tensoriel n'est \textbf{pas commutatif}:
+     $\ket{0}\!\otimes\!\ket{1} \neq \ket{1}\!\otimes\!\ket{0}$.
+  \end{itemize}
+\end{frame}
+
+% ============================================================
+\section{Base computationnelle et numérotation binaire}
+% ============================================================
+
+\begin{frame}{Un grand nombre d'états}
+  \begin{itemize}
+    \item État général: $\ket{\Psi_2} = a_{00}\ket{00}+a_{01}\ket{01}+a_{10}\ket{10}+a_{11}\ket{11}$
+    \\~\\
+    \item Numérotation binaire des états de la base computationnelle: $00, 01, 10, 11$
+    \\~\\
+    \item Le nombre d'états encodables grandit exponentiellement vite
+    \\~\\
+    \item Pour $n$ qubits: $2^n$ états (1, 4, 8, 16, 32, $\cdots$) $\rightarrow$ environ un million pour 20 qubits!.
+  \end{itemize}
+\end{frame}
+
+% ============================================================
+\section{Représentation vectorielle}
+% ============================================================
+
+\begin{frame}{Représentation vectorielle}
+  \begin{itemize}
+    \item État général: $\ket{\Psi_2} = a_{00}\ket{00}+a_{01}\ket{01}+a_{10}\ket{10}+a_{11}\ket{11}$
+  \end{itemize}
+  ~\\~\\
+  $\qquad \ket{\Psi_2} = \begin{pmatrix} 
+    a_{00} \\
+    a_{01} \\
+    a_{10} \\
+    a_{11} \\
+\end{pmatrix} \longrightarrow \ket{00} = \begin{pmatrix} 
+    1\\
+    0\\
+    0\\
+    0\\
+\end{pmatrix} , \ket{01} = \begin{pmatrix} 
+    0\\
+    1\\
+    0\\
+    0\\
+\end{pmatrix}, \ket{10} = \begin{pmatrix} 
+    0\\
+    0\\
+    1\\
+    0\\
+\end{pmatrix} , \ket{11} = \begin{pmatrix} 
+    0\\
+    0\\
+    0\\
+    1\\
+\end{pmatrix}  $
+\end{frame}
+
+% ============================================================
+\section{Produits tensoriels de matrices}
+% ============================================================
+
+\begin{frame}{Action des opérateurs sur un état à 2 qubits}
+  \begin{itemize}[<+->]
+    \item On peut appliquer des opérateurs séparément sur chaque qubit.
+    \\~\\
+    \item L'action séparée de deux matrices $M_2$ et $M_1$ sur chaque qubit se traduit par un produit tensoriel de matrices:
+    \[
+      (M_2\ket{\psi_2})\!\otimes\!(M_1\ket{\phi_1}) = (M_2\!\otimes\! M_1)(\ket{\psi_2}\!\otimes\!\ket{\phi_1})
+    \]
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Hadamard en parallèle}
+  \begin{itemize}[<+->]
+    \setlength{\itemsep}{0.55em}
+    \item Pour appliquer $H$ à chaque qubit indépendamment, on utilise $H\otimes H$:
+    $$(H\otimes H)\ket{00} = H\ket{0}\otimes H\ket{0}
+     = \frac{\ket{0}+\ket{1}}{\sqrt{2}}\otimes\frac{\ket{0}+\ket{1}}{\sqrt{2}}$$
+    $$= \frac{1}{2}\big(\ket{00}+\ket{01}+\ket{10}+\ket{11}\big)$$
+    \item Superposition \textbf{uniforme} sur les 4 états de base.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Hadamard en parallèle}
+  \begin{equation*}
+    \frac{1}{\sqrt{2}}
+    \begin{pmatrix}
+      1 &  1 \\
+      1 & -1 \\
+    \end{pmatrix}
+    \otimes
+    \frac{1}{\sqrt{2}}
+    \begin{pmatrix}
+      1 &  1 \\
+      1 & -1 \\
+    \end{pmatrix}
+    % \begin{pmatrix}
+    %   1 \\
+    %   0 \\
+    %   0 \\
+    %   0 \\
+    % \end{pmatrix}
+    = 
+    \frac{1}{2}
+    \begin{pmatrix}
+      1 &  1 &  1 &  1 \\
+      1 & -1 &  1 & -1 \\
+      1 &  1 & -1 & -1 \\
+      1 & -1 & -1 &  1 \\
+    \end{pmatrix}
+    % \begin{pmatrix}
+    %   1 \\
+    %   0 \\
+    %   0 \\
+    %   0 \\
+    % \end{pmatrix}
+    % =
+    % \frac{1}{2}
+    % \begin{pmatrix}
+    %   1 \\
+    %   1 \\
+    %   1 \\
+    %   1 \\
+    % \end{pmatrix}
+  \end{equation*}
+\end{frame}
+
+% ============================================================
+\section{Opérateurs à deux qubits}
+% ============================================================
+
+\begin{frame}{Opérateurs non-décomposables en produit tensoriel}
+  \begin{itemize}[<+->]
+    \setlength{\itemsep}{0.6em}
+    \item Certaines opérations à 2 qubits ne s'écrivent \textbf{pas} comme $M_2 \otimes M_1$.
+    \\~\\
+    \item Ces opérateurs \textbf{corrèlent} les qubits entre eux et peuvent créer de l'\textbf{intrication}.
+    \\~\\
+    \item Trois opérateurs importants : \textbf{SWAP}, \textbf{CX} (CNOT) et \textbf{CZ}.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Porte SWAP}
+  \begin{itemize}[<+->]
+    \setlength{\itemsep}{0.55em}
+    \item Permute les deux qubits: $\text{SWAP}\ket{ab} = \ket{ba}$.\\~\\
+    \item Matrice dans la base computationnelle $\{\ket{00},\ket{01},\ket{10},\ket{11}\}$:
+    $$\text{SWAP} = \begin{pmatrix} 1&0&0&0 \\ 0&0&1&0 \\ 0&1&0&0 \\ 0&0&0&1 \end{pmatrix}$$
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Porte CNOT (controlled-X)}
+  \begin{columns}[T,onlytextwidth]
+    \column{0.55\textwidth}
+    \begin{itemize}[<+->]
+      \setlength{\itemsep}{0.55em}
+      \item Inverse le qubit \textbf{cible} si le qubit \textbf{contrôle} est $\ket{1}$.
+      \item CNOT$\ket{00}=\ket{00}$, CNOT$\ket{01}=\ket{01}$,
+       CNOT$\ket{10}=\ket{11}$, CNOT$\ket{11}=\ket{10}$.
+      \item Matrice:
+      $$\text{CNOT} = \begin{pmatrix} 1&0&0&0 \\ 0&1&0&0 \\ 0&0&0&1 \\ 0&0&1&0 \end{pmatrix}$$
+    \end{itemize}
+    \column{0.4\textwidth}
+    \centering
+    \includegraphics[width=0.7\linewidth]{CNOT.png}
+    \\[0.3em]\footnotesize Symbole du CNOT
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Porte CZ (controlled-Z)}
+  \begin{itemize}[<+->]
+    \setlength{\itemsep}{0.55em}
+    \item Applique $Z$ au qubit cible si le qubit contrôle est $\ket{1}$:
+     CZ$\ket{11} = -\ket{11}$.\\~\\
+    \item Matrice:
+    $$\text{CZ} = \begin{pmatrix} 1&0&0&0 \\ 0&1&0&0 \\ 0&0&1&0 \\ 0&0&0&-1 \end{pmatrix}$$
+    \item La porte CZ est \textbf{symétrique}: peu importe quel qubit est le contrôle.
+  \end{itemize}
+\end{frame}
+
+% ============================================================
+\section{Intrication et paires de Bell}
+% ============================================================
+
+\begin{frame}{États-produits vs intriqués}
+  \begin{itemize}[<+->]
+    \item \textbf{État produit}: $\ket{\Psi_2}=\ket{\phi_2}\!\otimes\!\ket{\psi_1}$; évolution \textbf{indépendante} des qubits dans le circuit. Etat produit = état séparable.
+    \\~\\
+    \item \textbf{Non séparable} = intriqué: mesurer un qubit influence l'autre.
+    \\~\\
+    \item Paires de Bell: (anti)corrélation totale entre les mesures des deux qubits!
+    \begin{align*}
+      \ket{\Phi_{\pm}}=\frac{\ket{00}\pm\ket{11}}{\sqrt{2}}
+      \qquad\qquad
+      \ket{\Psi_{\pm}}=\frac{\ket{01}\pm\ket{10}}{\sqrt{2}}
+    \end{align*}
+    \item Mesure d'une paire Bell $\ket{\Phi_+}$: résultats toujours corrélés ($\ket{00}$ ou $\ket{11}$), chaque issue avec probabilité $0.5$.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Génération des paires de Bell}
+  \begin{columns}[T,onlytextwidth]
+    \column{0.55\textwidth}
+    \begin{itemize}[<+->]
+      \setlength{\itemsep}{0.55em}
+      \item Appliquer $H$ sur le premier qubit puis CNOT:
+      $$\ket{00} \xrightarrow{H\otimes I} \frac{\ket{0}+\ket{1}}{\sqrt{2}}\ket{0}$$
+      $$\xrightarrow{\text{CNOT}} \frac{\ket{00}+\ket{11}}{\sqrt{2}} = \ket{\Phi^+}$$
+      \item C'est un état \textbf{intriqué}: la paire de Bell $\ket{\Phi^+}$.
+    \end{itemize}
+    \column{0.4\textwidth}
+    \centering
+    \includegraphics[width=0.85\linewidth]{bell_pair_circuit.png}
+    \\[0.3em]\footnotesize Circuit de paire de Bell
+  \end{columns}
+\end{frame}
+
+% ============================================================
+\section{Décomposition de Schmidt}
+% ============================================================
+
+\begin{frame}{Tester l'intrication}
+  \begin{itemize}[<+->]
+    \item L'état $\frac{\ket{00} + \ket{01}}{\sqrt{2}}$ est-il intriqué? 
+    \item Non: on peut le réécrire comme un état produit
+    \begin{equation*}
+      \frac{\ket{00} + \ket{01}}{\sqrt{2}} = \ket{0} \otimes \frac{\ket{0}+\ket{1}}{2}
+    \end{equation*} 
+    \item Si l'état est intriqué, on obtient toujours plusieurs termes:
+    \begin{equation*}
+      \frac{\ket{00} + \ket{11}}{\sqrt{2}} = \frac{1}{\sqrt{2}} \ket{0} \otimes \ket{0} + \frac{1}{\sqrt{2}} \ket{1} \otimes \ket{1}
+    \end{equation*}
+    \item La \textbf{décomposition de Schmidt} donne une procédure pour tester l'intrication.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Mesures partielles (qubit d'Alice)}
+  \begin{itemize}[<+->]
+    \item Exemple plus intéressant:
+    \begin{equation*}
+      \ket{\psi_{AB}} = \frac{2\ket{00} + \ket{01} + \ket{10} + \ket{11}}{\sqrt{7}}
+    \end{equation*}
+    \item Décomposition mettant en évidence le qubit d'Alice:
+    \begin{align*}
+      \ket{\psi_{AB}} 
+      &= \frac{1}{\sqrt{7}} (2\ket{00} + \ket{01}) + \frac{1}{\sqrt{7}} (\ket{10} + \ket{11})\\
+      &= \sqrt{\frac{5}{7}} \left( \ket{0} \otimes \frac{2\ket{0}+\ket{1}}{\sqrt{5}} \right) + \sqrt{\frac{2}{7}} \left( \ket{1} \otimes \frac{\ket{0}+\ket{1}}{\sqrt{2}} \right)
+    \end{align*}
+    \item Les probabilités de mesure d'Alice sont:
+    \begin{equation*}
+      P(\ket{0}_A) = \frac{5}{7} \qquad\qquad P(\ket{1}_A) = \frac{2}{7}
+    \end{equation*}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Mesures partielles (qubit de Bob)}
+  \begin{itemize}
+    \item Exemple plus intéressant:
+    \begin{equation*}
+      \ket{\psi_{AB}} = \frac{2\ket{00} + \ket{01} + \ket{10} + \ket{11}}{\sqrt{7}}
+    \end{equation*}
+    \item Décomposition mettant en évidence le qubit de Bob:
+    \begin{align*}
+      \ket{\psi_{AB}} 
+      &= \frac{1}{\sqrt{7}} (2\ket{00} + \ket{10}) + \frac{1}{\sqrt{7}} (\ket{01} + \ket{11})\\
+      &= \sqrt{\frac{5}{7}} \left( \frac{2\ket{0}+\ket{1}}{\sqrt{5}} \otimes \ket{0} \right) + \sqrt{\frac{2}{7}} \left( \frac{\ket{0}+\ket{1}}{\sqrt{2}} \otimes \ket{1} \right)
+    \end{align*}
+    \item Les probabilités de mesure de Bob sont aussi:
+    \begin{equation*}
+      P(\ket{0}_B) = \frac{5}{7} \qquad\qquad P(\ket{1}_B) = \frac{2}{7}
+    \end{equation*}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Conséquence de l'intrication sur les mesures partielles}
+  \begin{itemize}[<+->]
+    \item Que se passe-t-il du point de vue d'Alice si Bob mesure $\ket{1}$?
+    \begin{align*}
+      \ket{\psi_{AB}} 
+      &= \sqrt{\frac{5}{7}} \cancel{\left( \frac{2\ket{0}+\ket{1}}{\sqrt{5}} \otimes \ket{0} \right)} + \sqrt{\frac{2}{7}} \left( \frac{\ket{0}+\ket{1}}{\sqrt{2}} \otimes \ket{1} \right)
+    \end{align*}
+    \item L'état quantique devient
+    \begin{align*}
+      \ket{\psi_{AB}} 
+      &= \frac{\ket{0}+\ket{1}}{\sqrt{2}} \otimes \ket{1} = \frac{1}{\sqrt{2}} \ket{0} \otimes \ket{1} + \frac{1}{\sqrt{2}} \ket{1} \otimes \ket{1}
+    \end{align*}
+    \item Et les probabilités de mesure d'Alice sont maintenant:
+    \begin{equation*}
+      P(\ket{0}_A) = \frac{1}{2} \qquad\qquad P(\ket{1}_A) = \frac{1}{2}
+    \end{equation*}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Fin du module A4}
+    \centering
+  \vfill
+  Vers les circuits et portes logiques!
+  \vfill
+\end{frame}
+
+\end{document}

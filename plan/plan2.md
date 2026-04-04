@@ -57,10 +57,10 @@ B1. Qiskit: module `quantum information` (partie 3)
   - opérations sur deux qubits
 
 A5. Circuits et portes logiques
+  - faire le parallèle avec les portes logiques classiques dans les circuits électroniques
   - représentation symbolique d'un calcul sur QPU
   - le circuit décrit la construction d'un état quantique depuis |00...0>
   - modèle de calcul: circuit -> exécution sur QPU -> résultats de mesures
-  - faire le parallèle avec les portes logiques classiques dans les circuits électroniques
 
 B2. Qiskit : module `circuit`
   - construction de circuits
