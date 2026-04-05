@@ -14,7 +14,7 @@
 \usepackage{physics}
 \usepackage{braket}
 
-\title[Chapter 4]{Chapitre A5: Circuits et portes logiques}
+\title{Module A5: Circuits et portes logiques}
 \author{JAMOTTE Maxime, SCHOONEN Cédric}
 \institute{Digital Learning Hub}
 \date{}
@@ -31,7 +31,7 @@
 
 % \section{}
 
-\begin{frame}{Objectifs du chapitre ...}
+\begin{frame}{Objectifs}
   \begin{itemize}
   \item Circuits logiques classiques\\~\\
   \item Circuits quantiques (+ B2)\\~\\
@@ -102,13 +102,33 @@
   \end{itemize}
 \end{frame}
 
-\begin{frame}{Exécuter un circuit sur un QPU (module B3)}
+\begin{frame}{Exécuter un circuit sur un QPU}
   \begin{itemize}
     \item Création d'un circuit\\~\\
-    \item Choix de la platfomre d'exécution (Fake ou QPU)\\~\\
+    \item Choix de la platfomre d'exécution (cloud ou local)
+    \begin{enumerate}
+      \vspace{0.5em}
+    \item `QPU` : exécute le circuit sur un processeur quantique IBM réel via Qiskit Runtime, avec bruit matériel;
+    \item `FakeQPU` : imite un QPU IBM à partir d'un snapshot (topologie, portes natives, propriétés des qubits) pour tester la transpilation et une simulation bruitée;
+    \item `Aer` : simule le circuit en local avec `AerSimulator`, rapidement et avec plusieurs méthodes de simulation, avec ou sans modèle de bruit
+    \end{enumerate}~\\
     \item Transpilation du circuit pour l'adapter au QPU\\~\\
     ~\\~\\~\\
   \end{itemize}
+\end{frame}
+
+\begin{frame}{Transpilation}
+  \begin{columns}[T]
+    \begin{column}{0.55\textwidth}
+      \vspace{1cm}
+      \centering
+      \includegraphics[width=\textwidth]{figures/grover.png}
+    \end{column}
+    \begin{column}{0.4\textwidth}
+      \centering
+      \includegraphics[width=\textwidth]{figures/qubits_layout.jpg}
+    \end{column}
+  \end{columns}
 \end{frame}
 
 \begin{frame}{Transpilation : Six Étapes}
@@ -269,7 +289,7 @@
 
 
 
-\begin{frame}{Fin du chapitre 4}
+\begin{frame}{Fin du module}
 \end{frame}
 
 \end{document}
