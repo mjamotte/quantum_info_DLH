@@ -6,11 +6,7 @@
 
 ## Circuits
 
-- Introduire notion de circuit (avec grosse figure)
-- Expliquer portes <-> matrices (afficher un exemple)
-- Parallèle avec circuits electroniques/classiques
-- Modèle de calcul sur QPU: init avec 0, circuit, mesures
-- Remove circuit.initialize gates from code and figures
+- Exercice teleportation ici? (construction du circuit, exec sur qpu plus tard)
 
 ## Mesure
 
