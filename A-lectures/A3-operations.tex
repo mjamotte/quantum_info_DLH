@@ -15,7 +15,7 @@
 
 \begin{document}
 
-\title[Chapter 3]{Chapitre 3: Matrices, portes logiques classiques et quantiques}
+\title[Chapter 3]{Chapter 3: Matrices, classical and quantum logic gates}
 \author{JAMOTTE Maxime, SCHOONEN Cédric}
 \institute{Digital Learning Hub}
 \date{}
@@ -24,14 +24,14 @@
   \titlepage
 \end{frame}
 
-\begin{frame}{Objectifs du chapitre 3}
+\begin{frame}{Chapter 3 objectives}
   \begin{enumerate}
-    \item Matrices et action sur un vecteur\\~\\
-    \item Opérations sur un qubit\\~\\
+    \item Matrices and their action on a vector\\~\\
+    \item Operations on a qubit\\~\\
   \end{enumerate}
 \end{frame}
 
-\begin{frame}{Les matrices et leur action sur un vecteur}
+\begin{frame}{Matrices and their action on a vector}
   {%
     \setbeamercolor{itemize/enumerate body}{fg=gray!60}
     \setbeamercolor{itemize item}{fg=gray!60}
@@ -40,9 +40,9 @@
       \begin{column}{0.55\textwidth}
         \begin{itemize}[<+-| alert@+>]
           \setlength{\itemsep}{0.6em}
-          \item Multiplication matrice-vecteur
-          \item Addition de matrices
-          \item Multiplication d'une matrice par un scalaire
+          \item Matrix-vector multiplication
+          \item Addition of matrices
+          \item Multiplication of a matrix by a scalar
         \end{itemize}
         \bigskip
         \only<1>{\[M \vec{r} = 
@@ -73,7 +73,7 @@
 
 
 
-\begin{frame}{Multiplication de deux matrices}
+\begin{frame}{Matrix multiplication}
 
   \[ M_1 \times M_2 = \begin{pmatrix}
       {\color{red}a} & {\color{red}b} \\
@@ -92,7 +92,7 @@
 \\~\\
 \end{frame}
 
-\begin{frame}{Multiplication de matrices}
+\begin{frame}{Matrix multiplication}
 
   \[ M_1 \times M_2 = \begin{pmatrix}
       {\color{red}a} & {\color{red}b} \\
@@ -109,7 +109,7 @@
     \end{pmatrix}
   \]
 \\~\\
-    \textbf{Non commutatif} en général : $M_1 \times M_2 \neq M_2 \times M_1$.
+    \textbf{Non-commutative} in general: $M_1 \times M_2 \neq M_2 \times M_1$.
   
   \bigskip
   \[
@@ -145,17 +145,17 @@
   \]
 \end{frame}
 
-\begin{frame}{Opérateurs quantiques sur un qubit}
+\begin{frame}{Quantum operators on a qubit}
   \begin{itemize}[<+->]
     \setlength{\itemsep}{0.55em}
-    \item Les \textbf{vecteurs} représentant les \textbf{qubits} sont transformés par des \textbf{matrices}
-     représentant les \textbf{opérateurs quantiques}.\\~\\
-    \item Exemples d'opérateurs à 1 qubit: Pauli X (inversion), Z (phase), Hadamard $H$ (création de superposition).\\~\\
+    \item The \textbf{vectors} representing \textbf{qubits} are transformed by \textbf{matrices}
+     representing \textbf{quantum operators}.\\~\\
+    \item Examples of single-qubit operators: Pauli X (inversion), Z (phase), Hadamard $H$ (creating superposition).\\~\\
   \end{itemize}
 \end{frame}
 
-\begin{frame}{Opération $Z$ (phase)}
-  Notation matricielle:
+\begin{frame}{$Z$ operation (phase)}
+  Matrix notation:
   $$
     Z = \begin{pmatrix}1 & 0 \\ 0 & -1\end{pmatrix}
   $$\\~\\
@@ -169,7 +169,7 @@
     \begin{pmatrix}0\\-1\end{pmatrix}
   $$
   ~\\~\\
-  Notation d'opérateur: $$Z = \ket 0 \bra 0 - \ket 1 \bra 1$$\\~\\
+  Operator notation: $$Z = \ket 0 \bra 0 - \ket 1 \bra 1$$\\~\\
   $$
     Z\ket 0 = \ket 0, \qquad
     Z\ket 1 = -\ket 1
@@ -178,8 +178,8 @@
 \end{frame}
 
 
-\begin{frame}{Opération $X$ (NOT quantique)}
-  Notation matricielle:
+\begin{frame}{$X$ operation (quantum NOT)}
+  Matrix notation:
   $$
     X = \begin{pmatrix}0 & 1 \\ 1 & 0\end{pmatrix}
   $$\\~\\
@@ -193,7 +193,7 @@
     \begin{pmatrix}1\\0\end{pmatrix}
   $$
   ~\\~\\
-  Notation d'opérateur: $$X = \ket 0 \bra 1 + \ket 1 \bra 0$$\\~\\
+  Operator notation: $$X = \ket 0 \bra 1 + \ket 1 \bra 0$$\\~\\
   $$
     X\ket 0 = \ket 1, \qquad
     X\ket 1 = \ket 0
@@ -203,8 +203,8 @@
 
 
 
-\begin{frame}{Opération $H$ (Hadamard)}
-  Notation matricielle:
+\begin{frame}{$H$ operation (Hadamard)}
+  Matrix notation:
   $$
     H = \tfrac{1}{\sqrt{2}}\begin{pmatrix}1 & 1 \\ 1 & -1\end{pmatrix}
   $$\\~\\
@@ -218,17 +218,17 @@
     \tfrac{1}{\sqrt{2}}\begin{pmatrix}1\\-1\end{pmatrix}
   $$
   ~\\~\\
-  Notation d'opérateur: $$H = \tfrac{1}{\sqrt{2}} \ket 0 \bra 0 + \tfrac{1}{\sqrt{2}} \ket 0 \bra 1 + \tfrac{1}{\sqrt{2}} \ket 1 \bra 0 - \tfrac{1}{\sqrt{2}} \ket 1 \bra 1$$\\~\\
+  Operator notation: $$H = \tfrac{1}{\sqrt{2}} \ket 0 \bra 0 + \tfrac{1}{\sqrt{2}} \ket 0 \bra 1 + \tfrac{1}{\sqrt{2}} \ket 1 \bra 0 - \tfrac{1}{\sqrt{2}} \ket 1 \bra 1$$\\~\\
   $$
     H\ket 0 = \tfrac{1}{\sqrt{2}}(\ket 0+\ket 1), \qquad
     H\ket 1 = \tfrac{1}{\sqrt{2}}(\ket 0-\ket 1)
   $$
 \end{frame}
 
-\begin{frame}{Fin du chapitre 3}
+\begin{frame}{End of chapter 3}
   \centering
   \vfill
-  Passons à la pratique avec QISKIT!
+  Let's move to hands-on practice with QISKIT!
   \vfill
 \end{frame}
 

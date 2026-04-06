@@ -1,128 +1,128 @@
-# Plan du cours
+# Course plan
 
-Le cours est divisé modules, rassemblés dans les catégories suivantes:
+The course is divided into modules, grouped in the following categories:
 
-- Catégorie A: Lectures à suivre de manière linéaire
-- Catégorie B: Démonstrations avec Qiskit
-- Catégorie C: Sujets (optionnels) nécessitant une introduction sur les nombres complexes
-- Catégorie D: Sujets (optionnels) pour aller plus loin
+- Category A: Lectures to be followed linearly
+- Category B: Demonstrations with Qiskit
+- Category C: (Optional) topics requiring an introduction to complex numbers
+- Category D: (Optional) topics to go further
 
-## Modules essentiels du tronc commun:
+## Essential core modules:
 
 A1. Introduction
 
-- expériences montrant que le monde est quantique
-- ordis quant vs class
-- principaux algorithmes: que peux-t-on faire avec les ordis quantiques?
-- plan des sujets(modules) que l'on propose dans ce cours
-- expliquer que le sujet nécessite 3 notions clés de math (algèbre lin, complexes, probas),
-  mais que notre cours évitera le plus possible les complexes afin de simplifier le sujet:
-  l'offre est donc divisée en modules "de base" (sans complexes) et modules qui nécessitent
-  une introduction sur les nombres complexes en pré-requis.
+- experiments showing that the world is quantum
+- quantum vs classical computers
+- main algorithms: what can we do with quantum computers?
+- outline of the topics (modules) offered in this course
+- explain that the subject requires 3 key math concepts (linear algebra, complex numbers, probabilities),
+  but that our course will avoid complex numbers as much as possible to simplify the subject:
+  the offering is therefore divided into "basic" modules (without complex numbers) and modules that require
+  an introduction to complex numbers as a prerequisite.
 
-A2. Le qubit (sans nombres complexes)
+A2. The qubit (without complex numbers)
 
-- représentation vectorielle
-- représentation bra-ket
-- superposition et lien entre probabilité et coefficients
-- opérations sur 1 qubit et leur description en matrices
+- vector representation
+- bra-ket representation
+- superposition and the link between probability and coefficients
+- single-qubit operations and their matrix description
 
-B1. Qiskit: module `quantum information` (partie 1)
+B1. Qiskit: `quantum information` module (part 1)
 
-- introduction du module
-- opérations sur un qubit
+- module introduction
+- single-qubit operations
 
-A3. La mesure [SKIP]
+A3. Measurement [SKIP]
 
-- la mesure comme projection (dans la base computationelle pour le moment)
-- visualisation géométrique
-- notation algébrique: produit scalaire, bra, et projecteurs (notations |0><0| et matrices)
-- reproductibilité de la mesure: P^2=P (c'est pourquoi la mesure est une projection)
-- reproductibilité de la mesure: les états sont des vecteurs propres d'une observable (Z pour la base computationnelle)
-- projection sur des vecteurs arbitraires: autres bases et observables associées (e.g. X)
+- measurement as projection (in the computational basis for now)
+- geometric visualization
+- algebraic notation: dot product, bra, and projectors (|0><0| notation and matrices)
+- measurement reproducibility: P^2=P (this is why measurement is a projection)
+- measurement reproducibility: states are eigenvectors of an observable (Z for the computational basis)
+- projection onto arbitrary vectors: other bases and associated observables (e.g. X)
 
-B1. Qiskit: module `quantum information` (partie 2)
+B1. Qiskit: `quantum information` module (part 2)
 
-- mesures sur un qubit
+- single-qubit measurements
 
-(Optionnel: insérer ici la démo "B2" sur la distribution de clés)
+(Optional: insert here the "B2" demo on key distribution)
 
-A4. Systèmes à deux qubits
+A4. Two-qubit systems
 
-- notations tensorielle en représentation bra-ket
-- règles d'associativité et distributivité
-- base computationnelle et label avec la numérotation binaire
-- 2^n états encodable dans n qubits
-- notations en représentation vectorielle
-- action des opérateurs à un qubit et produits tensoriels de matrices 
-- opérateurs à deux qubit non-décomposables en produit tensorielle (swap, cx, cz)
-- intrication: illustrer avec paire de Bell
-- décomposition de Schmidt et conséquence de l'intrication sur les mesures partielles
+- tensor notation in bra-ket representation
+- associativity and distributivity rules
+- computational basis and labeling with binary numbering
+- 2^n states encodable in n qubits
+- vector representation notation
+- action of single-qubit operators and tensor products of matrices
+- two-qubit operators not decomposable into tensor products (swap, cx, cz)
+- entanglement: illustrate with Bell pair
+- Schmidt decomposition and consequence of entanglement on partial measurements
 
-B1. Qiskit: module `quantum information` (partie 3)
+B1. Qiskit: `quantum information` module (part 3)
 
-- opérations sur deux qubits
+- two-qubit operations
 
-A5. Circuits et portes logiques
+A5. Circuits and logic gates
 
-- faire le parallèle avec les portes logiques classiques dans les circuits électroniques
-- représentation symbolique d'un calcul sur QPU
-- le circuit décrit la construction d'un état quantique depuis |00...0>
-- modèle de calcul: circuit -> exécution sur QPU -> résultats de mesures
+- draw the parallel with classical logic gates in electronic circuits
+- symbolic representation of a computation on QPU
+- the circuit describes the construction of a quantum state from |00...0>
+- computing model: circuit -> execution on QPU -> measurement results
 
-B3. Qiskit : module `circuit`
+B3. Qiskit: `circuit` module
 
-- construction de circuits
-- matrices derrières les portes logiques
-- construction d'une paire de Bell
+- circuit construction
+- matrices behind the logic gates
+- constructing a Bell pair
 
-B4. Qiskit: exécution sur QPU
+B4. Qiskit: execution on QPU
 
-- différentes backends (vrai QPUs et simulateurs)
+- different backends (real QPUs and simulators)
 - transpilation
 - primitives
-- démo avec une paire de Bell
+- demo with a Bell pair
 
-## Modules de démo optionnels du tronc commun (recommandés):
+## Optional demo modules from the core curriculum (recommended):
 
-B2. Distribution quantique de clés
+B2. Quantum key distribution
 
-B5. Téléportation (et superdense coding?)
+B5. Teleportation (and superdense coding?)
 
 B6. Grover
 
-## Modules incluant des nombres complexes:
+## Modules including complex numbers:
 
-C1. Introduction des nombres complexes
+C1. Introduction to complex numbers
 
-C2. Le qubit (avec nombres complexes)
+C2. The qubit (with complex numbers)
 
-- état général d'un qubit
-- conjugaison et vecteurs 'bra'
-- unitarité des matrices
+- general state of a qubit
+- conjugation and 'bra' vectors
+- unitarity of matrices
 - no-cloning
-- portes logiques complexes
-- sphère de Bloch et lien avec les rotations
-- application: vérifier les circuits transpilés
+- complex logic gates
+- Bloch sphere and link with rotations
+- application: verifying transpiled circuits
 
-C3. [non-préparé] Mécanique des systèmes physiques
+C3. [not prepared] Mechanics of physical systems
 
-- Hamiltonien, évolution temporelle et équation de Schrödinger
+- Hamiltonian, time evolution and Schrödinger equation
 
-C4. [non-préparé] Shor
+C4. [not prepared] Shor
 
-- factorisation: utilisation pour le chiffrement [sans complexes]
-- factorisation: algorithme de Shor [sans complexes]
-- estimation de phase [avec complexes]
-- transformée de Fourier quantique [avec complexes]
+- factorization: use for encryption [without complex numbers]
+- factorization: Shor's algorithm [without complex numbers]
+- phase estimation [with complex numbers]
+- quantum Fourier transform [with complex numbers]
 
-## Modules pour approfondir:
+## Modules for further study:
 
-D1. Mesures 
+D1. Measurements
 
-D2. CHSH: interprétations des superpositions en mécanique quantique
+D2. CHSH: interpretations of superpositions in quantum mechanics
 
-D3. Platformes physiques pour construire des QPUs 
+D3. Physical platforms for building QPUs 
 
 D4. [non-préparé] Matrices densités et états mixtes (bases)
 

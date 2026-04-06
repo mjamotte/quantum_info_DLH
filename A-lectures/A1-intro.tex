@@ -24,7 +24,7 @@
 \let\oldurl\url
 \renewcommand{\url}[1]{\oldurl{\uline{\color{blue}{#1}}}}
 
-\title[Chapitre 1]{Chapitre 1: Démystification}
+\title[Chapter 1]{Chapter 1: Demystification}
 \author{JAMOTTE Maxime, SCHOONEN Cédric}
 \institute{Digital Learning Hub}
 \date{}
@@ -35,13 +35,13 @@
   \titlepage
 \end{frame}
 
-\begin{frame}{Brisons la glace}
+\begin{frame}{Let's break the ice}
   \begin{columns}[T,onlytextwidth]
     \column{0.55\textwidth}
     \begin{itemize}
-      \item Avez-vous bien signé la feuille de présence ?\\~\\
-      \item Présentons-nous !\\~\\
-      \item Vos motivations et attentes?
+      \item Have you signed the attendance sheet?\\~\\
+      \item Let's introduce ourselves!\\~\\
+      \item Your motivations and expectations?
     \end{itemize}
     \column{0.45\textwidth}
     \centering
@@ -49,47 +49,47 @@
   \end{columns}
 \end{frame}
 
-\begin{frame}{Supports du cours}
+\begin{frame}{Course materials}
   \begin{itemize}
     \item Slides\\~\\
     \item Jupyter notebooks (Python - Qiskit)\\~\\
-    \item Exercices et corrections au tableau
+    \item Exercises and solutions on the board
   \end{itemize}
 \end{frame}
 
-\begin{frame}{Objectifs}
+\begin{frame}{Objectives}
   \begin{itemize}
-    \item Revoir les mathématiques de base requises (algèbre linéaire)\\~\\
-    \item Comprendre les notions essentielles de mécanique quantique\\~\\
-    \item Programmer avec Qiskit\\~\\
-    \item Aperçu des plateformes physiques pour implémenter un ordinateur quantique
+    \item Review the required basic mathematics (linear algebra)\\~\\
+    \item Understand the essential concepts of quantum mechanics\\~\\
+    \item Program with Qiskit\\~\\
+    \item Overview of physical platforms for implementing a quantum computer
   \end{itemize}
 \end{frame}
 
 \begin{frame}{Introduction}
   \begin{enumerate}
-    \item Notre Univers est quantique: 4 phénomènes clefs.
+    \item Our Universe is quantum: 4 key phenomena.
     \\~\\
-    \item Différences fondamentales entre ordinateurs classique et quantique.
+    \item Fundamental differences between classical and quantum computers.
     \\~\\
-    \item Pourquoi recourir aux ordinateurs quantiques ?
+    \item Why use quantum computers?
   \end{enumerate}
 \end{frame}
 
-\section{Notre Univers est quantique}
+\section{Our Universe is quantum}
 
-\begin{frame}{Quatre phénomènes clefs}
+\begin{frame}{Four key phenomena}
   \begin{itemize}
-    \item Stabilité de l'atome.\\~\\
-    \item Raies spectrales.\\~\\
-    \item Diffraction d'électrons (fentes de Young).\\~\\
-    \item Expérience de Stern-Gerlach.
+    \item Stability of the atom.\\~\\
+    \item Spectral lines.\\~\\
+    \item Electron diffraction (Young's slits).\\~\\
+    \item Stern-Gerlach experiment.
   \end{itemize}
 \end{frame}
 
-\begin{frame}{Stabilité de l'atome}
+\begin{frame}{Stability of the atom}
   \begin{itemize}[<+->]
-    \item Un charge qui tourne émet des ondes, donc \textbf{perd} de l'énergie. Donc l'électron devrait spiraler et s'effondrer sur le noyau.
+    \item A rotating charge emits waves, thus \textbf{losing} energy. Therefore the electron should spiral and collapse onto the nucleus.
     \vspace{0em}
     \begin{figure}
       \centering
@@ -97,89 +97,89 @@
       \hfill
       \only<3->{\includegraphics[width=0.2\linewidth]{../figures/intro/bohr_model.png}}
     \end{figure}
-    \item Or la matière ne s'effondre pas, elle est stable.\\~\\
-    \item Mécanique quantique: niveau d'énergie minimale stable + niveaux d'énergie quantifiés: modèle de Bohr (1910s).\\~\\
-    \item Les transitions se font par paquets d'énergie précis (photons).
+    \item Yet matter does not collapse, it is stable.\\~\\
+    \item Quantum mechanics: stable minimum energy level + quantized energy levels: Bohr model (1910s).\\~\\
+    \item Transitions occur in precise energy packets (photons).
   \end{itemize}
 \end{frame}
 
-\begin{frame}{Raies spectrales}
+\begin{frame}{Spectral lines}
   \begin{itemize}[<+->]
-    \item Spectre d'émission du soleil (Fraunhofer, 1814).
+    \item Emission spectrum of the Sun (Fraunhofer, 1814).
     \begin{figure}
       \includegraphics[width=0.6\linewidth]{../figures/intro/Fraunhofer_lines.png}
     \end{figure}
-    \item Raies sombres dues à l'absorption des gaz dans le soleil et de notre atmosphère (Bunsen et Kirchhoff, 1859).
+    \item Dark lines due to absorption by gases in the Sun and our atmosphere (Bunsen and Kirchhoff, 1859).
     \\~\\
-    \item Les raies spectrales sont les signatures de ces sauts discrets entre orbitales (Bohr).
+    \item Spectral lines are the signatures of these discrete jumps between orbitals (Bohr).
   \end{itemize}
 \end{frame}
 
-\begin{frame}{Diffraction d'électrons (1927)}
+\begin{frame}{Electron diffraction (1927)}
   \begin{itemize}
-    \item Les électrons passent par deux fentes. Classiquement, on s'attend à deux bandes.
+    \item Electrons pass through two slits. Classically, one expects two bands.
   \end{itemize}
 \end{frame}
 
-\begin{frame}{Diffraction d'électrons (1927)}
+\begin{frame}{Electron diffraction (1927)}
   \begin{itemize}[<+->]
-    \item Les électrons passent par deux fentes. Classiquement, on s'attend à deux bandes.
-    \item Même envoyés un par un, le motif d'interférence apparaît -- comme pour les ondes lumineuses (Young, 1801).
+    \item Electrons pass through two slits. Classically, one expects two bands.
+    \item Even when sent one at a time, the interference pattern appears -- just like for light waves (Young, 1801).
     \begin{figure}
       \includegraphics[width=0.3\linewidth]{../figures/intro/fente_Young.png}
     \end{figure}
-    \item La mécanique classique n'explique pas le comportement ondulatoire de la matière.
-    \item Chaque électron \textbf{interfère avec lui-même} car il passe par les deux fentes 
-    \textbf{en même temps}. Il est à deux endroits en même temps, donc on ne sait pas où exactement.
+    \item Classical mechanics cannot explain the wave-like behaviour of matter.
+    \item Each electron \textbf{interferes with itself} because it passes through both slits 
+    \textbf{at the same time}. It is in two places at the same time, so we don't know exactly where.
   \end{itemize}
   \vfill
-  \hfill\href{https://www.youtube.com/watch?v=JlsPC2BW_UI&list=PL_wN0FeVwhX6yH4bIQdHEvuPAQqWJM84M}{Vidéo fentes de Young}
+  \hfill\href{https://www.youtube.com/watch?v=JlsPC2BW_UI&list=PL_wN0FeVwhX6yH4bIQdHEvuPAQqWJM84M}{Young's slits video}
 \end{frame}
 
-\begin{frame}{Expérience de Stern-Gerlach (1922)}
+\begin{frame}{Stern-Gerlach experiment (1922)}
   \begin{itemize}[<+->]
-    \item Faisceau d'atomes d'argent dans un champ magnétique inhomogène.
+    \item Beam of silver atoms in an inhomogeneous magnetic field.
     \\~\\
     \begin{figure}
       \includegraphics[width=0.45\linewidth]{../figures/intro/stern-gerlach.png}
     \end{figure}
-    \item Séparation en deux taches distinctes : la mesure du spin donne des valeurs quantifiées.
-    \item Caractère discret des observables quantiques.
-    \item Idée de \textbf{système à deux niveaux}
+    \item Separation into two distinct spots: the spin measurement yields quantized values.
+    \item Discrete nature of quantum observables.
+    \item Idea of a \textbf{two-level system}
   \end{itemize}
   \vfill
-  \hfill\href{https://www.youtube.com/watch?v=8wS4IOzAhFA&list=PL_wN0FeVwhX6yH4bIQdHEvuPAQqWJM84M&index=5}{Vidéo Stern-Gerlach}
+  \hfill\href{https://www.youtube.com/watch?v=8wS4IOzAhFA&list=PL_wN0FeVwhX6yH4bIQdHEvuPAQqWJM84M&index=5}{Stern-Gerlach video}
 \end{frame}
 
-\begin{frame}{Conséquences majeures}
+\begin{frame}{Major consequences}
   \begin{itemize}
-    \item Niveaux discrets d'énergie + spin $\quad \rightarrow \quad$ systèmes à deux niveaux.
+    \item Discrete energy levels + spin $\quad \rightarrow \quad$ two-level systems.
     \\~\\
-    \item Superposition d'états.
+    \item Superposition of states.
     \\~\\~\\~\\
   \end{itemize}
 \end{frame}
 
-\begin{frame}{Conséquences majeures}
+\begin{frame}{Major consequences}
   \begin{itemize}
-    \item Niveaux discrets d'énergie + spin $\quad \rightarrow \quad$ systèmes à deux niveaux.
+    \item Discrete energy levels + spin $\quad \rightarrow \quad$ two-level systems.
     \\~\\
-    \item Superposition d'états.
+    \item Superposition of states.
     \\~\\~\\~\\
     \centering
-    \textbf{Briques élémentaires menant à l'informatique quantique}\\~\\
-    Qubit = système quantique à deux niveaux
+    \textbf{Building blocks leading to quantum computing}\\~\\
+    Qubit = two-level quantum system
   \end{itemize}
 \end{frame}
 
-\begin{frame}{Superposition: plus d'information par qubit}
+\begin{frame}{Superposition: more information per qubit}
     \begin{itemize}[<+->]
-        \item Calcul représenté comme une opération sur une séquence de bits $(b_3 b_2 b_1)$
-        \item Ordinateur classique opère sur une séquence à la fois: %$(b_n,\cdots,b_2,b_1) \longrightarrow f(b_n,\cdots,b_2,b_1)$
+        \item Computation represented as an operation on a sequence of bits $(b_3 b_2 b_1)$
+        \item A classical computer operates on one sequence at a time: %$(b_n,\cdots,b_2,b_1) \longrightarrow f(b_n,\cdots,b_2,b_1)$
         \begin{align*}
             (101) \longrightarrow f(101)
         \end{align*}
-        \item Ordinateur quantique peut encoder toutes les séquences possibles dans un seul état et opérer sur toutes les séquences en une seule opération:
+        \item A quantum computer can encode all possible sequences in a single state and operate on all sequences in a single operation:
         \begin{align*}
             \begin{Bmatrix}
                 (000) \\ (001) \\ (010) \\ \cdots \\ (111)
@@ -189,65 +189,65 @@
                 f(000) \\ f(001) \\ f(010) \\ \cdots \\ f(111)
             \end{Bmatrix}
         \end{align*}
-        \item \textbf{Problème}: on ne peut récupérer qu'\textbf{un seul des résultats à chaque calcul}. Il faut répéter la mesure un certain nombre de fois pour \textbf{connaître les réponses les plus probables}.
+        \item \textbf{Problem}: we can only retrieve \textbf{one of the results per computation}. The measurement must be repeated a number of times to \textbf{find the most probable answers}.
     \end{itemize}
 \end{frame}
 
-\section{Pourquoi recourir aux ordinateurs quantiques ?}
+\section{Why use quantum computers?}
 
-\begin{frame}{Superposition: plus d'information par qubit}
+\begin{frame}{Superposition: more information per qubit}
   \begin{columns}[T,onlytextwidth]
     \column{0.48\textwidth}
-    \textbf{Classique}\\
+    \textbf{Classical}\\
     \begin{itemize}
-      \item Pour coder 0, 1, 2, 3 il faut les inscrire chacun dans deux bits.
-      \item Un registre contient un seul état à la fois.
+      \item To encode 0, 1, 2, 3 each must be written in two bits.
+      \item A register contains only one state at a time.
     \end{itemize}
     \column{0.48\textwidth}
-    \textbf{Quantique}\\
+    \textbf{Quantum}\\
     \begin{itemize}
-      \item Deux qubits suffisent: $\ket{\psi}$ peut superposer 00, 01, 10, 11.
-      \item On manipule tous ces états simultanément avant la mesure.
+      \item Two qubits suffice: $\ket{\psi}$ can superpose 00, 01, 10, 11.
+      \item All these states are manipulated simultaneously before measurement.
     \end{itemize}
   \end{columns}
 \end{frame}
 
 
-\begin{frame}{Différences fondamentales entre ordinateurs classique et quantique}
+\begin{frame}{Fundamental differences between classical and quantum computers}
   \centering
   \begin{tabular}{l|c|c}
-    & Classique & Quantique \\\hline
+    & Classical & Quantum \\\hline
     ~& ~ & ~\\
-    Encodage & Bit (0 \textbf{ou} 1) & Qubit (0 \textbf{et} 1) \\
+    Encoding & Bit (0 \textbf{or} 1) & Qubit (0 \textbf{and} 1) \\
      ~& ~ & ~\\
-    Portes logiques & Booléennes & Matricielles \\
+    Logic gates & Boolean & Matrix-based \\
     ~& ~ & ~\\
-    Sensibilité à l'environnement & Faible & Haute \\
+    Sensitivity to environment & Low & High \\
     ~& ~ & ~\\
-    Connaissance du résultat & Déterministe & Probabiliste \\
+    Knowledge of result & Deterministic & Probabilistic \\
   \end{tabular}
 \end{frame}
 
-\begin{frame}{Utilité malgré cette limitation}
+\begin{frame}{Usefulness despite this limitation}
   \begin{itemize}
-    \item {\bf Algorithme de Grover:} Accélération quadratique pour la recherche de solution à une fonction "boîte noire". Applications: chercher un élément dans une base de données non-structurée, inverser une fonction de hachage, résolution d'un problème NP-complet, ... \\~\\
-    \item {\bf Algorithme de Shor:} Accélération exponentielle de la factorisation de nombres (casse le chiffrement RSA). Se base sur un algorithme quantique accélérant le calcul de la {\bf transformée de Fourier}, une technique mathématique très utile dans de nombreux domaines. \\~\\
-    \item {\bf Algorithmes hybrides d'optimisation (QAOA, VQE,...):} Principales applications en chimie, avantage quantique encore débattu.
+    \item {\bf Grover's algorithm:} Quadratic speedup for searching a solution to a ``black box'' function. Applications: searching an element in an unstructured database, inverting a hash function, solving an NP-complete problem, ... \\~\\
+    \item {\bf Shor's algorithm:} Exponential speedup of number factorization (breaks RSA encryption). Based on a quantum algorithm accelerating the computation of the {\bf Fourier transform}, a mathematical technique very useful in many fields. \\~\\
+    \item {\bf Hybrid optimization algorithms (QAOA, VQE,...):} Main applications in chemistry, quantum advantage still debated.
   \end{itemize}
 \end{frame}
 
-\begin{frame}{Ce que nous proposons}
+\begin{frame}{What we offer}
   
   \begin{itemize}
     \setlength{\itemsep}{0.8em}
-    \item Qubit: représentations bra-ket et vectorielle
-    \item Portes logiques quantiques et repésentation matricielle
-    \item Pratique sur ordinateur avec Qiskit
-    \item Mesurer l'état d'un qubit + Chiffrement quantique de clé
-    \item Systèmes à plusieurs qubits + Téléportation quantique
-    \item Algorithme de Grover
-    \item Plateformes physiques permettant de réaliser des ordinateurs quantiques
-    \item Possibilité de discuter d'autres aspects pour approfondir...
+    \item Qubit: bra-ket and vector representations
+    \item Quantum logic gates and matrix representation
+    \item Hands-on programming with Qiskit
+    \item Measuring a qubit state + Quantum key distribution
+    \item Multi-qubit systems + Quantum teleportation
+    \item Grover's algorithm
+    \item Physical platforms for building quantum computers
+    \item Possibility to discuss further topics to go deeper...
   \end{itemize}
 \end{frame}
 

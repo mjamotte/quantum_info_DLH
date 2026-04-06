@@ -13,7 +13,7 @@
 \usepackage{siunitx}
 \usepackage{physics}
 
-\title[Inégalités de Bell]{Les inégalités de Bell}
+\title[Bell Inequalities]{Bell Inequalities}
 \author{JAMOTTE Maxime, SCHOONEN Cédric}
 \institute{Digital Learning Hub}
 \date{}
@@ -24,16 +24,16 @@
   \titlepage
 \end{frame}
 
-\begin{frame}{Table des matières}
+\begin{frame}{Table of Contents}
   \tableofcontents
 \end{frame}
 
-\section{Paradoxe EPR}
+\section{EPR Paradox}
 
-\begin{frame}{Paradoxe EPR: Situation}
+\begin{frame}{EPR Paradox: Setup}
   \begin{columns}[T]
     \begin{column}{0.55\textwidth}
-      États intriqué produit par une source et partagé entre Alice et Bob:
+      Entangled state produced by a source and shared between Alice and Bob:
       \[
         \ket{\psi_{AB}} = \frac{\ket{00} + \ket{11}}{\sqrt{2}} \sim \frac{\ket{++} + \ket{--}}{\sqrt{2}}
       \]
@@ -45,11 +45,11 @@
   \end{columns}
 \end{frame}
 
-\begin{frame}{Mesures de Bob seul}
-  Si Bob est seul à effectuer des mesures, il a toujours $50\%$ de chance d'obtenir un des deux états possibles ($\ket 0$ ou $\ket 1$ en base $Z$, et $\ket +$ ou $\ket -$ en base $X$).
+\begin{frame}{Bob's measurements alone}
+  If Bob alone performs measurements, he always has a $50\%$ chance of obtaining one of the two possible states ($\ket 0$ or $\ket 1$ in the $Z$ basis, and $\ket +$ or $\ket -$ in the $X$ basis).
   
   \bigskip
-  Les valeurs moyennes mesurées sont donc nulles:
+  The measured averages are therefore zero:
   \[
     \langle Z_B \rangle = \left( \frac{\bra{00} + \bra{11}}{\sqrt{2}} \right) \left( \frac{\ket{00} + (-1) \ket{11}}{\sqrt{2}} \right) = 0
   \]
@@ -58,11 +58,11 @@
   \]
 \end{frame}
 
-\begin{frame}{Corrélations avec Alice}
-  En revanche, si Alice effectue des mesures en base $Z$, Bob constatera (une fois qu'Alice lui aura partagé ses résultats), que ses résultats sont totalement corrélés avec ceux d'Alice.
+\begin{frame}{Correlations with Alice}
+  However, if Alice performs measurements in the $Z$ basis, Bob will find (once Alice has shared her results with him) that his results are totally correlated with Alice's.
   
   \bigskip
-  Ses mesures effectuées dans la base $Z$ sont identiques à celles d'Alice, comme si les mesures d'Alice avaient influencé les siennes (ou vice-versa).
+  His measurements performed in the $Z$ basis are identical to Alice's, as if Alice's measurements had influenced his (or vice versa).
   \[
     \langle Z_AZ_B \rangle = \left( \frac{\bra{00} + \bra{11}}{\sqrt{2}} \right) \left( \frac{\ket{00} + (-1)^2 \ket{11}}{\sqrt{2}} \right) = 1
   \]
@@ -71,47 +71,47 @@
   \]
 \end{frame}
 
-\begin{frame}{Paradoxe EPR}
-  \textbf{Question:} Comment les résultats de Bob peuvent-ils être corrélés avec ceux d'Alice, alors que Bob n'a aucune information sur les mesures effectuées par Alice?
+\begin{frame}{EPR Paradox}
+  \textbf{Question:} How can Bob's results be correlated with Alice's, when Bob has no information about the measurements performed by Alice?
   
   \bigskip
-  Cela semble contredire le principe de \textit{localité} (aucune influence ne peut se propager plus vite que la lumière).
+  This seems to contradict the principle of \textit{locality} (no influence can propagate faster than light).
 
   \bigskip
-  \textbf{Hypothèse d'EPR (1935):} La mécanique quantique est incomplète. Il existerait des variables cachées locales qui prédétermineraient les résultats des mesures.
+  \textbf{EPR hypothesis (1935):} Quantum mechanics is incomplete. There would exist local hidden variables that predetermine the measurement results.
 \end{frame}
 
-\section{Variables cachées}
+\section{Hidden variables}
 
-\begin{frame}{Variables cachées}
-  \textbf{Idée défendue:} Les probabilités $|\langle 0 | \psi \rangle|^2$ et $|\langle 1 | \psi \rangle|^2$ reflètent une incertitude sur la nature de l'état $\ket\psi$.
+\begin{frame}{Hidden variables}
+  \textbf{Defended idea:} The probabilities $|\langle 0 | \psi \rangle|^2$ and $|\langle 1 | \psi \rangle|^2$ reflect an uncertainty about the nature of the state $\ket\psi$.
   
   \bigskip
-  Il n'y aurait pas de superposition d'états, mais simplement des états dont nous ne connaissons pas la nature exacte (révélés lors de la mesure).
+  There would be no superposition of states, but simply states whose exact nature we do not know (revealed upon measurement).
   
   \bigskip
-  Une théorie plus fondamentale que la mécanique quantique décrirait exactement le résultat de la mesure d'une observable.
+  A more fundamental theory than quantum mechanics would describe exactly the measurement result of an observable.
 \end{frame}
 
-\begin{frame}{Exemple de variable cachée}
-  Prenons par exemple la superposition suivante:
+\begin{frame}{Example of a hidden variable}
+  Let us take for example the following superposition:
   \[
     \ket\psi = \frac{\ket 0 + \ket 1}{\sqrt{2}}
   \]
   
-  La probabilité de mesurer la valeur $+1$ pour l'observable $Z$ est:
+  The probability of measuring the value $+1$ for the observable $Z$ is:
   \[
     p(+1) = |\langle 0 | \psi \rangle|^2 = \frac 12
   \]
   
-  L'hypothèse des variables cachées suppose que le résultat de la mesure de $Z$, $z = \pm 1$, serait pré-déterminé et encodé dans l'état quantique.
+  The hidden variable hypothesis assumes that the measurement result of $Z$, $z = \pm 1$, would be pre-determined and encoded in the quantum state.
 \end{frame}
 
-\begin{frame}{Variable cachée (suite)}
-  L'état quantique, $\ket{\psi^{(z)}}$, serait en réalité soit $\ket{\psi^{(+1)}} = \ket 0$ ou $\ket{\psi^{(-1)}} = \ket 1$.
+\begin{frame}{Hidden variable (continued)}
+  The quantum state, $\ket{\psi^{(z)}}$, would in reality be either $\ket{\psi^{(+1)}} = \ket 0$ or $\ket{\psi^{(-1)}} = \ket 1$.
   
   \bigskip
-  La probabilité $1/2$ de mesurer $z=+1$ traduit simplement la probabilité que cette variable cachée soit égale à $+1$:
+  The probability $1/2$ of measuring $z=+1$ simply reflects the probability that this hidden variable equals $+1$:
   \[
     p(+1) = |\langle 0 | \psi^{(z)} \rangle|^2 = 
     \begin{cases}
@@ -123,8 +123,8 @@
   \]
 \end{frame}
 
-\begin{frame}{Variables cachées et intrication}
-  Les corrélations observées pour des états intriqués,
+\begin{frame}{Hidden variables and entanglement}
+  The correlations observed for entangled states,
   \[
     \ket{\psi_{AB}} = \frac{\ket{00} + \ket{11}}{\sqrt{2}}
   \]
@@ -132,7 +132,7 @@
     \langle Z_AZ_B \rangle = \left( \frac{\bra{00} + \bra{11}}{\sqrt{2}} \right) \left( \frac{\ket{00} + (-1)^2 \ket{11}}{\sqrt{2}} \right) = 1
   \]
   
-  seraient aussi expliquées par les valeurs pré-encodées de la variable cachée:
+  would also be explained by the pre-encoded values of the hidden variable:
   \[
     \ket{\psi_{AB}} = 
     \begin{cases}
@@ -142,18 +142,18 @@
   \]
 \end{frame}
 
-\section{Test statistique (CHSH)}
+\section{Statistical test (CHSH)}
 
-\begin{frame}{Test statistique (CHSH)}
+\begin{frame}{Statistical test (CHSH)}
   \begin{columns}[T]
     \begin{column}{0.55\textwidth}
-      La source émet des états $\ket{\psi_A}$ et $\ket{\psi_B}$ vers Alice et Bob, respectivement.
+      The source emits states $\ket{\psi_A}$ and $\ket{\psi_B}$ towards Alice and Bob, respectively.
       
       \bigskip
-      Alice décide de mesurer une observable au choix parmi $A_0, A_1$, et Bob fait de même de son côté avec $B_0,B_1$.
+      Alice decides to measure an observable chosen from $A_0, A_1$, and Bob does the same on his side with $B_0,B_1$.
       
       \bigskip
-      Alice et Bob sont suffisamment éloignés pour que le résultat de l'un n'influence pas la mesure de l'autre.
+      Alice and Bob are far enough apart that the result of one does not influence the measurement of the other.
     \end{column}
     \begin{column}{0.4\textwidth}
       \centering
@@ -162,27 +162,27 @@
   \end{columns}
 \end{frame}
 
-\begin{frame}{Analyse des corrélations}
-  Les résultats des mesures ainsi que les observables choisies sont collectés et analysés à posteriori.
+\begin{frame}{Correlation analysis}
+  The measurement results as well as the chosen observables are collected and analyzed a posteriori.
   
   \bigskip
-  On calcule ensuite les corrélations $\langle A_iB_j \rangle$ et on évalue
+  We then compute the correlations $\langle A_iB_j \rangle$ and evaluate
   \[
     S = \langle A_0B_0 \rangle + \langle A_0B_1 \rangle + \langle A_1B_0 \rangle - \langle A_1B_1 \rangle
   \]
 \end{frame}
 
-\begin{frame}{Inégalité CHSH}
-  S'il existe des variables cachées $a_0,a_1,b_0,b_1$ pré-déterminant les résultats de mesure de $A_0,A_1,B_0,B_1$, alors la combinaison moyenne $S$ sera évaluée à
+\begin{frame}{CHSH Inequality}
+  If there exist hidden variables $a_0,a_1,b_0,b_1$ predetermining the measurement results of $A_0,A_1,B_0,B_1$, then the average combination $S$ will evaluate to
   \begin{align*}
     S &= \sum_{a_0,a_1,b_0,b_1} p(a_0,a_1,b_0,b_1) \, \underbrace{(a_0b_0+ a_0b_1 + a_1b_0 - a_1b_1)}_{a_0(b_0+b_1) \, + \, a_1(b_0-b_1)}
   \end{align*}
   
-  Comme $b_0,b_1 = \pm 1$ nous avons nécessairement un des deux facteurs $(b_0+b_1)$ ou $(b_0-b_1)$ qui s'annule, le deuxième prenant la valeur $\pm 2$.
+  Since $b_0,b_1 = \pm 1$ we necessarily have one of the two factors $(b_0+b_1)$ or $(b_0-b_1)$ that vanishes, the other taking the value $\pm 2$.
 \end{frame}
 
-\begin{frame}{Inégalité CHSH (suite)}
-  Ainsi,
+\begin{frame}{CHSH Inequality (continued)}
+  Thus,
   \[
     a_0(b_0+b_1) + a_1(b_0-b_1) = \pm 2
   \]
@@ -193,20 +193,20 @@
   \]
   
   \bigskip
-  Cette équation s'appelle \textbf{l'inégalité CHSH} et est un exemple d'inégalité de Bell. Elle sert à tester l'hypothèse de présence de variables cachées.
+  This equation is called \textbf{the CHSH inequality} and is an example of a Bell inequality. It serves to test the hypothesis of the presence of hidden variables.
 \end{frame}
 
-\section{Violation quantique}
+\section{Quantum violation}
 
-\begin{frame}{La mécanique quantique ne respecte pas les inégalités de Bell}
-  Dans le cas CHSH, considérons les observables suivantes pour Alice:
+\begin{frame}{Quantum mechanics does not respect Bell inequalities}
+  In the CHSH case, let us consider the following observables for Alice:
   \[
     A_0 = Z
     \qquad
     A_1 = X
   \]
   
-  Et celles-ci pour Bob:
+  And these for Bob:
   \[
     B_0 = \frac{Z+X}{2}
     \qquad
@@ -214,13 +214,13 @@
   \]
 \end{frame}
 
-\begin{frame}{Violation quantique (suite)}
-  Si la source produit les états
+\begin{frame}{Quantum violation (continued)}
+  If the source produces the states
   \[
     \ket{\psi_{AB}} = \frac{\ket{01} - \ket{10}}{\sqrt{2}}
   \]
   
-  alors les corrélations seront
+  then the correlations will be
   \[
     \langle A_0B_0 \rangle = +\frac{1}{\sqrt{2}} \qquad
     \langle A_0B_1 \rangle = +\frac{1}{\sqrt{2}}
@@ -230,29 +230,29 @@
     \langle A_1B_1 \rangle = -\frac{1}{\sqrt{2}}
   \]
   
-  Et la combinaison $S = 2\sqrt{2} > 2$
+  And the combination $S = 2\sqrt{2} > 2$
 \end{frame}
 
-\section{Expériences d'Alain Aspect}
+\section{Alain Aspect's experiments}
 
-\begin{frame}{Les expériences d'Alain Aspect (1982)}
-  Implémentation concrète de la situation décrite dans le paradoxe EPR, avec de la lumière polarisée:
+\begin{frame}{Alain Aspect's experiments (1982)}
+  Concrete implementation of the situation described in the EPR paradox, with polarized light:
   
   \begin{center}
     \includegraphics[width=0.7\linewidth]{../figures/aspect1.png}
   \end{center}
 \end{frame}
 
-\begin{frame}{Mise en place du test CHSH}
-  Mise en place du test statistique CHSH:
+\begin{frame}{Setting up the CHSH test}
+  Setting up the CHSH statistical test:
   
   \begin{center}
     \includegraphics[width=0.7\linewidth]{../figures/aspect2.png}
   \end{center}
 \end{frame}
 
-\begin{frame}{Interrupteur optique}
-  Détail de l'interrupteur optique:
+\begin{frame}{Optical switch}
+  Detail of the optical switch:
   
   \begin{center}
     \includegraphics[width=0.7\linewidth]{../figures/aspect3.png}
@@ -262,14 +262,14 @@
 \begin{frame}{Conclusions}
   \begin{itemize}
     \setlength{\itemsep}{0.8em}
-    \item Les inégalités de Bell permettent de tester l'hypothèse des variables cachées locales
-    \item La mécanique quantique prédit une violation de ces inégalités
-    \item Les expériences d'Alain Aspect (1982) ont confirmé la violation
-    \item Prix Nobel de physique 2022 pour Aspect, Clauser et Zeilinger
+    \item Bell inequalities allow testing the hypothesis of local hidden variables
+    \item Quantum mechanics predicts a violation of these inequalities
+    \item Alain Aspect's experiments (1982) confirmed the violation
+    \item Nobel Prize in Physics 2022 for Aspect, Clauser and Zeilinger
   \end{itemize}
 \end{frame}
 
-\begin{frame}{Vidéos sur le sujet}
+\begin{frame}{Videos on the topic}
   \begin{center}
     \includegraphics[width=\linewidth]{../figures/scienceetonnante.png}
   \end{center}

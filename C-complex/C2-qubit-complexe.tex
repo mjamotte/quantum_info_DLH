@@ -17,7 +17,7 @@
 
 \begin{document}
 
-\begin{frame}{Le Qubit dans tout ses états}
+\begin{frame}{The Qubit in all its states}
     \begin{columns}[T]
     \begin{column}{0.49\textwidth}
       \begin{center}
@@ -34,15 +34,15 @@
     \end{column}
     \begin{column}{0.49\textwidth}
     \begin{itemize}
-        \item Nous avions jusqu'à présent décrit le qubit comme une superposition linéaire d'états sans trop préciser la nature des coefficients $\alpha$ et $\beta$.
+        \item Until now, we have described the qubit as a linear superposition of states without specifying the nature of the coefficients $\alpha$ and $\beta$.
         \begin{equation*}
             \ket{\psi} = \alpha \ket{0} + \beta \ket{1}
         \end{equation*}
-        \item La condition de normalisation impose:
+        \item The normalization condition requires:
         \begin{equation*}
             1 = |\alpha|^{2} + |\beta|^{2}
         \end{equation*}
-        \item Avec des nombres réels, on a:
+        \item With real numbers, we have:
         \begin{equation*}
             \alpha = \cos(\theta) \qquad \beta = \sin(\theta)
         \end{equation*} 
@@ -51,24 +51,24 @@
     \end{columns}
 \end{frame}
 
-\begin{frame}{Le Qubit dans tout ses états}
+\begin{frame}{The Qubit in all its states}
     \begin{itemize}
-        \item En réalité, ces coefficient peuvent posséder des phases complexes:
+        \item In reality, these coefficients can have complex phases:
         \begin{equation*}
             \ket{\psi} = \alpha e^{i\phi_A} \ket{0} + \beta e^{i\phi_B} \ket{1}
         \end{equation*}
-        \item Comme les états quantiques sont identiques à une constante multiplicative près, nous pouvons choisir de faire disparaitre la phase globale $e^{i\phi_A}$:
+        \item Since quantum states are identical up to a multiplicative constant, we can choose to eliminate the global phase $e^{i\phi_A}$:
         \begin{equation*}
             \ket{\psi} = \alpha \ket{0} + e^{i\phi_B - \phi_A}\beta \ket{1}
         \end{equation*}
-        \item L'expression générale d'un qubit est donc:
+        \item The general expression of a qubit is therefore:
         \begin{equation*}
             \ket{\psi} = \cos\left(\frac{\theta}{2}\right) \ket{0} + e^{i\phi}\sin\left(\frac{\theta}{2}\right) \ket{1}
         \end{equation*}
     \end{itemize}
 \end{frame}
 
-\begin{frame}{Le Qubit dans tout ses états}
+\begin{frame}{The Qubit in all its states}
     \begin{columns}[T]
     \begin{column}{0.35\textwidth}
       \begin{center}
@@ -77,34 +77,34 @@
     \end{column}
     \begin{column}{0.64\textwidth}
         \begin{itemize}
-            \item La convention est de noter l'état général d'un qubit comme:
+            \item The convention is to write the general state of a qubit as:
             \begin{equation*}
             \boxed{
                 \ket{\psi} = \cos\left(\frac{\theta}{2}\right) \ket{0} + e^{i\phi}\sin\left(\frac{\theta}{2}\right) \ket{1}
             }
             \end{equation*}
             \\~\\~
-            \item En raison de la visualisation sur la \textit{sphère de Bloch}.
+            \item Due to the visualization on the \textit{Bloch sphere}.
         \end{itemize}
     \end{column}
     \end{columns}
 \end{frame}
 
-\begin{frame}{Conséquences pour les vecteurs "bra"}
+\begin{frame}{Consequences for "bra" vectors}
     \begin{itemize}
-        \item Si un qubit s'écrit maintenant avec des nombres complexes $\alpha,\beta\in\mathbb{C}$:
+        \item If a qubit is now written with complex numbers $\alpha,\beta\in\mathbb{C}$:
         \begin{equation*}
             \ket{\psi} = \alpha \ket{0} + \beta \ket{1}
         \end{equation*}
 
         %\vspace{5mm}
-        \item Alors le "bra" doit s'écrire avec les coefficient complexes conjugés:
+        \item Then the "bra" must be written with the complex conjugate coefficients:
         \begin{equation*}
             \bra{\psi} = \alpha^* \bra{0} + \beta^* \bra{1}
         \end{equation*}
 
         %\vspace{5mm}
-        \item De telle manière à conserver un nombre réel pour la norme: 
+        \item So as to preserve a real number for the norm: 
         \begin{align*}
             1 = \braket{\psi}{\psi} 
             &= \alpha^*\alpha \braket{0}{0} + \beta^*\beta \braket{1}{1} \\ 
@@ -114,9 +114,9 @@
     \end{itemize}
 \end{frame}
 
-\begin{frame}{Conséquences pour les matrices}
+\begin{frame}{Consequences for matrices}
     \begin{itemize}   
-        \item En ce qui concerne les matrices,
+        \item Regarding matrices,
         \begin{equation*}
             U \ket{\psi} = \ket{\psi'} \quad\leftrightarrow\quad 
             \begin{pmatrix}
@@ -135,7 +135,7 @@
         \end{equation*}
 
         %\vspace{5mm}
-        \item Il est nécessaire que la matrice reproduisant l'opération sur le "bra" ait également des coefficients conjugués, en plus d'être inversés par rapport à la diagonale:
+        \item It is necessary that the matrix reproducing the operation on the "bra" also has conjugate coefficients, in addition to being transposed relative to the diagonal:
         \begin{equation*}
             \bra{\psi} U^\dagger = \bra{\psi'} \quad\leftrightarrow\quad 
             \begin{pmatrix}

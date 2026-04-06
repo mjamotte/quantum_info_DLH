@@ -2,42 +2,42 @@
 
 ## Qubit
 
-## Opérations sur un qubit
+## Single-qubit operations
 
 ## Circuits
 
-- Exercice teleportation ici? (construction du circuit, exec sur qpu plus tard)
+- Teleportation exercise here? (circuit construction, QPU execution later)
 
-## Mesure
+## Measurement
 
-- Concepts généraux dans chapitre "avancé" (projections sur états quelconques, autres bases, idempotence, vecteurs propres)
-- Graphe pour illustrer que $\ket{\psi}\bra{\psi}$ fait une projection (bra extrait coef et ket est nouvelle direction)
-- Mesure dans bases arbitraires, concept de base vectorielle, lien avec opérateurs X,Z 
+- General concepts in "advanced" chapter (projections onto arbitrary states, other bases, idempotence, eigenvectors)
+- Graph to illustrate that $\ket{\psi}\bra{\psi}$ performs a projection (bra extracts coefficient and ket is the new direction)
+- Measurement in arbitrary bases, vector basis concept, link with X,Z operators
 
-## Distribution de clés
+## Key distribution
 
-Slides d'abord:
+Slides first:
 
-- Expliquer avec application de Hadamard ($H^2=I$) au lieu des bases $X,Z$
-- Tableau pour résumer les étapes
-- Noter $H$ et $I$ au lieu des bits aléatoires: garder bits uniquement pour données
+- Explain with Hadamard application ($H^2=I$) instead of $X,Z$ bases
+- Table to summarize the steps
+- Write $H$ and $I$ instead of random bits: keep bits only for data
 
 Notebook:
 
-- Map bits aléatoires sur labels 'H' et 'I' pour plus de clarté
+- Map random bits to 'H' and 'I' labels for clarity
 
 ## Grover
 
-Slides d'abord:
+Slides first:
 
-- Motiver avec applications concrètes
-- Idée générale: évaluer tous les candidats en même temps
-- Pas parler de la construction de l'oracle: seulement dire que la porte oracle marque la solution par signe
-- Directement expliquer procédure géométrique pour amplifier le coefficient de la solution
-- Graphe pour illustrer que $2 \ket{+}\bra{+} - I$ fait une réflection géométrique autour de $\ket{+}$
+- Motivate with concrete applications
+- General idea: evaluate all candidates simultaneously
+- Do not discuss oracle construction: only say that the oracle gate marks the solution by sign
+- Directly explain geometric procedure to amplify the solution coefficient
+- Graph to illustrate that $2 \ket{+}\bra{+} - I$ performs a geometric reflection around $\ket{+}$
 
 Notebook:
 
-- Détailler pourquoi mcx est utilisé pour implémenter la réflexion géométrique
-- Exercice avec qiskit quantum_info: visualiser l'évolution du statevector
+- Detail why mcx is used to implement the geometric reflection
+- Exercise with qiskit quantum_info: visualize the statevector evolution
 

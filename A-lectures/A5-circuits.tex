@@ -14,7 +14,7 @@
 \usepackage{physics}
 \usepackage{braket}
 
-\title{Module A5: Circuits et portes logiques}
+\title{Module A5: Circuits and logic gates}
 \author{JAMOTTE Maxime, SCHOONEN Cédric}
 \institute{Digital Learning Hub}
 \date{}
@@ -31,21 +31,21 @@
 
 % \section{}
 
-\begin{frame}{Objectifs}
+\begin{frame}{Objectives}
   \begin{itemize}
-  \item Circuits logiques classiques\\~\\
-  \item Circuits quantiques (+ B2)\\~\\
-  \item Circuit pour construire un état quantique depuis $\ket{00...0}$\\~\\
-  \item Modèle de calcul: circuit -> exécution sur QPU -> résultats de mesures
+  \item Classical logic circuits\\~\\
+  \item Quantum circuits (+ B2)\\~\\
+  \item Circuit to build a quantum state from $\ket{00...0}$\\~\\
+  \item Computation model: circuit -> execution on QPU -> measurement results
   \end{itemize}
 \end{frame}
 
-\begin{frame}{Circuits de portes logiques classiques}
+\begin{frame}{Classical logic gate circuits}
   \begin{itemize}[<+->]
     \setlength{\itemsep}{0.55em}
-    \item Bits classiques: 0 ou 1; les portes transforment ces bits.
-    \item Exemples clés : NOT, AND, OR, XOR, NAND (porte universelle).
-    \item On enchaîne ces portes pour construire des circuits logiques.
+    \item Classical bits: 0 or 1; gates transform these bits.
+    \item Key examples: NOT, AND, OR, XOR, NAND (universal gate).
+    \item These gates are chained to build logic circuits.
   \end{itemize}
   \vfill
   \only<2->{%
@@ -58,22 +58,22 @@
   }
 \end{frame}
 
-\begin{frame}{Table de vérité (rappel)}
+\begin{frame}{Truth table (reminder)}
   \centering
   \renewcommand{\arraystretch}{1.4}
   \begin{tabular}{l c c c}
-    \textbf{Porte} & \textbf{Symbole} & \textbf{Expression} & \textbf{Description} \\\hline
+    \textbf{Gate} & \textbf{Symbol} & \textbf{Expression} & \textbf{Description} \\\hline
     NOT   & $\lnot A$ & inverse & $1\leftrightarrow 0$ \\
-    AND   & $A\cdot B$ & $1$ si $A=1$ et $B=1$ & porte "multiplication" \\
-    OR    & $A + B$ & $1$ si $A=1$ ou $B=1$ & porte "addition" \\
-    XOR   & $A \oplus B$ & $1$ si $A\neq B$ & "ou exclusif" \\
-    NAND  & $\lnot(A\cdot B)$ & inverse de AND & base universelle \\
+    AND   & $A\cdot B$ & $1$ if $A=1$ and $B=1$ & "multiplication" gate \\
+    OR    & $A + B$ & $1$ if $A=1$ or $B=1$ & "addition" gate \\
+    XOR   & $A \oplus B$ & $1$ if $A\neq B$ & "exclusive or" \\
+    NAND  & $\lnot(A\cdot B)$ & inverse of AND & universal basis \\
   \end{tabular}
 \end{frame}
 
 
 
-\begin{frame}{Table de vérité XOR / AND}
+\begin{frame}{Truth table XOR / AND}
   \centering
   \renewcommand{\arraystretch}{1.4}
   \begin{tabular}{c c | c | c}
@@ -85,36 +85,36 @@
   \end{tabular}
 \end{frame}
 
-\begin{frame}{Exemple de circuit classique}
+\begin{frame}{Example of a classical circuit}
   \begin{itemize}[<+->]
-    \item Enchaînement de portes pour additionner deux bits (avec report).
-    \item Chaque fil transporte un bit, chaque symbole applique une porte.
+    \item Chain of gates to add two bits (with carry).
+    \item Each wire carries a bit, each symbol applies a gate.
   \end{itemize}
   \vfill
   \centering
   \includegraphics[width=0.65\textwidth]{../figures/portes/addition_circuit2.png}
 \end{frame}
 
-\begin{frame}{Circuits quantiques, mesures et simulations (module B2)}
+\begin{frame}{Quantum circuits, measurements and simulations (module B2)}
   \centering
   \includegraphics[width=0.5\textwidth]{../figures/bell_circuit.png}
   \begin{itemize}
-    \item Construire un circuit quantique avec des portes à 1 et 2 qubits\\~\\
-    \item Simuler un circuit et interpréter les résultats de mesure\\~\\
+    \item Build a quantum circuit with 1- and 2-qubit gates\\~\\
+    \item Simulate a circuit and interpret the measurement results\\~\\
   \end{itemize}
 \end{frame}
 
-\begin{frame}{Exécuter un circuit sur un QPU}
+\begin{frame}{Running a circuit on a QPU}
   \begin{itemize}
-    \item Création d'un circuit\\~\\
-    \item Choix de la plateforme d'exécution (cloud ou local)
+    \item Circuit creation\\~\\
+    \item Choice of execution platform (cloud or local)
     \begin{enumerate}
       \vspace{0.5em}
-    \item `QPU` : exécute le circuit sur un processeur quantique IBM réel via Qiskit Runtime, avec bruit matériel;
-    \item `FakeQPU` : imite un QPU IBM à partir d'un snapshot (topologie, portes natives, propriétés des qubits) pour tester la transpilation et une simulation bruitée;
-    \item `Aer` : simule le circuit en local avec `AerSimulator`, rapidement et avec plusieurs méthodes de simulation, avec ou sans modèle de bruit
+    \item `QPU`: executes the circuit on a real IBM quantum processor via Qiskit Runtime, with hardware noise;
+    \item `FakeQPU`: mimics an IBM QPU from a snapshot (topology, native gates, qubit properties) to test transpilation and noisy simulation;
+    \item `Aer`: simulates the circuit locally with `AerSimulator`, quickly and with several simulation methods, with or without a noise model
     \end{enumerate}~\\
-    \item Transpilation du circuit pour l'adapter au QPU\\~\\
+    \item Transpilation of the circuit to adapt it to the QPU\\~\\
     ~\\~\\~\\
   \end{itemize}
 \end{frame}
@@ -133,19 +133,19 @@
   \end{columns}
 \end{frame}
 
-\begin{frame}{Transpilation : Six Étapes}
+\begin{frame}{Transpilation: Six Steps}
   \begin{columns}[T]
     \begin{column}{0.58\textwidth}
       \small
       \vspace{-0.7em}
       \begin{enumerate}
         \setlength{\itemsep}{0.3em}
-        \item \textbf{Init}: Réduction des opérations multi-qubits en portes à 1 et 2 qubits (Optionnel)
-        \item \textbf{Layout}: Assignation des qubits physiques
-        \item \textbf{Routing}: Insertion de portes SWAP pour déplacer les états quantiques entre qubit (NP-difficile, algorithme aléatoire)
-        \item \textbf{Translation}: Conversion de toutes les portes vers le jeu d'instructions natif (ISA)
-        \item \textbf{Optimization}: Remplacement ou élimination de portes logiques où c'est possible
-        \item \textbf{Scheduling}: Insertion de délais (Optionnel)
+        \item \textbf{Init}: Decomposition of multi-qubit operations into 1- and 2-qubit gates (Optional)
+        \item \textbf{Layout}: Assignment of physical qubits
+        \item \textbf{Routing}: Insertion of SWAP gates to move quantum states between qubits (NP-hard, randomized algorithm)
+        \item \textbf{Translation}: Conversion of all gates to the native instruction set (ISA)
+        \item \textbf{Optimization}: Replacement or elimination of logic gates where possible
+        \item \textbf{Scheduling}: Insertion of delays (Optional)
       \end{enumerate}
     \end{column}
     \begin{column}{0.4\textwidth}
@@ -155,25 +155,25 @@
   \end{columns}
 \end{frame}
 
-\begin{frame}{Transpilation: Niveaux d'Optimisation}
+\begin{frame}{Transpilation: Optimization Levels}
   \small
   \begin{description}
     \setlength{\itemsep}{1.5em}
-    \item[\textbf{Niveau 1}:] Combination matricielle des portes à un qubit,\\ élimination des portes CNOT redondantes
+    \item[\textbf{Level 1}:] Matrix combination of single-qubit gates,\\ elimination of redundant CNOT gates
     
-    \item[\textbf{Niveau 2}:] Analyse de commutation pour éliminer davantage de redondances
+    \item[\textbf{Level 2}:] Commutation analysis to eliminate further redundancies
     
-    \item[\textbf{Niveau 3}:] Optimisation des sous-blocs à deux qubits identifiés dans le circuit\\ (reconstruit une matrice unitaire équivalente)
+    \item[\textbf{Level 3}:] Optimization of two-qubit sub-blocks identified in the circuit\\ (reconstructs an equivalent unitary matrix)
   \end{description}
 \end{frame}
 
-\begin{frame}{Exécuter un circuit sur un QPU (module B3)}
+\begin{frame}{Running a circuit on a QPU (module B3)}
   \begin{itemize}
-    \item Création d'un circuit\\~\\
-    \item Choix de la platfomre d'exécution (Fake ou QPU)\\~\\
-    \item Transpilation du circuit pour l'adapter à la topologie du QPU\\~\\
-    \item Exécution du circuit \\~\\
-    \item Récupération et analyse des résultats de mesure
+    \item Circuit creation\\~\\
+    \item Choice of execution platform (Fake or QPU)\\~\\
+    \item Transpilation of the circuit to adapt it to the QPU topology\\~\\
+    \item Circuit execution\\~\\
+    \item Retrieval and analysis of measurement results
   \end{itemize}
 \end{frame}
 
@@ -291,7 +291,7 @@
 
 
 
-\begin{frame}{Fin du module}
+\begin{frame}{End of module}
 \end{frame}
 
 \end{document}

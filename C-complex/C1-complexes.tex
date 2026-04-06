@@ -15,7 +15,7 @@
 \usepackage{tikz}
 \usetikzlibrary{angles,quotes}
 
-\title[Nombres Complexes]{Introduction aux Nombres Complexes}
+\title[Complex Numbers]{Introduction to Complex Numbers}
 \author{JAMOTTE Maxime, SCHOONEN Cédric}
 \institute{Digital Learning Hub}
 \date{}
@@ -26,66 +26,66 @@
   \titlepage
 \end{frame}
 
-\begin{frame}{Table des matières}
+\begin{frame}{Table of Contents}
   \tableofcontents
 \end{frame}
 
 \section{Motivation}
 
-\begin{frame}{Problème: racine de nombres négatifs}
-  Dans l'ensemble des nombres réels $\mathbb{R}$, la racine carrée de nombres négatifs n'existe pas:
+\begin{frame}{Problem: square root of negative numbers}
+  In the set of real numbers $\mathbb{R}$, the square root of negative numbers does not exist:
   \[
-    \sqrt{-1} \quad \text{n'a pas de solution dans } \mathbb{R}
+    \sqrt{-1} \quad \text{has no solution in } \mathbb{R}
   \]
   
   \bigskip
-  \textbf{Solution:} On introduit un nouveau nombre $i$ tel que:
+  \textbf{Solution:} We introduce a new number $i$ such that:
   \[
-    i^2 = -1 \qquad \text{ou} \qquad i = \sqrt{-1}
+    i^2 = -1 \qquad \text{or} \qquad i = \sqrt{-1}
   \]
 \end{frame}
 
-\begin{frame}{Construction des nombres complexes}
-  À partir de $i$, on peut construire de nouveaux nombres: En multipliant par un réel:
+\begin{frame}{Construction of complex numbers}
+  From $i$, we can construct new numbers: By multiplying by a real number:
   
   %\bigskip
   %On peut multiplier $i$ par un réel:
   \[
-    y \cdot i \qquad \text{avec } y \in \mathbb{R}
+    y \cdot i \qquad \text{with } y \in \mathbb{R}
   \]
   
   \bigskip
-  Ou en additionant avec un autre réel:
+  Or by adding another real number:
   \[
-    x + yi \qquad \text{avec } x, y \in \mathbb{R}
+    x + yi \qquad \text{with } x, y \in \mathbb{R}
   \]
   
   \bigskip
-  Ceci est la \textbf{forme générale d'un nombre complexe}.
+  This is the \textbf{general form of a complex number}.
 \end{frame}
 
-\begin{frame}{Trois représentations}
+\begin{frame}{Three representations}
   
   \bigskip
-  \textbf{Forme cartésienne:}
+  \textbf{Cartesian form:}
   \[
     z = x + yi
   \]
   
-  \textbf{Forme vectorielle:}
+  \textbf{Vector form:}
   \[
     z = \begin{pmatrix} x \\ y \end{pmatrix}
   \]
   
-  \textbf{Forme polaire:}
+  \textbf{Polar form:}
   \[
     z = |z| e^{i\theta}
   \]
 \end{frame}
 
-\section{Représentation cartésienne/vectorielle}
+\section{Cartesian/vector representation}
 
-\begin{frame}{Représentation cartésienne/vectorielle}
+\begin{frame}{Cartesian/vector representation}
   
   %$z = x + yi$ avec $x$ la partie réelle et $y$ la partie imaginaire.
   
@@ -102,7 +102,7 @@
   \end{center}
 \end{frame}
 
-\begin{frame}{Addition et soustraction}
+\begin{frame}{Addition and subtraction}
   %L'addition se fait composante par composante:
   \[
     (x_1 + y_1 i) + (x_2 + y_2 i) = (x_1+x_2) + (y_1+y_2)i \qquad     \begin{pmatrix} x_1 \\ y_1 \end{pmatrix} + \begin{pmatrix} x_2 \\ y_2 \end{pmatrix} = \begin{pmatrix} x_1 + x_2 \\ y_1 + y_2 \end{pmatrix}
@@ -122,8 +122,8 @@
   
 \end{frame}
 
-\begin{frame}{Multiplication en forme cartésienne}
-  La multiplication utilise la propriété $i^2 = -1$:
+\begin{frame}{Multiplication in Cartesian form}
+  Multiplication uses the property $i^2 = -1$:
   \begin{align*}
     (x_1 + y_1 i)(x_2 + y_2 i) 
     %&= x_1 x_2 + x_1 y_2 i + y_1 i x_2 + y_1 y_2 i^2 \\
@@ -132,15 +132,15 @@
   \end{align*}
   
   \bigskip
-  \textbf{Exemple:}
+  \textbf{Example:}
   \[
     (2 + 3i)(1 + 4i) = (2 \cdot 1 - 3 \cdot 4) + (2 \cdot 4 + 3 \cdot 1)i = -10 + 11i
   \]
 \end{frame}
 
-\section{Lien avec les rotations}
+\section{Connection with rotations}
 
-\begin{frame}{Multiplication par $i$}
+\begin{frame}{Multiplication by $i$}
 
   \vspace{-5mm}
   \[
@@ -158,12 +158,12 @@
   \end{tikzpicture}
   \end{center}
   
-  \textbf{Rotation de 90°} dans le sens anti-horaire.
+  \textbf{90° rotation} counterclockwise.
 \end{frame}
 
-\begin{frame}{Multiplication par $1+i$}
+\begin{frame}{Multiplication by $1+i$}
 
-  Multiplication par $i$ suivie d'une addition: $(1 + i)z = z + iz$.
+  Multiplication by $i$ followed by addition: $(1 + i)z = z + iz$.
 
   \begin{center}
   \begin{tikzpicture}[scale=1.3]
@@ -178,11 +178,11 @@
   \end{tikzpicture}
   \end{center}
   
-  \textbf{Rotation de 45°} et \textbf{allongement} du vecteur initial.
+  \textbf{45° rotation} and \textbf{stretching} of the initial vector.
 \end{frame}
 
-\begin{frame}{Module et phase}
-  Le \textbf{module} (ou norme) mesure la longueur du vecteur: $\quad |z| = \sqrt{x^2 + y^2}$
+\begin{frame}{Modulus and phase}
+  The \textbf{modulus} (or norm) measures the length of the vector: $\quad |z| = \sqrt{x^2 + y^2}$
   
   \begin{center}
   \begin{tikzpicture}[scale=1.2]
@@ -196,10 +196,10 @@
   \end{tikzpicture}
   \end{center}
 
-  Le \textbf{phase} (ou argument) est l'angle $\theta$ que fait le vecteur avec l'axe réel.
+  The \textbf{phase} (or argument) is the angle $\theta$ that the vector makes with the real axis.
 \end{frame}
 
-\begin{frame}{Interprétation trigonométrique}
+\begin{frame}{Trigonometric interpretation}
 
   \begin{columns}[T]
     \begin{column}{0.49\textwidth}
@@ -217,14 +217,14 @@
     \end{column}
     \begin{column}{0.49\textwidth}
 
-      Nombre complexe encode une \\
-      rotation et une élongation:
+      A complex number encodes a \\
+      rotation and an elongation:
       \[
         z = \underbrace{|z|\cos(\theta)}_{x} + i\underbrace{|z|\sin(\theta)}_{y}
       \]
 
-      \textbf{Normalization} pour garder la \\
-      rotation uniquement:
+      \textbf{Normalization} to keep only the \\
+      rotation:
 
       \[
         \frac{z}{|z|} = \cos(\theta) + i\sin(\theta)
@@ -235,26 +235,26 @@
 
 \end{frame}
 
-\section{Complexe conjugué et division}
+\section{Complex conjugate and division}
 
-\begin{frame}{Division comme rotation inverse}
+\begin{frame}{Division as inverse rotation}
   
-  Pour inverser une rotation d'angle $\theta$, on effectue une rotation d'angle $-\theta$.
+  To invert a rotation by angle $\theta$, we perform a rotation by angle $-\theta$.
   
   \bigskip
-  Ceci nous amène au concept de \textbf{complexe conjugué}, noté $z^*$ (ou $\bar{z}$):
+  This leads us to the concept of \textbf{complex conjugate}, denoted $z^*$ (or $\bar{z}$):
   \[
     z^* = x - iy
   \]
   
-  En notation trigonométrique:
+  In trigonometric notation:
   \[
     z^* = |z|\cos(-\theta) + i|z|\sin(-\theta) = |z|\cos(\theta) - i|z|\sin(\theta)
   \]
   
 \end{frame}
 
-\begin{frame}{Le complexe conjugué}
+\begin{frame}{The complex conjugate}
   \begin{center}
   \begin{tikzpicture}[scale=1.2]
     \draw[->] (-0.5,0) -- (3.5,0) node[right] {Re};
@@ -274,21 +274,21 @@
   \]
 \end{frame}
 
-\begin{frame}{Division de nombres complexes}
-  Pour diviser par un nombre complexe, on multiplie par le conjugué divisé par le module au carré:
+\begin{frame}{Division of complex numbers}
+  To divide by a complex number, we multiply by the conjugate divided by the squared modulus:
   \[
     \frac{1}{z} = \frac{z^*}{zz^*} = \frac{z^*}{|z|^2} = \frac{x - iy}{x^2 + y^2}
   \]
   
   \bigskip
-  Pour diviser deux complexes:
+  To divide two complex numbers:
   \[
     \frac{z_1}{z_2} = \frac{z_1 \cdot z_2^*}{|z_2|^2}
   \]
 \end{frame}
 
-\begin{frame}{Division détaillée en notation $x + iy$}
-  Calculons $\frac{z_1}{z_2} = \frac{x_1 + iy_1}{x_2 + iy_2}$:
+\begin{frame}{Detailed division in $x + iy$ notation}
+  Let us compute $\frac{z_1}{z_2} = \frac{x_1 + iy_1}{x_2 + iy_2}$:
   
   \begin{align*}
     \frac{x_1 + iy_1}{x_2 + iy_2} &= \frac{(x_1 + iy_1)(x_2 - iy_2)}{(x_2 + iy_2)(x_2 - iy_2)} \\
@@ -297,18 +297,18 @@
   \end{align*}
 \end{frame}
 
-\section{Représentation polaire}
+\section{Polar representation}
 
-\begin{frame}{Notation polaire}
+\begin{frame}{Polar notation}
 
   \bigskip
-  Notation $z = |z| e^{i\theta}$ sépare de manière élégante:
+  The notation $z = |z| e^{i\theta}$ elegantly separates:
 
   \bigskip
   \begin{itemize}
     \setlength{\itemsep}{1em}
-    \item Le \textbf{module} $|z|$: l'amplitude, la longueur
-    \item La \textbf{phase} $\theta$: l'angle, la direction
+    \item The \textbf{modulus} $|z|$: the amplitude, the length
+    \item The \textbf{phase} $\theta$: the angle, the direction
   \end{itemize}
 
   \begin{flushright}
@@ -322,21 +322,21 @@
   \end{tikzpicture}
   \end{flushright}
 
-  L'exponentielle transforme les multiplications en sommes sur les angles:
+  The exponential transforms multiplications into sums over angles:
   \[
     z_1 \cdot z_2 = |z_1| e^{i\theta_1} \cdot |z_2| e^{i\theta_2} = |z_1||z_2| e^{i(\theta_1 + \theta_2)}
   \]
 
 \end{frame}
 
-\begin{frame}{Formule d'Euler}
-  La \textbf{formule d'Euler} établit le lien entre l'exponentielle et les fonctions trigonométriques:
+\begin{frame}{Euler's formula}
+  \textbf{Euler's formula} establishes the link between the exponential and trigonometric functions:
   \[
     e^{i\theta} = \cos(\theta) + i\sin(\theta)
   \]
   
   \bigskip
-  Cas particuliers remarquables:
+  Notable special cases:
   \begin{align*}
     e^{i\pi/2} = i \qquad\qquad
     e^{i\pi} = -1 \qquad\qquad
@@ -344,7 +344,7 @@
   \end{align*}
 \end{frame}
 
-\begin{frame}{Opérations en notation polaire}
+\begin{frame}{Operations in polar notation}
   \textbf{Multiplication:}
   \[
     z_1 \cdot z_2 = (|z_1| e^{i\theta_1})(|z_2| e^{i\theta_2}) = |z_1||z_2| \, e^{i(\theta_1+\theta_2)}
@@ -355,23 +355,23 @@
     \frac{z_1}{z_2} = \frac{|z_1| e^{i\theta_1}}{|z_2| e^{i\theta_2}} = \frac{|z_1|}{|z_2|} \, e^{i(\theta_1-\theta_2)}
   \]
   
-  \textbf{Puissance:}
+  \textbf{Power:}
   \[
     z^n = (|z| e^{i\theta})^n = |z|^n e^{in\theta}
   \]
   
-  \textbf{Racine n-ième:}
+  \textbf{n-th root:}
   \[
     \sqrt[n]{z} = |z|^{1/n} e^{i\theta/n}
   \]
 \end{frame}
 
-\begin{frame}{Racines de l'unité}
+\begin{frame}{Roots of unity}
 
   \bigskip
-  Les racines n-ièmes de l'unité sont les solutions de $z^n = 1$: $\quad \omega_k = e^{2\pi i k/n} \quad k\in\mathbb{Z}$
+  The n-th roots of unity are the solutions of $z^n = 1$: $\quad \omega_k = e^{2\pi i k/n} \quad k\in\mathbb{Z}$
 
-  Avec $n=6$:
+  With $n=6$:
  
   \begin{center}
   \begin{tikzpicture}[scale=1.7]
@@ -389,19 +389,19 @@
   \end{center}
   \end{frame}
 
-\section{Pour aller plus loin}
+\section{Going further}
 
-\begin{frame}{Vidéos par 3Blue1Brown} 
+\begin{frame}{Videos by 3Blue1Brown} 
   \begin{center}
     \includegraphics[width=\linewidth]{../figures/3b1b_complexes.png}
   \end{center}
 \end{frame}
 
-\begin{frame}{Quaternions et rotations 3D}
-  Les quaternions étendent les nombres complexes pour les rotations 3D.
+\begin{frame}{Quaternions and 3D rotations}
+  Quaternions extend complex numbers for 3D rotations.
   
   \bigskip
-  Nombres $1, i, j, k$ avec la table de multiplication:
+  Numbers $1, i, j, k$ with the multiplication table:
   
   \begin{center}
   \begin{tabular}{c|cccc}
@@ -415,10 +415,10 @@
   \end{center}
   
   \bigskip
-  Utilisés en graphisme 3D et jeux vidéo. En physique, on préfère les matrices de Pauli.
+  Used in 3D graphics and video games. In physics, Pauli matrices are preferred.
 
   \bigskip
-  Ce petit exercice peut être continué avec des transformations plus générales que des rotations: cela amène à la \textbf{théorie des groupes} et de leurs représentations.
+  This exercise can be continued with more general transformations than rotations: this leads to \textbf{group theory} and their representations.
   
 \end{frame}
 

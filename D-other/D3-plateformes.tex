@@ -15,7 +15,7 @@
 \usepackage{braket}
 \usepackage{tikz}
 
-\title[Chapter 4]{Chapitre 7: Plateformes implémentant des ordinateurs quantiques}
+\title[Chapter 4]{Chapter 7: Platforms implementing quantum computers}
 \author{JAMOTTE Maxime, SCHOONEN Cédric}
 \institute{Digital Learning Hub}
 \date{}
@@ -28,57 +28,57 @@
 
 \begin{frame}
     \begin{itemize}
-        \item Plateforme classique\\~\\
-        \item Plateformes quantiques
+        \item Classical platform\\~\\
+        \item Quantum platforms
     \end{itemize}
 \end{frame}
 
-\begin{frame}{Plateforme classique : le silicium CMOS}
+\begin{frame}{Classical platform: silicon CMOS}
 \begin{itemize}
-    \item Les ordinateurs classiques utilisent des circuits \textbf{CMOS} fabriqués sur du \textbf{silicium}.
-    \item Un bit est codé par un \textbf{niveau de tension} :
+    \item Classical computers use \textbf{CMOS} circuits fabricated on \textbf{silicon}.
+    \item A bit is encoded by a \textbf{voltage level}:
     \[
-        0 = \text{tension basse}, \qquad 1 = \text{tension haute}.
+        0 = \text{low voltage}, \qquad 1 = \text{high voltage}.
     \]
-    \item Le composant de base est le \textbf{transistor}:
+    \item The fundamental component is the \textbf{transistor}:
     \begin{itemize}
-        \item canal ouvert = 1,
-        \item canal fermé = 0.
+        \item open channel = 1,
+        \item closed channel = 0.
     \end{itemize}
-    \item Les portes logiques sont construites en reliant plusieurs transistors :
+    \item Logic gates are built by connecting multiple transistors:
     \begin{itemize}
         \item NOT = 1 PMOS + 1 NMOS,
-        \item AND/OR = transistors en série ou parallèle,
-        \item NAND/NOR = briques fondamentales des processeurs.
+        \item AND/OR = transistors in series or parallel,
+        \item NAND/NOR = fundamental building blocks of processors.
     \end{itemize}
-    \item Le tout est fabriqué par \textbf{photolithographie} sur du silicium dopé.
+    \item Everything is fabricated by \textbf{photolithography} on doped silicon.
 \end{itemize}
 \end{frame}
 
 
 
-\begin{frame}{Plateformes quantiques}
+\begin{frame}{Quantum platforms}
 \begin{itemize}
-    \item Qubits supraconducteurs\\~\\
-    \item Atomes neutres\\~\\
-    \item Ions piégés\\~\\
+    \item Superconducting qubits\\~\\
+    \item Neutral atoms\\~\\
+    \item Trapped ions\\~\\
 \end{itemize}
 \end{frame}
 
-\begin{frame}{Qubits supraconducteurs (IBM, Google,...)}
+\begin{frame}{Superconducting qubits (IBM, Google,...)}
 \begin{columns}[T]
 \begin{column}{0.6\textwidth}
 \begin{itemize}
-    \item Des \textbf{circuits supraconducteurs} (LC + jonction Josephson) se comportent 
-    comme des \textbf{atomes artificiels}.\\~\\
-    \item Les deux premiers niveaux d’énergie forment le qubit :
+    \item \textbf{Superconducting circuits} (LC + Josephson junction) behave 
+    like \textbf{artificial atoms}.\\~\\
+    \item The first two energy levels form the qubit:
     \[
-        |0\rangle = \text{état fondamental},
-        |1\rangle = \text{premier état excité}.
+        |0\rangle = \text{ground state},
+        |1\rangle = \text{first excited state}.
     \]
-    \item Les opérations quantiques sont réalisées avec des \textbf{impulsions laser micro-ondes}.
+    \item Quantum operations are performed with \textbf{microwave laser pulses}.
     ~\\~\\
-    \item Fréquences différentes pour accéder aux autres niveaux d'énergie.
+    \item Different frequencies to access other energy levels.
 \end{itemize}
 \end{column}
 \begin{column}{0.4\textwidth}
@@ -91,19 +91,19 @@
 \end{columns}
 \end{frame}
 
-\begin{frame}{Ions piégés (Quantinuum, IonQ, Innsbruck / AQT)}
+\begin{frame}{Trapped ions (Quantinuum, IonQ, Innsbruck / AQT)}
 \begin{columns}[T]
 \begin{column}{0.6\textwidth}
 \begin{itemize}
-    \item Des \textbf{ions individuels} (ex.: Yb\(^+\), Ca\(^+\)) sont alignés dans un \textbf{piège électromagnétique}.
-    \item Le qubit est encodé dans deux \textbf{niveaux internes} stables de l’atome :
+    \item Individual \textbf{ions} (e.g.: Yb\(^+\), Ca\(^+\)) are aligned in an \textbf{electromagnetic trap}.
+    \item The qubit is encoded in two stable \textbf{internal levels} of the atom:
     \[
-        |0\rangle = \text{niveau hyperfin A},\ |1\rangle = \text{niveau hyperfin B}.
+        |0\rangle = \text{hyperfine level A},\ |1\rangle = \text{hyperfine level B}.
     \]
-    \item Opérations quantiques par des \textbf{impulsions laser}:
+    \item Quantum operations via \textbf{laser pulses}:
     \begin{itemize}
-        \item rotations à un qubit,
-        \item portes à deux qubits via \textbf{mode vibratoire collectif}.
+        \item single-qubit rotations,
+        \item two-qubit gates via \textbf{collective vibrational mode}.
     \end{itemize}
 \end{itemize}
 \end{column}
@@ -114,21 +114,21 @@
 \end{columns}
 \end{frame}
 
-\begin{frame}{Atomes neutres (Pasqal, QuEra, ColdQuanta)}
+\begin{frame}{Neutral atoms (Pasqal, QuEra, ColdQuanta)}
 \begin{columns}[T]
 \begin{column}{0.6\textwidth}
 \begin{itemize}
-    \item Des atomes neutres (Rb, Cs) sont piégés un par un dans des \textbf{pinces optiques}.\\~\\
-    \item Le qubit correspond à deux \textbf{niveaux hyperfins} de l’atome:
+    \item Neutral atoms (Rb, Cs) are trapped one by one in \textbf{optical tweezers}.\\~\\
+    \item The qubit corresponds to two \textbf{hyperfine levels} of the atom:
     \[
-        |0\rangle = \text{hyperfin A}, \qquad |1\rangle = \text{hyperfin B}.
+        |0\rangle = \text{hyperfine A}, \qquad |1\rangle = \text{hyperfine B}.
     \]
-    \item Opérations quantiques par \textbf{impulsions laser}:
+    \item Quantum operations via \textbf{laser pulses}:
     \begin{itemize}
-        \item opérations à un qubit,
-        \item interactions contrôlées via le \textbf{blocage de Rydberg} (état hautement excité).\\~\\
+        \item single-qubit operations,
+        \item controlled interactions via \textbf{Rydberg blockade} (highly excited state).\\~\\
     \end{itemize}
-    \item Les atomes peuvent être \textbf{déplacés librement} pour reconfigurer la géométrie du processeur.
+    \item The atoms can be \textbf{freely moved} to reconfigure the processor geometry.
 \end{itemize}
 \end{column}
 \begin{column}{0.4\textwidth}
@@ -138,9 +138,9 @@
 \end{columns}
 \end{frame}
 
-\begin{frame}{Fin du chapitre 7}
+\begin{frame}{End of chapter 7}
     \centering
- D'autres plateformes existent: Spins dans les semi-conducteurs et photonique.
+ Other platforms exist: Spins in semiconductors and photonics.
 \end{frame}
 
 

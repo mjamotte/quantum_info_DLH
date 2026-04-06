@@ -16,7 +16,7 @@
 \usepackage{tikz}
 \usetikzlibrary{calc}
 
-\title[Chapter 5]{Chapitre 5: Mesure, projection, probabilité du résultat et bases arbitraires}
+\title[Chapter 5]{Chapter 5: Measurement, projection, probability of outcome and arbitrary bases}
 \author{JAMOTTE Maxime, SCHOONEN Cédric}
 \institute{Digital Learning Hub}
 \date{}
@@ -112,26 +112,26 @@
   \titlepage
 \end{frame}
 
-\begin{frame}{Objectifs du chapitre 5}
+\begin{frame}{Objectives of chapter 5}
     \begin{itemize}
-        \item Définir la mesure en mécanique quantique \\~\\
-        \item Relier mesure, projection, produit scalaire, vecteurs propres et valeurs propres\\~\\
-        \item Probabilité de mesure\\~\\
-        \item Mesurer dans d'autres bases\\~\\
-        \item Mesurer avec QISKIT
+        \item Define measurement in quantum mechanics \\~\\
+        \item Relate measurement, projection, dot product, eigenvectors and eigenvalues\\~\\
+        \item Measurement probability\\~\\
+        \item Measuring in other bases\\~\\
+        \item Measuring with QISKIT
     \end{itemize}
 \end{frame}
 
-\begin{frame}{Mesurer un qubit}
+\begin{frame}{Measuring a qubit}
   \begin{itemize}[<+->]
     \setlength{\itemsep}{0.6em}
-    \item État général d'un qubit: $\ket{\psi} = \alpha \ket 0 + \beta \ket 1$.
+    \item General state of a qubit: $\ket{\psi} = \alpha \ket 0 + \beta \ket 1$.
     \\~\\
-    \item Mesurer un qubit donne \textbf{un seul résultat}: $\ket{0}$ ou $\ket{1}$ (dans la base computationnelle).
+    \item Measuring a qubit gives \textbf{a single result}: $\ket{0}$ or $\ket{1}$ (in the computational basis).
     \\~\\
-    \item Les probabilités sont données par le \textbf{carré des coefficients}:
+    \item The probabilities are given by the \textbf{squared coefficients}:
     $$P(\ket 0) = |\alpha|^2, \qquad P(\ket 1) = |\beta|^2$$
-    \item Après la mesure, l'état est \textbf{projeté} sur le résultat obtenu ($\ket{0}$ ou $\ket{1}$).
+    \item After measurement, the state is \textbf{projected} onto the obtained result ($\ket{0}$ or $\ket{1}$).
   \end{itemize}
 \end{frame}
 
@@ -140,7 +140,7 @@
     \begin{column}{0.6\textwidth}
       \begin{itemize}
         \setlength{\itemsep}{0.6em}
-        \item Projection du vecteur $\vec r$ sur $\vec p$: $$\Pi_{\vec p}(\vec r) = (\vec r \cdot \vec p)\ \vec p$$
+        \item Projection of vector $\vec r$ onto $\vec p$: $$\Pi_{\vec p}(\vec r) = (\vec r \cdot \vec p)\ \vec p$$
       \end{itemize}
     \end{column}
     \begin{column}{0.35\textwidth}
@@ -155,7 +155,7 @@
     \begin{column}{0.6\textwidth}
       \begin{itemize}
         \setlength{\itemsep}{0.6em}
-        \item Projection du vecteur $\vec r$ sur $\vec p$: $$\Pi_{\vec p}(\vec r) = (\vec r \cdot \vec p)\ \vec p$$
+        \item Projection of vector $\vec r$ onto $\vec p$: $$\Pi_{\vec p}(\vec r) = (\vec r \cdot \vec p)\ \vec p$$
       \end{itemize}
     \end{column}
     \begin{column}{0.35\textwidth}
@@ -165,15 +165,15 @@
   \end{columns}
 \end{frame}
 
-\begin{frame}{Projection et produit scalaire}
+\begin{frame}{Projection and dot product}
   \begin{columns}[T]
     \begin{column}{0.6\textwidth}
       \begin{itemize}
         \setlength{\itemsep}{0.6em}
-        \item Projection du vecteur $\vec r$ sur $\vec p$: $$\Pi_{\vec p}(\vec r) = (\vec r \cdot \vec p)\ \vec p$$
-        \item Produit scalaire:
+        \item Projection of vector $\vec r$ onto $\vec p$: $$\Pi_{\vec p}(\vec r) = (\vec r \cdot \vec p)\ \vec p$$
+        \item Dot product:
         $$\vec r \cdot \vec p = \begin{pmatrix} a & b \end{pmatrix} \begin{pmatrix} c \\ d \end{pmatrix} = ac+bd$$
-        \item Lien avec l'angle: $\vec r \cdot \vec p = \norm{\vec r}\norm{\vec p}\cos(\theta)$
+        \item Relation with the angle: $\vec r \cdot \vec p = \norm{\vec r}\norm{\vec p}\cos(\theta)$
         %\item Produit scalaire entre deux états $\ket{\phi}$ et $\ket \psi$: $\braket{\phi|\psi}$.
       \end{itemize}
     \end{column}
@@ -184,18 +184,18 @@
   \end{columns}
 \end{frame}
 
-\begin{frame}{Projection en mécanique quantique: notation ket-bra}
+\begin{frame}{Projection in quantum mechanics: ket-bra notation}
   \begin{itemize}[<+->]
     \setlength{\itemsep}{0.6em}
-    \item L'état d'un qubit sous forme $\ket \psi$ s'écrit $\begin{pmatrix}
+    \item The state of a qubit in the form $\ket \psi$ is written $\begin{pmatrix}
     \alpha\\ \beta \end{pmatrix}$ \\~\\
-    \item L'état d'un qubit sous forme $\bra \psi$ s'écrit $\begin{pmatrix}
-    \alpha \ \beta \end{pmatrix}$ (si $\alpha, \beta \in \mathbb R$) \\~\\
-    \item Projecteur sur l'état $\ket \psi$: $$\Pi_\psi^{} = \ket \psi \bra \psi$$ 
+    \item The state of a qubit in the form $\bra \psi$ is written $\begin{pmatrix}
+    \alpha \ \beta \end{pmatrix}$ (if $\alpha, \beta \in \mathbb R$) \\~\\
+    \item Projector onto the state $\ket \psi$: $$\Pi_\psi^{} = \ket \psi \bra \psi$$ 
   \end{itemize}
 \end{frame}
 
-\begin{frame}{Projecteurs en notation matricielle}
+\begin{frame}{Projectors in matrix notation}
   \begin{itemize}[<+->]
     \setlength{\itemsep}{0.6em}
     \item $\Pi_\psi^{} = \ket \psi \bra \psi = (\alpha \  \beta) \begin{pmatrix}
@@ -204,7 +204,7 @@
       \alpha^2 & \alpha \beta\\
       \alpha \beta & \beta^2
     \end{pmatrix}$\\~\\
-    \item Les projecteurs $\Pi_0$ et $\Pi_1$ s'écrivent aussi comme des matrices $2\times 2$:
+    \item The projectors $\Pi_0$ and $\Pi_1$ are also written as $2\times 2$ matrices:
     $$\Pi_0 = \ket{0}\bra{0} =
       \begin{pmatrix}1\\0\end{pmatrix}\begin{pmatrix}1 & 0\end{pmatrix}
       = \begin{pmatrix}1 & 0\\0 & 0\end{pmatrix}$$
@@ -216,14 +216,14 @@
   \end{itemize}
 \end{frame}
 
-\begin{frame}{Projection et produit scalaire en mécanique quantique}
+\begin{frame}{Projection and dot product in quantum mechanics}
   \begin{columns}[T]
     \begin{column}{0.6\textwidth}
       \begin{itemize}
         \setlength{\itemsep}{0.6em}
-        \item Projecteur sur l'état $\ket{\phi}$: $\Pi_\phi^{} = \ket{\phi}\bra{\phi}$\\~\\
-        \item Projection de $\ket \psi$ sur l'état $\ket{\phi}$: $$ \Pi_\phi^{}(\ket{\psi}) =  \ket{\phi}\braket{\phi|\psi}$$
-        \item Produit scalaire entre deux états $\ket{\phi}$ et $\ket \psi$: $\braket{\phi|\psi}$.\\~\\
+        \item Projector onto the state $\ket{\phi}$: $\Pi_\phi^{} = \ket{\phi}\bra{\phi}$\\~\\
+        \item Projection of $\ket \psi$ onto the state $\ket{\phi}$: $$ \Pi_\phi^{}(\ket{\psi}) =  \ket{\phi}\braket{\phi|\psi}$$
+        \item Dot product between two states $\ket{\phi}$ and $\ket \psi$: $\braket{\phi|\psi}$.\\~\\
       \end{itemize}
     \end{column}
     \begin{column}{0.35\textwidth}
@@ -233,13 +233,13 @@
   \end{columns}
 \end{frame}
 
-\begin{frame}{Produit scalaire en mécanique quantique}
+\begin{frame}{Dot product in quantum mechanics}
   \begin{columns}[T]
     \begin{column}{0.6\textwidth}
       \begin{itemize}
         \setlength{\itemsep}{0.6em}
-        \item Produit scalaire entre deux états $\ket{\phi}$ et $\ket \psi$: $$\braket{\phi|\psi}$$\\~\\
-         \item Conventions: $\braket{0|0} = 1$, $\braket{1|1} = 1$ et $\braket{0|1} = 0$ (orthogonaux).
+        \item Dot product between two states $\ket{\phi}$ and $\ket \psi$: $$\braket{\phi|\psi}$$\\~\\
+         \item Conventions: $\braket{0|0} = 1$, $\braket{1|1} = 1$ and $\braket{0|1} = 0$ (orthogonal).
       \end{itemize}
     \end{column}
     \begin{column}{0.35\textwidth}
@@ -249,73 +249,73 @@
   \end{columns}
 \end{frame}
 
-\begin{frame}{Projection, produit scalaire et probabilité de mesure}
+\begin{frame}{Projection, dot product and measurement probability}
   \begin{itemize}[<+->]
     \setlength{\itemsep}{0.6em}
-    \item Mesurer $\ket \psi$ le projette dans l'état $\ket 0$ ou $\ket 1$: 
+    \item Measuring $\ket \psi$ projects it into the state $\ket 0$ or $\ket 1$: 
     $$\Pi_0^{} \ket \psi = \alpha \ket 0, \quad \Pi_1^{} \ket \psi = \beta \ket 1$$
-    \item La probabilité de mesurer $\ket{0}$ ou $\ket 1$ s'écrit comme le produit scalaire de $\ket \psi$ avec sa projection sur l'état $\ket 0$ ou $\ket 1$:
+    \item The probability of measuring $\ket{0}$ or $\ket 1$ is written as the dot product of $\ket \psi$ with its projection onto the state $\ket 0$ or $\ket 1$:
     $$P(0) = \bra{\psi}\Pi_0\ket{\psi} = |\alpha|^2$$
     $$P(1) = \bra{\psi}\Pi_1\ket{\psi} = |\beta|^2$$
   \end{itemize}
 \end{frame}
 
 % ============================================================
-\section{Reproductibilité de la mesure}
+\section{Reproducibility of measurement}
 % ============================================================
 
-\begin{frame}{Reproductibilité de la mesure: $\Pi^2 = \Pi$}
+\begin{frame}{Reproducibility of measurement: $\Pi^2 = \Pi$}
   \begin{itemize}[<+->]
     \setlength{\itemsep}{0.8em}
-    \item La mesure \textbf{projette} l'état quantique sur $\ket{0}$ ou $\ket{1}$
-     selon les probabilités $P(\ket 0)$ et $P(\ket 1)$.\\~\\
-    \item Si on mesure à nouveau, on retrouve le même résultat: la mesure est reproductible.\\~\\
-    \item Mathématiquement: $\Pi^2 = \Pi$, c'est pourquoi la mesure est une projection.\\~\\
-    \item L'état $\ket 0$ reste intact sous l'action de $\Pi_0^{}$: $\Pi_0^{} \ket 0 = \ket 0$\\~\\ 
-    \item $\ket 0$ est un \textbf{état propre} du projecteur $\Pi_0^{}$.
+    \item Measurement \textbf{projects} the quantum state onto $\ket{0}$ or $\ket{1}$
+     according to the probabilities $P(\ket 0)$ and $P(\ket 1)$.\\~\\
+    \item If we measure again, we find the same result: the measurement is reproducible.\\~\\
+    \item Mathematically: $\Pi^2 = \Pi$, which is why measurement is a projection.\\~\\
+    \item The state $\ket 0$ remains unchanged under the action of $\Pi_0^{}$: $\Pi_0^{} \ket 0 = \ket 0$\\~\\ 
+    \item $\ket 0$ is an \textbf{eigenstate} of the projector $\Pi_0^{}$.
   \end{itemize}
 \end{frame}
 
-\begin{frame}{Valeurs propres et vecteurs propres}
+\begin{frame}{Eigenvalues and eigenvectors}
   \begin{itemize}[<+->]
     \setlength{\itemsep}{0.6em}
-    \item On dit aussi que le vecteu représentant l'état $\ket 0$ est un vecteur propre de la matrice représentant le projecteur $\Pi_0^{}$\\~\\
-    \item Autre exemple d'un produit matrice-vecteur:   
+    \item We also say that the vector representing the state $\ket 0$ is an eigenvector of the matrix representing the projector $\Pi_0^{}$\\~\\
+    \item Another example of a matrix-vector product:   
     $$ \begin{pmatrix} 2 & 1 \\ 2 & 3 \end{pmatrix} \begin{pmatrix} -1 \\ 1 \end{pmatrix} = \begin{pmatrix} -1 \\ 1 \end{pmatrix},$$
-    et 
+    and 
     $$ \begin{pmatrix} 2 & 1 \\ 2 & 3 \end{pmatrix} \begin{pmatrix} 1 \\ 2 \end{pmatrix} = \begin{pmatrix} 4 \\ 8 \end{pmatrix} = 4 \begin{pmatrix} 1 \\ 2 \end{pmatrix},$$~\\
-    \item Multiplier ce vecteur par cette matrice redonne le même vecteur multiplié par un nombre.
-    \item On nomme ce vecteur "\textbf{vecteur propre}" et ce nombre "\textbf{valeur propre}".
+    \item Multiplying this vector by this matrix gives back the same vector multiplied by a number.
+    \item This vector is called an "\textbf{eigenvector}" and this number an "\textbf{eigenvalue}".
   \end{itemize}
 \end{frame}
 
-\begin{frame}{Les états $\ket 0, \ket 1$ sont des vecteurs propres d'une observable}
+\begin{frame}{The states $\ket 0, \ket 1$ are eigenvectors of an observable}
   \begin{itemize}[<+->]
     \setlength{\itemsep}{0.6em}
-    \item Les grandeurs mesurables sont représentées par des matrices appelées \textit{observables}.
-    \item \textbf{Mesurer} une quantité physique revient à mesurer l'une de ses \textbf{valeurs propres}.
-    \item Les états $\ket{0}$ et $\ket{1}$ sont les vecteurs propres de l'observable $Z$
-     (base computationnelle):
+    \item Measurable quantities are represented by matrices called \textit{observables}.
+    \item \textbf{Measuring} a physical quantity amounts to measuring one of its \textbf{eigenvalues}.
+    \item The states $\ket{0}$ and $\ket{1}$ are the eigenvectors of the observable $Z$
+     (computational basis):
     $$Z\ket{0} = +\ket{0}, \qquad Z\ket{1} = -\ket{1}$$
-    \item La nature physique de la valeur propre (énergie, spin,...) dépend de la plateforme (voir plus tard).
-    \item \textbf{Postulat}: mesurer = projeter le vecteur du qubit sur le vecteur propre associé à la
-     valeur propre de l'observable mesurée.
+    \item The physical nature of the eigenvalue (energy, spin,...) depends on the platform (see later).
+    \item \textbf{Postulate}: measuring = projecting the qubit vector onto the eigenvector associated with the
+     eigenvalue of the measured observable.
   \end{itemize}
 \end{frame}
 
 % ============================================================
-\section{Autres bases et observables}
+\section{Other bases and observables}
 % ============================================================
 
-\begin{frame}{Projection sur des vecteurs arbitraires}
+\begin{frame}{Projection onto arbitrary vectors}
   \begin{itemize}[<+->]
     \setlength{\itemsep}{0.8em}
-    \item On peut mesurer dans d'autres bases que la base computationnelle $\{\ket{0}, \ket{1}\}$.\\~\\
-    \item Par exemple, la base $\{\ket{+}, \ket{-}\}$ avec:
+    \item One can measure in bases other than the computational basis $\{\ket{0}, \ket{1}\}$.\\~\\
+    \item For example, the basis $\{\ket{+}, \ket{-}\}$ with:
     $$\ket{+} = \frac{\ket{0}+\ket{1}}{\sqrt{2}}, \qquad \ket{-} = \frac{\ket{0}-\ket{1}}{\sqrt{2}}$$
-    \item Les vecteurs $\ket{+}$ et $\ket{-}$ sont les vecteurs propres de l'observable $X$:
+    \item The vectors $\ket{+}$ and $\ket{-}$ are the eigenvectors of the observable $X$:
     $$X\ket{+} = (+1)\ket{+}, \qquad X\ket{-} = (-1)\ket{-}$$
-    \item On peut ainsi définir des projecteurs et probabilités de mesure dans cette base.
+    \item One can thus define projectors and measurement probabilities in this basis.
   \end{itemize}
 \end{frame}
 

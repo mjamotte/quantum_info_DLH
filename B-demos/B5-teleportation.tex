@@ -14,7 +14,7 @@
 \usepackage{physics}
 \usepackage{braket}
 
-\title[]{Téléportation quantique}
+\title[]{Quantum Teleportation}
 \author{JAMOTTE Maxime, SCHOONEN Cédric}
 \institute{Digital Learning Hub}
 \date{}
@@ -25,13 +25,13 @@
   \titlepage
 \end{frame}
 
-\begin{frame}{Rappel: paire de Bell, $C_X^{}$ et $C_Z^{}$}
+\begin{frame}{Reminder: Bell pair, $C_X^{}$ and $C_Z^{}$}
   \begin{columns}[T,onlytextwidth]
     \column{0.6\textwidth}
     \begin{itemize}
-      \item Créer la paire de Bell $\frac{1}{\sqrt 2}(\ket{00} + \ket{11})$.\\~\\
-      \item Porte $C_X^{}$: applique $X$ sur un qubit si l'autre est dans l'état $\ket{1}$, sinon on ne fait rien.\\~\\
-      \item Porte $C_Z^{}$: applique $Z$ sur un qubit si l'autre est dans l'état $\ket{1}$, sinon on ne fait rien.
+      \item Create the Bell pair $\frac{1}{\sqrt 2}(\ket{00} + \ket{11})$.\\~\\
+      \item Gate $C_X^{}$: applies $X$ to a qubit if the other is in state $\ket{1}$, otherwise does nothing.\\~\\
+      \item Gate $C_Z^{}$: applies $Z$ to a qubit if the other is in state $\ket{1}$, otherwise does nothing.
     \end{itemize}
     \column{0.35\textwidth}
     \centering
@@ -39,41 +39,41 @@
   \end{columns}
 \end{frame}
 
-\begin{frame}{Circuit pour téléporter}
+\begin{frame}{Teleportation circuit}
   \begin{itemize}
-    \item Alice possède deux qubit: $\ket \psi$ et un des qubits intriqués.
-    \item Bob possède l'autre qubit intriqué.
-    \item Les qubits intriqués forment la paire de Bell $\frac{1}{\sqrt 2}(\ket{00} + \ket{11})$.
+    \item Alice has two qubits: $\ket \psi$ and one of the entangled qubits.
+    \item Bob has the other entangled qubit.
+    \item The entangled qubits form the Bell pair $\frac{1}{\sqrt 2}(\ket{00} + \ket{11})$.
   \end{itemize}
   \begin{figure}
     \includegraphics[width=\linewidth]{../figures/teleportation.png}
   \end{figure}
 \end{frame}
 
-\begin{frame}{Circuit alternatif compatible avec un QPU}
+\begin{frame}{Alternative circuit compatible with a QPU}
     \begin{itemize}
-      \item On veut implémenter ce circuit sur un QPU.\\~\\
-      \item Les commandes telles que \texttt{if} en sont pas implémentables comme dans un ordinateur classique (pas du Python).\\~\\
-      \item Il faut donc produire un circuit alternatif, où les mesures se font à la fin du circuit.
+      \item We want to implement this circuit on a QPU.\\~\\
+      \item Commands such as \texttt{if} cannot be implemented as on a classical computer (not Python).\\~\\
+      \item We therefore need to produce an alternative circuit, where measurements are done at the end of the circuit.
     \end{itemize}
 \end{frame}
 
-\begin{frame}{Circuit alternatif compatible avec un QPU}
-    \centering Faire un pull (Github)
+\begin{frame}{Alternative circuit compatible with a QPU}
+    \centering Do a pull (Github)
 \end{frame}
 
-\begin{frame}{Exercice: téléportation  et run sur QPU}
+\begin{frame}{Exercise: teleportation and run on QPU}
     \begin{itemize}
-      \item Téléportez l'état $\ket \psi = \ket 1$ en utilisant la paire de Bell $\frac{1}{\sqrt 2}(\ket{00} + \ket{11})$ 
-      et portes $C_X$ et $C_Z$.\\~\\
-      \item Mesurer les trois qubits à la fin du circuit.\\~\\
-      \item Testez votre circruit avec \texttt{Aer} (1000 shots).\\~\\
-      \item Présentez les résulats dans un histogramme et interprétez les résulats.\\~\\
-      \item Après vérification, envoyez votre circuit sur un QPU.
+      \item Teleport the state $\ket \psi = \ket 1$ using the Bell pair $\frac{1}{\sqrt 2}(\ket{00} + \ket{11})$ 
+      and gates $C_X$ and $C_Z$.\\~\\
+      \item Measure the three qubits at the end of the circuit.\\~\\
+      \item Test your circuit with \texttt{Aer} (1000 shots).\\~\\
+      \item Present the results in a histogram and interpret the results.\\~\\
+      \item After verification, send your circuit to a QPU.
     \end{itemize}
 \end{frame}  
 
-\begin{frame}{Circuit qui tournera sur le QPU}
+\begin{frame}{Circuit that will run on the QPU}
     \begin{figure}
     \includegraphics[width=\linewidth]{../figures/teleportation_alternatif.png}
   \end{figure}
