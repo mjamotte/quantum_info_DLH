@@ -24,7 +24,7 @@
 \let\oldurl\url
 \renewcommand{\url}[1]{\oldurl{\uline{\color{blue}{#1}}}}
 
-\title[Chapitre 1]{Chapitre 1: Démystification}
+\title{Démystification}
 \author{JAMOTTE Maxime, SCHOONEN Cédric}
 \institute{Digital Learning Hub}
 \date{}
@@ -62,7 +62,6 @@
     \item Revoir les mathématiques de base requises (algèbre linéaire)\\~\\
     \item Comprendre les notions essentielles de mécanique quantique\\~\\
     \item Programmer avec Qiskit\\~\\
-    \item Aperçu des plateformes physiques pour implémenter un ordinateur quantique
   \end{itemize}
 \end{frame}
 
@@ -219,8 +218,9 @@
     & Classique & Quantique \\\hline
     ~& ~ & ~\\
     Encodage & Bit (0 \textbf{ou} 1) & Qubit (0 \textbf{et} 1) \\
+    & Discret & Continu \\
      ~& ~ & ~\\
-    Portes logiques & Booléennes & Matricielles \\
+    Description mathématique & Booléens (0/1) & Vecteurs/Matrices \\
     ~& ~ & ~\\
     Sensibilité à l'environnement & Faible & Haute \\
     ~& ~ & ~\\
@@ -230,7 +230,7 @@
 
 \begin{frame}{Utilité malgré cette limitation}
   \begin{itemize}
-    \item {\bf Algorithme de Grover:} Accélération quadratique pour la recherche de solution à une fonction "boîte noire". Applications: chercher un élément dans une base de données non-structurée, inverser une fonction de hachage, résolution d'un problème NP-complet, ... \\~\\
+    \item {\bf Algorithme de Grover:} Accélération quadratique de la résolution d'un problème difficile dont il est facile de reconnaître une solution. Applications: chercher un élément dans une base de données non-structurée, inverser une fonction de hachage, ... \\~\\
     \item {\bf Algorithme de Shor:} Accélération exponentielle de la factorisation de nombres (casse le chiffrement RSA). Se base sur un algorithme quantique accélérant le calcul de la {\bf transformée de Fourier}, une technique mathématique très utile dans de nombreux domaines. \\~\\
     \item {\bf Algorithmes hybrides d'optimisation (QAOA, VQE,...):} Principales applications en chimie, avantage quantique encore débattu.
   \end{itemize}

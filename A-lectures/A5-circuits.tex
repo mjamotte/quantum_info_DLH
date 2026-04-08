@@ -10,11 +10,10 @@
 \usepackage{graphicx}
 \usepackage{amsmath,amssymb}
 \usepackage{hyperref}
-\usepackage{siunitx}
 \usepackage{physics}
 \usepackage{braket}
 
-\title{Module A5: Circuits et portes logiques}
+\title{Circuits et portes logiques}
 \author{JAMOTTE Maxime, SCHOONEN Cédric}
 \institute{Digital Learning Hub}
 \date{}
@@ -34,9 +33,8 @@
 \begin{frame}{Objectifs}
   \begin{itemize}
   \item Circuits logiques classiques\\~\\
-  \item Circuits quantiques (+ B2)\\~\\
-  \item Circuit pour construire un état quantique depuis $\ket{00...0}$\\~\\
-  \item Modèle de calcul: circuit -> exécution sur QPU -> résultats de mesures
+  \item Circuits quantiques (voir notebook companion)\\~\\
+  \item Exécution sur QPU (voir notebook companion)
   \end{itemize}
 \end{frame}
 
@@ -58,7 +56,7 @@
   }
 \end{frame}
 
-\begin{frame}{Table de vérité (rappel)}
+\begin{frame}{Table de vérité}
   \centering
   \renewcommand{\arraystretch}{1.4}
   \begin{tabular}{l c c c}
@@ -95,7 +93,7 @@
   \includegraphics[width=0.65\textwidth]{../figures/portes/addition_circuit2.png}
 \end{frame}
 
-\begin{frame}{Circuits quantiques, mesures et simulations (module B2)}
+\begin{frame}{Circuits quantiques, mesures et simulations}
   \centering
   \includegraphics[width=0.5\textwidth]{../figures/bell_circuit.png}
   \begin{itemize}
@@ -167,7 +165,7 @@
   \end{description}
 \end{frame}
 
-\begin{frame}{Exécuter un circuit sur un QPU (module B3)}
+\begin{frame}{Exécuter un circuit sur un QPU}
   \begin{itemize}
     \item Création d'un circuit\\~\\
     \item Choix de la platfomre d'exécution (Fake ou QPU)\\~\\
@@ -176,120 +174,6 @@
     \item Récupération et analyse des résultats de mesure
   \end{itemize}
 \end{frame}
-
-
-
-% \begin{frame}{États et opérateurs à 1 qubit (voir JN)}
-%   \begin{itemize}
-%     \item Circuits quantiques créés avec \texttt{QuantumCircuit} puis convertis en \texttt{Statevector.from\_circuit}.\\~\\
-%     \item Visualisation rapide des circuits avec \texttt{qc.draw('mpl')}.
-%   \end{itemize}
-% \end{frame}
-
-% \begin{frame}{Circuits quantiques à 1 qubit (voir JN)}
-%   \begin{itemize}
-%     \item Porte de Hadamard ($H$)
-%     \\~\\
-%     \item Porte NOT ($X$)
-%   \end{itemize}
-%   \vfill
-%   \begin{columns}[T,onlytextwidth]
-%     \column{0.48\textwidth}
-%     \centering
-%     \includegraphics[width=0.8\linewidth]{../figures/portes/gate_hadamard.png}
-%     \\[-0.3em]\footnotesize Circuit \texttt{Qiskit} pour $H$
-%     \column{0.48\textwidth}
-%     \centering
-%     \includegraphics[width=0.8\linewidth]{../figures/portes/gate_x.png}
-%     \\[-0.3em]\footnotesize Circuit \texttt{Qiskit} pour $X$
-%   \end{columns}
-% \end{frame}
-
-% \begin{frame}{Porte Hadamard: circuit et action (voir JN)}
-%   \begin{columns}[T,onlytextwidth]
-%     \column{0.5\textwidth}
-%     \centering
-%     \includegraphics[width=0.75\linewidth]{../figures/portes/gate_hadamard.png}
-%     \\[-0.3em]\footnotesize Circuit \texttt{Qiskit} pour $H$
-%     \column{0.5\textwidth}
-%     \small
-%     \[
-%       H = \frac{1}{\sqrt{2}}
-%       \begin{pmatrix}
-%         1 & 1 \\
-%         1 & -1
-%       \end{pmatrix},
-%       \qquad
-%       H\ket{0} = \tfrac{1}{\sqrt{2}}(\ket{0} + \ket{1})
-%     \]
-%     Superposition égale des deux états de base.
-%   \end{columns}
-% \end{frame}
-
-% \begin{frame}{Porte $X$ : circuit et action (voir JN)}
-%   \begin{columns}[T,onlytextwidth]
-%     \column{0.5\textwidth}
-%     \centering
-%     \includegraphics[width=0.75\linewidth]{../figures/portes/gate_x.png}
-%     \\[-0.3em]\footnotesize Circuit \texttt{Qiskit} pour $X$
-%     \column{0.5\textwidth}
-%     \small
-%     \[
-%       X =
-%       \begin{pmatrix}
-%         0 & 1 \\
-%         1 & 0
-%       \end{pmatrix},
-%       \qquad
-%       X\ket{0} = \ket{1}
-%     \]
-%     Permutation des amplitudes: $|0\rangle \leftrightarrow |1\rangle$.
-%   \end{columns}
-% \end{frame}
-
-% \begin{frame}{Exercice 4.1 : $H$ sur \(\ket{1}\) (voir JN)}
-%   \begin{columns}[T,onlytextwidth]
-%     \column{0.55\textwidth}
-%     \begin{itemize}[<+->]
-%       \item Point de départ : \(\ket{1} = \begin{pmatrix}0\\ 1\end{pmatrix}\).\\~\\
-%       \item Appliquer la porte de Hadamard : \(H\ket{1} = \tfrac{1}{\sqrt{2}}(\ket{0} - \ket{1})\).\\~\\
-%       \item Modifier l'état initial dans le code (remplacer \(\ket{0}\) par \(\ket{1}\)) et observer la nouvelle superposition.
-%     \end{itemize}
-%     \column{0.45\textwidth}
-%     \centering
-%     \includegraphics[width=0.8\linewidth]{../figures/portes/gate_hadamard.png}
-%   \end{columns}
-% \end{frame}
-
-% \begin{frame}{Exercice 4.1 : $X$ puis $H$ sur \(\ket{0}\) (voir JN)}
-%   \begin{columns}[T,onlytextwidth]
-%     \column{0.55\textwidth}
-%     \begin{itemize}[<+->]
-%       \item Point de départ : \(\ket{0}\).\\~\\
-%       \item Chaîne d'opérations : \(H X \ket{0} = H\ket{1} = \tfrac{1}{\sqrt{2}}(\ket{0} - \ket{1})\).\\~\\
-%     \end{itemize}
-%     \column{0.45\textwidth}
-%     \centering
-%     \includegraphics[width=0.8\linewidth]{../figures/portes/gate_x_then_h.png}
-%   \end{columns}
-% \end{frame}
-
-% \begin{frame}{Exercice 4.2 : $H$ puis $X$ sur \(\ket{0}\) (voir JN)}
-%   \begin{columns}[T,onlytextwidth]
-%     \column{0.55\textwidth}
-%     \begin{itemize}[<+->]
-%       \item Point de départ : \(\ket{0} = \begin{pmatrix}1\\ 0\end{pmatrix}\).\\~\\
-%       \item Chaîne d'opérations : \(X H \ket{0} = X \big(\tfrac{1}{\sqrt{2}}(\ket{0} + \ket{1})\big) = \tfrac{1}{\sqrt{2}}(\ket{0} + \ket{1})\).\\~\\
-%       \item Construire le circuit (H suivi de X), visualiser et vérifier l'état final dans le notebook.
-%       \item Comparer avec l'exercice 4.1 pour voir que l'ordre des portes change le résultat (non-commutativité).
-%     \end{itemize}
-%     \column{0.45\textwidth}
-%     \centering
-%     \includegraphics[width=0.8\linewidth]{../figures/portes/gate_h_then_x.png}
-%   \end{columns}
-% \end{frame}
-
-
 
 \begin{frame}{Fin du module}
 \end{frame}
