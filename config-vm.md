@@ -44,7 +44,7 @@ You will arrive in your jupyterlab environment.
 In the jupyterlab home page, select terminal and setup your python environment using the following commands:
 
 ```
-git clone https://github.com/mjamotte/quantum_info_DLH
+git clone https://github.com/mjamotte/quantum_info_DLH -b english-version
 cd quantum_info_DLH
 python3 -m venv .venv
 ./.venv/bin/pip install -r requirements.txt
