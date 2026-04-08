@@ -24,7 +24,7 @@
 \let\oldurl\url
 \renewcommand{\url}[1]{\oldurl{\uline{\color{blue}{#1}}}}
 
-\title[Chapter 1]{Chapter 1: Demystification}
+\title{Demystification}
 \author{JAMOTTE Maxime, SCHOONEN Cédric}
 \institute{Digital Learning Hub}
 \date{}
@@ -62,7 +62,6 @@
     \item Review the required basic mathematics (linear algebra)\\~\\
     \item Understand the essential concepts of quantum mechanics\\~\\
     \item Program with Qiskit\\~\\
-    \item Overview of physical platforms for implementing a quantum computer
   \end{itemize}
 \end{frame}
 
@@ -219,8 +218,9 @@
     & Classical & Quantum \\\hline
     ~& ~ & ~\\
     Encoding & Bit (0 \textbf{or} 1) & Qubit (0 \textbf{and} 1) \\
+    & Discrete & Continuous \\
      ~& ~ & ~\\
-    Logic gates & Boolean & Matrix-based \\
+    Mathematical description & Booleans (0/1) & Vectors/Matrices \\
     ~& ~ & ~\\
     Sensitivity to environment & Low & High \\
     ~& ~ & ~\\
@@ -230,7 +230,7 @@
 
 \begin{frame}{Usefulness despite this limitation}
   \begin{itemize}
-    \item {\bf Grover's algorithm:} Quadratic speedup for searching a solution to a ``black box'' function. Applications: searching an element in an unstructured database, inverting a hash function, solving an NP-complete problem, ... \\~\\
+    \item {\bf Grover's algorithm:} Quadratic speedup for solving a problem for which it is easy to recognize a solution. Applications: searching an element in an unstructured database, inverting a hash function, ... \\~\\
     \item {\bf Shor's algorithm:} Exponential speedup of number factorization (breaks RSA encryption). Based on a quantum algorithm accelerating the computation of the {\bf Fourier transform}, a mathematical technique very useful in many fields. \\~\\
     \item {\bf Hybrid optimization algorithms (QAOA, VQE,...):} Main applications in chemistry, quantum advantage still debated.
   \end{itemize}
